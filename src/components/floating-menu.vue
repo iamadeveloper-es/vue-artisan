@@ -38,6 +38,7 @@ export default {
             // downscroll code
             show.value = false
             // console.log('down')
+            console.log('hello world');
           } else if (st < scollPos.value) {
             // upscroll code
             show.value = true
