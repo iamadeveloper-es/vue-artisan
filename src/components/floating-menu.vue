@@ -6,7 +6,7 @@ export default{
     setup(){
         const show = ref(false)
         const scollPos = ref(0)
-const menuItems = [
+                const menuItems = [
     {
         name: 'Home',
         route: '/',
