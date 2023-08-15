@@ -10,7 +10,7 @@ export default{
             {
                 name: 'Home',
                 route: '/',
-                icon: ''
+                icon: 'fa-solid fa-house'
             },
             {
                 name: 'Account',
@@ -34,11 +34,11 @@ export default{
             if (st > scollPos.value) {
                 // downscroll code
                 show.value = false
-                console.log('down')
+                // console.log('down')
             } else if (st < scollPos.value) {
                 // upscroll code
                 show.value = true
-                console.log('Up')
+                // console.log('Up')
             } // else was horizontal scroll
                 scollPos.value = st <= 0 ? 0 : st; // For Mobile or negative scrolling
             }, false);
@@ -63,7 +63,9 @@ export default{
             >
                 <router-link
                 :to="item.route"
-                >{{ item.name }}</router-link>
+                >{{ item.name }}
+                    <span class="fa-solid fa-house"></span>
+                </router-link>
             </li>
         </ul>
     </nav>
