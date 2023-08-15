@@ -50,8 +50,7 @@
   },
   "lint-staged": {
     "**/*.{js,ts,jsx}": [
-      "prettier --write src/",
-      "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
+      "npm run format-lint"
     ],
     "**/*.{html,css,sass,less,ejs}": [
       "prettier --write src/"
