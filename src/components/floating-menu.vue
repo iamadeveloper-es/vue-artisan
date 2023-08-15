@@ -6,23 +6,23 @@ export default{
     setup(){
         const show = ref(false)
         const scollPos = ref(0)
-    const menuItems = [
-        {
-            name: 'Home',
-            route: '/',
-            icon: 'fa-solid fa-house'
-        },
-        {
-            name: 'Account',
-            route: '/account',
-            icon: ''
-        },
-        {
-            name: 'Data',
-            route: '/data',
-            icon: ''
-        }
-    ]
+const menuItems = [
+    {
+        name: 'Home',
+        route: '/',
+        icon: 'fa-solid fa-house'
+    },
+    {
+        name: 'Account',
+        route: '/account',
+        icon: ''
+    },
+    {
+        name: 'Data',
+        route: '/data',
+        icon: ''
+    }
+]
 
         onMounted(() => {
             showMenu()
