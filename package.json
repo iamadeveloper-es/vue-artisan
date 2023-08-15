@@ -10,7 +10,8 @@
     "build-only": "vite build",
     "type-check": "vue-tsc --noEmit -p tsconfig.vitest.json --composite false",
     "lint": "eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore",
-    "format": "prettier --write src/"
+    "format": "prettier --write src/",
+    "format-lint": "prettier --write src/ && eslint . --ext .vue,.js,.jsx,.cjs,.mjs,.ts,.tsx,.cts,.mts --fix --ignore-path .gitignore"
   },
   "dependencies": {
     "pinia": "^2.1.4",
@@ -29,7 +30,9 @@
     "@vue/tsconfig": "^0.4.0",
     "eslint": "^8.45.0",
     "eslint-plugin-vue": "^9.15.1",
+    "husky": "^8.0.3",
     "jsdom": "^22.1.0",
+    "lint-staged": "^14.0.0",
     "npm-run-all": "^4.1.5",
     "prettier": "^3.0.0",
     "sass": "^1.65.1",
@@ -37,5 +40,21 @@
     "vite": "^4.4.6",
     "vitest": "^0.33.0",
     "vue-tsc": "^1.8.6"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,jsx}": [
+      "prettier --write",
+      "eslint --fix",
+      "git add"
+    ],
+    "*.{html,css,less,ejs}": [
+      "prettier --write",
+      "git add"
+    ]
   }
 }
