@@ -49,11 +49,11 @@
     }
   },
   "lint-staged": {
-    "*.{js,jsx}": [
+    "*.{js,ts,jsx}": [
       "prettier --write",
       "eslint --fix"
     ],
-    "*.{html,css,less,ejs}": [
+    "*.{html,css,sass,less,ejs}": [
       "prettier --write"
     ]
   }
