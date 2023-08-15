@@ -5,9 +5,7 @@ export default {
   components: {
     Dashboard
   },
-  setup(){
-
-  }
+  setup() {}
 }
 </script>
 
@@ -16,7 +14,7 @@ export default {
 </template>
 
 <style>
-body{
+body {
   height: 5000px;
   /* background-color: #E6E5E6; */
 }
