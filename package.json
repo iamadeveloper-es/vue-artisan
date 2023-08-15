@@ -49,10 +49,10 @@
     }
   },
   "lint-staged": {
-    "**/*.{js,ts,jsx}": [
+    "*.{js,ts,jsx}": [
       "npm run format-lint"
     ],
-    "**/*.{html,css,sass,less,ejs}": [
+    "*.{html,css,sass,less,ejs}": [
       "prettier --write src/"
     ]
   }
