@@ -58,20 +58,16 @@ export default {
 }
 </script>
 
-<template>
-  <nav class="floating-menu" :class="{ active: show }">
-    <ul>
-      <li v-for="(item, index) in menuItems" :key="index">
-        <router-link :to="item.route"
-          >{{ item.name }}
-          <span class="fa-solid fa-house"></span>
-        </router-link>
-      </li>
-    </ul>
-  </nav>
+<template lang="pug">
+nav.floating-menu(:class="{ active: show }")
+  ul
+    li(v-for="(item, index) in menuItems" 
+    :key="index")
+      router-link(:to="item.route") {{ item.name }}
+        span.fa-solid.fa-house
 </template>
 
-<style>
+<style lang="scss">
 .floating-menu {
   position: fixed;
   left: 0;
@@ -83,24 +79,24 @@ export default {
   background-color: #ffffff;
   transform: translateY(100%);
   transition: transform 0.4s ease-in-out;
-}
 
-.floating-menu.active {
-  transform: translateY(0);
-}
+  &.active{
+    transform: translateY(0);
+  }
 
-.floating-menu ul {
-  list-style: none;
-  padding: 0;
-  margin: 0;
-  display: flex;
-  gap: 10px;
-  align-items: center;
-  justify-content: center;
-  width: 100%;
-}
+  ul{
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+  }
 
-.floating-menu ul a {
-  text-decoration: none;
+  ul a{
+    text-decoration: none;
+  }
 }
 </style>

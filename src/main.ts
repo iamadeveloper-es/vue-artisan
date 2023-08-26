@@ -1,5 +1,5 @@
 import './assets/fontawesome/css/all.min.css'
-import './assets/sass/index.sass'
+import './assets/scss/index.scss'
 
 import { createApp } from 'vue'
 import { createPinia } from 'pinia'

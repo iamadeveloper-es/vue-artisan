@@ -9,13 +9,6 @@ export default {
 }
 </script>
 
-<template>
-  <dashboard></dashboard>
+<template lang="pug">
+dashboard
 </template>
-
-<style>
-body {
-  height: 5000px;
-  /* background-color: #E6E5E6; */
-}
-</style>
