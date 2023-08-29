@@ -24,7 +24,7 @@ export default {
 <template lang="pug">
 div.app-info-component.mb-6
   h1.mb-4 Vue Ui Components
-  p Component name:
+  //- p Component name:
   h3.mb-3 {{setComponentName}}
   router-view
     

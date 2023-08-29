@@ -10,6 +10,7 @@ export default {
 
 <template lang="pug">
 .floating-menu-demo
+    p Haz scroll abajo y arriba para mostrar
     floating-menu
 </template>
 
