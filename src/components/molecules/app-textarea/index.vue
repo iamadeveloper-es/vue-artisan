@@ -17,7 +17,7 @@ export default {
             type: String,
             default: ''
         },
-        placeholderLabel: {
+        placeholder: {
             type: String,
             default: ''
         },
@@ -96,10 +96,10 @@ export default {
     :maxLength="maxLength",
     :minLength="minLength",
     :disabled="disabled",
-    :placeholder="placeholderLabel",
+    :placeholder="placeholder",
     :required="required",
     :readonly="readOnly",
-    :aria-label="placeholderLabel || label",
+    :aria-label="placeholder || label",
     :aria-labelledby="ariaLabelledby",
     :id="name"
     :name="name"

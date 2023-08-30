@@ -6,13 +6,36 @@ export default {
     name: 'app-textarea-demo',
     components: {AppTextarea},
     setup(){
-        const val1 = ref('')
-        const val2 = ref('Texto de ejemplo')
-        const val3 = ref('Texto de ejemplo')
+
+        const textareas = ref([
+            {
+                label: 'Text Area normal',
+                name: 'textarea1',
+                value: ''
+            },
+            {
+                label: 'Text Area sin border inferior y label flotante',
+                name: 'textarea2',
+                value: '',
+                floatingLabel: true
+            },
+            {
+                label: 'Text Area con label flotante',
+                name: 'textarea3',
+                value: '',
+                floatingLabel: true,
+                borderBottom: true,
+                rows: 8
+            },
+            {
+                label: 'Text Area con border inferior',
+                name: 'textarea4',
+                value: 'Texto de ejemplo',
+                borderBottom: true
+            }
+        ])
         return{
-            val1,
-            val2,
-            val3
+            textareas
         }
     }
 }
@@ -21,21 +44,14 @@ export default {
 <template lang="pug">
 .app-textarea-demo 
     app-textarea(
-    label="Text Area"
-    :name="'my-textarea1'"
-    :floatingLabel="true"
-    :borderBottom="true"
-    v-model="val")
-    app-textarea(
-    label="Text Area sin label flotante"
-    :name="'my-textarea2'"
-    :borderBottom="true"
-    v-model="val2")
-    app-textarea(
-    label="Text Area sin borde inferior"
-    :name="'my-textarea3'"
-    :floatingLabel="true"
-    v-model="val3")
+    v-for="(item, index) in textareas",
+    :key="index", 
+    v-model="item.value", 
+    :label="item.label", 
+    :name="item.name", 
+    :rows="item.rows"
+    :floatingLabel="item.floatingLabel", 
+    :borderBottom="item.borderBottom")
 </template>
 
 <style lang="scss">

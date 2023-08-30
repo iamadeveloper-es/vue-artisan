@@ -10,7 +10,7 @@ export default {
 
     const inputs = ref([
       {
-        value: '',
+        value: 'Texto de ejemplo',
         name: 'input-text',
         label: 'Input con label flotante',
         placeholder: 'Escribe algo...',
