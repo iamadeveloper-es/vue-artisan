@@ -85,4 +85,7 @@ app-checkbox(
 :label="checkboxConfig2.label"
 v-model="inputVal2"
 @onChange="handleChangeEvent2")
+  template(#label)
+    span Esto es un label con un 
+      router-link(to="/app-radio") Link
 </template>

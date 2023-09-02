@@ -10,6 +10,7 @@ import AppInputField from '../components/molecules/app-input-field/demo/index.vu
 import AppCheckbox from '../components/molecules/app-checkbox/demo/index.vue'
 import AppRadio from '../components/molecules/app-radio/demo/index.vue'
 import AppTextarea from '../components/molecules/app-textarea/demo/index.vue'
+import AppSelect from '../components/molecules/app-select/demo/index.vue'
 //Organisms
 import floatingMenu from '../components/organisms/floating-menu/demo/index.vue'
 
@@ -52,6 +53,11 @@ const router = createRouter({
                     path: '/app-radio',
                     name: 'APP_RADIO',
                     component: AppRadio
+                },
+                {
+                    path: '/app-select',
+                    name: 'APP_SELECT',
+                    component: AppSelect
                 },
                 {
                     path: '/app-button',

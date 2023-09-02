@@ -56,7 +56,7 @@ export default {
 
 <style lang="scss">
 .app-textarea-demo{
-    .app-textarea-wrapper{
+    .app-textarea{
         margin-top: 2rem
     }
 }

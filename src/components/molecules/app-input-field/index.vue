@@ -1,5 +1,6 @@
 <script lang="ts">
 import { computed, onMounted, ref } from 'vue'
+import { useComponentFunctions } from '../../../composables/component-functions'
 
 export default {
   name: 'app-input-field',
@@ -66,8 +67,10 @@ export default {
       },
   },
   setup(props, context){
+    const {randomId} = useComponentFunctions()
     const isFocused = ref(false)
     const inputType = ref(props.type)
+    const id = ref('')
 
     const passwordIcon = computed(() => {
       return inputType.value === 'password' ? '' : 'fa-eye'
@@ -108,11 +111,17 @@ export default {
       }
     }
 
+    const configComponent = () => {
+        id.value = randomId()
+        isFocused.value = props.modelValue.length > 0
+    }
+
     onMounted(() => {
-      isFocused.value = props.modelValue.length > 0
+      configComponent()
     })
 
     return{
+      id,
       isFocused,
       inputType,
       passwordIcon,
@@ -126,15 +135,15 @@ export default {
 </script>
 
 <template lang="pug">
-.app-input-field-wrapper(:class="{'is-focused': floatingLabel && isFocused}")
+.app-input-field.form-field-wrapper(:class="{'is-focused': floatingLabel && isFocused}")
   label.app-label(v-if="label", 
   :class="{'accesible-hidden' : !showLabel, 'label-float' : floatingLabel}", 
-  :for="name") {{ label }}
-  input.app-input-field(
+  :for="id") {{ label }}
+  input.app-input(
   :class="{'disabled': disabled, 'b-bottom': borderBottom, 'hide-placeholder' : floatingLabel}"
   :value="modelValue"
   :type="inputType"
-  :id="name"
+  :id="id"
   :name="name"
   :placeholder="placeholder"
   :aria-label="placeholder || label"

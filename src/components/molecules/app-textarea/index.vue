@@ -1,6 +1,6 @@
 <script lang="ts">
-
 import { onMounted, ref } from 'vue'
+import { useComponentFunctions } from '../../../composables/component-functions'
 
 export default {
     name: 'app-textarea',
@@ -57,7 +57,9 @@ export default {
         }
     },
     setup(props, context) {
+        const {randomId} = useComponentFunctions()
         const isFocused = ref(false)
+        const id = ref('')
         
         const emitValue = (ev: Event) => {
             const target = ev.target  as HTMLInputElement
@@ -74,11 +76,17 @@ export default {
             context.emit('onBlur', ev)
         }
 
-        onMounted(() => {
+        const configComponent = () => {
+            id.value = randomId()
             isFocused.value = props.modelValue.length > 0
+        }
+
+        onMounted(() => {
+            configComponent()
         })
 
         return {
+            id,
             isFocused,
             emitValue,
             emitFocus,
@@ -89,9 +97,9 @@ export default {
 </script>
 
 <template lang="pug">
-.app-textarea-wrapper.app-floating-label(:class="{'is-focused': floatingLabel && isFocused}")
-    textarea.app-text-area-field(
-    :class="{'border-bottom-only': borderBottom, 'text-area-disabled': disabled}",
+.app-textarea.form-field-wrapper(:class="{'is-focused': floatingLabel && isFocused}")
+    textarea.app-input(
+    :class="{'b-bottom': borderBottom, 'disabled': disabled}",
     :rows="rows",
     :maxLength="maxLength",
     :minLength="minLength",
@@ -101,7 +109,7 @@ export default {
     :readonly="readOnly",
     :aria-label="placeholder || label",
     :aria-labelledby="ariaLabelledby",
-    :id="name"
+    :id="id"
     :name="name"
     :value="modelValue"
     aria-placeholder="dsf",
@@ -109,8 +117,8 @@ export default {
     @focus="emitFocus",
     @blur="emitBlur")
     label.app-label(
-    :class="{'ui-label-float' : floatingLabel, 'label-disabled': disabled}"
-    :for="name") {{ label }}
+    :class="{'label-float' : floatingLabel, 'label-disabled': disabled}"
+    :for="id") {{ label }}
 </template>
 
 <style lang="scss">

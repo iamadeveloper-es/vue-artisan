@@ -1,0 +1,34 @@
+.app-input {
+    width: 100%;
+    display: block;
+    position: relative;
+    padding-left: 10px;
+    border-radius: 3px;
+    min-height: 55px;
+    background-color: var(--white);
+    border: 1px solid var(--dark-super-light);
+
+    @at-root [readonly] {
+        cursor: no-drop;
+    }
+
+    &.disabled {
+        color: var(--tertiary-grey);
+        border: 1px solid var(--tertiary-grey);
+    }
+
+    &.hide-placeholder::placeholder {
+        opacity: 0;
+    }
+
+    &.b-bottom {
+        border-top: transparent;
+        border-right: transparent;
+        border-left: transparent;
+        border-bottom: 1px solid var(--dark-super-light);
+        border-radius: 0;
+        background-color: transparent;
+        //Borrar outline
+        outline: none;
+    }
+}

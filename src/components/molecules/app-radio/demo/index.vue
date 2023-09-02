@@ -24,7 +24,8 @@ export default {
           {
             color: 'primary',
             val: 'green',
-            label: 'Color Green'
+            label: 'Color Green',
+            customLabel: true
           }
         ])
 
@@ -54,5 +55,8 @@ v-for="item in radioColors",
 name="test"
 v-model="selectedValue"
 @onChange="handleChangeEvent")
+  template(v-if="item.customLabel", #label)
+      span Esto es un label con un 
+        router-link(to="/app-checkbox") Link
 p Valor seleccionado: {{ selectedValue }}
 </template>

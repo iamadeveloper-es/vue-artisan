@@ -1,0 +1,22 @@
+.app-label {
+    margin-bottom: 0.3rem;
+    display: inline-block;
+
+    &.label-float {
+        font-size: 14px;
+        opacity: 0.9;
+        margin-bottom: 0;
+        pointer-events: none;
+        position: absolute;
+        top: 5px;
+        left: 10px;
+        transform: translate3d(0, 0, 0) scale(1);
+        transform-origin: left top;
+        z-index: 5;
+        transition: transform ease 0.2s;
+    }
+
+    &.label-disabled {
+        color: var(--tertiary-grey);
+    }
+}

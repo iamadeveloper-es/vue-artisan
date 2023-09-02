@@ -104,7 +104,7 @@ export default {
 
 <style lang="scss">
 .app-input-field-demo{
-  .app-input-field-wrapper{
+  .app-input-field{
     margin-top: 2rem;
   }
 }
