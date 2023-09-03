@@ -1,5 +1,5 @@
 <script lang="ts">
-import { computed, onMounted, onUpdated, ref } from 'vue'
+import { computed, onMounted, ref } from 'vue'
 import { useComponentFunctions } from '../../../composables/component-functions'
 
 export default {

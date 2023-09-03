@@ -11,6 +11,7 @@ import AppCheckbox from '../components/molecules/app-checkbox/demo/index.vue'
 import AppRadio from '../components/molecules/app-radio/demo/index.vue'
 import AppTextarea from '../components/molecules/app-textarea/demo/index.vue'
 import AppSelect from '../components/molecules/app-select/demo/index.vue'
+import AppTabs from '../components/molecules/app-tabs/demo/index.vue'
 //Organisms
 import floatingMenu from '../components/organisms/floating-menu/demo/index.vue'
 
@@ -63,6 +64,11 @@ const router = createRouter({
                     path: '/app-button',
                     name: 'APP_BUTTON',
                     component: AppButton
+                },
+                {
+                    path: '/app-tabs',
+                    name: 'APP_TABS',
+                    component: AppTabs
                 }
             ]
         },
