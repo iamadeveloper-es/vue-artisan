@@ -14,7 +14,7 @@ export default {
             default: 'Radio label'
         },
         tabs: {
-            type: Array
+            type: Array<Object>
         }
     },
     setup(props, context){
