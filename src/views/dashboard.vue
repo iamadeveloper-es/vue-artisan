@@ -1,9 +1,11 @@
 <script lang="ts">
-import { useRouter } from 'vue-router'
+import { computed, onMounted } from 'vue'
+import { useRoute, useRouter } from 'vue-router'
 export default {
   name: 'app-dashboard-view',
   setup() {
     const router = useRouter()
+    const route = useRoute()
     const routes = router.options.routes
 
     const capitalizeFirstChar = (str: string): string => {
@@ -28,10 +30,22 @@ export default {
       })
     }
 
+    const currentRouteName = computed(() => {
+      return route.name
+    })
+
+    onMounted(() => {
+      console.log(route)
+      setTimeout(() => {
+        showHideMenuItems(route.matched[0]?.name)
+      }, 100)
+    })
+
     return {
       routes,
       capitalizeFirstChar,
-      showHideMenuItems
+      showHideMenuItems,
+      currentRouteName
     }
   }
 }
@@ -45,7 +59,8 @@ ul.app-menu
       @click="showHideMenuItems(route.name)") {{ capitalizeFirstChar(route.name) }}
     ul.app-menu__submenu(v-if="route.children")
       li(v-for="(child, index) in route.children"
-      :key="index")
+      :key="index", 
+      :class="{'active':child.name === currentRouteName}")
         router-link(:to="child.path") {{ capitalizeFirstChar(child.name) }}
 router-view
 </template>
@@ -53,19 +68,34 @@ router-view
 <style lang="scss">
 .app-menu{
 
-  span{
+  li span{
+    margin-bottom: .5rem;
+    display: inline-block;
     cursor: pointer;
 
     &.active{
-      color: red;
+      color: var(--success);
     }
+  }
+
+  li span:hover, &__submenu li:hover{
+    color: var(--success);
+    transition: color .1s ease-in-out;
   }
 
   &__submenu{
     display: none;
 
     &.active{
-      display: block
+      display: block;
+    }
+
+    li{
+      margin-bottom: .5rem;
+    }
+
+    li.active{
+      color: var(--success)
     }
   }
 }
