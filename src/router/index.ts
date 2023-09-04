@@ -2,7 +2,10 @@ import { createRouter, createWebHistory } from 'vue-router'
 import ComponentView from '../views/component-view.vue'
 
 //Atoms
+import AppAvatar from '../components/atoms/app-avatar/demo/index.vue'
 import AppProgress from '../components/atoms/app-progress/demo/index.vue'
+import AppPicture from '../components/atoms/app-picture/demo/index.vue'
+import AppImage from '../components/atoms/app-image/demo/index.vue'
 
 //Molecules
 import AppButton from '../components/molecules/app-button/demo/index.vue'
@@ -25,7 +28,22 @@ const router = createRouter({
             component: ComponentView,
             children: [
                 {
-                    path: '/progress',
+                    path: '/app-avatar',
+                    name: 'APP_AVATAR',
+                    component: AppAvatar
+                },
+                {
+                    path: '/app-picture',
+                    name: 'APP_PICTURE',
+                    component: AppPicture
+                },
+                {
+                    path: '/app-image',
+                    name: 'APP_IMAGE',
+                    component: AppImage
+                },
+                {
+                    path: '/app-progress',
                     name: 'APP_PROGRESS',
                     component: AppProgress
                 }
