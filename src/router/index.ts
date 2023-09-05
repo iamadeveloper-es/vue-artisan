@@ -3,6 +3,7 @@ import ComponentView from '../views/component-view.vue'
 
 //Atoms
 import AppAvatar from '../components/atoms/app-avatar/demo/index.vue'
+import AppIcon from '../components/atoms/app-icon/demo/index.vue'
 import AppProgress from '../components/atoms/app-progress/demo/index.vue'
 import AppPicture from '../components/atoms/app-picture/demo/index.vue'
 import AppImage from '../components/atoms/app-image/demo/index.vue'
@@ -16,6 +17,7 @@ import AppTextarea from '../components/molecules/app-textarea/demo/index.vue'
 import AppSelect from '../components/molecules/app-select/demo/index.vue'
 import AppTabs from '../components/molecules/app-tabs/demo/index.vue'
 import AppModal from '../components/molecules/app-modal/demo/index.vue'
+import AppSnackbar from '../components/molecules/app-snackbar/demo/index.vue'
 //Organisms
 import floatingMenu from '../components/organisms/floating-menu/demo/index.vue'
 
@@ -31,6 +33,11 @@ const router = createRouter({
                     path: '/app-avatar',
                     name: 'APP_AVATAR',
                     component: AppAvatar
+                },
+                {
+                    path: '/app-icon',
+                    name: 'APP_ICON',
+                    component: AppIcon
                 },
                 {
                     path: '/app-picture',
@@ -93,6 +100,11 @@ const router = createRouter({
                     path: '/app-modal',
                     name: 'APP_MODAL',
                     component: AppModal
+                },
+                {
+                    path: '/app-snackbar',
+                    name: 'APP_SNACKBAR',
+                    component: AppSnackbar
                 }
             ]
         },
