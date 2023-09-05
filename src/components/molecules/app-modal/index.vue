@@ -25,11 +25,11 @@ export default {
         const isModalVisible: Ref<boolean> = ref(false)
         const modal = ref(null)
 
-        const show = () => {
+        const show = (): void => {
             isModalVisible.value = true
         }
 
-        const hide = (ev: Event) => {
+        const hide = (ev: Event): void => {
             const target = ev.target  as HTMLInputElement
             if(target.getAttribute('data-dismiss') === 'modal' && props.backDrop){
                 isModalVisible.value = false
@@ -39,12 +39,12 @@ export default {
             }
         }
 
-        const hasSlot = (name) => !!context.slots[name]
+        const hasSlot = (name: Readonly<string>): Boolean => !!context.slots[name]
 
         return{
-            modal,
             rippleEffect,
             isModalVisible,
+            modal,
             show,
             hide,
             hasSlot
