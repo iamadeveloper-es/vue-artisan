@@ -7,6 +7,7 @@ import AppIcon from '../components/atoms/app-icon/demo/index.vue'
 import AppProgress from '../components/atoms/app-progress/demo/index.vue'
 import AppPicture from '../components/atoms/app-picture/demo/index.vue'
 import AppImage from '../components/atoms/app-image/demo/index.vue'
+import AppMoney from '../components/atoms/app-money/demo/index.vue'
 
 //Molecules
 import AppButton from '../components/molecules/app-button/demo/index.vue'
@@ -53,6 +54,11 @@ const router = createRouter({
                     path: '/app-progress',
                     name: 'APP_PROGRESS',
                     component: AppProgress
+                },
+                {
+                    path: '/app-money',
+                    name: 'APP_MONEY',
+                    component: AppMoney
                 }
             ]
         },
