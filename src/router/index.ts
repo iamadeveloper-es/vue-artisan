@@ -1,8 +1,12 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import ComponentView from '../views/component-view.vue'
 
+//TODO: Borrar esta línea, la ruta y el componente test.vue
+import AppTest from '../components/test.vue'
+
 //Atoms
 import AppAvatar from '../components/atoms/app-avatar/demo/index.vue'
+import AppLink from '../components/atoms/app-link/demo/index.vue'
 import AppIcon from '../components/atoms/app-icon/demo/index.vue'
 import AppProgress from '../components/atoms/app-progress/demo/index.vue'
 import AppPicture from '../components/atoms/app-picture/demo/index.vue'
@@ -26,6 +30,11 @@ const router = createRouter({
     history: createWebHistory(import.meta.env.BASE_URL),
     routes: [
         {
+            path: '/test/:id',
+            name: 'TEST',
+            component: AppTest
+        },
+        {
             path: '/atoms',
             name: 'ATOMS',
             component: ComponentView,
@@ -34,6 +43,11 @@ const router = createRouter({
                     path: '/app-avatar',
                     name: 'APP_AVATAR',
                     component: AppAvatar
+                },
+                {
+                    path: '/app-link',
+                    name: 'APP_LINK',
+                    component: AppLink
                 },
                 {
                     path: '/app-icon',
