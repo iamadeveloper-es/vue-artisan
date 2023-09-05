@@ -9,12 +9,29 @@ export default {
     },
     setup(){
         const counter = ref(0)
-        const handleEvent = (ev) => {
-            counter.value++
+        const counter2 = ref(0)
+        const counter3 = ref(0)
+        const counter4 = ref(0)
+        const handleEvent = (button: string) => {
+            if(button === 'counter'){
+                counter.value++
+            }
+            else if(button === 'counter2'){
+                counter2.value++
+            }
+            else if(button === 'counter3'){
+                counter3.value++
+            }
+            else if(button === 'counter4'){
+                counter4.value++
+            }
         }
 
         return{
             counter,
+            counter2,
+            counter3,
+            counter4,
             handleEvent
         }
     }
@@ -23,6 +40,28 @@ export default {
 
 <template lang="pug">
 .app-button-demo
-    app-button(@clicked="handleEvent")
-    p(v-if="counter > 0") {{ `Botón clicado ${counter} ${counter === 1 ? 'vez' : 'veces'}` }}
+    div
+        app-button(
+        @clicked="handleEvent('counter3')", 
+        variant="big",
+        :icon="['fa-solid', 'fa-plus']", 
+        :iconSize="15")
+        p Botón big
+        p(v-if="counter3 > 0") {{ `Botón clicado ${counter3} ${counter3 === 1 ? 'vez' : 'veces'}` }}
+    div
+        app-button(@clicked="handleEvent('counter')")
+        p Botón regular
+        p(v-if="counter > 0") {{ `Botón clicado ${counter} ${counter === 1 ? 'vez' : 'veces'}` }}
+    div
+        app-button(
+        @clicked="handleEvent('counter2')", 
+        variant="small")
+        p Botón small
+        p(v-if="counter2 > 0") {{ `Botón clicado ${counter2} ${counter2 === 1 ? 'vez' : 'veces'}` }}
+    div
+        app-button(
+        @clicked="handleEvent('counter4')", 
+        :variant="['regular', 'full-width']")
+        p Botón regular con full-width
+        p(v-if="counter4 > 0") {{ `Botón clicado ${counter4} ${counter4 === 1 ? 'vez' : 'veces'}` }}
 </template>
