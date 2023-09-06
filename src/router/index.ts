@@ -23,6 +23,7 @@ import AppSelect from '../components/molecules/app-select/demo/index.vue'
 import AppTabs from '../components/molecules/app-tabs/demo/index.vue'
 import AppModal from '../components/molecules/app-modal/demo/index.vue'
 import AppSnackbar from '../components/molecules/app-snackbar/demo/index.vue'
+import AppAccordion from '../components/molecules/app-accordion/demo/index.vue'
 //Organisms
 import floatingMenu from '../components/organisms/floating-menu/demo/index.vue'
 
@@ -125,6 +126,11 @@ const router = createRouter({
                     path: '/app-snackbar',
                     name: 'APP_SNACKBAR',
                     component: AppSnackbar
+                },
+                {
+                    path: '/app-accordion',
+                    name: 'APP_ACCORDION',
+                    component: AppAccordion
                 }
             ]
         },
