@@ -1,0 +1,10 @@
+.form-field-wrapper {
+    position: relative;
+    display: flex;
+    flex-direction: column-reverse;
+
+    &.is-focused label {
+        opacity: 0.8;
+        transform: translateY(-0px) scale(0.65);
+    }
+}

@@ -1,0 +1,30 @@
+:root {
+    /* Colors. */
+    --white: #ffffff;
+    --black: #000000;
+    --dark: #333333;
+    --dark-light: #4e4e4e;
+    --dark-super-light: #8a8a8a;
+    --primary-blue: #1a759f;
+    --primary-grey: #edf6f9;
+    --secondary-grey: #d9dbdb;
+    --tertiary-grey: #adb5bd;
+    --vue-green: #4effbe;
+    --success: #3bc53b;
+    --warning: #fdab11;
+    --danger: #eb3636;
+    --orange: #df9918;
+
+    --shadhow-black-02: rgba(0, 0, 0, 0.2);
+    --shadhow-black-012: rgba(0, 0, 0, 0.12);
+    --shadhow-black-014: rgba(0, 0, 0, 0.14);
+
+    /* Text colors */
+    ----primary-text-color: var(--black);
+
+    /* Border */
+    --radius-small: 3px;
+    --radius-regular: 5px;
+
+    --element-width: 0;
+}

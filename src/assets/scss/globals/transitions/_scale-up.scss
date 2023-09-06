@@ -1,0 +1,13 @@
+//- ScaleUp
+.scale-up-enter-active,
+.scale-up-leave-active {
+    transition:
+        transform 0.2s ease-in-out,
+        opacity 0.2s ease-in-out;
+}
+
+.scale-up-enter-from,
+.scale-up-leave-to {
+    opacity: 0;
+    transform: scale(0);
+}
