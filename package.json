@@ -1,7 +1,11 @@
 {
-  "name": "vue3-ui-components",
-  "version": "0.0.0",
-  "private": true,
+  "name": "@iamadeveloper-es/vue3-ui-components",
+  "version": "0.1.0",
+  "private": false,
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com"
+  },
+  "repository": "https://github.com/iamadeveloper-es/vue3-ui-components",
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check build-only",
