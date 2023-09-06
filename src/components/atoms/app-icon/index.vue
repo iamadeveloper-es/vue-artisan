@@ -1,5 +1,5 @@
 <script lang="ts">
-import { computed } from 'vue'
+import { computed, ref } from 'vue'
 
 export default {
     name: 'app-icon',
@@ -14,6 +14,13 @@ export default {
         },
         variant: {
             type: String,
+        },
+        onActiveIcon:{
+            type: [Array, String]
+        },
+        isClicked: {
+            type: Boolean,
+            default: false
         }
     },
     setup(props, context){
@@ -27,9 +34,18 @@ export default {
             return variant?.length ? `app-icon--${variant}` : ''
         })
 
+        const getIcon = computed(() => {
+            const activeIcon = props.onActiveIcon
+            const icon = props.icon
+            const isClicked = props.isClicked
+            return isClicked && activeIcon?.length ? 
+            activeIcon : icon
+        })
+
         return{
             emitEvent,
-            getVariant
+            getVariant,
+            getIcon
         }
     }
 }
@@ -37,7 +53,7 @@ export default {
 
 <template lang="pug">
 span.app-icon(
-:class="getVariant, icon",
+:class="getVariant, getIcon",
 @click="emitEvent", 
 :style="{'font-size': `${size}px`}")
 </template>
