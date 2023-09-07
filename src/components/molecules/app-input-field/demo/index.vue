@@ -12,10 +12,10 @@ export default {
       {
         value: 'Texto de ejemplo',
         name: 'input-text',
-        label: 'Input con label flotante',
+        label: 'Input con label outlined',
         placeholder: 'Escribe algo...',
         maxlength: 20,
-        floatingLabel: true
+        outlinedLabel: true
       },
       {
         value: '',
@@ -91,6 +91,7 @@ export default {
     :label="item.label",
     :placeholder="item.placeholder", 
     :floatingLabel="item.floatingLabel",
+    :outlinedLabel="item.outlinedLabel"
     :borderBottom="item.borderBottom", 
     :min="item.min"
     :max="item.max"

@@ -33,6 +33,10 @@ export default {
             type: Boolean,
             default: false
         },
+        outlinedLabel: {
+            type: Boolean,
+            default: false
+        },
         floatingLabel: {
             type: Boolean,
             default: false
@@ -97,7 +101,7 @@ export default {
 </script>
 
 <template lang="pug">
-.app-textarea.form-field-wrapper(:class="{'is-focused': floatingLabel && isFocused}")
+.app-textarea.form-field-wrapper(:class="{'is-focused': (floatingLabel || outlinedLabel) && isFocused}")
     textarea.app-input(
     :class="{'b-bottom': borderBottom, 'disabled': disabled}",
     :rows="rows",
@@ -117,7 +121,7 @@ export default {
     @focus="emitFocus",
     @blur="emitBlur")
     label.app-label(
-    :class="{'label-float' : floatingLabel, 'label-disabled': disabled}"
+    :class="{'label-float' : floatingLabel, 'label-outlined' : outlinedLabel, 'label-disabled': disabled}"
     :for="id") {{ label }}
 </template>
 

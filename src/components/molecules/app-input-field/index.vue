@@ -53,6 +53,10 @@ export default {
         type: Boolean,
         default: true
       },
+      outlinedLabel: {
+          type: Boolean,
+          default: false
+      },
       floatingLabel: {
         type: Boolean,
         default: false
@@ -135,9 +139,9 @@ export default {
 </script>
 
 <template lang="pug">
-.app-input-field.form-field-wrapper(:class="{'is-focused': floatingLabel && isFocused}")
+.app-input-field.form-field-wrapper(:class="{'is-focused': (floatingLabel || outlinedLabel) && isFocused}")
   label.app-label(v-if="label", 
-  :class="{'accesible-hidden' : !showLabel, 'label-float' : floatingLabel}", 
+  :class="{'accesible-hidden' : !showLabel, 'label-float' : floatingLabel, 'label-outlined' : outlinedLabel}", 
   :for="id") {{ label }}
   input.app-input(
   :class="{'disabled': disabled, 'b-bottom': borderBottom, 'hide-placeholder' : floatingLabel}"
@@ -159,7 +163,7 @@ export default {
   @blur="emitBlur")
   span.app-input-icon(v-if="modelValue.length && icon.length", 
   @click="iconAction", 
-  :class="icon, {'icon-float': floatingLabel}")
+  :class="icon, {'icon-float': floatingLabel || outlinedLabel}")
 </template>
 
 <style lang="scss">

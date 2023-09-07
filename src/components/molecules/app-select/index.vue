@@ -39,6 +39,10 @@ export default {
         size: {
             type: Number
         },
+        outlinedLabel: {
+            type: Boolean,
+            default: false
+        },
         floatingLabel: {
             type: Boolean,
             default: false
@@ -73,7 +77,9 @@ export default {
 </script>
 
 <template lang="pug">
-.app-select.form-field-wrapper
+.app-select.form-field-wrapper(
+:class="{'is-focused': outlinedLabel || floatingLabel}"
+)
     select.app-input(@change="emitValue", 
     :id="id",
     :name="name",
@@ -92,7 +98,7 @@ export default {
         ) {{ option.text }}
     label.app-label(
     :for="id",
-    :class="{ 'label-float': floatingLabel, 'label-disabled': disabled}"
+    :class="{ 'label-float': floatingLabel, 'label-outlined' : outlinedLabel, 'label-disabled': disabled}"
     ) {{ label }}
 </template>
 

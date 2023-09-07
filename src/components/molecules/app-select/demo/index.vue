@@ -10,6 +10,7 @@ export default {
     },
     setup() {
         const selected = ref('')
+        const selected2 = ref('')
         const options = [
             {
                 value: 'opcion1',
@@ -44,6 +45,7 @@ export default {
 
         return{
             selected,
+            selected2,
             options
         }
     }
@@ -51,11 +53,26 @@ export default {
 </script>
 
 <template lang="pug">
-app-select(
-:options="options"
-name="select-option",
-label="Selecciona una opción", 
-:floatingLabel="true",
-v-model="selected"
-)
+.app-select-demo 
+    app-select(
+    :options="options"
+    name="select-option",
+    label="Selecciona una opción", 
+    :floatingLabel="true",
+    v-model="selected")
+
+    app-select(
+    :options="options"
+    name="select-option",
+    label="Selecciona una opción", 
+    :outlinedLabel="true",
+    v-model="selected2")
 </template>
+
+<style lang="scss">
+.app-select-demo {
+    .app-select{
+        margin-bottom: 3rem;
+    }
+}
+</style>

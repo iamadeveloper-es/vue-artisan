@@ -28,6 +28,14 @@ export default {
                 rows: 8
             },
             {
+                label: 'Text Area con label outlined',
+                name: 'textarea3a',
+                value: '',
+                outlinedLabel: true,
+                // borderBottom: true,
+                // rows: 8
+            },
+            {
                 label: 'Text Area con border inferior',
                 name: 'textarea4',
                 value: 'Texto de ejemplo',
@@ -50,6 +58,7 @@ export default {
     :label="item.label", 
     :name="item.name", 
     :rows="item.rows"
+    :outlinedLabel="item.outlinedLabel", 
     :floatingLabel="item.floatingLabel", 
     :borderBottom="item.borderBottom")
 </template>

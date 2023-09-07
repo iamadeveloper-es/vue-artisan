@@ -21,6 +21,7 @@ import AppCheckbox from '../components/molecules/app-checkbox/demo/index.vue'
 import AppRadio from '../components/molecules/app-radio/demo/index.vue'
 import AppTextarea from '../components/molecules/app-textarea/demo/index.vue'
 import AppSelect from '../components/molecules/app-select/demo/index.vue'
+import AppCustomSelect from '../components/molecules/app-custom-select/demo/index.vue'
 import AppTabs from '../components/molecules/app-tabs/demo/index.vue'
 import AppModal from '../components/molecules/app-modal/demo/index.vue'
 import AppSnackbar from '../components/molecules/app-snackbar/demo/index.vue'
@@ -112,6 +113,11 @@ const router = createRouter({
                     path: '/app-select',
                     name: 'APP_SELECT',
                     component: AppSelect
+                },
+                {
+                    path: '/app-custom-select',
+                    name: 'APP_CUSTOM_SELECT',
+                    component: AppCustomSelect
                 },
                 {
                     path: '/app-button',

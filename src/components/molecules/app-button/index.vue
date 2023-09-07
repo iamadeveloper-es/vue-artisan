@@ -35,6 +35,10 @@ export default {
     },
     iconVariant: {
         type: String,
+    },
+    disableRipple: {
+      type: Boolean,
+      default: false
     }
   },
   setup(props, context){
@@ -53,7 +57,9 @@ export default {
     })
 
     const emitEvent = (ev: Event): void => {
-        rippleEffect(ev, button.value)
+        if(!props.disableRipple){
+          rippleEffect(ev, button.value)
+        }
         context.emit('clicked', ev)
     }
 
