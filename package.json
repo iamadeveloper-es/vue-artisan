@@ -1,7 +1,7 @@
 {
   "name": "@iamadeveloper-es/vue3-ui-components",
   "version": "0.2.0",
-  "private": true,
+  "private": false,
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
   },
