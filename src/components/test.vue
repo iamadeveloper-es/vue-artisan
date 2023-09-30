@@ -1,15 +1,15 @@
 <script lang="ts">
-import { useRoute } from 'vue-router'
+import { useRoute } from 'vue-router';
 
 export default {
-    name: 'app-test',
-    setup(){
-        const route = useRoute()
-        return{
-            route
-        }
-    }
-}
+  name: 'app-test',
+  setup () {
+    const route = useRoute();
+    return {
+      route
+    };
+  }
+};
 </script>
 
 <template lang="pug">

@@ -1,101 +1,101 @@
 <script lang="ts">
-import { computed, ref } from 'vue'
-import AppIcon from '../../atoms/app-icon/index.vue'
-import AppButton from '../app-button/index.vue'
+import { computed, ref } from 'vue';
+import AppIcon from '../../atoms/app-icon/index.vue';
+import AppButton from '../app-button/index.vue';
 
 export default {
-    name: 'app-custom-select',
-    components: {
-        AppButton, 
-        AppIcon
+  name: 'app-custom-select',
+  components: {
+    AppButton,
+    AppIcon
+  },
+  props: {
+    modelValue: {
+      type: String
     },
-    props: {
-        modelValue: {
-            type: String
-        },
-        options: {
-            type: Array,
-            required: true
-        },
-        label: {
-            type: String,
-            default: 'Selecciona una opción'
-        },
-        disabled: {
-            type: Boolean,
-            default: false
-        },
-        inputName: {
-            type: String,
-            required: true
-        },
-        floatingLabel: {
-            type: Boolean,
-            default: false
-        },
-        outlinedLabel: {
-            type: Boolean,
-            default: false
-        },
-        borderBottom: {
-            type: Boolean,
-            default: false
-        },
-        icon: {
-            type: [Array, String]
-        },
-        iconSize: {
-            type: Number,
-            default: 15
-        },
+    options: {
+      type: Array,
+      required: true
     },
-    setup(props, context){
-        const show = ref(false)
-
-        const getIcon = computed(() => {
-            const icon = props.icon
-            const defaultIcon = ['fa-solid', 'fa-chevron-down']
-            return icon?.length ? icon : defaultIcon
-        })
-
-        const iconClass = computed(() => {
-            return show.value ? 'collapse-open' : 'collapse-close'
-        }) 
-
-        const emitValue = (ev: Event) => {
-            const target = ev.target  as HTMLInputElement
-            context.emit('update:modelValue', target.value)
-            context.emit('onChange', ev)
-        }
-
-        const emitFocus = (ev: Event) => {
-            context.emit('onFocus', ev)
-        }
-
-        const emitBlur = (ev: Event) => {
-            context.emit('onBlur', ev)
-        }
-
-        const toggleOptions = () => {
-            show.value = !show.value
-        }
-
-        const hide = () => {
-            show.value = false
-        }
-
-        return{
-            show,
-            getIcon,
-            iconClass,
-            emitValue,
-            emitFocus,
-            emitBlur,
-            toggleOptions,
-            hide
-        }
+    label: {
+      type: String,
+      default: 'Selecciona una opción'
+    },
+    disabled: {
+      type: Boolean,
+      default: false
+    },
+    inputName: {
+      type: String,
+      required: true
+    },
+    floatingLabel: {
+      type: Boolean,
+      default: false
+    },
+    outlinedLabel: {
+      type: Boolean,
+      default: false
+    },
+    borderBottom: {
+      type: Boolean,
+      default: false
+    },
+    icon: {
+      type: [Array, String]
+    },
+    iconSize: {
+      type: Number,
+      default: 15
     }
-}
+  },
+  setup (props, context) {
+    const show = ref(false);
+
+    const getIcon = computed(() => {
+      const icon = props.icon;
+      const defaultIcon = ['fa-solid', 'fa-chevron-down'];
+      return icon?.length ? icon : defaultIcon;
+    });
+
+    const iconClass = computed(() => {
+      return show.value ? 'collapse-open' : 'collapse-close';
+    });
+
+    const emitValue = (ev: Event) => {
+      const target = ev.target as HTMLInputElement;
+      context.emit('update:modelValue', target.value);
+      context.emit('onChange', ev);
+    };
+
+    const emitFocus = (ev: Event) => {
+      context.emit('onFocus', ev);
+    };
+
+    const emitBlur = (ev: Event) => {
+      context.emit('onBlur', ev);
+    };
+
+    const toggleOptions = () => {
+      show.value = !show.value;
+    };
+
+    const hide = () => {
+      show.value = false;
+    };
+
+    return {
+      show,
+      getIcon,
+      iconClass,
+      emitValue,
+      emitFocus,
+      emitBlur,
+      toggleOptions,
+      hide
+    };
+  }
+};
 </script>
 
 <template lang="pug">

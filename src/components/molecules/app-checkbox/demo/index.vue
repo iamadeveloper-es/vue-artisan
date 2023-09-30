@@ -1,74 +1,71 @@
 <script lang="ts">
-import {ref} from 'vue'
+import { ref } from 'vue';
 
-import AppCheckbox from '../index.vue'
+import AppCheckbox from '../index.vue';
 
 export default {
+  name: 'app-checkbox-demo',
+  components: { AppCheckbox },
 
-    name: 'app-checkbox-demo',
-    components: {AppCheckbox},
+  setup () {
+    const checkboxConfig = ref({
+      color: 'info',
+      label: 'User Jhon'
+    });
 
-    setup(){
-        const checkboxConfig = ref({
-          color: 'info',
-          label: 'User Jhon'
-        })
+    const checkboxConfig2 = ref({
+      color: 'success',
+      label: 'User pepe'
+    });
 
-        const checkboxConfig2 = ref({
-          color: 'success',
-          label: 'User pepe'
-        })
+    const inputVal = ref({
+      status: false,
+      val: 'Jhon'
+    });
 
-        const inputVal = ref({
-          status: false,
-          val: 'Jhon',
-        })
+    const inputVal2 = ref({
+      status: true,
+      val: 'Pepe'
+    });
 
-        const inputVal2 = ref({
+    const handleChangeEvent = (ev) => {
+      if (ev.target.checked) {
+        inputVal.value = {
           status: true,
-          val: 'Pepe',
-        })
+          val: 'Jhon'
+        };
+      } else {
+        inputVal.value = {
+          status: false,
+          val: ''
+        };
+      }
+    };
 
-        const handleChangeEvent = (ev) => {
-          if(ev.target.checked){
-            inputVal.value = {
-              status: true,
-              val: 'Jhon',
-            }
-          }
-          else{
-            inputVal.value = {
-              status: false,
-              val: ''
-            }
-          }
-        }
+    const handleChangeEvent2 = (ev) => {
+      if (ev.target.checked) {
+        inputVal2.value = {
+          status: true,
+          val: 'Pepe'
+        };
+      } else {
+        inputVal2.value = {
+          status: false,
+          val: ''
+        };
+      }
+    };
 
-        const handleChangeEvent2 = (ev) => {
-          if(ev.target.checked){
-            inputVal2.value = {
-              status: true,
-              val: 'Pepe',
-            }
-          }
-          else{
-            inputVal2.value = {
-              status: false,
-              val: ''
-            }
-          }
-        }
-
-        return {
-          inputVal,
-          inputVal2,
-          checkboxConfig,
-          checkboxConfig2,
-          handleChangeEvent,
-          handleChangeEvent2
-        }
-    }
-}
+    return {
+      inputVal,
+      inputVal2,
+      checkboxConfig,
+      checkboxConfig2,
+      handleChangeEvent,
+      handleChangeEvent2
+    };
+  }
+};
 </script>
 
 <template lang="pug">

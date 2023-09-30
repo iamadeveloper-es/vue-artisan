@@ -1,130 +1,129 @@
 <script lang="ts">
-import { computed, onMounted, ref } from 'vue'
-import { useComponentFunctions } from '../../../composables/component-functions'
+import { computed, onMounted, ref } from 'vue';
+import { useComponentFunctions } from '../../../composables/component-functions';
 
 export default {
   name: 'app-input-field',
   props: {
-      modelValue: {
-        default: '',
-        required: true
-      },
-      type: {
-        type: String,
-        default: 'text'
-      },
-      name: {
-        type: String,
-        required: true
-      },
-      label: {
-        type: String,
-        required: true
-      },
-      placeholder: {
-        type: String
-      },
-      ariaLabelledby: {
-        type: String,
-        default: 'Input'
-      },
-      disabled: {
-        type: Boolean,
-        default: false
-      },
-      required: {
-        type: Boolean,
-        default: false
-      },
-      readonly: {
-        type: Boolean,
-        default: false
-      },
-      min: {
-        type: Number
-      },
-      max: {
-        type: Number
-      },
-      maxlength: {
-        type: Number
-      },
-      showLabel: {
-        type: Boolean,
-        default: true
-      },
-      outlinedLabel: {
-          type: Boolean,
-          default: false
-      },
-      floatingLabel: {
-        type: Boolean,
-        default: false
-      },
-      borderBottom: {
-        type: Boolean,
-        default: false
-      },
-      icon: {
-        type: Array,
-        default: (() => ['fa-regular', 'fa-circle-xmark'])
-      },
+    modelValue: {
+      default: '',
+      required: true
+    },
+    type: {
+      type: String,
+      default: 'text'
+    },
+    name: {
+      type: String,
+      required: true
+    },
+    label: {
+      type: String,
+      required: true
+    },
+    placeholder: {
+      type: String
+    },
+    ariaLabelledby: {
+      type: String,
+      default: 'Input'
+    },
+    disabled: {
+      type: Boolean,
+      default: false
+    },
+    required: {
+      type: Boolean,
+      default: false
+    },
+    readonly: {
+      type: Boolean,
+      default: false
+    },
+    min: {
+      type: Number
+    },
+    max: {
+      type: Number
+    },
+    maxlength: {
+      type: Number
+    },
+    showLabel: {
+      type: Boolean,
+      default: true
+    },
+    outlinedLabel: {
+      type: Boolean,
+      default: false
+    },
+    floatingLabel: {
+      type: Boolean,
+      default: false
+    },
+    borderBottom: {
+      type: Boolean,
+      default: false
+    },
+    icon: {
+      type: Array,
+      default: () => ['fa-regular', 'fa-circle-xmark']
+    }
   },
-  setup(props, context){
-    const {randomId} = useComponentFunctions()
-    const isFocused = ref(false)
-    const inputType = ref(props.type)
-    const id = ref('')
+  setup (props, context) {
+    const { randomId } = useComponentFunctions();
+    const isFocused = ref(false);
+    const inputType = ref(props.type);
+    const id = ref('');
 
     const passwordIcon = computed(() => {
-      return inputType.value === 'password' ? '' : 'fa-eye'
-    })
+      return inputType.value === 'password' ? '' : 'fa-eye';
+    });
 
     const emitValue = (ev: Event) => {
-      const target = ev.target  as HTMLInputElement
-      context.emit('update:modelValue', target.value)
-    }
+      const target = ev.target as HTMLInputElement;
+      context.emit('update:modelValue', target.value);
+    };
 
     const emitFocus = (ev: FocusEvent) => {
-      isFocused.value = true
-      context.emit('onFocus', ev)
-    }
+      isFocused.value = true;
+      context.emit('onFocus', ev);
+    };
 
     const emitBlur = (ev: FocusEvent) => {
-      isFocused.value = props.modelValue.length > 0 ? true : false
-      context.emit('onBlur', ev)
-    }
+      isFocused.value = props.modelValue.length > 0 ? true : false;
+      context.emit('onBlur', ev);
+    };
 
     const clearField = () => {
-      isFocused.value = false
-      context.emit('update:modelValue', '')
-    }
+      isFocused.value = false;
+      context.emit('update:modelValue', '');
+    };
 
     const showPassword = () => {
-      inputType.value === 'password' ? 
-      inputType.value = 'text' : 
-      inputType.value = 'password'
-    }
+      inputType.value === 'password'
+        ? (inputType.value = 'text')
+        : (inputType.value = 'password');
+    };
 
     const iconAction = () => {
-      if(props.type === 'password'){
-        showPassword()
+      if (props.type === 'password') {
+        showPassword();
+      } else {
+        clearField();
       }
-      else{
-        clearField()
-      }
-    }
+    };
 
     const configComponent = () => {
-        id.value = randomId()
-        isFocused.value = props.modelValue.length > 0
-    }
+      id.value = randomId();
+      isFocused.value = props.modelValue.length > 0;
+    };
 
     onMounted(() => {
-      configComponent()
-    })
+      configComponent();
+    });
 
-    return{
+    return {
       id,
       isFocused,
       inputType,
@@ -133,9 +132,9 @@ export default {
       emitFocus,
       emitBlur,
       iconAction
-    }
+    };
   }
-}
+};
 </script>
 
 <template lang="pug">
@@ -168,5 +167,4 @@ export default {
 
 <style lang="scss">
 @import 'index';
-
 </style>

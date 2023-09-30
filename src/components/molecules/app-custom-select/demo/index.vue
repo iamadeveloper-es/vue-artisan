@@ -1,28 +1,28 @@
 <script lang="ts">
-import { ref } from 'vue'
-import AppCustomSelect from '../index.vue'
+import { ref } from 'vue';
+import AppCustomSelect from '../index.vue';
 export default {
-    name: 'app-custom-select-demo',
-    components: {AppCustomSelect},
-    setup(){
-        const selectedValue = ref('')
-        const selectedValue2 = ref('')
-        const selectedValue3 = ref('')
-        const options = ref([
-            { label: 'Default', value: 'default', disabled: true },
-            { label: 'Spain', value: 'spain' },
-            { label: 'France', value: 'france' },
-            { label: 'Italy', value: 'italy' }
-        ])
+  name: 'app-custom-select-demo',
+  components: { AppCustomSelect },
+  setup () {
+    const selectedValue = ref('');
+    const selectedValue2 = ref('');
+    const selectedValue3 = ref('');
+    const options = ref([
+      { label: 'Default', value: 'default', disabled: true },
+      { label: 'Spain', value: 'spain' },
+      { label: 'France', value: 'france' },
+      { label: 'Italy', value: 'italy' }
+    ]);
 
-        return{
-            selectedValue,
-            selectedValue2,
-            selectedValue3,
-            options
-        }
-    }
-}
+    return {
+      selectedValue,
+      selectedValue2,
+      selectedValue3,
+      options
+    };
+  }
+};
 </script>
 
 <template lang="pug">
@@ -49,7 +49,7 @@ export default {
 
 <style lang="scss">
 .app-custom-select-demo {
-    .app-custom-select{
+    .app-custom-select {
         margin-bottom: 3rem;
     }
 }

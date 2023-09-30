@@ -1,12 +1,12 @@
 <script lang="ts">
-import Dashboard from './views/dashboard.vue'
+import Dashboard from './views/dashboard.vue';
 
 export default {
   components: {
     Dashboard
   },
-  setup() {}
-}
+  setup () {}
+};
 </script>
 
 <template lang="pug">

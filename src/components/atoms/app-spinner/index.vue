@@ -1,22 +1,19 @@
 <script lang="ts">
-import { watch } from 'vue'
-
 export default {
-    name: 'app-spinner',
-    props: {
-        /**
+  name: 'app-spinner',
+  props: {
+    /**
          * Muestra / oculta el spinner
          */
-        show: {
-            type: Boolean,
-            default: true
-        }
-    },
-    setup(props){
-
-        return{}
+    show: {
+      type: Boolean,
+      default: true
     }
-}
+  },
+  setup () {
+    return {};
+  }
+};
 </script>
 
 <template lang="pug">

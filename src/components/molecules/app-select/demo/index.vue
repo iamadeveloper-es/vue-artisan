@@ -1,55 +1,54 @@
 <script lang="ts">
-
-import { onMounted, ref } from 'vue'
-import AppSelect from '../index.vue'
+import { onMounted, ref } from 'vue';
+import AppSelect from '../index.vue';
 
 export default {
-    name: 'app-select-demo',
-    components: {
-        AppSelect
-    },
-    setup() {
-        const selected = ref('')
-        const selected2 = ref('')
-        const options = [
-            {
-                value: 'opcion1',
-                text: 'Opción 1'
-            },
-            {
-                value: 'opcion2',
-                text: 'Opción 2'
-            },
-            {
-                value: 'opcion3',
-                text: 'Opción 3',
-                selected: true
-            },
-            {
-                value: 'opcion4',
-                text: 'Opción 4',
-                disabled: true
-            }
-        ]
+  name: 'app-select-demo',
+  components: {
+    AppSelect
+  },
+  setup () {
+    const selected = ref('');
+    const selected2 = ref('');
+    const options = [
+      {
+        value: 'opcion1',
+        text: 'Opción 1'
+      },
+      {
+        value: 'opcion2',
+        text: 'Opción 2'
+      },
+      {
+        value: 'opcion3',
+        text: 'Opción 3',
+        selected: true
+      },
+      {
+        value: 'opcion4',
+        text: 'Opción 4',
+        disabled: true
+      }
+    ];
 
-        const configComponent = () => {
-            const optSelected = options.find(option => option.selected)
-            if(optSelected){
-                selected.value = optSelected.value
-            }
-        }
+    const configComponent = () => {
+      const optSelected = options.find((option) => option.selected);
+      if (optSelected) {
+        selected.value = optSelected.value;
+      }
+    };
 
-        onMounted(() => {
-            configComponent()
-        })
+    onMounted(() => {
+      configComponent();
+    });
 
-        return{
-            selected,
-            selected2,
-            options
-        }
-    }
-}
+    return {
+      selected,
+      selected2,
+      options
+    };
+  }
+};
 </script>
 
 <template lang="pug">
@@ -71,7 +70,7 @@ export default {
 
 <style lang="scss">
 .app-select-demo {
-    .app-select{
+    .app-select {
         margin-bottom: 3rem;
     }
 }

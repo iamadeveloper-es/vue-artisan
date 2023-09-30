@@ -1,23 +1,19 @@
 <script lang="ts">
-
 export default {
-    name: 'app-image',
-    props: {
-        src: {
-            type: String,
-            required: true
-        },
-        alt: {
-            type: String
-        }
+  name: 'app-image',
+  props: {
+    src: {
+      type: String,
+      required: true
     },
-    setup(){
-
-        return{
-            
-        }
+    alt: {
+      type: String
     }
-}
+  },
+  setup () {
+    return {};
+  }
+};
 </script>
 
 <template lang="pug">

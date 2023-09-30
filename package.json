@@ -36,12 +36,13 @@
     "@vue/test-utils": "^2.4.1",
     "@vue/tsconfig": "^0.4.0",
     "eslint": "^8.45.0",
+    "eslint-config-prettier": "9.0.0",
     "eslint-plugin-vue": "^9.15.1",
     "husky": "^8.0.0",
     "jsdom": "^22.1.0",
-    "lint-staged": "^14.0.0",
+    "lint-staged": "^14.0.1",
     "npm-run-all": "^4.1.5",
-    "prettier": "^3.0.0",
+    "prettier": "3.0.3",
     "pug": "^3.0.2",
     "sass": "^1.65.1",
     "typescript": "~5.1.6",
@@ -57,7 +58,8 @@
   },
   "lint-staged": {
     "*.{js,ts,jsx}": [
-      "npm run format-lint"
+      "npx prettier --write",
+      "npm run lint"
     ],
     "*.{html,css,sass,less,ejs}": [
       "prettier --write src/"

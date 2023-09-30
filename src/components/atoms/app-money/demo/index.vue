@@ -1,43 +1,43 @@
 <script lang="ts">
-import { ref } from 'vue'
-import AppMoney from '../index.vue'
+import { ref } from 'vue';
+import AppMoney from '../index.vue';
 
 export default {
-    name: 'app-money-demo',
-    components: {AppMoney},
-    setup(){
-        const amount = 1475.56
-        const moneyModels: Object = ref([
-                {
-                    desc: 'US Dollar model',
-                    lang: 'en-US',
-                    amount: amount,
-                    currency: 'USD'
-                },
-                {
-                    desc: 'Euro model',
-                    amount: amount,
-                    currency: 'EUR',
-                },
-                {
-                    desc: 'Pound model',
-                    lang: 'en-GB',
-                    amount: amount,
-                    currency: 'GBP'
-                },
-                {
-                    desc: 'Yen model',
-                    lang: 'ja-JP',
-                    amount: amount,
-                    currency: 'JPY'
-                }
-            ])
+  name: 'app-money-demo',
+  components: { AppMoney },
+  setup () {
+    const amount = 1475.56;
+    const moneyModels: Object = ref([
+      {
+        desc: 'US Dollar model',
+        lang: 'en-US',
+        amount: amount,
+        currency: 'USD'
+      },
+      {
+        desc: 'Euro model',
+        amount: amount,
+        currency: 'EUR'
+      },
+      {
+        desc: 'Pound model',
+        lang: 'en-GB',
+        amount: amount,
+        currency: 'GBP'
+      },
+      {
+        desc: 'Yen model',
+        lang: 'ja-JP',
+        amount: amount,
+        currency: 'JPY'
+      }
+    ]);
 
-        return{
-            moneyModels
-        }
-    }
-}
+    return {
+      moneyModels
+    };
+  }
+};
 </script>
 
 <template lang="pug">
@@ -53,20 +53,20 @@ export default {
 </template>
 
 <style lang="scss">
-.app-money-demo{
+.app-money-demo {
     display: flex;
     flex-direction: column;
     gap: 30px;
 
-    .flex{
+    .flex {
         display: inline-block;
         width: auto;
         flex-direction: column;
         gap: 30px;
         background-color: var(--secondary-grey);
-        padding: .5rem;
+        padding: 0.5rem;
 
-        span{
+        span {
             display: block;
         }
     }

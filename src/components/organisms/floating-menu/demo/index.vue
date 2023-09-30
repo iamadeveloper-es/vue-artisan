@@ -1,11 +1,12 @@
 <script lang="ts">
-import FloatingMenu from '../index.vue'
+import FloatingMenu from '../index.vue';
 
 export default {
-    components: {
-        FloatingMenu
-    }
-}
+  name: 'app-floating-menu',
+  components: {
+    FloatingMenu
+  }
+};
 </script>
 
 <template lang="pug">
@@ -15,7 +16,7 @@ export default {
 </template>
 
 <style lang="scss">
-.floating-menu-demo{
+.floating-menu-demo {
     height: 5000px;
 }
 </style>

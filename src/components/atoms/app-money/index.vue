@@ -1,49 +1,52 @@
 <script lang="ts">
-import { onMounted, ref, watch } from 'vue'
-import MoneyUtils from '../../../utils/moneyUtils'
+import { onMounted, ref, watch } from 'vue';
+import MoneyUtils from '../../../utils/moneyUtils';
 
 export default {
-    name: 'app-money',
-    props: {
-        amount: {
-            type: Number,
-            required: true
-        },
-        currency: {
-            type: String,
-            default: 'EUR'
-        },
-        lang: {
-            type: String,
-            default: 'es-ES'
-        }
+  name: 'app-money',
+  props: {
+    amount: {
+      type: Number,
+      required: true
     },
-    setup(props){
-        const formatedNumber = ref(undefined)
-
-        watch(()=>(props.amount || props.currency), (newVal) => {
-            formatModel()
-        })
-
-        const formatModel = () => {
-            const {amount, lang, currency} = props
-            const result = MoneyUtils.numFormatFixToLocale(amount, lang, currency)
-
-            formatedNumber.value = result
-        }
-
-        const configComponent = () =>{
-            formatModel()
-        }
-
-        onMounted(() => {
-            configComponent()
-        })
-        return{
-            formatedNumber
-        }
+    currency: {
+      type: String,
+      default: 'EUR'
+    },
+    lang: {
+      type: String,
+      default: 'es-ES'
     }
-}
+  },
+  setup (props) {
+    const formatedNumber = ref(undefined);
+
+    watch(
+      () => props.amount || props.currency,
+      () => {
+        formatModel();
+      }
+    );
+
+    const formatModel = () => {
+      const { amount, lang, currency } = props;
+      const result = MoneyUtils.numFormatFixToLocale(amount, lang, currency);
+
+      formatedNumber.value = result;
+    };
+
+    const configComponent = () => {
+      formatModel();
+    };
+
+    onMounted(() => {
+      configComponent();
+    });
+    return {
+      formatedNumber
+    };
+  }
+};
 </script>
 
 <template lang="pug">

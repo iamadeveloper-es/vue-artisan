@@ -1,45 +1,44 @@
 <script lang="ts">
-import {ref} from 'vue'
+import { ref } from 'vue';
 
-import AppSwitch from '../index.vue'
+import AppSwitch from '../index.vue';
 
 export default {
-    name: 'app-switch-demo',
-    components: {AppSwitch},
+  name: 'app-switch-demo',
+  components: { AppSwitch },
 
-    setup(){
-        const checkboxConfig = ref({
-          color: 'info',
-          label: 'User Jhon'
-        })
+  setup () {
+    const checkboxConfig = ref({
+      color: 'info',
+      label: 'User Jhon'
+    });
 
-        const inputVal = ref({
+    const inputVal = ref({
+      status: false,
+      val: ''
+    });
+
+    const handleChangeEvent = (ev) => {
+      if (ev.target.checked) {
+        inputVal.value = {
+          status: true,
+          val: 'Jhon'
+        };
+      } else {
+        inputVal.value = {
           status: false,
-          val: '',
-        })
+          val: ''
+        };
+      }
+    };
 
-        const handleChangeEvent = (ev) => {
-          if(ev.target.checked){
-            inputVal.value = {
-              status: true,
-              val: 'Jhon',
-            }
-          }
-          else{
-            inputVal.value = {
-              status: false,
-              val: ''
-            }
-          }
-        }
-
-        return {
-          inputVal,
-          checkboxConfig,
-          handleChangeEvent,
-        }
-    }
-}
+    return {
+      inputVal,
+      checkboxConfig,
+      handleChangeEvent
+    };
+  }
+};
 </script>
 
 <template lang="pug">

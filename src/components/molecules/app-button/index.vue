@@ -1,76 +1,76 @@
 <script lang="ts">
-import { computed, ref } from 'vue'
-import AppIcon from '../../atoms/app-icon/index.vue'
-import { useComponentFunctions } from '../../../composables/component-functions'
+import { computed, ref } from 'vue';
+import AppIcon from '../../atoms/app-icon/index.vue';
+import { useComponentFunctions } from '../../../composables/component-functions';
 
 export default {
   name: 'app-button',
-  components: {AppIcon},
+  components: { AppIcon },
   props: {
     text: {
       type: String,
       default: 'Button'
     },
-    type:{
-        type: String,
-        default: 'button'
+    type: {
+      type: String,
+      default: 'button'
     },
     cClass: {
-        type: [Array, String],
+      type: [Array, String]
     },
     variant: {
-        type: [Array, String],
-        default: 'regular'
+      type: [Array, String],
+      default: 'regular'
     },
-    disabled:{
-        type: Boolean,
-        default: false
+    disabled: {
+      type: Boolean,
+      default: false
     },
     icon: {
-        type: [Array, String]
+      type: [Array, String]
     },
     iconSize: {
-        type: Number,
-        default: 20
+      type: Number,
+      default: 20
     },
     iconVariant: {
-        type: String,
+      type: String
     },
     disableRipple: {
       type: Boolean,
       default: false
     }
   },
-  setup(props, context){
-    const {rippleEffect} = useComponentFunctions()
-    const button = ref(null)
+  setup (props, context) {
+    const { rippleEffect } = useComponentFunctions();
+    const button = ref(null);
 
     const hasIcon = computed(() => {
-      return props.icon?.length
-    })
+      return props.icon?.length;
+    });
 
     const getVariant = computed(() => {
-      const variant = props.variant
-      return Array.isArray(variant) ? 
-      variant.map(item => `app-button--${item} `)
-      : `app-button--${variant}`
-    })
+      const variant = props.variant;
+      return Array.isArray(variant)
+        ? variant.map((item) => `app-button--${item} `)
+        : `app-button--${variant}`;
+    });
 
     const emitEvent = (ev: Event): void => {
-        if(!props.disableRipple){
-          rippleEffect(ev, button.value)
-        }
-        context.emit('clicked', ev)
-    }
+      if (!props.disableRipple) {
+        rippleEffect(ev, button.value);
+      }
+      context.emit('clicked', ev);
+    };
 
-    return{
-        button,
-        hasIcon,
-        getVariant,
-        emitEvent
-    }
+    return {
+      button,
+      hasIcon,
+      getVariant,
+      emitEvent
+    };
   }
-}
+};
 </script>
 
 <template lang="pug">

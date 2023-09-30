@@ -1,47 +1,45 @@
 <script lang="ts">
-import {ref} from 'vue'
+import { ref } from 'vue';
 
-import AppRadio from '../index.vue'
+import AppRadio from '../index.vue';
 
 export default {
+  name: 'app-radio-demo',
+  components: { AppRadio },
 
-    name: 'app-radio-demo',
-    components: {AppRadio},
+  setup () {
+    const selectedValue = ref('blue');
+    const radioColors = ref([
+      {
+        color: 'info',
+        val: 'red',
+        label: 'Color Red'
+      },
+      {
+        color: 'danger',
+        val: 'blue',
+        label: 'Color Blue'
+      },
+      {
+        color: 'primary',
+        val: 'green',
+        label: 'Color Green',
+        customLabel: true
+      }
+    ]);
 
-    setup(){
-        const selectedValue = ref('blue');
-        const radioColors = ref([
-          {
-            color: 'info',
-            val: 'red',
-            label: 'Color Red'
-          },
-          {
-            color: 'danger',
-            val: 'blue',
-            label: 'Color Blue'
-          },
-          {
-            color: 'primary',
-            val: 'green',
-            label: 'Color Green',
-            customLabel: true
-          }
-        ])
+    const handleChangeEvent = (ev: Event) => {
+      const target = ev.target as HTMLInputElement;
+      selectedValue.value = target.value;
+    };
 
-        const handleChangeEvent = (ev: Event) => {
-          const target = ev.target as HTMLInputElement
-          selectedValue.value = target.value
-          
-        }
-
-        return {
-          radioColors,
-          selectedValue,
-          handleChangeEvent
-        }
-    }
-}
+    return {
+      radioColors,
+      selectedValue,
+      handleChangeEvent
+    };
+  }
+};
 </script>
 
 <template lang="pug">
