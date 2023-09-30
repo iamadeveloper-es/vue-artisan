@@ -1,0 +1,27 @@
+.app-chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
+    padding: 5px 10px;
+    border-radius: 25px;
+    background-color: var(--secondary-grey);
+    margin-right: 3px;
+    margin-left: 3px;
+
+    &__text {
+        font-size: 15px;
+    }
+
+    &__close {
+        cursor: pointer;
+    }
+
+    &:first-of-type {
+        margin-left: 0;
+    }
+
+    &:last-of-type {
+        margin-right: 0;
+    }
+}

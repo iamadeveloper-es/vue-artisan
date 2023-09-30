@@ -1,27 +1,24 @@
 <script lang="ts">
-
 export default {
-    name: 'app-progress',
-    props: {
-        modelValue: {
-            type: Number,
-            default: 0
-        },
-        value: {
-            type: Number,
-            default: 0
-        },
-        max: {
-            type: Number,
-            default: 100
-        }
+  name: 'app-progress',
+  props: {
+    modelValue: {
+      type: Number,
+      default: 0
     },
-    setup(){
-
-        return {}
+    value: {
+      type: Number,
+      default: 0
+    },
+    max: {
+      type: Number,
+      default: 100
     }
-}
-
+  },
+  setup () {
+    return {};
+  }
+};
 </script>
 
 <template lang="pug">

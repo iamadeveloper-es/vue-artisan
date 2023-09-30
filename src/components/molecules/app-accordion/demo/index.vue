@@ -1,22 +1,22 @@
 <script lang="ts">
-import { ref } from 'vue'
-import AppAccordion from '../index.vue'
+import { ref } from 'vue';
+import AppAccordion from '../index.vue';
 
 export default {
-    name: 'app-accordion-demo',
-    components: {AppAccordion},
-    setup(){
-        const selected = ref('')
-        const selected2 = ref('')
-        const accordion1Name = 'accordion1'
-        
-        return {
-            selected,
-            selected2,
-            accordion1Name
-        }
-    }
-}
+  name: 'app-accordion-demo',
+  components: { AppAccordion },
+  setup () {
+    const selected = ref('');
+    const selected2 = ref('');
+    const accordion1Name = 'accordion1';
+
+    return {
+      selected,
+      selected2,
+      accordion1Name
+    };
+  }
+};
 </script>
 
 <template lang="pug">
@@ -50,9 +50,8 @@ export default {
 </template>
 
 <style lang="scss">
-.app-accordion-demo{
-
-    .app-accordion{
+.app-accordion-demo {
+    .app-accordion {
         margin-bottom: 1rem;
     }
 }

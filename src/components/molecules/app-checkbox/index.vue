@@ -1,72 +1,71 @@
 <script lang="ts">
-import { computed, onMounted, ref } from 'vue'
-import { useComponentFunctions } from '../../../composables/component-functions'
+import { computed, onMounted, ref } from 'vue';
+import { useComponentFunctions } from '../../../composables/component-functions';
 
 export default {
-    name: 'app-checkbox',
-    props: {
-        modelValue: {
-            default: '',
-            required: true
-        },
-        disabled: {
-            type: Boolean,
-            default: false
-        },
-        value: {
-            type: [String, Number, Boolean],
-            default: false
-        },
-        label: {
-            type: String,
-            default: 'Checkbox label'
-        },
-        cClass:{
-            type: [String, Array],
-        },
-        activeColor: {
-            type: String,
-            default: 'primary'
-        }
+  name: 'app-checkbox',
+  props: {
+    modelValue: {
+      default: '',
+      required: true
     },
-    setup(props, context){
-        const {randomId} = useComponentFunctions()
-        const id = ref('')
-        
-        
-        const isActive = ref(false)
-
-        const setActiveColor = computed(() => {
-            return `app-check-radio__icon--${props.activeColor}`
-        })
-
-        const hasSlot = computed(() => {
-            return !!context.slots['label']
-        })
-
-        const emitValue = (ev: Event) => {
-            const target = ev.target  as HTMLInputElement
-            context.emit('update:modelValue', target.value)
-            context.emit('onChange', ev)
-        }
-
-        const configComponent = () => {
-            id.value = randomId()
-        }
-
-        onMounted(() => {
-            configComponent()
-        })
-
-        return {
-            id,
-            isActive,
-            setActiveColor,
-            hasSlot,
-            emitValue
-        }
+    disabled: {
+      type: Boolean,
+      default: false
+    },
+    value: {
+      type: [String, Number, Boolean],
+      default: false
+    },
+    label: {
+      type: String,
+      default: 'Checkbox label'
+    },
+    cClass: {
+      type: [String, Array]
+    },
+    activeColor: {
+      type: String,
+      default: 'primary'
     }
-}
+  },
+  setup (props, context) {
+    const { randomId } = useComponentFunctions();
+    const id = ref('');
+
+    const isActive = ref(false);
+
+    const setActiveColor = computed(() => {
+      return `app-check-radio__icon--${props.activeColor}`;
+    });
+
+    const hasSlot = computed(() => {
+      return !!context.slots['label'];
+    });
+
+    const emitValue = (ev: Event) => {
+      const target = ev.target as HTMLInputElement;
+      context.emit('update:modelValue', target.value);
+      context.emit('onChange', ev);
+    };
+
+    const configComponent = () => {
+      id.value = randomId();
+    };
+
+    onMounted(() => {
+      configComponent();
+    });
+
+    return {
+      id,
+      isActive,
+      setActiveColor,
+      hasSlot,
+      emitValue
+    };
+  }
+};
 </script>
 
 <template lang="pug">

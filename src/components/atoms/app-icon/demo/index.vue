@@ -1,33 +1,33 @@
 <script lang="ts">
-import { ref } from 'vue'
+import { ref } from 'vue';
 
-import AppIcon from '../index.vue'
+import AppIcon from '../index.vue';
 export default {
-    name: 'app-icon-demo',
-    components: {AppIcon},
-    setup(){
-        const message = ref('')
-        const message2 = ref('')
-        const iconChange = ref(false)
+  name: 'app-icon-demo',
+  components: { AppIcon },
+  setup () {
+    const message = ref('');
+    const message2 = ref('');
+    const iconChange = ref(false);
 
-        const handleEvent = (ev: Event) => {
-            message.value = 'Icono clickado'
-        }
+    const handleEvent = () => {
+      message.value = 'Icono clickado';
+    };
 
-        const handleEvent2 = (ev: Event) => {
-            message2.value = 'Icono cambiado'
-            iconChange.value = !iconChange.value
-        }
+    const handleEvent2 = () => {
+      message2.value = 'Icono cambiado';
+      iconChange.value = !iconChange.value;
+    };
 
-        return{
-            message,
-            message2,
-            iconChange,
-            handleEvent,
-            handleEvent2
-        }
-    }
-}
+    return {
+      message,
+      message2,
+      iconChange,
+      handleEvent,
+      handleEvent2
+    };
+  }
+};
 </script>
 
 <template lang="pug">

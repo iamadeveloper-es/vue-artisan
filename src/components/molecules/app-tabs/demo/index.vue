@@ -1,37 +1,36 @@
 <script lang="ts">
-import { ref } from 'vue'
-import { useComponentFunctions } from '../../../../composables/component-functions'
+import { ref } from 'vue';
 
-import AppTabs from '../index.vue'
+import AppTabs from '../index.vue';
 export default {
-    name: 'app-tabs-demo',
-    components: {AppTabs},
-    setup(){
-        const tabSelected = ref('tab2')
-        const tabs = ref([
-            {
-                text: 'Tab 1',
-                value: 'tab1',
-                name: 'Tab'
-            },
-            {
-                text: 'Tab 2 con nombre muy largo',
-                value: 'tab2',
-                name: 'Tab'
-            },
-            {
-                text: 'Tab 3',
-                value: 'tab3',
-                name: 'Tab'
-            }
-        ])
+  name: 'app-tabs-demo',
+  components: { AppTabs },
+  setup () {
+    const tabSelected = ref('tab2');
+    const tabs = ref([
+      {
+        text: 'Tab 1',
+        value: 'tab1',
+        name: 'Tab'
+      },
+      {
+        text: 'Tab 2 con nombre muy largo',
+        value: 'tab2',
+        name: 'Tab'
+      },
+      {
+        text: 'Tab 3',
+        value: 'tab3',
+        name: 'Tab'
+      }
+    ]);
 
-        return{
-            tabSelected,
-            tabs
-        }
-    }
-}
+    return {
+      tabSelected,
+      tabs
+    };
+  }
+};
 </script>
 
 <template lang="pug">

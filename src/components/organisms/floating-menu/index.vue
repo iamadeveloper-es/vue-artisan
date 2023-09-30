@@ -1,12 +1,12 @@
 <script lang="ts">
-import { ref, onMounted } from 'vue'
+import { ref, onMounted } from 'vue';
 
 export default {
   name: 'floating-menu',
-  setup() {
-    const show = ref(false)
-    const scollPos = ref(0)
- const menuItems = [
+  setup () {
+    const show = ref(false);
+    const scollPos = ref(0);
+    const menuItems = [
       {
         name: 'Home',
         route: '/',
@@ -22,40 +22,40 @@ export default {
         route: '/data',
         icon: ''
       }
-    ]
+    ];
 
     onMounted(() => {
-      showMenu()
-    })
+      showMenu();
+    });
 
     const showMenu = () => {
       window.addEventListener(
         'scroll',
         function () {
           // or window.addEventListener("scroll"....
-          var st = window.pageYOffset || document.documentElement.scrollTop // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
+          var st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
           if (st > scollPos.value) {
             // downscroll code
-            show.value = false
+            show.value = false;
             // console.log('down')
             console.log('hello world');
           } else if (st < scollPos.value) {
             // upscroll code
-            show.value = true
+            show.value = true;
             // console.log('Up')
           } // else was horizontal scroll
-          scollPos.value = st <= 0 ? 0 : st // For Mobile or negative scrolling
+          scollPos.value = st <= 0 ? 0 : st; // For Mobile or negative scrolling
         },
         false
-      )
-    }
+      );
+    };
 
     return {
       menuItems,
       show
-    }
+    };
   }
-}
+};
 </script>
 
 <template lang="pug">
@@ -69,34 +69,34 @@ nav.floating-menu(:class="{ active: show }")
 
 <style lang="scss">
 .floating-menu {
-  position: fixed;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  padding: 15px;
-  border-radius: 20px 20px 0 0;
-  overflow: hidden;
-  background-color: #ffffff;
-  transform: translateY(100%);
-  transition: transform 0.4s ease-in-out;
+    position: fixed;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 15px;
+    border-radius: 20px 20px 0 0;
+    overflow: hidden;
+    background-color: #ffffff;
+    transform: translateY(100%);
+    transition: transform 0.4s ease-in-out;
 
-  &.active{
-    transform: translateY(0);
-  }
+    &.active {
+        transform: translateY(0);
+    }
 
-  ul{
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    display: flex;
-    gap: 10px;
-    align-items: center;
-    justify-content: center;
-    width: 100%;
-  }
+    ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: flex;
+        gap: 10px;
+        align-items: center;
+        justify-content: center;
+        width: 100%;
+    }
 
-  ul a{
-    text-decoration: none;
-  }
+    ul a {
+        text-decoration: none;
+    }
 }
 </style>

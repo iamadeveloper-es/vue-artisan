@@ -1,37 +1,36 @@
 <script lang="ts">
-
-import { type Ref, ref } from 'vue'
-import AppAvatar from '../index.vue'
-import { IAvatar } from '../IAvatar'
+import { type Ref, ref } from 'vue';
+import AppAvatar from '../index.vue';
+import { IAvatar } from '../IAvatar';
 
 export default {
-    name: 'app-avatar-demo',
-    components: {AppAvatar},
-    setup(){
-        const avatarInfo1: Ref<IAvatar> = ref({
-            name: 'Roberto Vaquero',
-            img: 'avatar.jpg',
-        })
+  name: 'app-avatar-demo',
+  components: { AppAvatar },
+  setup () {
+    const avatarInfo1: Ref<IAvatar> = ref({
+      name: 'Roberto Vaquero',
+      img: 'avatar.jpg'
+    });
 
-        const avatarInfo2: Ref<IAvatar>= ref({
-            name: 'Daniel verdú',
-            img: 'avatar.jpg',
-        })
+    const avatarInfo2: Ref<IAvatar> = ref({
+      name: 'Daniel verdú',
+      img: 'avatar.jpg'
+    });
 
-        const message = ref('')
+    const message = ref('');
 
-        const handleEvent = (ev: Event) => {
-            message.value = avatarInfo1.value.name
-        }
+    const handleEvent = () => {
+      message.value = avatarInfo1.value.name;
+    };
 
-        return{
-            avatarInfo1,
-            avatarInfo2,
-            message,
-            handleEvent
-        }
-    }
-}
+    return {
+      avatarInfo1,
+      avatarInfo2,
+      message,
+      handleEvent
+    };
+  }
+};
 </script>
 
 <template lang="pug">
@@ -53,21 +52,19 @@ export default {
 </template>
 
 <style lang="scss">
-.app-avatar-demo{
+.app-avatar-demo {
     display: flex;
     align-items: flex-start;
     gap: 50px;
 
-    .flex{
-
+    .flex {
         display: flex;
         align-items: center;
     }
-    p{
-        margin: .3rem;
-        margin-left: .7rem;
+    p {
+        margin: 0.3rem;
+        margin-left: 0.7rem;
         display: block;
     }
-    
 }
 </style>

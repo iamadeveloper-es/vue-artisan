@@ -1,21 +1,19 @@
 <script lang="ts">
-
-import { ref } from 'vue'
-import AppInputField from '../index.vue'
+import { ref } from 'vue';
+import AppInputField from '../index.vue';
 
 export default {
   name: 'app-input-field-demo',
-  components: {AppInputField},
-  setup(){
-
+  components: { AppInputField },
+  setup () {
     const inputs = ref([
       {
         value: 'Texto de ejemplo',
         name: 'input-text',
-        label: 'Input con label flotante',
+        label: 'Input con label outlined',
         placeholder: 'Escribe algo...',
         maxlength: 20,
-        floatingLabel: true
+        outlinedLabel: true
       },
       {
         value: '',
@@ -61,25 +59,25 @@ export default {
         placeholder: 'Escribe algo...',
         floatingLabel: true
       }
-    ])
+    ]);
 
     const handleOnFocus = (ev: Event) => {
-      console.log('onFocus')
-      console.log(ev)
-    }
+      console.log('onFocus');
+      console.log(ev);
+    };
 
     const handleOnBlur = (ev: Event) => {
-      console.log('onBlur')
-      console.log(ev)
-    }
+      console.log('onBlur');
+      console.log(ev);
+    };
 
-    return{
+    return {
       inputs,
       handleOnFocus,
       handleOnBlur
-    }
+    };
   }
-}
+};
 </script>
 
 <template lang="pug">
@@ -91,6 +89,7 @@ export default {
     :label="item.label",
     :placeholder="item.placeholder", 
     :floatingLabel="item.floatingLabel",
+    :outlinedLabel="item.outlinedLabel"
     :borderBottom="item.borderBottom", 
     :min="item.min"
     :max="item.max"
@@ -103,9 +102,9 @@ export default {
 </template>
 
 <style lang="scss">
-.app-input-field-demo{
-  .app-input-field{
-    margin-top: 2rem;
-  }
+.app-input-field-demo {
+    .app-input-field {
+        margin-top: 2rem;
+    }
 }
 </style>
