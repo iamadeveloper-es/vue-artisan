@@ -5,4 +5,4 @@ interface IAvatar {
     size?: Number
 }
 
-export type { IAvatar }
+export type { IAvatar };
