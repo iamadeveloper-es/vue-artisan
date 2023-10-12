@@ -5,7 +5,7 @@ export default {
   name: 'app-image-demo',
   components: { AppImage },
   setup () {
-    const src = 'src/assets/images/vue.jpg';
+    const src = '/src/assets/images/vue.jpg';
     return {
       src
     };

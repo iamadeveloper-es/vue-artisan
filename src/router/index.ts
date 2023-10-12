@@ -29,6 +29,12 @@ import AppSnackbar from '../components/molecules/app-snackbar/demo/index.vue';
 import AppAccordion from '../components/molecules/app-accordion/demo/index.vue';
 import AppChip from '../components/molecules/app-chip/demo/index.vue';
 import AppBreadcrumbs from '../components/molecules/app-breadcrumbs/demo/index.vue';
+import AppDropdown from '../components/molecules/app-dropdown/demo/index.vue';
+
+//Cells
+import AppCardRadio from '../components/cells/app-card-radio/demo/index.vue';
+import AppPagination from '../components/cells/app-pagination/demo/index.vue';
+
 //Organisms
 import floatingMenu from '../components/organisms/floating-menu/demo/index.vue';
 
@@ -161,13 +167,30 @@ const router = createRouter({
           path: '/app-breadcrumbs',
           name: 'APP_BREADCRUMBS',
           component: AppBreadcrumbs
+        },
+        {
+          path: '/app-dropdown',
+          name: 'APP_DROPDOWN',
+          component: AppDropdown
         }
       ]
     },
     {
       path: '/cells',
       name: 'CELLS',
-      component: ComponentView
+      component: ComponentView,
+      children: [
+        {
+          path: '/app-card-radio',
+          name: 'APP_CARD_RADIO',
+          component: AppCardRadio
+        },
+        {
+          path: '/app-pagination',
+          name: 'APP_PAGINATION',
+          component: AppPagination
+        }
+      ]
     },
     {
       path: '/organisms',

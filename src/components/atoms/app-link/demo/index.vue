@@ -28,17 +28,21 @@ export default {
       },
       {
         path: '/test/:2',
-        text: 'Link 4 con icono arriba',
+        text: 'Link 4 con icono abajo',
         icon: icon,
         iconPosition: 'top'
       },
       {
         path: '/test/:3',
         query: { shoping: 123 },
-        text: 'Link 5 con icono abajo',
+        text: 'Link 5 con icono arriba',
         icon: icon,
         iconPosition: 'bottom'
-      }
+      },
+      {
+        path: '/test/:1',
+        icon: icon
+      },
     ]);
 
     return {

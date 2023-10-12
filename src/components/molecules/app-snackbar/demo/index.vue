@@ -8,6 +8,7 @@ export default {
   setup () {
     const snackbar = ref(null);
     const snackbar2 = ref(null);
+    const snackbar3 = ref(null);
 
     const handleSnackbar = () => {
       snackbar.value?.show();
@@ -17,11 +18,17 @@ export default {
       snackbar2.value?.show();
     };
 
+    const handleSnackbar3 = () => {
+      snackbar3.value?.show();
+    };
+
     return {
       snackbar,
       snackbar2,
+      snackbar3,
       handleSnackbar,
-      handleSnackbar2
+      handleSnackbar2,
+      handleSnackbar3
     };
   }
 };
@@ -29,7 +36,8 @@ export default {
 
 <template lang="pug">
 button(@click="handleSnackbar") Mostrar snackbar
-button(@click="handleSnackbar2") Mostrar snackbar con icono
+button(@click="handleSnackbar2") Mostrar snackbar arriba
+button(@click="handleSnackbar3") Mostrar snackbar con icono
 app-snackbar(
 ref="snackbar", 
 :duration="5") 
@@ -38,6 +46,13 @@ ref="snackbar",
 
 app-snackbar(
 ref="snackbar2", 
+:duration="5", 
+position="top") 
+    template(#body)
+        p Lorem ipsum dolor sit amet consectetur adipisicing elit. Sed soluta magni unde.
+
+app-snackbar(
+ref="snackbar3", 
 :hasIcon="true") 
     template(#body)
         p Soy un snackbar con un icono :)

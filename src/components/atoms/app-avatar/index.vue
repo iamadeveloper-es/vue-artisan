@@ -1,7 +1,7 @@
 <script lang="ts">
 import { computed, type PropType } from 'vue';
-import { useImageFunctions } from '../../../composables/image-functions.ts';
-import { IAvatar } from '../IAvatar';
+import { useImageFunctions } from '../../../composables/image-functions';
+import type { IAvatar } from './IAvatar';
 
 export default {
   name: 'app-avatar',

@@ -27,6 +27,10 @@ export default {
     },
     duration: {
       type: Number
+    },
+    position: {
+      type: String,
+      default: 'bottom'
     }
   },
   setup (props, context) {
@@ -71,7 +75,8 @@ export default {
 
 <template lang="pug">
 transition(name="fade")
-    .app-snackbar(v-show="isVisible")
+    .app-snackbar(v-show="isVisible", 
+    :class="`app-snackbar--${position}`")
         .app-snackbar__header
             app-icon(
             v-if="hasIcon"

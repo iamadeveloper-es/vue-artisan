@@ -1,7 +1,7 @@
 <script lang="ts">
 import { type Ref, ref } from 'vue';
 import AppAvatar from '../index.vue';
-import { IAvatar } from '../IAvatar';
+import type { IAvatar } from '../IAvatar';
 
 export default {
   name: 'app-avatar-demo',
