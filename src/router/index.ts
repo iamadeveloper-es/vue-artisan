@@ -30,6 +30,7 @@ import AppAccordion from '../components/molecules/app-accordion/demo/index.vue';
 import AppChip from '../components/molecules/app-chip/demo/index.vue';
 import AppBreadcrumbs from '../components/molecules/app-breadcrumbs/demo/index.vue';
 import AppDropdown from '../components/molecules/app-dropdown/demo/index.vue';
+import AppRange from '../components/molecules/app-range/demo/index.vue';
 
 //Cells
 import AppCardRadio from '../components/cells/app-card-radio/demo/index.vue';
@@ -172,6 +173,11 @@ const router = createRouter({
           path: '/app-dropdown',
           name: 'APP_DROPDOWN',
           component: AppDropdown
+        },
+        {
+          path: '/app-range',
+          name: 'APP_RANGE',
+          component: AppRange
         }
       ]
     },
