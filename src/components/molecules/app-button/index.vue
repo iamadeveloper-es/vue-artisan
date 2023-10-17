@@ -9,7 +9,7 @@ export default {
   props: {
     text: {
       type: String,
-      default: 'Button'
+      default: ''
     },
     type: {
       type: String,
@@ -83,7 +83,7 @@ button.app-button(
     span.app-button--pointers-none {{ text }}
     app-icon(
     v-if="hasIcon",
-    :icon="icon",
+    :icon="[icon, ({'has-text' : text.length})]",
     :size="iconSize", 
     :variant="iconVariant")
 </template>

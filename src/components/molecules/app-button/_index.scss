@@ -39,6 +39,9 @@
 
     .app-icon {
         color: currentColor;
-        margin-left: 0.75rem;
+        
+        &.has-text{
+            margin-left: 0.75rem;
+        }
     }
 }
