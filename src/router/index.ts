@@ -36,6 +36,7 @@ import AppRange from '../components/molecules/app-range/demo/index.vue';
 import AppCardRadio from '../components/cells/app-card-radio/demo/index.vue';
 import AppPagination from '../components/cells/app-pagination/demo/index.vue';
 import AppStepper from '../components/cells/app-stepper/demo/index.vue';
+import AppSidebar from '../components/cells/app-sidebar/demo/index.vue';
 
 //Organisms
 import floatingMenu from '../components/organisms/floating-menu/demo/index.vue';
@@ -201,6 +202,11 @@ const router = createRouter({
           path: '/app-stepper',
           name: 'APP_STEPPER',
           component: AppStepper
+        },
+        {
+          path: '/app-sidebar',
+          name: 'APP_SIDEBAR',
+          component: AppSidebar
         }
       ]
     },
