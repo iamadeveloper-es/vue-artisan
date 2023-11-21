@@ -1,4 +1,13 @@
 .app-input-field {
+
+    &--label-top{
+        flex-direction: column;
+    }
+
+    &--label-bottom{
+        flex-direction: column-reverse;
+    }
+
     .app-input-icon {
         font-size: 1.2rem;
         position: absolute;

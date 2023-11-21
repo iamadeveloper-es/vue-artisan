@@ -10,6 +10,7 @@ export default {
   setup () {
     const selected = ref('');
     const selected2 = ref('');
+    const selected3 = ref('');
     const options = [
       {
         value: 'opcion1',
@@ -23,6 +24,33 @@ export default {
         value: 'opcion3',
         text: 'Opción 3',
         selected: true
+      },
+      {
+        value: 'opcion4',
+        text: 'Opción 4',
+        disabled: true
+      }
+    ];
+
+    const options2 = [
+      {
+        value: '',
+        text: 'Opción por defecto',
+        selected: true, 
+        disabled: true,
+        hidden: true,
+      },
+      {
+        value: 'opcion1',
+        text: 'Opción 1'
+      },
+      {
+        value: 'opcion2',
+        text: 'Opción 2'
+      },
+      {
+        value: 'opcion3',
+        text: 'Opción 3'
       },
       {
         value: 'opcion4',
@@ -45,7 +73,9 @@ export default {
     return {
       selected,
       selected2,
-      options
+      selected3,
+      options,
+      options2
     };
   }
 };
@@ -55,17 +85,24 @@ export default {
 .app-select-demo 
     app-select(
     :options="options"
-    name="select-option",
+    name="select-option-1",
     label="Selecciona una opción", 
     :floatingLabel="true",
     v-model="selected")
 
     app-select(
     :options="options"
-    name="select-option",
+    name="select-option-2",
     label="Selecciona una opción", 
     :outlinedLabel="true",
     v-model="selected2")
+
+    app-select(
+    :options="options2"
+    name="select-option-3",
+    label="Selecciona una opción", 
+    :floatingLabel="true",
+    v-model="selected3")
 </template>
 
 <style lang="scss">

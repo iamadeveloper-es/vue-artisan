@@ -77,7 +77,7 @@ export default {
 
 <template lang="pug">
 .app-select.form-field-wrapper(
-:class="{'is-focused': outlinedLabel || floatingLabel}"
+:class="{'is-focused': outlinedLabel && modelValue || floatingLabel && modelValue}"
 )
     select.app-input(@change="emitValue", 
     :id="id",
@@ -91,9 +91,10 @@ export default {
     :class="{'b-bottom': borderBottom, 'disabled': disabled}")
         option(v-for="(option, index) in options", 
         :key="option", 
-        :value="option.value"
-        :selected="option.selected"
-        :disabled="option.disabled"
+        :value="option.value",
+        :selected="option.selected",
+        :disabled="option.disabled",
+        :hidden="option.hidden"
         ) {{ option.text }}
     label.app-label(
     :for="id",

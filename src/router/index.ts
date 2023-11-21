@@ -40,6 +40,7 @@ import AppSidebar from '../components/cells/app-sidebar/demo/index.vue';
 
 //Organisms
 import floatingMenu from '../components/organisms/floating-menu/demo/index.vue';
+import AppSlider from '../components/organisms/app-slider/demo/index.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -219,6 +220,11 @@ const router = createRouter({
           path: '/floating-menu',
           name: 'FLOATING_MENU',
           component: floatingMenu
+        },
+        {
+          path: '/app-slider',
+          name: 'APP_SLIDER',
+          component: AppSlider
         }
       ]
     }

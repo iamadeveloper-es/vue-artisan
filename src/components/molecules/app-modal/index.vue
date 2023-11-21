@@ -18,6 +18,23 @@ export default {
     closeIcon: {
       type: Array,
       default: () => ['fa-regular', 'fa-circle-xmark']
+    },
+    headerClass: {
+      type: [Array, String]
+    },
+    bodyClass: {
+      type: [Array, String]
+    },
+    footerClass: {
+      type: [Array, String]
+    },
+    headerSticky: {
+      type: Boolean,
+      default: true
+    },
+    footerSticky: {
+      type: Boolean,
+      default: true
     }
   },
   setup (props, context) {
@@ -61,17 +78,24 @@ transition(:name="transition")
         v-show="isModalVisible")
         .app-modal__content(data-dismiss="modal")
             .app-modal-dialog
-                .app-modal-dialog__header
+                .app-modal-dialog__header(
+                :class="headerClass, {'sticky' : headerSticky}")
                     slot(name="header")
-                    button(
+                    app-button(
                     v-if="backDrop", 
                     data-dismiss="modal",
                     class="app-modal-dialog__close" 
                     :class="closeIcon",  
                     @click="hide($event)")
-                .app-modal-dialog__body(v-if="hasSlot('body')")
+                .app-modal-dialog__full(v-if="hasSlot('full')")
+                  slot(name="full")
+                .app-modal-dialog__body(
+                v-if="hasSlot('body')", 
+                :class="bodyClass")
                     slot(name="body")
-                .app-modal-dialog__footer(v-if="hasSlot('footer')")
+                .app-modal-dialog__footer(
+                v-if="hasSlot('footer')", 
+                :class="footerClass, {'sticky' : footerSticky}")
                     slot(name="footer")
 </template>
 

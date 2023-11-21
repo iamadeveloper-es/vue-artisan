@@ -8,81 +8,103 @@ export default {
   components: { AppCheckbox },
 
   setup () {
-    const checkboxConfig = ref({
+
+    const checkboxesConfig = ref([
+      {
+        color: 'info',
+        label: 'User Jhon',
+        value: 'Jhon'
+      },
+      {
+        color: 'success',
+        label: 'User pepe',
+        value: 'Pepe'
+      }
+    ]);
+
+    const checkboxesConfig2 = ref({
       color: 'info',
-      label: 'User Jhon'
+      label: 'User Jhon',
     });
 
-    const checkboxConfig2 = ref({
-      color: 'success',
-      label: 'User pepe'
-    });
-
-    const inputVal = ref({
-      status: false,
-      val: 'Jhon'
-    });
-
-    const inputVal2 = ref({
-      status: true,
-      val: 'Pepe'
-    });
-
-    const handleChangeEvent = (ev) => {
-      if (ev.target.checked) {
-        inputVal.value = {
-          status: true,
-          val: 'Jhon'
-        };
-      } else {
-        inputVal.value = {
-          status: false,
-          val: ''
-        };
+    const checkboxesConfig3 = ref([
+      {
+        color: 'info',
+        label: 'User Jhon',
+        value: {
+          name: 'Jhon',
+          age: 25,
+        }
+      },
+      {
+        color: 'success',
+        label: 'User pepe',
+        value: {
+          name: 'Pepe',
+          age: 45,
+        }
+      },
+      {
+        color: 'primary',
+        label: 'User otro',
+        value: {
+          name: 'Otro',
+          age: 37,
+        }
       }
-    };
+    ]);
 
-    const handleChangeEvent2 = (ev) => {
-      if (ev.target.checked) {
-        inputVal2.value = {
-          status: true,
-          val: 'Pepe'
-        };
-      } else {
-        inputVal2.value = {
-          status: false,
-          val: ''
-        };
+    const inputVal = ref(['Jhon']);
+    const inputVal2 = ref(true);
+    const inputVal3 = ref([
+      {
+        name: 'Pepe',
+        age: 45,
+      },
+      {
+        name: 'Otro',
+        age: 37,
       }
-    };
+    ]);
 
     return {
       inputVal,
       inputVal2,
-      checkboxConfig,
-      checkboxConfig2,
-      handleChangeEvent,
-      handleChangeEvent2
+      inputVal3,
+      checkboxesConfig,
+      checkboxesConfig2,
+      checkboxesConfig3
     };
   }
 };
 </script>
 
 <template lang="pug">
+h4 Multiple: {{ inputVal }}
 app-checkbox(
-:activeColor="checkboxConfig.color"
-:disabled="checkboxConfig.disabled"
-:label="checkboxConfig.label"
-v-model="inputVal"
-@onChange="handleChangeEvent")
+v-for="(item, index) in checkboxesConfig",
+:key="index",
+:activeColor="item.color",
+:label="item.label"
+:value="item.value",
+v-model="inputVal")
 
+hr
+
+h4 Boleano: {{ inputVal2 }}
 app-checkbox(
-:activeColor="checkboxConfig2.color"
-:disabled="checkboxConfig2.disabled"
-:label="checkboxConfig2.label"
-v-model="inputVal2"
-@onChange="handleChangeEvent2")
-  template(#label)
-    span Esto es un label con un 
-      router-link(to="/app-radio") Link
+:activeColor="checkboxesConfig2.color"
+:label="checkboxesConfig2.label"
+v-model="inputVal2")
+
+hr
+
+h4 Multiple object value: {{ inputVal3 }}
+app-checkbox(
+v-for="(item, index) in checkboxesConfig3",
+:key="index",
+:activeColor="item.color"
+:label="item.label"
+:value="item.value",
+v-model="inputVal3")
 </template>

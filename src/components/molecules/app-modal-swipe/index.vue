@@ -1,7 +1,7 @@
 <script lang="ts">
 import { useCommonFunctions } from '@/composables/common-functions';
 import { useDeviceFunctions } from '@/composables/device-functions';
-import { computed, type Ref, ref, watch } from 'vue';
+import { computed, type Ref, ref, watch, onUnmounted } from 'vue';
 
 export default {
   name: 'app-modal-swipe',
@@ -129,6 +129,12 @@ export default {
         }
       });
     };
+
+    onUnmounted(() => {
+      bodyBlocked();
+      transformPos.value = 0;
+      isModalVisible.value = false;
+    });
 
     return {
       modalSwipe,

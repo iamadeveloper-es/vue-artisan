@@ -33,6 +33,32 @@
         width: 100%;
     }
 
+    &--icon-right{
+        flex-direction: row;
+    }
+
+    &--icon-left{
+        flex-direction: row-reverse;
+    }
+
+    &--round-regular{
+        border-radius: 100%;
+        min-width: 45px;
+        min-height: 45px;
+    }
+
+    &--round-medium{
+        border-radius: 100%;
+        min-width: 50px;
+        min-height: 50px;
+    }
+
+    &--round-big{
+        border-radius: 100%;
+        min-width: 60px;
+        min-height: 60px;
+    }
+
     &--pointers-none {
         pointer-events: none;
     }
@@ -40,7 +66,11 @@
     .app-icon {
         color: currentColor;
         
-        &.has-text{
+        &.has-text-right{
+            margin-right: 0.75rem;
+        }
+
+        &.has-text-left{
             margin-left: 0.75rem;
         }
     }

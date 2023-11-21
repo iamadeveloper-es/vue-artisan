@@ -65,6 +65,10 @@ export default {
       type: Boolean,
       default: false
     },
+    labelPosition: {
+      type: String,
+      default: 'top'
+    },
     icon: {
       type: Array,
       default: () => ['fa-regular', 'fa-circle-xmark']
@@ -78,6 +82,11 @@ export default {
 
     const passwordIcon = computed(() => {
       return inputType.value === 'password' ? '' : 'fa-eye';
+    });
+
+    const setLabelPosition = computed(() => {
+      return !props.floatingLabel && !props.outlinedLabel ?
+        `app-input-field--label-${props.labelPosition}` : '';
     });
 
     const emitValue = (ev: Event) => {
@@ -128,6 +137,7 @@ export default {
       isFocused,
       inputType,
       passwordIcon,
+      setLabelPosition,
       emitValue,
       emitFocus,
       emitBlur,
@@ -138,7 +148,8 @@ export default {
 </script>
 
 <template lang="pug">
-.app-input-field.form-field-wrapper(:class="{'is-focused': (floatingLabel || outlinedLabel) && isFocused}")
+.app-input-field.form-field-wrapper(
+:class="{'is-focused': (floatingLabel || outlinedLabel) && isFocused}, setLabelPosition")
   label.app-label(v-if="label", 
   :class="{'accesible-hidden' : !showLabel, 'label-float' : floatingLabel, 'label-outlined' : outlinedLabel}", 
   :for="id") {{ label }}
@@ -161,6 +172,7 @@ export default {
   @focus="emitFocus",
   @blur="emitBlur")
   span.app-input-icon(v-if="modelValue.length && icon.length", 
+  role="button",
   @click="iconAction", 
   :class="icon, {'icon-float': floatingLabel || outlinedLabel}")
 </template>

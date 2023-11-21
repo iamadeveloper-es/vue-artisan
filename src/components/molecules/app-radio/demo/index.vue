@@ -9,6 +9,10 @@ export default {
 
   setup () {
     const selectedValue = ref('blue');
+    const selectedValue2 = ref({
+      name: 'red',
+      age: 4
+    });
     const radioColors = ref([
       {
         color: 'info',
@@ -28,21 +32,46 @@ export default {
       }
     ]);
 
-    const handleChangeEvent = (ev: Event) => {
-      const target = ev.target as HTMLInputElement;
-      selectedValue.value = target.value;
-    };
+    const radioColors2 = ref([
+      {
+        color: 'info',
+        val: {
+          name: 'red',
+          age: 4
+        },
+        label: 'Color Red'
+      },
+      {
+        color: 'danger',
+        val: {
+          name: 'blue',
+          age: 44
+        },
+        label: 'Color Blue'
+      },
+      {
+        color: 'primary',
+        val: {
+          name: 'green',
+          age: 14
+        },
+        label: 'Color Green',
+        customLabel: true
+      }
+    ]);
 
     return {
-      radioColors,
       selectedValue,
-      handleChangeEvent
+      selectedValue2,
+      radioColors,
+      radioColors2
     };
   }
 };
 </script>
 
 <template lang="pug">
+h4 Multiple: {{ selectedValue }}
 app-radio(
 v-for="item in radioColors",  
 :key="item.val"
@@ -51,10 +80,19 @@ v-for="item in radioColors",
 :label="item.label"
 :value="item.val"
 name="test"
-v-model="selectedValue"
-@onChange="handleChangeEvent")
+v-model="selectedValue")
   template(v-if="item.customLabel", #label)
       span Esto es un label con un 
         router-link(to="/app-checkbox") Link
-p Valor seleccionado: {{ selectedValue }}
+
+h4 Multiple object value: {{ selectedValue2 }}
+app-radio(
+v-for="item in radioColors2",  
+:key="item.val"
+:activeColor="item.color"
+:disabled="item.disabled"
+:label="item.label"
+:value="item.val"
+name="test2"
+v-model="selectedValue2")
 </template>

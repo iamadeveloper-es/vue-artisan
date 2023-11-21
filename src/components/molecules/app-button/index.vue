@@ -36,6 +36,10 @@ export default {
     iconVariant: {
       type: String
     },
+    iconPosition: {
+      type: String,
+      default: 'right'
+    },
     disableRipple: {
       type: Boolean,
       default: false
@@ -56,6 +60,12 @@ export default {
         : `app-button--${variant}`;
     });
 
+    const getIconPosition = computed(() => {
+      return props.text.length && props.iconPosition === 'left' ?
+        'has-text-right' : props.text.length && props.iconPosition === 'right' ? 
+          'has-text-left' : '';
+    });
+
     const emitEvent = (ev: Event): void => {
       if (!props.disableRipple) {
         rippleEffect(ev, button.value);
@@ -67,6 +77,7 @@ export default {
       button,
       hasIcon,
       getVariant,
+      getIconPosition,
       emitEvent
     };
   }
@@ -77,13 +88,13 @@ export default {
 button.app-button(
   ref="button"
   :type="type", 
-  :class="cClass, getVariant", 
+  :class="cClass, getVariant, `app-button--icon-${iconPosition}`", 
   :disabled="disabled", 
   @click="emitEvent")
     span.app-button--pointers-none {{ text }}
     app-icon(
     v-if="hasIcon",
-    :icon="[icon, ({'has-text' : text.length})]",
+    :icon="[icon, getIconPosition]",
     :size="iconSize", 
     :variant="iconVariant")
 </template>
