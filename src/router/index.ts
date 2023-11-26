@@ -1,5 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
-import ComponentView from '../views/component-view.vue';
+import ComponentView from '../views/component-view/index.vue';
 
 //TODO: Borrar esta línea, la ruta y el componente test.vue
 import AppTest from '../components/test.vue';
