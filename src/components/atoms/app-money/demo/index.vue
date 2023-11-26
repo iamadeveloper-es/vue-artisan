@@ -1,6 +1,6 @@
 <script lang="ts">
 export default {
-    name: 'app-money-demo'
+  name: 'app-money-demo'
 };
 </script>
 <script setup lang="ts">
@@ -9,29 +9,29 @@ import AppMoney from '../index.vue';
 
 const amount = 1475.56;
 const moneyModels: Object = ref([
-    {
-        desc: 'US Dollar model',
-        lang: 'en-US',
-        amount: amount,
-        currency: 'USD'
-    },
-    {
-        desc: 'Euro model',
-        amount: amount,
-        currency: 'EUR'
-    },
-    {
-        desc: 'Pound model',
-        lang: 'en-GB',
-        amount: amount,
-        currency: 'GBP'
-    },
-    {
-        desc: 'Yen model',
-        lang: 'ja-JP',
-        amount: amount,
-        currency: 'JPY'
-    }
+  {
+    desc: 'US Dollar model',
+    lang: 'en-US',
+    amount: amount,
+    currency: 'USD'
+  },
+  {
+    desc: 'Euro model',
+    amount: amount,
+    currency: 'EUR'
+  },
+  {
+    desc: 'Pound model',
+    lang: 'en-GB',
+    amount: amount,
+    currency: 'GBP'
+  },
+  {
+    desc: 'Yen model',
+    lang: 'ja-JP',
+    amount: amount,
+    currency: 'JPY'
+  }
 ]);
 </script>
 

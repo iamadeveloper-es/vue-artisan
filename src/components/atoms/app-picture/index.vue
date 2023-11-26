@@ -1,15 +1,15 @@
 <script lang="ts">
 export default {
-    name: 'app-picture'
+  name: 'app-picture'
 };
 </script>
 <script setup lang="ts">
 
 defineProps({
-    src: {
-        type: String,
-        required: true
-    }
+  src: {
+    type: String,
+    required: true
+  }
 });
 </script>
 

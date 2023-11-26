@@ -1,6 +1,6 @@
 <script lang="ts">
 export default {
-    name: 'app-modal-swipe-demo'
+  name: 'app-modal-swipe-demo'
 };
 </script>
 
@@ -14,15 +14,15 @@ const modal2 = ref(null);
 const modal3 = ref(null);
 
 const showModal1 = () => {
-    modal1.value?.show();
+  modal1.value?.show();
 };
 
 const showModal2 = () => {
-    modal2.value?.show();
+  modal2.value?.show();
 };
 
 const showModal3 = () => {
-    modal3.value?.show();
+  modal3.value?.show();
 };
 </script>
 

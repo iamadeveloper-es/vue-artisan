@@ -1,6 +1,6 @@
 <script lang="ts">
 export default {
-    name: 'app-card-radio-demo'
+  name: 'app-card-radio-demo'
 };
 </script>
 <script setup lang="ts">
@@ -10,8 +10,8 @@ import { ref } from 'vue';
 const cardSelected = ref('item1');
 
 const handleChangeEvent = (ev: Event) => {
-    const target = ev.target as HTMLInputElement;
-    cardSelected.value = target.value;
+  const target = ev.target as HTMLInputElement;
+  cardSelected.value = target.value;
 };
 </script>
 

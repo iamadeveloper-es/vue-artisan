@@ -1,6 +1,6 @@
 <script lang="ts">
 export default {
-    name: 'app-checkbox'
+  name: 'app-checkbox'
 };
 </script>
 <script setup lang="ts">
@@ -8,25 +8,25 @@ import { computed, onMounted, type Ref, ref, useSlots } from 'vue';
 import { useComponentFunctions } from '../../../composables/component-functions';
 
 const props = defineProps({
-    modelValue: {
-        type: [Array, Boolean]
-    },
-    disabled: {
-        type: Boolean,
-        default: false
-    },
-    value: {
-        type: [String, Number, Boolean, Object],
-        default: false
-    },
-    label: {
-        type: String,
-        default: 'Checkbox label'
-    },
-    activeColor: {
-        type: String,
-        default: 'primary'
-    }
+  modelValue: {
+    type: [Array, Boolean]
+  },
+  disabled: {
+    type: Boolean,
+    default: false
+  },
+  value: {
+    type: [String, Number, Boolean, Object],
+    default: false
+  },
+  label: {
+    type: String,
+    default: 'Checkbox label'
+  },
+  activeColor: {
+    type: String,
+    default: 'primary'
+  }
 });
 const { randomId } = useComponentFunctions();
 const id = ref('');
@@ -35,40 +35,40 @@ const isChecked: Ref<boolean> = ref(false);
 const slots = useSlots();
 
 const setActiveColor = computed(() => {
-    return `app-check-radio__icon--${props.activeColor}`;
+  return `app-check-radio__icon--${props.activeColor}`;
 });
 
 const hasSlot = computed(() => {
-    return !!slots['label'];
+  return !!slots['label'];
 });
 
 const emit = defineEmits(['update:modelValue']);
 
 const model = computed({
-    get () {
-        return props.modelValue;
-    },
-    set (value) {
-        emit('update:modelValue', value);
-    },
+  get () {
+    return props.modelValue;
+  },
+  set (value) {
+    emit('update:modelValue', value);
+  },
 });
 
 const isSelected = computed(() => {
-    return isChecked.value;
+  return isChecked.value;
 });
 
 const emitValue = (ev: Event) => {
-    const target = ev.target as HTMLInputElement;
-    isChecked.value = target.checked;
+  const target = ev.target as HTMLInputElement;
+  isChecked.value = target.checked;
 };
 
 const configComponent = () => {
-    id.value = randomId();
-    isChecked.value = checkboxRef.value?.checked;
+  id.value = randomId();
+  isChecked.value = checkboxRef.value?.checked;
 };
 
 onMounted(() => {
-    configComponent();
+  configComponent();
       
 });
 </script>

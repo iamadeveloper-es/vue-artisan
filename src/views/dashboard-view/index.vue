@@ -1,6 +1,6 @@
 <script lang="ts">
 export default {
-    name: 'dashboard-view'
+  name: 'dashboard-view'
 };
 </script>
 
@@ -14,34 +14,34 @@ const route = useRoute();
 const routes = router.options.routes;
 
 const capitalizeFirstChar = (str: string): string => {
-    const firstLetter = str.charAt(0).toUpperCase();
-    const text = str.slice(1).toLowerCase().replaceAll('_', ' ');
-    return `${firstLetter}${text}`;
+  const firstLetter = str.charAt(0).toUpperCase();
+  const text = str.slice(1).toLowerCase().replaceAll('_', ' ');
+  return `${firstLetter}${text}`;
 };
 
 const showHideMenuItems = (routeName) => {
-    const menuItems = document.querySelectorAll('.app-menu li span[data-id]');
-    menuItems.forEach((element) => {
-        const dataId = element.getAttribute('data-id');
-        if (dataId !== routeName) {
-            element.classList.remove('active');
-            element.nextElementSibling?.classList.remove('active');
-        } else {
-            element.classList.toggle('active');
-            element.nextElementSibling?.classList.toggle('active');
-        }
-    });
+  const menuItems = document.querySelectorAll('.app-menu li span[data-id]');
+  menuItems.forEach((element) => {
+    const dataId = element.getAttribute('data-id');
+    if (dataId !== routeName) {
+      element.classList.remove('active');
+      element.nextElementSibling?.classList.remove('active');
+    } else {
+      element.classList.toggle('active');
+      element.nextElementSibling?.classList.toggle('active');
+    }
+  });
 };
 
 const currentRouteName = computed(() => {
-    return route.name;
+  return route.name;
 });
 
 onMounted(() => {
-    console.log(route);
-    setTimeout(() => {
-        showHideMenuItems(route.matched[0]?.name);
-    }, 100);
+  console.log(route);
+  setTimeout(() => {
+    showHideMenuItems(route.matched[0]?.name);
+  }, 100);
 });
 </script>
 

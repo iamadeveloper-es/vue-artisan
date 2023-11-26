@@ -1,6 +1,6 @@
 <script lang="ts">
 export default {
-    name: 'app-picture-demo'
+  name: 'app-picture-demo'
 };
 </script>
 <script setup lang="ts">

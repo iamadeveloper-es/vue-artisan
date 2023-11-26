@@ -1,6 +1,6 @@
 <script lang="ts">
 export default {
-    name: 'app-chip-demo'
+  name: 'app-chip-demo'
 };
 </script>
 <script setup lang="ts">

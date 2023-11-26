@@ -1,6 +1,6 @@
 <script lang="ts">
 export default {
-    name: 'app-progress-demo'
+  name: 'app-progress-demo'
 };
 </script>
 <script setup lang="ts">
@@ -10,7 +10,7 @@ import { ref } from 'vue';
 
 const progressValue = ref(0);
 const handleEvent = () => {
-    progressValue.value = 100;
+  progressValue.value = 100;
 };
 </script>
 

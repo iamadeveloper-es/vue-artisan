@@ -1,19 +1,19 @@
 <script lang="ts">
 export default {
-    name: 'app-sidebar'
+  name: 'app-sidebar'
 };
 </script>
 <script setup lang="ts">
 
 defineProps({
-    show: {
-        type: Boolean,
-        default: false
-    },
-    showLeft: {
-        type: Boolean,
-        default: true
-    }
+  show: {
+    type: Boolean,
+    default: false
+  },
+  showLeft: {
+    type: Boolean,
+    default: true
+  }
 });
 
 </script>

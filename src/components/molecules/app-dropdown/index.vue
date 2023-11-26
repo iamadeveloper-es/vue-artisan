@@ -1,6 +1,6 @@
 <script lang="ts">
 export default {
-    name: 'app-dropdown-demo'
+  name: 'app-dropdown-demo'
 };
 </script>
 <script setup lang="ts">
@@ -8,18 +8,18 @@ import { ref } from 'vue';
 import AppLink from '../../atoms/app-link/index.vue';
 
 defineProps({
-    title: {
-        type: String,
-        required: true
-    },
-    items: {
-        type: Array,
-        required: true
-    },
-    showDirection: {
-        type: String,
-        default: 'bottom'
-    }
+  title: {
+    type: String,
+    required: true
+  },
+  items: {
+    type: Array,
+    required: true
+  },
+  showDirection: {
+    type: String,
+    default: 'bottom'
+  }
 });
 const showMenu = ref(false);
 
@@ -28,11 +28,11 @@ const showMenu = ref(false);
 // };
 
 const hide = () => {
-    showMenu.value = false;
+  showMenu.value = false;
 };
 
 const toogleShow = () => {
-    showMenu.value = !showMenu.value;
+  showMenu.value = !showMenu.value;
 };
 </script>
 

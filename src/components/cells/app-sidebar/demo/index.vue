@@ -1,6 +1,6 @@
 <script lang="ts">
 export default {
-    name: 'app-sidebar-demo'
+  name: 'app-sidebar-demo'
 };
 </script>
 <script setup lang="ts">
@@ -12,21 +12,21 @@ import AppButton from '../../../molecules/app-button/index.vue';
 const showSidebarLeft = ref(false);
 const showSidebarRight = ref(false);
 const formData = ref({
-    name: '',
-    lastName: '',
-    job: ''
+  name: '',
+  lastName: '',
+  job: ''
 });
 
 const showHideLeft = () => {
-    showSidebarLeft.value = !showSidebarLeft.value;
+  showSidebarLeft.value = !showSidebarLeft.value;
 };
 
 const showHideRight = () => {
-    showSidebarRight.value = !showSidebarRight.value;
+  showSidebarRight.value = !showSidebarRight.value;
 };
 
 const onSubmit = () => {
-    console.log(formData.value);
+  console.log(formData.value);
 };
 </script>
 

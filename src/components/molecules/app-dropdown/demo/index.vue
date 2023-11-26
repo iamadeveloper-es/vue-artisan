@@ -1,6 +1,6 @@
 <script lang="ts">
 export default {
-    name: 'app-dropdown-demo'
+  name: 'app-dropdown-demo'
 };
 </script>
 <script setup lang="ts">
@@ -8,30 +8,30 @@ import AppDropdown from '../index.vue';
 
 const icon = ['fa-solid', 'fa-house'];
 const items = [
-    {
-        path: '/test/:1',
-        query: { shoping: 123 },
-        text: 'Item 1',
-        icon: icon,
-        iconPosition: 'left',
-        iconSize: 12
-    },
-    {
-        path: '/test/:2',
-        query: { shoping: 123 },
-        text: 'Item 2',
-        icon: icon,
-        iconPosition: 'left',
-        iconSize: 12
-    },
-    {
-        path: '/test/:3',
-        query: { shoping: 123 },
-        text: 'Item 3',
-        icon: icon,
-        iconPosition: 'left',
-        iconSize: 12
-    }
+  {
+    path: '/test/:1',
+    query: { shoping: 123 },
+    text: 'Item 1',
+    icon: icon,
+    iconPosition: 'left',
+    iconSize: 12
+  },
+  {
+    path: '/test/:2',
+    query: { shoping: 123 },
+    text: 'Item 2',
+    icon: icon,
+    iconPosition: 'left',
+    iconSize: 12
+  },
+  {
+    path: '/test/:3',
+    query: { shoping: 123 },
+    text: 'Item 3',
+    icon: icon,
+    iconPosition: 'left',
+    iconSize: 12
+  }
 ];
 </script>
 

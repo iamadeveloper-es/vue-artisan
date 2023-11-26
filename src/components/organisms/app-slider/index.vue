@@ -1,16 +1,16 @@
 <script lang="ts">
 export default {
-    name: 'app-slider'
+  name: 'app-slider'
 };
 </script>
 
 <script setup lang="ts">
 
 defineProps({
-    items: {
-        type: Array,
-        required: true
-    }
+  items: {
+    type: Array,
+    required: true
+  }
 });
 
 </script>

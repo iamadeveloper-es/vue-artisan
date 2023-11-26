@@ -1,19 +1,19 @@
 <script lang="ts">
 export default {
-    name: 'app-breadcrumbs'
+  name: 'app-breadcrumbs'
 };
 </script>
 <script setup lang="ts">
 
 defineProps({
-    items: {
-        type: Array,
-        required: true
-    },
-    divider: {
-        type: String,
-        default: '/'
-    }
+  items: {
+    type: Array,
+    required: true
+  },
+  divider: {
+    type: String,
+    default: '/'
+  }
 });
 
 </script>

@@ -1,6 +1,6 @@
 <script lang="ts">
 export default {
-    name: 'app-slider-demo'
+  name: 'app-slider-demo'
 };
 </script>
 
@@ -8,30 +8,30 @@ export default {
 import AppSlider from '../index.vue';
 
 const items = [
-    {
-        text: 1
-    },
-    {
-        text: 2
-    },
-    {
-        text: 3
-    },
-    {
-        text: 4
-    },
-    {
-        text: 5
-    },
-    {
-        text: 6
-    },
-    {
-        text: 7
-    },
-    {
-        text: 8
-    }
+  {
+    text: 1
+  },
+  {
+    text: 2
+  },
+  {
+    text: 3
+  },
+  {
+    text: 4
+  },
+  {
+    text: 5
+  },
+  {
+    text: 6
+  },
+  {
+    text: 7
+  },
+  {
+    text: 8
+  }
 ];
 </script>
 

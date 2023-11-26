@@ -1,6 +1,6 @@
 <script lang="ts">
 export default {
-    name: 'app-range-demo'
+  name: 'app-range-demo'
 };
 </script>
 

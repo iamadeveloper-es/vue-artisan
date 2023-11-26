@@ -1,6 +1,6 @@
 <script lang="ts">
 export default {
-    name: 'app-accordion'
+  name: 'app-accordion'
 };
 </script>
 <script setup lang="ts">
@@ -9,75 +9,75 @@ import { useComponentFunctions } from '../../../composables/component-functions'
 import AppIcon from '../../atoms/app-icon/index.vue';
 
 const props = defineProps({
-    modelValue: {
-        default: '',
-        required: true
-    },
-    title: {
-        type: String
-    },
-    icon: {
-        type: [Array, String]
-    },
-    iconSize: {
-        type: Number,
-        default: 15
-    },
-    iconVariant: {
-        type: String
-    },
-    onActiveIcon: {
-        type: [Array, String]
-    },
-    iconRotate: {
-        type: Boolean,
-        default: true
-    }
+  modelValue: {
+    default: '',
+    required: true
+  },
+  title: {
+    type: String
+  },
+  icon: {
+    type: [Array, String]
+  },
+  iconSize: {
+    type: Number,
+    default: 15
+  },
+  iconVariant: {
+    type: String
+  },
+  onActiveIcon: {
+    type: [Array, String]
+  },
+  iconRotate: {
+    type: Boolean,
+    default: true
+  }
 });
 const { randomId } = useComponentFunctions();
 const accordion = ref(null);
 
 const setId = computed(() => {
-    return randomId();
+  return randomId();
 });
 
 const isSelected = computed(() => {
-    return props.modelValue === setId.value;
+  return props.modelValue === setId.value;
 });
 
 const iconClass = computed(() => {
-    return isSelected.value && props.iconRotate ? 'collapse-open' : 'collapse-close';
+  return isSelected.value && props.iconRotate ? 'collapse-open' : 'collapse-close';
 });
 
 const getIcon = computed(() => {
-    const icon = props.icon;
-    const defaultIcon = ['fa-solid', 'fa-chevron-down'];
-    return icon?.length ? icon : defaultIcon;
+  const icon = props.icon;
+  const defaultIcon = ['fa-solid', 'fa-chevron-down'];
+  return icon?.length ? icon : defaultIcon;
 });
 
 const emit = defineEmits(['update:modelValue', 'onChange']);
 
 const emitValue = (ev: Event) => {
-    if (isSelected.value) {
-        emit('update:modelValue', '');
-    } else {
-        const target = ev.target as HTMLInputElement;
-        emit('update:modelValue', target.value);
-    }
-    emit('onChange', ev);
+  if (isSelected.value) {
+    emit('update:modelValue', '');
+  } else {
+    const target = ev.target as HTMLInputElement;
+    emit('update:modelValue', target.value);
+  }
+  emit('onChange', ev);
 };
 
 const beforeEnter = (el: HTMLElement) => {
-    el.style.height = '0';
+  el.style.height = '0';
 };
 const enter = (el: HTMLElement) => {
-    el.style.height = el.scrollHeight + 'px';
+  el.style.height = el.scrollHeight + 'px';
 };
 const beforeLeave = (el: HTMLElement) => {
-    el.style.height = el.scrollHeight + 'px';
+  el.style.height = el.scrollHeight + 'px';
 };
 const leave = (el: HTMLElement) => {
-    el.style.height = '0';
+  el.style.height = '0';
 };
 </script>
 

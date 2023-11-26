@@ -1,6 +1,6 @@
 <script lang="ts">
 export default {
-    name: 'app-custom-select'
+  name: 'app-custom-select'
 };
 </script>
 <script setup lang="ts">
@@ -9,79 +9,79 @@ import { computed, ref } from 'vue';
 import AppButton from '../app-button/index.vue';
 
 const props = defineProps({
-    modelValue: {
-        type: String
-    },
-    options: {
-        type: Array,
-        required: true
-    },
-    label: {
-        type: String,
-        default: 'Selecciona una opción'
-    },
-    disabled: {
-        type: Boolean,
-        default: false
-    },
-    inputName: {
-        type: String,
-        required: true
-    },
-    floatingLabel: {
-        type: Boolean,
-        default: false
-    },
-    outlinedLabel: {
-        type: Boolean,
-        default: false
-    },
-    borderBottom: {
-        type: Boolean,
-        default: false
-    },
-    icon: {
-        type: [Array, String]
-    },
-    iconSize: {
-        type: Number,
-        default: 15
-    }
+  modelValue: {
+    type: String
+  },
+  options: {
+    type: Array,
+    required: true
+  },
+  label: {
+    type: String,
+    default: 'Selecciona una opción'
+  },
+  disabled: {
+    type: Boolean,
+    default: false
+  },
+  inputName: {
+    type: String,
+    required: true
+  },
+  floatingLabel: {
+    type: Boolean,
+    default: false
+  },
+  outlinedLabel: {
+    type: Boolean,
+    default: false
+  },
+  borderBottom: {
+    type: Boolean,
+    default: false
+  },
+  icon: {
+    type: [Array, String]
+  },
+  iconSize: {
+    type: Number,
+    default: 15
+  }
 });
 const show = ref(false);
 
 const getIcon = computed(() => {
-    const icon = props.icon;
-    const defaultIcon = ['fa-solid', 'fa-chevron-down'];
-    return icon?.length ? icon : defaultIcon;
+  const icon = props.icon;
+  const defaultIcon = ['fa-solid', 'fa-chevron-down'];
+  return icon?.length ? icon : defaultIcon;
 });
 
 const iconClass = computed(() => {
-    return show.value ? 'collapse-open' : 'collapse-close';
+  return show.value ? 'collapse-open' : 'collapse-close';
 });
 
 const emit = defineEmits(['update:modelValue', 'onChange', 'onFocus', 'onBlur']);
 
 const emitValue = (ev: Event) => {
-    const target = ev.target as HTMLInputElement;
-    emit('update:modelValue', target.value);
-    emit('onChange', ev);
+  const target = ev.target as HTMLInputElement;
+  emit('update:modelValue', target.value);
+  emit('onChange', ev);
 };
 
 const emitFocus = (ev: Event) => {
-    emit('onFocus', ev);
+  emit('onFocus', ev);
 };
 
 const emitBlur = (ev: Event) => {
-    emit('onBlur', ev);
+  emit('onBlur', ev);
 };
 
 const toggleOptions = () => {
-    show.value = !show.value;
+  show.value = !show.value;
 };
 
 const hide = () => {
-    show.value = false;
+  show.value = false;
 };
 </script>
 

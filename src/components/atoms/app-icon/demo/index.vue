@@ -1,6 +1,6 @@
 <script lang="ts">
 export default {
-    name: 'app-icon-demo'
+  name: 'app-icon-demo'
 };
 </script>
 <script setup lang="ts">
@@ -12,12 +12,12 @@ const message2 = ref('');
 const iconChange = ref(false);
 
 const handleEvent = () => {
-    message.value = 'Icono clickado';
+  message.value = 'Icono clickado';
 };
 
 const handleEvent2 = () => {
-    message2.value = 'Icono cambiado';
-    iconChange.value = !iconChange.value;
+  message2.value = 'Icono cambiado';
+  iconChange.value = !iconChange.value;
 };
 </script>
 

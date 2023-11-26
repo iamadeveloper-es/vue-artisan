@@ -1,6 +1,6 @@
 <script lang="ts">
 export default {
-    name: 'app-input-field'
+  name: 'app-input-field'
 };
 </script>
 
@@ -9,74 +9,74 @@ import { computed, onMounted, ref } from 'vue';
 import { useComponentFunctions } from '../../../composables/component-functions';
 
 const props = defineProps({
-    modelValue: {
-        default: '',
-        required: true
-    },
-    type: {
-        type: String,
-        default: 'text'
-    },
-    name: {
-        type: String,
-        required: true
-    },
-    label: {
-        type: String,
-        required: true
-    },
-    placeholder: {
-        type: String
-    },
-    ariaLabelledby: {
-        type: String,
-        default: 'Input'
-    },
-    disabled: {
-        type: Boolean,
-        default: false
-    },
-    required: {
-        type: Boolean,
-        default: false
-    },
-    readonly: {
-        type: Boolean,
-        default: false
-    },
-    min: {
-        type: Number
-    },
-    max: {
-        type: Number
-    },
-    maxlength: {
-        type: Number
-    },
-    showLabel: {
-        type: Boolean,
-        default: true
-    },
-    outlinedLabel: {
-        type: Boolean,
-        default: false
-    },
-    floatingLabel: {
-        type: Boolean,
-        default: false
-    },
-    borderBottom: {
-        type: Boolean,
-        default: false
-    },
-    labelPosition: {
-        type: String,
-        default: 'top'
-    },
-    icon: {
-        type: Array,
-        default: () => ['fa-regular', 'fa-circle-xmark']
-    }
+  modelValue: {
+    default: '',
+    required: true
+  },
+  type: {
+    type: String,
+    default: 'text'
+  },
+  name: {
+    type: String,
+    required: true
+  },
+  label: {
+    type: String,
+    required: true
+  },
+  placeholder: {
+    type: String
+  },
+  ariaLabelledby: {
+    type: String,
+    default: 'Input'
+  },
+  disabled: {
+    type: Boolean,
+    default: false
+  },
+  required: {
+    type: Boolean,
+    default: false
+  },
+  readonly: {
+    type: Boolean,
+    default: false
+  },
+  min: {
+    type: Number
+  },
+  max: {
+    type: Number
+  },
+  maxlength: {
+    type: Number
+  },
+  showLabel: {
+    type: Boolean,
+    default: true
+  },
+  outlinedLabel: {
+    type: Boolean,
+    default: false
+  },
+  floatingLabel: {
+    type: Boolean,
+    default: false
+  },
+  borderBottom: {
+    type: Boolean,
+    default: false
+  },
+  labelPosition: {
+    type: String,
+    default: 'top'
+  },
+  icon: {
+    type: Array,
+    default: () => ['fa-regular', 'fa-circle-xmark']
+  }
 });
 const { randomId } = useComponentFunctions();
 const isFocused = ref(false);
@@ -88,53 +88,53 @@ const id = ref('');
 // });
 
 const setLabelPosition = computed(() => {
-    return !props.floatingLabel && !props.outlinedLabel ?
-        `app-input-field--label-${props.labelPosition}` : '';
+  return !props.floatingLabel && !props.outlinedLabel ?
+    `app-input-field--label-${props.labelPosition}` : '';
 });
 
 const emit = defineEmits(['update:modelValue', 'onFocus', 'onBlur']);
 
 const emitValue = (ev: Event) => {
-    const target = ev.target as HTMLInputElement;
-    emit('update:modelValue', target.value);
+  const target = ev.target as HTMLInputElement;
+  emit('update:modelValue', target.value);
 };
 
 const emitFocus = (ev: FocusEvent) => {
-    isFocused.value = true;
-    emit('onFocus', ev);
+  isFocused.value = true;
+  emit('onFocus', ev);
 };
 
 const emitBlur = (ev: FocusEvent) => {
-    isFocused.value = props.modelValue.length > 0 ? true : false;
-    emit('onBlur', ev);
+  isFocused.value = props.modelValue.length > 0 ? true : false;
+  emit('onBlur', ev);
 };
 
 const clearField = () => {
-    isFocused.value = false;
-    emit('update:modelValue', '');
+  isFocused.value = false;
+  emit('update:modelValue', '');
 };
 
 const showPassword = () => {
-    inputType.value === 'password'
-        ? (inputType.value = 'text')
-        : (inputType.value = 'password');
+  inputType.value === 'password'
+    ? (inputType.value = 'text')
+    : (inputType.value = 'password');
 };
 
 const iconAction = () => {
-    if (props.type === 'password') {
-        showPassword();
-    } else {
-        clearField();
-    }
+  if (props.type === 'password') {
+    showPassword();
+  } else {
+    clearField();
+  }
 };
 
 const configComponent = () => {
-    id.value = randomId();
-    isFocused.value = props.modelValue.length > 0;
+  id.value = randomId();
+  isFocused.value = props.modelValue.length > 0;
 };
 
 onMounted(() => {
-    configComponent();
+  configComponent();
 });
 </script>
 

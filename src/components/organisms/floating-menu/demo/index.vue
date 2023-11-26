@@ -1,6 +1,6 @@
 <script lang="ts">
 export default {
-    name: 'app-floating-menu-demo'
+  name: 'app-floating-menu-demo'
 };
 </script>
 

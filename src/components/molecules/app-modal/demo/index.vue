@@ -1,6 +1,6 @@
 <script lang="ts">
 export default {
-    name: 'app-modal-demo'
+  name: 'app-modal-demo'
 };
 </script>
 
@@ -13,11 +13,11 @@ const modal1 = ref(null);
 const modal2 = ref(null);
 
 const showModal1 = () => {
-    modal1.value?.show();
+  modal1.value?.show();
 };
 
 const showModal2 = () => {
-    modal2.value?.show();
+  modal2.value?.show();
 };
 </script>
 

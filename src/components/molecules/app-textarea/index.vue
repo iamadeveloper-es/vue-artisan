@@ -1,6 +1,6 @@
 <script lang="ts">
 export default {
-    name: 'app-textarea'
+  name: 'app-textarea'
 };
 </script>
 
@@ -9,60 +9,60 @@ import { onMounted, ref } from 'vue';
 import { useComponentFunctions } from '../../../composables/component-functions';
 
 const props = defineProps({
-    modelValue: {
-        default: '',
-        required: true
-    },
-    name: {
-        type: String,
-        required: true
-    },
-    label: {
-        type: String,
-        default: ''
-    },
-    placeholder: {
-        type: String,
-        default: ''
-    },
-    required: {
-        type: Boolean,
-        default: false
-    },
-    disabled: {
-        type: Boolean,
-        default: false
-    },
-    readOnly: {
-        type: Boolean,
-        default: false
-    },
-    outlinedLabel: {
-        type: Boolean,
-        default: false
-    },
-    floatingLabel: {
-        type: Boolean,
-        default: false
-    },
-    borderBottom: {
-        type: Boolean,
-        default: false
-    },
-    ariaLabelledby: {
-        type: String,
-        default: 'Select Input'
-    },
-    rows: {
-        type: Number,
-        default: 4
-    },
-    maxLength: {
-        type: Number
-    },
-    minLength: {
-        type: Number
-    }
+  modelValue: {
+    default: '',
+    required: true
+  },
+  name: {
+    type: String,
+    required: true
+  },
+  label: {
+    type: String,
+    default: ''
+  },
+  placeholder: {
+    type: String,
+    default: ''
+  },
+  required: {
+    type: Boolean,
+    default: false
+  },
+  disabled: {
+    type: Boolean,
+    default: false
+  },
+  readOnly: {
+    type: Boolean,
+    default: false
+  },
+  outlinedLabel: {
+    type: Boolean,
+    default: false
+  },
+  floatingLabel: {
+    type: Boolean,
+    default: false
+  },
+  borderBottom: {
+    type: Boolean,
+    default: false
+  },
+  ariaLabelledby: {
+    type: String,
+    default: 'Select Input'
+  },
+  rows: {
+    type: Number,
+    default: 4
+  },
+  maxLength: {
+    type: Number
+  },
+  minLength: {
+    type: Number
+  }
 });
 
 const { randomId } = useComponentFunctions();
@@ -72,27 +72,27 @@ const id = ref('');
 const emit = defineEmits(['update:modelValue', 'onFocus', 'onBlur']);
 
 const emitValue = (ev: Event) => {
-    const target = ev.target as HTMLInputElement;
-    emit('update:modelValue', target.value);
+  const target = ev.target as HTMLInputElement;
+  emit('update:modelValue', target.value);
 };
 
 const emitFocus = (ev: FocusEvent) => {
-    isFocused.value = true;
-    emit('onFocus', ev);
+  isFocused.value = true;
+  emit('onFocus', ev);
 };
 
 const emitBlur = (ev: FocusEvent) => {
-    isFocused.value = props.modelValue.length > 0 ? true : false;
-    emit('onBlur', ev);
+  isFocused.value = props.modelValue.length > 0 ? true : false;
+  emit('onBlur', ev);
 };
 
 const configComponent = () => {
-    id.value = randomId();
-    isFocused.value = props.modelValue.length > 0;
+  id.value = randomId();
+  isFocused.value = props.modelValue.length > 0;
 };
 
 onMounted(() => {
-    configComponent();
+  configComponent();
 });
 </script>
 

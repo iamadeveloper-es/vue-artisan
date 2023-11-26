@@ -1,6 +1,6 @@
 <script lang="ts">
 export default {
-    name: 'app-accordion-demo'
+  name: 'app-accordion-demo'
 };
 </script>
 <script setup lang="ts">

@@ -1,6 +1,6 @@
 <script lang="ts">
 export default {
-    name: 'app-pagination'
+  name: 'app-pagination'
 };
 </script>
 <script setup lang="ts">
@@ -9,33 +9,33 @@ import { useRouter } from 'vue-router';
 import { useRoute } from 'vue-router';
 
 const props = defineProps({
-    totalPages: {
-        type: [String, Number],
-        required: true
-    },
-    pagesToShow: {
-        type: Number,
-        default: 4
-    },
-    routeName: {
-        type: String
-    },
-    previousIncon: {
-        type: [String, Array],
-        default: (() => ['fa-solid', 'fa-angle-left'])
-    },
-    nextIncon: {
-        type: [String, Array],
-        default: (() => ['fa-solid', 'fa-angle-right'])
-    },
-    firstPageIncon: {
-        type: [String, Array],
-        default: (() => ['fa-solid', 'fa-angles-left'])
-    },
-    lastPageIncon: {
-        type: [String, Array],
-        default: (() => ['fa-solid', 'fa-angles-right'])
-    }
+  totalPages: {
+    type: [String, Number],
+    required: true
+  },
+  pagesToShow: {
+    type: Number,
+    default: 4
+  },
+  routeName: {
+    type: String
+  },
+  previousIncon: {
+    type: [String, Array],
+    default: (() => ['fa-solid', 'fa-angle-left'])
+  },
+  nextIncon: {
+    type: [String, Array],
+    default: (() => ['fa-solid', 'fa-angle-right'])
+  },
+  firstPageIncon: {
+    type: [String, Array],
+    default: (() => ['fa-solid', 'fa-angles-left'])
+  },
+  lastPageIncon: {
+    type: [String, Array],
+    default: (() => ['fa-solid', 'fa-angles-right'])
+  }
 });
 const total = ref();
 const selectedPage = ref(1);
@@ -46,72 +46,72 @@ const routeNameVal = ref();
 
 watch(() => route.query, (newVal) => {
       
-    if(newVal){
-        selectedPage.value = newVal.page ? Number(newVal.page) : 1;
-        emitVal();
-    }
+  if(newVal){
+    selectedPage.value = newVal.page ? Number(newVal.page) : 1;
+    emitVal();
+  }
 
 });
 
 const filteredPages = computed(() => {
-    const filtered = selectedPage.value >= props.pagesToShow ? 
-        total.value.slice(selectedPage.value - 2, selectedPage.value + 1) : 
-        total.value.slice(0, props.pagesToShow);
-    return filtered;
+  const filtered = selectedPage.value >= props.pagesToShow ? 
+    total.value.slice(selectedPage.value - 2, selectedPage.value + 1) : 
+    total.value.slice(0, props.pagesToShow);
+  return filtered;
 });
 
 const showRightDots = computed(() => selectedPage.value < total.value.length);
 const showLeftDots = computed(() => selectedPage.value >= props.pagesToShow);
 
 const setSelectedPage = (item: string) => {
-    selectedPage.value = Number(item);
-    navigate();
+  selectedPage.value = Number(item);
+  navigate();
 };
 
 const previousPage = () => {
-    if(selectedPage.value != 1){
-        selectedPage.value = selectedPage.value - 1;
-        navigate();
-    }
+  if(selectedPage.value != 1){
+    selectedPage.value = selectedPage.value - 1;
+    navigate();
+  }
 };
 
 const nextPage = () => {
-    if(selectedPage.value != total.value.length){
-        selectedPage.value = selectedPage.value + 1;
-        navigate();
-    }
+  if(selectedPage.value != total.value.length){
+    selectedPage.value = selectedPage.value + 1;
+    navigate();
+  }
 };
 
 const goToFirstPage = () => {
-    selectedPage.value = 1;
-    navigate();
+  selectedPage.value = 1;
+  navigate();
 };
 
 const goToLastPage = () => {
-    selectedPage.value = total.value.length;
-    navigate();
+  selectedPage.value = total.value.length;
+  navigate();
 };
 
 const emit = defineEmits(['update']);
 
 const emitVal = () => {
-    emit('update', selectedPage.value);
+  emit('update', selectedPage.value);
 };
 
 const navigate = () => {
-    // router.push({name: props.routeName, query: {page: selectedPage.value}});
-    router.push({name: routeNameVal.value, query: {page: selectedPage.value}});
+  // router.push({name: props.routeName, query: {page: selectedPage.value}});
+  router.push({name: routeNameVal.value, query: {page: selectedPage.value}});
 };
 
 const configComponent = () => {
-    total.value = [...Array(Number(props.totalPages)).keys()].map(item => ++item);
-    selectedPage.value = route.query?.page ? Number(route.query.page) : 1;
-    routeNameVal.value = props.routeName ? props.routeName :route.name;
-    emitVal();
+  total.value = [...Array(Number(props.totalPages)).keys()].map(item => ++item);
+  selectedPage.value = route.query?.page ? Number(route.query.page) : 1;
+  routeNameVal.value = props.routeName ? props.routeName :route.name;
+  emitVal();
 };
 
 onMounted(() => {
-    configComponent();
+  configComponent();
 });
 </script>
 

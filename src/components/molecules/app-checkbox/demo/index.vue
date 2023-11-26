@@ -1,6 +1,6 @@
 <script lang="ts">
 export default {
-    name: 'app-checkbox-demo'
+  name: 'app-checkbox-demo'
 };
 </script>
 <script setup lang="ts">
@@ -9,61 +9,61 @@ import { ref } from 'vue';
 import AppCheckbox from '../index.vue';
 
 const checkboxesConfig = ref([
-    {
-        color: 'info',
-        label: 'User Jhon',
-        value: 'Jhon'
-    },
-    {
-        color: 'success',
-        label: 'User pepe',
-        value: 'Pepe'
-    }
+  {
+    color: 'info',
+    label: 'User Jhon',
+    value: 'Jhon'
+  },
+  {
+    color: 'success',
+    label: 'User pepe',
+    value: 'Pepe'
+  }
 ]);
 
 const checkboxesConfig2 = ref({
-    color: 'info',
-    label: 'User Jhon',
+  color: 'info',
+  label: 'User Jhon',
 });
 
 const checkboxesConfig3 = ref([
-    {
-        color: 'info',
-        label: 'User Jhon',
-        value: {
-            name: 'Jhon',
-            age: 25,
-        }
-    },
-    {
-        color: 'success',
-        label: 'User pepe',
-        value: {
-            name: 'Pepe',
-            age: 45,
-        }
-    },
-    {
-        color: 'primary',
-        label: 'User otro',
-        value: {
-            name: 'Otro',
-            age: 37,
-        }
+  {
+    color: 'info',
+    label: 'User Jhon',
+    value: {
+      name: 'Jhon',
+      age: 25,
     }
+  },
+  {
+    color: 'success',
+    label: 'User pepe',
+    value: {
+      name: 'Pepe',
+      age: 45,
+    }
+  },
+  {
+    color: 'primary',
+    label: 'User otro',
+    value: {
+      name: 'Otro',
+      age: 37,
+    }
+  }
 ]);
 
 const inputVal = ref(['Jhon']);
 const inputVal2 = ref(true);
 const inputVal3 = ref([
-    {
-        name: 'Pepe',
-        age: 45,
-    },
-    {
-        name: 'Otro',
-        age: 37,
-    }
+  {
+    name: 'Pepe',
+    age: 45,
+  },
+  {
+    name: 'Otro',
+    age: 37,
+  }
 ]);
 </script>
 

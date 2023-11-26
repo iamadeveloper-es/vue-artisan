@@ -1,6 +1,6 @@
 <script lang="ts">
 export default {
-    name: 'app-radio-demo'
+  name: 'app-radio-demo'
 };
 </script>
 
@@ -10,54 +10,54 @@ import AppRadio from '../index.vue';
 
 const selectedValue = ref('blue');
 const selectedValue2 = ref({
-    name: 'red',
-    age: 4
+  name: 'red',
+  age: 4
 });
 const radioColors = ref([
-    {
-        color: 'info',
-        val: 'red',
-        label: 'Color Red'
-    },
-    {
-        color: 'danger',
-        val: 'blue',
-        label: 'Color Blue'
-    },
-    {
-        color: 'primary',
-        val: 'green',
-        label: 'Color Green',
-        customLabel: true
-    }
+  {
+    color: 'info',
+    val: 'red',
+    label: 'Color Red'
+  },
+  {
+    color: 'danger',
+    val: 'blue',
+    label: 'Color Blue'
+  },
+  {
+    color: 'primary',
+    val: 'green',
+    label: 'Color Green',
+    customLabel: true
+  }
 ]);
 
 const radioColors2 = ref([
-    {
-        color: 'info',
-        val: {
-            name: 'red',
-            age: 4
-        },
-        label: 'Color Red'
+  {
+    color: 'info',
+    val: {
+      name: 'red',
+      age: 4
     },
-    {
-        color: 'danger',
-        val: {
-            name: 'blue',
-            age: 44
-        },
-        label: 'Color Blue'
+    label: 'Color Red'
+  },
+  {
+    color: 'danger',
+    val: {
+      name: 'blue',
+      age: 44
     },
-    {
-        color: 'primary',
-        val: {
-            name: 'green',
-            age: 14
-        },
-        label: 'Color Green',
-        customLabel: true
-    }
+    label: 'Color Blue'
+  },
+  {
+    color: 'primary',
+    val: {
+      name: 'green',
+      age: 14
+    },
+    label: 'Color Green',
+    customLabel: true
+  }
 ]);
 </script>
 

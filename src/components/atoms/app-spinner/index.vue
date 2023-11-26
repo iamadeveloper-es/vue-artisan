@@ -1,15 +1,15 @@
 <script lang="ts">
 export default {
-    name: 'app-spinner'
+  name: 'app-spinner'
 };
 </script>
 <script setup lang="ts">
 
 defineProps({
-    show: {
-        type: Boolean,
-        default: true
-    }
+  show: {
+    type: Boolean,
+    default: true
+  }
 });
 </script>
 

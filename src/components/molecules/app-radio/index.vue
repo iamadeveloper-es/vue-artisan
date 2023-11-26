@@ -1,6 +1,6 @@
 <script lang="ts">
 export default {
-    name: 'app-radio'
+  name: 'app-radio'
 };
 </script>
 
@@ -9,31 +9,31 @@ import { computed, onMounted, ref, useSlots, type Ref } from 'vue';
 import { useComponentFunctions } from '../../../composables/component-functions';
 
 const props = defineProps({
-    modelValue: {
-        default: '',
-        required: true
-    },
-    disabled: {
-        type: Boolean,
-        default: false
-    },
-    value: {
-        type: [String, Number, Boolean, Object],
-        default: false
-    },
-    label: {
-        type: String,
-        default: 'Radio label'
-    },
-    name: {
-        type: String,
-        default: 'radio-name',
-        required: true
-    },
-    activeColor: {
-        type: String,
-        default: 'primary'
-    }
+  modelValue: {
+    default: '',
+    required: true
+  },
+  disabled: {
+    type: Boolean,
+    default: false
+  },
+  value: {
+    type: [String, Number, Boolean, Object],
+    default: false
+  },
+  label: {
+    type: String,
+    default: 'Radio label'
+  },
+  name: {
+    type: String,
+    default: 'radio-name',
+    required: true
+  },
+  activeColor: {
+    type: String,
+    default: 'primary'
+  }
 });
 const { randomId } = useComponentFunctions();
 const id = ref('');
@@ -42,38 +42,38 @@ const radioRef: Ref<HTMLInputElement> | Ref<null> = ref(null);
     
 const emit = defineEmits(['update:modelValue', 'onChange']);
 const model = computed({
-    get () {
-        return props.modelValue;
-    },
-    set (value) {
-        emit('update:modelValue', value);
-    },
+  get () {
+    return props.modelValue;
+  },
+  set (value) {
+    emit('update:modelValue', value);
+  },
 });
 
 const setActiveColor = computed(() => {
-    return `app-check-radio__icon--${props.activeColor}`;
+  return `app-check-radio__icon--${props.activeColor}`;
 });
 
 const isSelected = computed(() => {
-    return props.modelValue === props.value || 
+  return props.modelValue === props.value || 
       JSON.stringify(props.modelValue) === JSON.stringify(props.value);
 });
 
 const hasSlot = computed(() => {
-    return !!slots['label'];
+  return !!slots['label'];
 });
 
 const emitValue = (ev: Event) => {
-    const target = ev.target as HTMLInputElement;
-    emit('onChange', target.value);
+  const target = ev.target as HTMLInputElement;
+  emit('onChange', target.value);
 };
 
 const configComponent = () => {
-    id.value = randomId();
+  id.value = randomId();
 };
 
 onMounted(() => {
-    configComponent();
+  configComponent();
 });
 </script>
 

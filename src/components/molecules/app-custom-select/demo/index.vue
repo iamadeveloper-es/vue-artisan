@@ -1,6 +1,6 @@
 <script lang="ts">
 export default {
-    name: 'app-custom-select-demo'
+  name: 'app-custom-select-demo'
 };
 </script>
 <script setup lang="ts">
@@ -11,10 +11,10 @@ const selectedValue = ref('');
 const selectedValue2 = ref('');
 const selectedValue3 = ref('');
 const options = ref([
-    { label: 'Default', value: 'default', disabled: true },
-    { label: 'Spain', value: 'spain' },
-    { label: 'France', value: 'france' },
-    { label: 'Italy', value: 'italy' }
+  { label: 'Default', value: 'default', disabled: true },
+  { label: 'Spain', value: 'spain' },
+  { label: 'France', value: 'france' },
+  { label: 'Italy', value: 'italy' }
 ]);
 </script>
 

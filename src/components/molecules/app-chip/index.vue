@@ -1,6 +1,6 @@
 <script lang="ts">
 export default {
-    name: 'app-chip'
+  name: 'app-chip'
 };
 </script>
 <script setup lang="ts">
@@ -8,46 +8,46 @@ import { computed, ref } from 'vue';
 import AppIcon from '../../atoms/app-icon/index.vue';
 
 const props = defineProps({
-    appendIcon: {
-        type: [Array, String]
-    },
-    prependIcon: {
-        type: [Array, String]
-    },
-    size: {
-        type: Number,
-        default: 18
-    },
-    closable: {
-        type: Boolean,
-        default: false
-    },
-    text: {
-        type: String,
-        required: true
-    }
+  appendIcon: {
+    type: [Array, String]
+  },
+  prependIcon: {
+    type: [Array, String]
+  },
+  size: {
+    type: Number,
+    default: 18
+  },
+  closable: {
+    type: Boolean,
+    default: false
+  },
+  text: {
+    type: String,
+    required: true
+  }
 });
 const closableIcon = ['fa-regular', 'fa-circle-xmark', 'app-chip__close'];
 const show = ref(true);
 
 const hasAppendIcon = computed(() => {
-    return props.appendIcon && props.appendIcon.length;
+  return props.appendIcon && props.appendIcon.length;
 });
 const hasPrependIcon = computed(() => {
-    return props.prependIcon && props.prependIcon.length;
+  return props.prependIcon && props.prependIcon.length;
 });
 const getClosableIcon = computed(() => {
-    return closableIcon;
+  return closableIcon;
 });
 
 const emit = defineEmits(['onClick']);
 
 const emitValue = (ev: Event) => {
-    emit('onClick', ev);
+  emit('onClick', ev);
 };
 
 const hide = () => {
-    show.value = false;
+  show.value = false;
 };
 </script>
 <template lang="pug">

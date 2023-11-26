@@ -1,6 +1,6 @@
 <script lang="ts">
 export default {
-    name: 'app-button-demo'
+  name: 'app-button-demo'
 };
 </script>
 <script setup lang="ts">
@@ -12,15 +12,15 @@ const counter2 = ref(0);
 const counter3 = ref(0);
 const counter4 = ref(0);
 const handleEvent = (button: string) => {
-    if (button === 'counter') {
-        counter.value++;
-    } else if (button === 'counter2') {
-        counter2.value++;
-    } else if (button === 'counter3') {
-        counter3.value++;
-    } else if (button === 'counter4') {
-        counter4.value++;
-    }
+  if (button === 'counter') {
+    counter.value++;
+  } else if (button === 'counter2') {
+    counter2.value++;
+  } else if (button === 'counter3') {
+    counter3.value++;
+  } else if (button === 'counter4') {
+    counter4.value++;
+  }
 };
 </script>
 

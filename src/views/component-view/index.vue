@@ -1,6 +1,6 @@
 <script lang="ts">
 export default {
-    name: 'component-view'
+  name: 'component-view'
 };
 </script>
 
@@ -11,7 +11,7 @@ import { useRoute } from 'vue-router';
 const route = useRoute();
 const test = 'hola';
 const setComponentName = computed(() => {
-    return route.name?.toLowerCase();
+  return route.name?.toLowerCase();
 });
 </script>
 

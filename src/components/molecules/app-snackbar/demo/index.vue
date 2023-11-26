@@ -1,6 +1,6 @@
 <script lang="ts">
 export default {
-    name: 'app-snackbar-demo'
+  name: 'app-snackbar-demo'
 };
 </script>
 
@@ -14,15 +14,15 @@ const snackbar2 = ref(null);
 const snackbar3 = ref(null);
 
 const handleSnackbar = () => {
-    snackbar.value?.show();
+  snackbar.value?.show();
 };
 
 const handleSnackbar2 = () => {
-    snackbar2.value?.show();
+  snackbar2.value?.show();
 };
 
 const handleSnackbar3 = () => {
-    snackbar3.value?.show();
+  snackbar3.value?.show();
 };
 </script>
 

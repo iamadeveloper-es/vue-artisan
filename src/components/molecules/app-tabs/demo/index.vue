@@ -1,6 +1,6 @@
 <script lang="ts">
 export default {
-    name: 'app-tabs-demo'
+  name: 'app-tabs-demo'
 };
 </script>
 
@@ -10,21 +10,21 @@ import AppTabs from '../index.vue';
 
 const tabSelected = ref('tab2');
 const tabs = ref([
-    {
-        text: 'Tab 1',
-        value: 'tab1',
-        name: 'Tab'
-    },
-    {
-        text: 'Tab 2 con nombre muy largo',
-        value: 'tab2',
-        name: 'Tab'
-    },
-    {
-        text: 'Tab 3',
-        value: 'tab3',
-        name: 'Tab'
-    }
+  {
+    text: 'Tab 1',
+    value: 'tab1',
+    name: 'Tab'
+  },
+  {
+    text: 'Tab 2 con nombre muy largo',
+    value: 'tab2',
+    name: 'Tab'
+  },
+  {
+    text: 'Tab 3',
+    value: 'tab3',
+    name: 'Tab'
+  }
 ]);
 </script>
 

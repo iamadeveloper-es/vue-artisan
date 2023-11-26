@@ -1,6 +1,6 @@
 <script lang="ts">
 export default {
-    name: 'app-modal-swipe'
+  name: 'app-modal-swipe'
 };
 </script>
 
@@ -10,14 +10,14 @@ import { useDeviceFunctions } from '@/composables/device-functions';
 import { computed, type Ref, ref, watch, onUnmounted, useSlots } from 'vue';
 
 const props = defineProps({
-    closeIcon: {
-        type: Array,
-        default: () => ['fa-regular', 'fa-circle-xmark']
-    },
-    showFrom: {
-        type: String,
-        default: 'bottom'
-    }
+  closeIcon: {
+    type: Array,
+    default: () => ['fa-regular', 'fa-circle-xmark']
+  },
+  showFrom: {
+    type: String,
+    default: 'bottom'
+  }
 });
 const { bodyBlocked } = useCommonFunctions();
 const { isMobileSize } = useDeviceFunctions();
@@ -33,116 +33,116 @@ const dialogSize = ref(0);
 const animationTime = ref(0);
 
 watch(
-    () => isModalVisible.value,
-    (newVal) => {
-        if (newVal) {
-            bodyBlocked(true);
-        } else {
-            bodyBlocked();
-        }
+  () => isModalVisible.value,
+  (newVal) => {
+    if (newVal) {
+      bodyBlocked(true);
+    } else {
+      bodyBlocked();
     }
+  }
 );
 
 const getShowFrom = computed(() => {
-    return `show-from-${props.showFrom}`;
+  return `show-from-${props.showFrom}`;
 });
 
 const getTransformAxis = computed(() => {
-    const { showFrom } = props;
-    return showFrom === 'right' || showFrom === 'left' ? 'translateX' : 'translateY';
+  const { showFrom } = props;
+  return showFrom === 'right' || showFrom === 'left' ? 'translateX' : 'translateY';
 });
 
 const show = (): void => {
-    isModalVisible.value = true;
-    bodyBlocked(true);
+  isModalVisible.value = true;
+  bodyBlocked(true);
 
-    setTimeout(() => {
-        startProccess();
-    }, 100);
+  setTimeout(() => {
+    startProccess();
+  }, 100);
 };
 
 const hide = (ev: Event): void => {
-    const target = ev.target as HTMLInputElement;
-    if (target.getAttribute('data-dismiss') === 'modal-swipe') {
-        transformPos.value = 0;
-        isModalVisible.value = false;
-    }
+  const target = ev.target as HTMLInputElement;
+  if (target.getAttribute('data-dismiss') === 'modal-swipe') {
+    transformPos.value = 0;
+    isModalVisible.value = false;
+  }
 };
 
 const hasSlot = (name: Readonly<string>): Boolean => !!slots[name];
 
 const startProccess = () => {
-    const transitionDuration = window
-        .getComputedStyle(modalDialog.value)
-        .transitionDuration.replace('s', '');
-    animationTime.value = Math.abs(Number(transitionDuration) * 1000);
-    if (isMobile) {
-        onTouchStart();
-        onTouchEnd();
-    }
+  const transitionDuration = window
+    .getComputedStyle(modalDialog.value)
+    .transitionDuration.replace('s', '');
+  animationTime.value = Math.abs(Number(transitionDuration) * 1000);
+  if (isMobile) {
+    onTouchStart();
+    onTouchEnd();
+  }
 };
 
 const resetModal = () => {
-    isModalVisible.value = false;
-    transformPos.value = 0;
-    startProccess();
+  isModalVisible.value = false;
+  transformPos.value = 0;
+  startProccess();
 };
 
 const onTouchStart = () => {
-    modalDialog.value.addEventListener('touchstart', (ev) => {
-        const target = ev.touches[0];
-        console.log(modalDialog);
-        if (props.showFrom === 'bottom') {
-            startPressPos.value = target.clientY;
-            dialogPagePos.value = modalDialog.value.offsetTop;
-            dialogSize.value = modalDialog.value.clientHeight;
-        } else {
-            startPressPos.value = target.clientX;
-            dialogPagePos.value = modalDialog.value.offsetLeft;
-            dialogSize.value = modalDialog.value.clientWidth;
-        }
-    });
+  modalDialog.value.addEventListener('touchstart', (ev) => {
+    const target = ev.touches[0];
+    console.log(modalDialog);
+    if (props.showFrom === 'bottom') {
+      startPressPos.value = target.clientY;
+      dialogPagePos.value = modalDialog.value.offsetTop;
+      dialogSize.value = modalDialog.value.clientHeight;
+    } else {
+      startPressPos.value = target.clientX;
+      dialogPagePos.value = modalDialog.value.offsetLeft;
+      dialogSize.value = modalDialog.value.clientWidth;
+    }
+  });
 };
 
 const onTouchEnd = () => {
-    const { showFrom } = props;
-    const pageLimit =
+  const { showFrom } = props;
+  const pageLimit =
                 showFrom === 'bottom' ? window.innerHeight - 50 : window.innerWidth - 50;
-    modalDialog.value.addEventListener('touchend', (ev) => {
-        const touchPosition =
+  modalDialog.value.addEventListener('touchend', (ev) => {
+    const touchPosition =
                     showFrom === 'bottom'
-                        ? ev.changedTouches[0].clientY
-                        : ev.changedTouches[0].clientX;
+                      ? ev.changedTouches[0].clientY
+                      : ev.changedTouches[0].clientX;
 
-        console.log(touchPosition, pageLimit);
+    console.log(touchPosition, pageLimit);
 
-        if (showFrom === 'bottom' || showFrom === 'right') {
-            if (touchPosition > pageLimit) {
-                transformPos.value = dialogSize.value;
-                setTimeout(() => {
-                    resetModal();
-                }, animationTime.value);
-            }
-        } else {
-            if (startPressPos.value > touchPosition && touchPosition < 50) {
-                transformPos.value = -dialogSize.value;
-                setTimeout(() => {
-                    resetModal();
-                }, animationTime.value);
-            }
-        }
-    });
+    if (showFrom === 'bottom' || showFrom === 'right') {
+      if (touchPosition > pageLimit) {
+        transformPos.value = dialogSize.value;
+        setTimeout(() => {
+          resetModal();
+        }, animationTime.value);
+      }
+    } else {
+      if (startPressPos.value > touchPosition && touchPosition < 50) {
+        transformPos.value = -dialogSize.value;
+        setTimeout(() => {
+          resetModal();
+        }, animationTime.value);
+      }
+    }
+  });
 };
 
 defineExpose({
-    show,
-    hide
+  show,
+  hide
 });
 
 onUnmounted(() => {
-    bodyBlocked();
-    transformPos.value = 0;
-    isModalVisible.value = false;
+  bodyBlocked();
+  transformPos.value = 0;
+  isModalVisible.value = false;
 });
 </script>
 

@@ -1,6 +1,6 @@
 <script lang="ts">
 export default {
-    name: 'app-select'
+  name: 'app-select'
 };
 </script>
 
@@ -9,66 +9,66 @@ import { onMounted, ref } from 'vue';
 import { useComponentFunctions } from '../../../composables/component-functions';
 
 defineProps({
-    modelValue: {
-        type: String
-    },
-    options: {
-        type: Array,
-        required: true
-    },
-    name: {
-        type: String
-    },
-    label: {
-        type: String,
-        default: 'select label'
-    },
-    autofocus: {
-        type: Boolean,
-        default: false
-    },
-    required: {
-        type: Boolean,
-        default: false
-    },
-    disabled: {
-        type: Boolean,
-        default: false
-    },
-    multiple: {
-        type: Boolean,
-        default: false
-    },
-    size: {
-        type: Number
-    },
-    outlinedLabel: {
-        type: Boolean,
-        default: false
-    },
-    floatingLabel: {
-        type: Boolean,
-        default: false
-    },
-    borderBottom: {
-        type: Boolean,
-        default: false
-    }
+  modelValue: {
+    type: String
+  },
+  options: {
+    type: Array,
+    required: true
+  },
+  name: {
+    type: String
+  },
+  label: {
+    type: String,
+    default: 'select label'
+  },
+  autofocus: {
+    type: Boolean,
+    default: false
+  },
+  required: {
+    type: Boolean,
+    default: false
+  },
+  disabled: {
+    type: Boolean,
+    default: false
+  },
+  multiple: {
+    type: Boolean,
+    default: false
+  },
+  size: {
+    type: Number
+  },
+  outlinedLabel: {
+    type: Boolean,
+    default: false
+  },
+  floatingLabel: {
+    type: Boolean,
+    default: false
+  },
+  borderBottom: {
+    type: Boolean,
+    default: false
+  }
 });
 const { randomId } = useComponentFunctions();
 const id = ref('');
   
 const emit = defineEmits(['update:modelValue']);
 const emitValue = (ev) => {
-    emit('update:modelValue', ev.target.value);
+  emit('update:modelValue', ev.target.value);
 };
 
 const configComponent = () => {
-    id.value = randomId();
+  id.value = randomId();
 };
 
 onMounted(() => {
-    configComponent();
+  configComponent();
 });
 </script>
 

@@ -1,6 +1,6 @@
 <script lang="ts">
 export default {
-    name: 'app-avatar-demo'
+  name: 'app-avatar-demo'
 };
 </script>
 <script setup lang="ts">
@@ -9,19 +9,19 @@ import AppAvatar from '../index.vue';
 import type { IAvatar } from '../IAvatar';
 
 const avatarInfo1: Ref<IAvatar> = ref({
-    name: 'Roberto Vaquero',
-    img: 'avatar.jpg'
+  name: 'Roberto Vaquero',
+  img: 'avatar.jpg'
 });
 
 const avatarInfo2: Ref<IAvatar> = ref({
-    name: 'Daniel verdú',
-    img: 'avatar.jpg'
+  name: 'Daniel verdú',
+  img: 'avatar.jpg'
 });
 
 const message = ref('');
 
 const handleEvent = () => {
-    message.value = avatarInfo1.value.name;
+  message.value = avatarInfo1.value.name;
 };
 </script>
 

@@ -1,49 +1,49 @@
 <script lang="ts">
 export default {
-    name: 'app-icon'
+  name: 'app-icon'
 };
 </script>
 <script setup lang="ts">
 import { computed } from 'vue';
 
 const props = defineProps({
-    icon: {
-        type: [Array, String],
-        required: true
-    },
-    size: {
-        type: Number,
-        default: 20
-    },
-    variant: {
-        type: String
-    },
-    onActiveIcon: {
-        type: [Array, String]
-    },
-    isClicked: {
-        type: Boolean,
-        default: false
-    }
+  icon: {
+    type: [Array, String],
+    required: true
+  },
+  size: {
+    type: Number,
+    default: 20
+  },
+  variant: {
+    type: String
+  },
+  onActiveIcon: {
+    type: [Array, String]
+  },
+  isClicked: {
+    type: Boolean,
+    default: false
+  }
 });
 
 
 const getVariant = computed(() => {
-    const variant: string | undefined = props.variant;
-    return variant?.length ? `app-icon--${variant}` : '';
+  const variant: string | undefined = props.variant;
+  return variant?.length ? `app-icon--${variant}` : '';
 });
 
 const getIcon = computed(() => {
-    const activeIcon = props.onActiveIcon;
-    const icon = props.icon;
-    const isClicked = props.isClicked;
-    return isClicked && activeIcon?.length ? activeIcon : icon;
+  const activeIcon = props.onActiveIcon;
+  const icon = props.icon;
+  const isClicked = props.isClicked;
+  return isClicked && activeIcon?.length ? activeIcon : icon;
 });
 
 const emit = defineEmits(['iconClicked']);
 
 const emitEvent = (ev: Event): void => {
-    emit('iconClicked', ev);
+  emit('iconClicked', ev);
 };
 </script>
 

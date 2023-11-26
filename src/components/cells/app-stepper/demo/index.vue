@@ -1,6 +1,6 @@
 <script lang="ts">
 export default {
-    name: 'app-stepper-demo'
+  name: 'app-stepper-demo'
 };
 </script>
 <script setup lang="ts">
@@ -13,91 +13,91 @@ const formTwo = ref('');
 const formThree = ref('');
 const formFourth = ref('');
 const completedSteps = ref({
-    one: false,
-    two: false,
-    three: false,
-    fourth: false
+  one: false,
+  two: false,
+  three: false,
+  fourth: false
 });
 const steps = ref([
-    {
-        label: 'Cuenta', 
-        text: '',
-        completed: false, 
-        icon: {
-            onEdit: ['fa-solid', 'fa-pen'],
-            onClomplete: ['fa-solid', 'fa-check']
-        }
-    },
-    {
-        label: 'Dirección', 
-        text: '',
-        completed: false, 
-        icon: {
-            onEdit: ['fa-solid', 'fa-pen'], 
-            onClomplete: ['fa-solid', 'fa-check']
-        }
-    },
-    {
-        label: 'Pago', 
-        text: '',
-        completed: false, 
-        icon: {
-            onEdit: ['fa-solid', 'fa-pen'], 
-            onClomplete: ['fa-solid', 'fa-check']
-        }
-    },
-    {
-        label: 'Confirmación', 
-        text: '',
-        completed: false, 
-        icon: {
-            onEdit: ['fa-solid', 'fa-pen'], 
-            onClomplete: ['fa-solid', 'fa-check']
-        }
-    }, 
-    // {
-    //   label: 'Confirmación', 
-    //   text: '5',
-    //   completed: false
-    // }
+  {
+    label: 'Cuenta', 
+    text: '',
+    completed: false, 
+    icon: {
+      onEdit: ['fa-solid', 'fa-pen'],
+      onClomplete: ['fa-solid', 'fa-check']
+    }
+  },
+  {
+    label: 'Dirección', 
+    text: '',
+    completed: false, 
+    icon: {
+      onEdit: ['fa-solid', 'fa-pen'], 
+      onClomplete: ['fa-solid', 'fa-check']
+    }
+  },
+  {
+    label: 'Pago', 
+    text: '',
+    completed: false, 
+    icon: {
+      onEdit: ['fa-solid', 'fa-pen'], 
+      onClomplete: ['fa-solid', 'fa-check']
+    }
+  },
+  {
+    label: 'Confirmación', 
+    text: '',
+    completed: false, 
+    icon: {
+      onEdit: ['fa-solid', 'fa-pen'], 
+      onClomplete: ['fa-solid', 'fa-check']
+    }
+  }, 
+  // {
+  //   label: 'Confirmación', 
+  //   text: '5',
+  //   completed: false
+  // }
 ]);
 
 const handleEvent = (ev) => {
-    console.log(ev);
-    steps.value[ev].completed = true;
+  console.log(ev);
+  steps.value[ev].completed = true;
 };
 
 const handleSteps = (ev) => {
       
-    steps.value[ev].completed = true;
+  steps.value[ev].completed = true;
 };
 
 const validateFormOne = () => {
-    if(formOne.value){
-        handleSteps(0);
-        completedSteps.value.one = true;
-    }
+  if(formOne.value){
+    handleSteps(0);
+    completedSteps.value.one = true;
+  }
 };
 
 const validateFormTwo = () => {
-    if(formTwo.value){
-        handleSteps(1);
-        completedSteps.value.two = true;
-    }
+  if(formTwo.value){
+    handleSteps(1);
+    completedSteps.value.two = true;
+  }
 };
 
 const validateFormThree = () => {
-    if(formThree.value){
-        handleSteps(2);
-        completedSteps.value.three = true;
-    }
+  if(formThree.value){
+    handleSteps(2);
+    completedSteps.value.three = true;
+  }
 };
 
 const validateFormFourth = () => {
-    if(formFourth.value){
-        handleSteps(3);
-        completedSteps.value.fourth = true;
-    }
+  if(formFourth.value){
+    handleSteps(3);
+    completedSteps.value.fourth = true;
+  }
 };
 </script>
 

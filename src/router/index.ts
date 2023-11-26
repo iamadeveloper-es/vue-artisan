@@ -43,192 +43,192 @@ import floatingMenu from '../components/organisms/floating-menu/demo/index.vue';
 import AppSlider from '../components/organisms/app-slider/demo/index.vue';
 
 const router = createRouter({
-    history: createWebHistory(import.meta.env.BASE_URL),
-    routes: [
+  history: createWebHistory(import.meta.env.BASE_URL),
+  routes: [
+    {
+      path: '/test/:id',
+      name: 'TEST',
+      component: AppTest
+    },
+    {
+      path: '/atoms',
+      name: 'ATOMS',
+      component: ComponentView,
+      children: [
         {
-            path: '/test/:id',
-            name: 'TEST',
-            component: AppTest
+          path: '/app-avatar',
+          name: 'APP_AVATAR',
+          component: AppAvatar
         },
         {
-            path: '/atoms',
-            name: 'ATOMS',
-            component: ComponentView,
-            children: [
-                {
-                    path: '/app-avatar',
-                    name: 'APP_AVATAR',
-                    component: AppAvatar
-                },
-                {
-                    path: '/app-link',
-                    name: 'APP_LINK',
-                    component: AppLink
-                },
-                {
-                    path: '/app-icon',
-                    name: 'APP_ICON',
-                    component: AppIcon
-                },
-                {
-                    path: '/app-picture',
-                    name: 'APP_PICTURE',
-                    component: AppPicture
-                },
-                {
-                    path: '/app-image',
-                    name: 'APP_IMAGE',
-                    component: AppImage
-                },
-                {
-                    path: '/app-progress',
-                    name: 'APP_PROGRESS',
-                    component: AppProgress
-                },
-                {
-                    path: '/app-switch',
-                    name: 'APP_SWITCH',
-                    component: AppSwitch
-                },
-                {
-                    path: '/app-money',
-                    name: 'APP_MONEY',
-                    component: AppMoney
-                }
-            ]
+          path: '/app-link',
+          name: 'APP_LINK',
+          component: AppLink
         },
         {
-            path: '/molecules',
-            name: 'MOLECULES',
-            component: ComponentView,
-            children: [
-                {
-                    path: '/app-input-field',
-                    name: 'APP_INPUT_FIELD',
-                    component: AppInputField
-                },
-                {
-                    path: '/app-textarea',
-                    name: 'APP_TEXTAREA',
-                    component: AppTextarea
-                },
-                {
-                    path: '/app-checkbox',
-                    name: 'APP_CHECKBOX',
-                    component: AppCheckbox
-                },
-                {
-                    path: '/app-radio',
-                    name: 'APP_RADIO',
-                    component: AppRadio
-                },
-                {
-                    path: '/app-select',
-                    name: 'APP_SELECT',
-                    component: AppSelect
-                },
-                {
-                    path: '/app-custom-select',
-                    name: 'APP_CUSTOM_SELECT',
-                    component: AppCustomSelect
-                },
-                {
-                    path: '/app-button',
-                    name: 'APP_BUTTON',
-                    component: AppButton
-                },
-                {
-                    path: '/app-tabs',
-                    name: 'APP_TABS',
-                    component: AppTabs
-                },
-                {
-                    path: '/app-modal',
-                    name: 'APP_MODAL',
-                    component: AppModal
-                },
-                {
-                    path: '/app-modal-swipe',
-                    name: 'APP_MODAL_SWIPE',
-                    component: AppModalSwipe
-                },
-                {
-                    path: '/app-snackbar',
-                    name: 'APP_SNACKBAR',
-                    component: AppSnackbar
-                },
-                {
-                    path: '/app-accordion',
-                    name: 'APP_ACCORDION',
-                    component: AppAccordion
-                },
-                {
-                    path: '/app-chip',
-                    name: 'APP_CHIP',
-                    component: AppChip
-                },
-                {
-                    path: '/app-breadcrumbs',
-                    name: 'APP_BREADCRUMBS',
-                    component: AppBreadcrumbs
-                },
-                {
-                    path: '/app-dropdown',
-                    name: 'APP_DROPDOWN',
-                    component: AppDropdown
-                },
-                {
-                    path: '/app-range',
-                    name: 'APP_RANGE',
-                    component: AppRange
-                }
-            ]
+          path: '/app-icon',
+          name: 'APP_ICON',
+          component: AppIcon
         },
         {
-            path: '/cells',
-            name: 'CELLS',
-            component: ComponentView,
-            children: [
-                {
-                    path: '/app-card-radio',
-                    name: 'APP_CARD_RADIO',
-                    component: AppCardRadio
-                },
-                {
-                    path: '/app-pagination',
-                    name: 'APP_PAGINATION',
-                    component: AppPagination
-                },
-                {
-                    path: '/app-stepper',
-                    name: 'APP_STEPPER',
-                    component: AppStepper
-                },
-                {
-                    path: '/app-sidebar',
-                    name: 'APP_SIDEBAR',
-                    component: AppSidebar
-                }
-            ]
+          path: '/app-picture',
+          name: 'APP_PICTURE',
+          component: AppPicture
         },
         {
-            path: '/organisms',
-            name: 'ORGANISMS',
-            component: ComponentView,
-            children: [
-                {
-                    path: '/floating-menu',
-                    name: 'FLOATING_MENU',
-                    component: floatingMenu
-                },
-                {
-                    path: '/app-slider',
-                    name: 'APP_SLIDER',
-                    component: AppSlider
-                }
-            ]
+          path: '/app-image',
+          name: 'APP_IMAGE',
+          component: AppImage
+        },
+        {
+          path: '/app-progress',
+          name: 'APP_PROGRESS',
+          component: AppProgress
+        },
+        {
+          path: '/app-switch',
+          name: 'APP_SWITCH',
+          component: AppSwitch
+        },
+        {
+          path: '/app-money',
+          name: 'APP_MONEY',
+          component: AppMoney
         }
-    ]
+      ]
+    },
+    {
+      path: '/molecules',
+      name: 'MOLECULES',
+      component: ComponentView,
+      children: [
+        {
+          path: '/app-input-field',
+          name: 'APP_INPUT_FIELD',
+          component: AppInputField
+        },
+        {
+          path: '/app-textarea',
+          name: 'APP_TEXTAREA',
+          component: AppTextarea
+        },
+        {
+          path: '/app-checkbox',
+          name: 'APP_CHECKBOX',
+          component: AppCheckbox
+        },
+        {
+          path: '/app-radio',
+          name: 'APP_RADIO',
+          component: AppRadio
+        },
+        {
+          path: '/app-select',
+          name: 'APP_SELECT',
+          component: AppSelect
+        },
+        {
+          path: '/app-custom-select',
+          name: 'APP_CUSTOM_SELECT',
+          component: AppCustomSelect
+        },
+        {
+          path: '/app-button',
+          name: 'APP_BUTTON',
+          component: AppButton
+        },
+        {
+          path: '/app-tabs',
+          name: 'APP_TABS',
+          component: AppTabs
+        },
+        {
+          path: '/app-modal',
+          name: 'APP_MODAL',
+          component: AppModal
+        },
+        {
+          path: '/app-modal-swipe',
+          name: 'APP_MODAL_SWIPE',
+          component: AppModalSwipe
+        },
+        {
+          path: '/app-snackbar',
+          name: 'APP_SNACKBAR',
+          component: AppSnackbar
+        },
+        {
+          path: '/app-accordion',
+          name: 'APP_ACCORDION',
+          component: AppAccordion
+        },
+        {
+          path: '/app-chip',
+          name: 'APP_CHIP',
+          component: AppChip
+        },
+        {
+          path: '/app-breadcrumbs',
+          name: 'APP_BREADCRUMBS',
+          component: AppBreadcrumbs
+        },
+        {
+          path: '/app-dropdown',
+          name: 'APP_DROPDOWN',
+          component: AppDropdown
+        },
+        {
+          path: '/app-range',
+          name: 'APP_RANGE',
+          component: AppRange
+        }
+      ]
+    },
+    {
+      path: '/cells',
+      name: 'CELLS',
+      component: ComponentView,
+      children: [
+        {
+          path: '/app-card-radio',
+          name: 'APP_CARD_RADIO',
+          component: AppCardRadio
+        },
+        {
+          path: '/app-pagination',
+          name: 'APP_PAGINATION',
+          component: AppPagination
+        },
+        {
+          path: '/app-stepper',
+          name: 'APP_STEPPER',
+          component: AppStepper
+        },
+        {
+          path: '/app-sidebar',
+          name: 'APP_SIDEBAR',
+          component: AppSidebar
+        }
+      ]
+    },
+    {
+      path: '/organisms',
+      name: 'ORGANISMS',
+      component: ComponentView,
+      children: [
+        {
+          path: '/floating-menu',
+          name: 'FLOATING_MENU',
+          component: floatingMenu
+        },
+        {
+          path: '/app-slider',
+          name: 'APP_SLIDER',
+          component: AppSlider
+        }
+      ]
+    }
+  ]
 });
 
 export default router;
