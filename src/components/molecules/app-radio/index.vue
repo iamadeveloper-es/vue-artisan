@@ -1,87 +1,80 @@
 <script lang="ts">
-import { computed, onMounted, ref, type Ref } from 'vue';
+export default {
+    name: 'app-radio'
+};
+</script>
+
+<script setup lang="ts">
+import { computed, onMounted, ref, useSlots, type Ref } from 'vue';
 import { useComponentFunctions } from '../../../composables/component-functions';
 
-export default {
-  name: 'app-radio',
-  props: {
+const props = defineProps({
     modelValue: {
-      default: '',
-      required: true
+        default: '',
+        required: true
     },
     disabled: {
-      type: Boolean,
-      default: false
+        type: Boolean,
+        default: false
     },
     value: {
-      type: [String, Number, Boolean, Object],
-      default: false
+        type: [String, Number, Boolean, Object],
+        default: false
     },
     label: {
-      type: String,
-      default: 'Radio label'
+        type: String,
+        default: 'Radio label'
     },
     name: {
-      type: String,
-      default: 'radio-name',
-      required: true
+        type: String,
+        default: 'radio-name',
+        required: true
     },
     activeColor: {
-      type: String,
-      default: 'primary'
+        type: String,
+        default: 'primary'
     }
-  },
-  setup (props, context) {
-    const { randomId } = useComponentFunctions();
-    const id = ref('');
-    const radioRef: Ref<HTMLInputElement> | Ref<null> = ref(null);
-
-    const model = computed({
-      get () {
+});
+const { randomId } = useComponentFunctions();
+const id = ref('');
+const slots = useSlots();
+const radioRef: Ref<HTMLInputElement> | Ref<null> = ref(null);
+    
+const emit = defineEmits(['update:modelValue', 'onChange']);
+const model = computed({
+    get () {
         return props.modelValue;
-      },
-      set (value) {
-        context.emit('update:modelValue', value);
-      },
-    });
+    },
+    set (value) {
+        emit('update:modelValue', value);
+    },
+});
 
-    const setActiveColor = computed(() => {
-      return `app-check-radio__icon--${props.activeColor}`;
-    });
+const setActiveColor = computed(() => {
+    return `app-check-radio__icon--${props.activeColor}`;
+});
 
-    const isSelected = computed(() => {
-      return props.modelValue === props.value || 
+const isSelected = computed(() => {
+    return props.modelValue === props.value || 
       JSON.stringify(props.modelValue) === JSON.stringify(props.value);
-    });
+});
 
-    const hasSlot = computed(() => {
-      return !!context.slots['label'];
-    });
+const hasSlot = computed(() => {
+    return !!slots['label'];
+});
 
-    const emitValue = (ev: Event) => {
-      const target = ev.target as HTMLInputElement;
-      context.emit('onChange', target.value);
-    };
-
-    const configComponent = () => {
-      id.value = randomId();
-    };
-
-    onMounted(() => {
-      configComponent();
-    });
-
-    return {
-      id,
-      radioRef,
-      model,
-      isSelected,
-      setActiveColor,
-      hasSlot,
-      emitValue
-    };
-  }
+const emitValue = (ev: Event) => {
+    const target = ev.target as HTMLInputElement;
+    emit('onChange', target.value);
 };
+
+const configComponent = () => {
+    id.value = randomId();
+};
+
+onMounted(() => {
+    configComponent();
+});
 </script>
 
 <template lang="pug">

@@ -1,38 +1,34 @@
 <script lang="ts">
+export default {
+    name: 'app-card-radio'
+};
+</script>
+<script setup lang="ts">
 import { computed } from 'vue';
 
-export default {
-  name: 'app-card-radio',
-  props: {
+const props = defineProps({
     modelValue: {
-      default: '',
-      required: true
+        default: '',
+        required: true
     },
     value: {
-      type: [String, Number, Boolean, Array],
-      default: false
+        type: [String, Number, Boolean, Array],
+        default: false
     },
     name: {
-      type: String,
-      default: 'card-radio-name'
-    },
-  },
-  setup (props, context){
-    const isChecked = computed(() => {
-      return props.modelValue === props.value;
-    });
-
-    const emitValue = (ev: Event) => {
-      const target = ev.target as HTMLInputElement;
-      context.emit('update:modelValue', target.value);
-      context.emit('onChange', ev);
-    };
-
-    return {
-      isChecked, 
-      emitValue
-    };
-  }
+        type: String,
+        default: 'card-radio-name'
+    }
+});
+const isChecked = computed(() => {
+    return props.modelValue === props.value;
+});
+  
+const emit = defineEmits(['update:modelValue', 'onChange']);
+const emitValue = (ev: Event) => {
+    const target = ev.target as HTMLInputElement;
+    emit('update:modelValue', target.value);
+    emit('onChange', ev);
 };
 </script>
 

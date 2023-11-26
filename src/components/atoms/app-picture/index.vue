@@ -1,19 +1,16 @@
 <script lang="ts">
-import { onMounted } from 'vue';
-
 export default {
-  name: 'app-picture',
-  props: {
-    src: {
-      type: String,
-      required: true
-    }
-  },
-  setup () {
-    onMounted(() => {});
-    return {};
-  }
+    name: 'app-picture'
 };
+</script>
+<script setup lang="ts">
+
+defineProps({
+    src: {
+        type: String,
+        required: true
+    }
+});
 </script>
 
 <template lang="pug">

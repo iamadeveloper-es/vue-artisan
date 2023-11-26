@@ -1,36 +1,28 @@
 <script lang="ts">
+export default {
+    name: 'app-snackbar-demo'
+};
+</script>
+
+<script setup lang="ts">
 import { ref } from 'vue';
 
 import AppSnackbar from '../index.vue';
-export default {
-  name: 'app-snackbar-demo',
-  components: { AppSnackbar },
-  setup () {
-    const snackbar = ref(null);
-    const snackbar2 = ref(null);
-    const snackbar3 = ref(null);
 
-    const handleSnackbar = () => {
-      snackbar.value?.show();
-    };
+const snackbar = ref(null);
+const snackbar2 = ref(null);
+const snackbar3 = ref(null);
 
-    const handleSnackbar2 = () => {
-      snackbar2.value?.show();
-    };
+const handleSnackbar = () => {
+    snackbar.value?.show();
+};
 
-    const handleSnackbar3 = () => {
-      snackbar3.value?.show();
-    };
+const handleSnackbar2 = () => {
+    snackbar2.value?.show();
+};
 
-    return {
-      snackbar,
-      snackbar2,
-      snackbar3,
-      handleSnackbar,
-      handleSnackbar2,
-      handleSnackbar3
-    };
-  }
+const handleSnackbar3 = () => {
+    snackbar3.value?.show();
 };
 </script>
 

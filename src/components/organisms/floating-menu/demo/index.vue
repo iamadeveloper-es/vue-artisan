@@ -1,12 +1,12 @@
 <script lang="ts">
+export default {
+    name: 'app-floating-menu-demo'
+};
+</script>
+
+<script setup lang="ts">
 import FloatingMenu from '../index.vue';
 
-export default {
-  name: 'app-floating-menu',
-  components: {
-    FloatingMenu
-  }
-};
 </script>
 
 <template lang="pug">

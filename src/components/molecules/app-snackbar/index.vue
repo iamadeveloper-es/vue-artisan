@@ -1,76 +1,76 @@
 <script lang="ts">
-import { type Ref, ref } from 'vue';
+export default {
+    name: 'app-snackbar'
+};
+</script>
+
+<script setup lang="ts">
+import { type Ref, ref, useSlots } from 'vue';
 import AppIcon from '../../atoms/app-icon/index.vue';
 
-export default {
-  name: 'app-snackbar',
-  components: { AppIcon },
-  props: {
+const props = defineProps({
     closeIcon: {
-      type: Array,
-      default: () => ['fa-regular', 'fa-circle-xmark', 'app-snackbar__close']
+        type: Array,
+        default: () => ['fa-regular', 'fa-circle-xmark', 'app-snackbar__close']
     },
     hasIcon: {
-      type: Boolean,
-      default: false
+        type: Boolean,
+        default: false
     },
     IconSize: {
-      type: Number,
-      default: 18
+        type: Number,
+        default: 18
     },
     iconVariant: {
-      type: String
+        type: String
     },
     closeText: {
-      type: String,
-      default: 'Close'
+        type: String,
+        default: 'Close'
     },
     duration: {
-      type: Number
+        type: Number
     },
     position: {
-      type: String,
-      default: 'bottom'
+        type: String,
+        default: 'bottom'
     }
-  },
-  setup (props, context) {
-    const isVisible: Ref<Boolean> = ref(false);
-    let timeOut: ReturnType<typeof setTimeout> | undefined = undefined;
+});
 
-    const show = (): void => {
-      isVisible.value = true;
+const slots = useSlots();
+const isVisible: Ref<Boolean> = ref(false);
+let timeOut: ReturnType<typeof setTimeout> | undefined = undefined;
 
-      if (props.duration) {
+const show = (): void => {
+    isVisible.value = true;
+
+    if (props.duration) {
         startCounter();
-      }
-    };
-
-    const startCounter = (): void => {
-      clearTimeout(timeOut);
-      const { duration } = props;
-      const time = duration ? duration * 1000 : 5000;
-
-      timeOut = setTimeout(() => {
-        hide();
-      }, time);
-    };
-
-    const hide = (): void => {
-      isVisible.value = false;
-      clearTimeout(timeOut);
-      timeOut = undefined;
-    };
-
-    const hasSlot = (name: Readonly<string>): Boolean => !!context.slots[name];
-
-    return {
-      isVisible,
-      show,
-      hide,
-      hasSlot
-    };
-  }
+    }
 };
+
+const startCounter = (): void => {
+    clearTimeout(timeOut);
+    const { duration } = props;
+    const time = duration ? duration * 1000 : 5000;
+
+    timeOut = setTimeout(() => {
+        hide();
+    }, time);
+};
+
+const hide = (): void => {
+    isVisible.value = false;
+    clearTimeout(timeOut);
+    timeOut = undefined;
+};
+
+const hasSlot = (name: Readonly<string>): Boolean => !!slots[name];
+
+defineExpose({
+    show,
+    hide
+});
 </script>
 
 <template lang="pug">

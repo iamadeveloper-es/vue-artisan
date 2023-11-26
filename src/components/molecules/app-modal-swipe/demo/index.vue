@@ -1,40 +1,28 @@
 <script lang="ts">
+export default {
+    name: 'app-modal-swipe-demo'
+};
+</script>
+
+<script setup lang="ts">
 import AppModalSwipe from '../index.vue';
 import AppButton from '../../app-button/index.vue';
 import { ref } from 'vue';
 
-export default {
-  name: 'app-modal-swipe-demo',
-  components: {
-    AppModalSwipe,
-    AppButton
-  },
-  setup () {
-    const modal1 = ref(null);
-    const modal2 = ref(null);
-    const modal3 = ref(null);
+const modal1 = ref(null);
+const modal2 = ref(null);
+const modal3 = ref(null);
 
-    const showModal1 = () => {
-      modal1.value?.show();
-    };
+const showModal1 = () => {
+    modal1.value?.show();
+};
 
-    const showModal2 = () => {
-      modal2.value?.show();
-    };
+const showModal2 = () => {
+    modal2.value?.show();
+};
 
-    const showModal3 = () => {
-      modal3.value?.show();
-    };
-
-    return {
-      modal1,
-      modal2,
-      modal3,
-      showModal1,
-      showModal2,
-      showModal3
-    };
-  }
+const showModal3 = () => {
+    modal3.value?.show();
 };
 </script>
 

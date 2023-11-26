@@ -1,55 +1,50 @@
 <script lang="ts">
+export default {
+    name: 'app-link-demo'
+};
+</script>
+<script setup lang="ts">
 import { ref } from 'vue';
 import AppLink from '../index.vue';
 
-export default {
-  name: 'app-link-demo',
-  components: { AppLink },
-  setup () {
-    const icon = ['fa-solid', 'fa-house'];
-    const links = ref([
-      {
+const icon = ['fa-solid', 'fa-house'];
+const links = ref([
+    {
         name: 'TEST',
         text: 'Link 1 sin icono',
         params: { id: '12' },
         query: { shoping: 123 }
-      },
-      {
+    },
+    {
         name: 'TEST',
         params: { id: '1235' },
         text: 'Link 2 con icono a la derecha',
         icon: icon
-      },
-      {
+    },
+    {
         path: '/test/:1',
         text: 'Link 3 con icono a la izquierda',
         icon: icon,
         iconPosition: 'left'
-      },
-      {
+    },
+    {
         path: '/test/:2',
         text: 'Link 4 con icono abajo',
         icon: icon,
         iconPosition: 'top'
-      },
-      {
+    },
+    {
         path: '/test/:3',
         query: { shoping: 123 },
         text: 'Link 5 con icono arriba',
         icon: icon,
         iconPosition: 'bottom'
-      },
-      {
+    },
+    {
         path: '/test/:1',
         icon: icon
-      },
-    ]);
-
-    return {
-      links
-    };
-  }
-};
+    },
+]);
 </script>
 
 <template lang="pug">

@@ -1,22 +1,15 @@
 <script lang="ts">
+export default {
+    name: 'app-accordion-demo'
+};
+</script>
+<script setup lang="ts">
 import { ref } from 'vue';
 import AppAccordion from '../index.vue';
 
-export default {
-  name: 'app-accordion-demo',
-  components: { AppAccordion },
-  setup () {
-    const selected = ref('');
-    const selected2 = ref('');
-    const accordion1Name = 'accordion1';
+const selected = ref('');
+const selected2 = ref('');
 
-    return {
-      selected,
-      selected2,
-      accordion1Name
-    };
-  }
-};
 </script>
 
 <template lang="pug">

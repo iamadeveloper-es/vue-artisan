@@ -1,23 +1,17 @@
 <script lang="ts">
+export default {
+    name: 'app-card-radio-demo'
+};
+</script>
+<script setup lang="ts">
 import AppCardRadio from '../index.vue';
 import { ref } from 'vue';
 
-export default {
-  name: 'app-card-radio-demo',
-  components: {AppCardRadio},
-  setup (){
-    const cardSelected = ref('item1');
+const cardSelected = ref('item1');
 
-    const handleChangeEvent = (ev: Event) => {
-      const target = ev.target as HTMLInputElement;
-      cardSelected.value = target.value;
-    };
-
-    return{
-      cardSelected,
-      handleChangeEvent
-    };
-  }
+const handleChangeEvent = (ev: Event) => {
+    const target = ev.target as HTMLInputElement;
+    cardSelected.value = target.value;
 };
 </script>
 

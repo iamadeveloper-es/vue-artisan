@@ -1,63 +1,53 @@
 <script lang="ts">
+export default {
+    name: 'app-chip'
+};
+</script>
+<script setup lang="ts">
 import { computed, ref } from 'vue';
 import AppIcon from '../../atoms/app-icon/index.vue';
 
-export default {
-  name: 'app-chip',
-  components: {
-    AppIcon
-  },
-  props: {
+const props = defineProps({
     appendIcon: {
-      type: [Array, String]
+        type: [Array, String]
     },
     prependIcon: {
-      type: [Array, String]
+        type: [Array, String]
     },
     size: {
-      type: Number,
-      default: 18
+        type: Number,
+        default: 18
     },
     closable: {
-      type: Boolean,
-      default: false
+        type: Boolean,
+        default: false
     },
     text: {
-      type: String,
-      required: true
+        type: String,
+        required: true
     }
-  },
-  setup (props, context) {
-    const closableIcon = ['fa-regular', 'fa-circle-xmark', 'app-chip__close'];
-    const show = ref(true);
+});
+const closableIcon = ['fa-regular', 'fa-circle-xmark', 'app-chip__close'];
+const show = ref(true);
 
-    const hasAppendIcon = computed(() => {
-      return props.appendIcon && props.appendIcon.length;
-    });
-    const hasPrependIcon = computed(() => {
-      return props.prependIcon && props.prependIcon.length;
-    });
-    const getClosableIcon = computed(() => {
-      return closableIcon;
-    });
+const hasAppendIcon = computed(() => {
+    return props.appendIcon && props.appendIcon.length;
+});
+const hasPrependIcon = computed(() => {
+    return props.prependIcon && props.prependIcon.length;
+});
+const getClosableIcon = computed(() => {
+    return closableIcon;
+});
 
-    const emitValue = (ev: Event) => {
-      context.emit('onClick', ev);
-    };
+const emit = defineEmits(['onClick']);
 
-    const hide = () => {
-      show.value = false;
-    };
+const emitValue = (ev: Event) => {
+    emit('onClick', ev);
+};
 
-    return {
-      show,
-      hasAppendIcon,
-      hasPrependIcon,
-      getClosableIcon,
-      emitValue,
-      hide
-    };
-  }
+const hide = () => {
+    show.value = false;
 };
 </script>
 <template lang="pug">

@@ -1,32 +1,23 @@
 <script lang="ts">
-import { ref } from 'vue';
-
-import AppIcon from '../index.vue';
 export default {
-  name: 'app-icon-demo',
-  components: { AppIcon },
-  setup () {
-    const message = ref('');
-    const message2 = ref('');
-    const iconChange = ref(false);
+    name: 'app-icon-demo'
+};
+</script>
+<script setup lang="ts">
+import { ref } from 'vue';
+import AppIcon from '../index.vue';
 
-    const handleEvent = () => {
-      message.value = 'Icono clickado';
-    };
+const message = ref('');
+const message2 = ref('');
+const iconChange = ref(false);
 
-    const handleEvent2 = () => {
-      message2.value = 'Icono cambiado';
-      iconChange.value = !iconChange.value;
-    };
+const handleEvent = () => {
+    message.value = 'Icono clickado';
+};
 
-    return {
-      message,
-      message2,
-      iconChange,
-      handleEvent,
-      handleEvent2
-    };
-  }
+const handleEvent2 = () => {
+    message2.value = 'Icono cambiado';
+    iconChange.value = !iconChange.value;
 };
 </script>
 

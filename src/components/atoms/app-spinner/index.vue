@@ -1,19 +1,16 @@
 <script lang="ts">
 export default {
-  name: 'app-spinner',
-  props: {
-    /**
-         * Muestra / oculta el spinner
-         */
-    show: {
-      type: Boolean,
-      default: true
-    }
-  },
-  setup () {
-    return {};
-  }
+    name: 'app-spinner'
 };
+</script>
+<script setup lang="ts">
+
+defineProps({
+    show: {
+        type: Boolean,
+        default: true
+    }
+});
 </script>
 
 <template lang="pug">

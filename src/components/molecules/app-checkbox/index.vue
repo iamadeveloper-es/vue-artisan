@@ -1,83 +1,76 @@
 <script lang="ts">
-import { computed, onMounted, type Ref, ref } from 'vue';
+export default {
+    name: 'app-checkbox'
+};
+</script>
+<script setup lang="ts">
+import { computed, onMounted, type Ref, ref, useSlots } from 'vue';
 import { useComponentFunctions } from '../../../composables/component-functions';
 
-export default {
-  name: 'app-checkbox',
-  props: {
+const props = defineProps({
     modelValue: {
-      type: [Array, Boolean]
+        type: [Array, Boolean]
     },
     disabled: {
-      type: Boolean,
-      default: false
+        type: Boolean,
+        default: false
     },
     value: {
-      type: [String, Number, Boolean, Object],
-      default: false
+        type: [String, Number, Boolean, Object],
+        default: false
     },
     label: {
-      type: String,
-      default: 'Checkbox label'
+        type: String,
+        default: 'Checkbox label'
     },
     activeColor: {
-      type: String,
-      default: 'primary'
+        type: String,
+        default: 'primary'
     }
-  },
-  setup (props, context) {
-    const { randomId } = useComponentFunctions();
-    const id = ref('');
-    const checkboxRef: Ref<HTMLInputElement> | Ref<null> = ref(null);
-    const isChecked: Ref<boolean> = ref(false);
+});
+const { randomId } = useComponentFunctions();
+const id = ref('');
+const checkboxRef: Ref<HTMLInputElement> | Ref<null> = ref(null);
+const isChecked: Ref<boolean> = ref(false);
+const slots = useSlots();
 
-    const setActiveColor = computed(() => {
-      return `app-check-radio__icon--${props.activeColor}`;
-    });
+const setActiveColor = computed(() => {
+    return `app-check-radio__icon--${props.activeColor}`;
+});
 
-    const hasSlot = computed(() => {
-      return !!context.slots['label'];
-    });
+const hasSlot = computed(() => {
+    return !!slots['label'];
+});
 
-    const model = computed({
-      get () {
+const emit = defineEmits(['update:modelValue']);
+
+const model = computed({
+    get () {
         return props.modelValue;
-      },
-      set (value) {
-        context.emit('update:modelValue', value);
-      },
-    });
+    },
+    set (value) {
+        emit('update:modelValue', value);
+    },
+});
 
-    const isSelected = computed(() => {
-      return isChecked.value;
-    });
+const isSelected = computed(() => {
+    return isChecked.value;
+});
 
-    const emitValue = (ev: Event) => {
-      const target = ev.target as HTMLInputElement;
-      isChecked.value = target.checked;
-    };
-
-    const configComponent = () => {
-      id.value = randomId();
-      isChecked.value = checkboxRef.value?.checked;
-    };
-
-    onMounted(() => {
-      configComponent();
-      
-    });
-
-    return {
-      id,
-      checkboxRef,
-      setActiveColor,
-      hasSlot,
-      model,
-      isSelected,
-      emitValue
-    };
-  }
+const emitValue = (ev: Event) => {
+    const target = ev.target as HTMLInputElement;
+    isChecked.value = target.checked;
 };
+
+const configComponent = () => {
+    id.value = randomId();
+    isChecked.value = checkboxRef.value?.checked;
+};
+
+onMounted(() => {
+    configComponent();
+      
+});
 </script>
 
 <template lang="pug">

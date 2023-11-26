@@ -1,33 +1,23 @@
 <script lang="ts">
+export default {
+    name: 'app-modal-demo'
+};
+</script>
+
+<script setup lang="ts">
 import { ref } from 'vue';
 import AppButton from '../../app-button/index.vue';
 import AppModal from '../index.vue';
 
-export default {
-  name: 'app-modal-demo',
-  components: {
-    AppButton,
-    AppModal
-  },
-  setup () {
-    const modal1 = ref(null);
-    const modal2 = ref(null);
+const modal1 = ref(null);
+const modal2 = ref(null);
 
-    const showModal1 = () => {
-      modal1.value?.show();
-    };
+const showModal1 = () => {
+    modal1.value?.show();
+};
 
-    const showModal2 = () => {
-      modal2.value?.show();
-    };
-
-    return {
-      modal1,
-      modal2,
-      showModal1,
-      showModal2
-    };
-  }
+const showModal2 = () => {
+    modal2.value?.show();
 };
 </script>
 

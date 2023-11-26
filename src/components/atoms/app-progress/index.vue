@@ -1,24 +1,24 @@
 <script lang="ts">
 export default {
-  name: 'app-progress',
-  props: {
+    name: 'app-progress'
+};
+</script>
+<script setup lang="ts">
+
+defineProps({
     modelValue: {
-      type: Number,
-      default: 0
+        type: Number,
+        default: 0
     },
     value: {
-      type: Number,
-      default: 0
+        type: Number,
+        default: 0
     },
     max: {
-      type: Number,
-      default: 100
+        type: Number,
+        default: 100
     }
-  },
-  setup () {
-    return {};
-  }
-};
+});
 </script>
 
 <template lang="pug">

@@ -1,16 +1,12 @@
 <script lang="ts">
+export default {
+    name: 'app-picture-demo'
+};
+</script>
+<script setup lang="ts">
 import AppPicture from '../index.vue';
 
-export default {
-  name: 'app-picture-demo',
-  components: { AppPicture },
-  setup () {
-    const src = '../../../../../src/assets/images/vue.jpg';
-    return {
-      src
-    };
-  }
-};
+const src = '../../../../../src/assets/images/vue.jpg';
 </script>
 
 <template lang="pug">

@@ -1,103 +1,99 @@
 <script lang="ts">
+export default {
+    name: 'app-textarea'
+};
+</script>
+
+<script setup lang="ts">
 import { onMounted, ref } from 'vue';
 import { useComponentFunctions } from '../../../composables/component-functions';
 
-export default {
-  name: 'app-textarea',
-  props: {
+const props = defineProps({
     modelValue: {
-      default: '',
-      required: true
+        default: '',
+        required: true
     },
     name: {
-      type: String,
-      required: true
+        type: String,
+        required: true
     },
     label: {
-      type: String,
-      default: ''
+        type: String,
+        default: ''
     },
     placeholder: {
-      type: String,
-      default: ''
+        type: String,
+        default: ''
     },
     required: {
-      type: Boolean,
-      default: false
+        type: Boolean,
+        default: false
     },
     disabled: {
-      type: Boolean,
-      default: false
+        type: Boolean,
+        default: false
     },
     readOnly: {
-      type: Boolean,
-      default: false
+        type: Boolean,
+        default: false
     },
     outlinedLabel: {
-      type: Boolean,
-      default: false
+        type: Boolean,
+        default: false
     },
     floatingLabel: {
-      type: Boolean,
-      default: false
+        type: Boolean,
+        default: false
     },
     borderBottom: {
-      type: Boolean,
-      default: false
+        type: Boolean,
+        default: false
     },
     ariaLabelledby: {
-      type: String,
-      default: 'Select Input'
+        type: String,
+        default: 'Select Input'
     },
     rows: {
-      type: Number,
-      default: 4
+        type: Number,
+        default: 4
     },
     maxLength: {
-      type: Number
+        type: Number
     },
     minLength: {
-      type: Number
+        type: Number
     }
-  },
-  setup (props, context) {
-    const { randomId } = useComponentFunctions();
-    const isFocused = ref(false);
-    const id = ref('');
+});
 
-    const emitValue = (ev: Event) => {
-      const target = ev.target as HTMLInputElement;
-      context.emit('update:modelValue', target.value);
-    };
+const { randomId } = useComponentFunctions();
+const isFocused = ref(false);
+const id = ref('');
 
-    const emitFocus = (ev: FocusEvent) => {
-      isFocused.value = true;
-      context.emit('onFocus', ev);
-    };
+const emit = defineEmits(['update:modelValue', 'onFocus', 'onBlur']);
 
-    const emitBlur = (ev: FocusEvent) => {
-      isFocused.value = props.modelValue.length > 0 ? true : false;
-      context.emit('onBlur', ev);
-    };
-
-    const configComponent = () => {
-      id.value = randomId();
-      isFocused.value = props.modelValue.length > 0;
-    };
-
-    onMounted(() => {
-      configComponent();
-    });
-
-    return {
-      id,
-      isFocused,
-      emitValue,
-      emitFocus,
-      emitBlur
-    };
-  }
+const emitValue = (ev: Event) => {
+    const target = ev.target as HTMLInputElement;
+    emit('update:modelValue', target.value);
 };
+
+const emitFocus = (ev: FocusEvent) => {
+    isFocused.value = true;
+    emit('onFocus', ev);
+};
+
+const emitBlur = (ev: FocusEvent) => {
+    isFocused.value = props.modelValue.length > 0 ? true : false;
+    emit('onBlur', ev);
+};
+
+const configComponent = () => {
+    id.value = randomId();
+    isFocused.value = props.modelValue.length > 0;
+};
+
+onMounted(() => {
+    configComponent();
+});
 </script>
 
 <template lang="pug">

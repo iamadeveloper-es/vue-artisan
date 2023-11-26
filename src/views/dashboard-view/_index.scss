@@ -1,0 +1,33 @@
+.app-menu {
+    li span {
+        margin-bottom: 0.5rem;
+        display: inline-block;
+        cursor: pointer;
+
+        &.active {
+            color: var(--success);
+        }
+    }
+
+    li span:hover,
+    &__submenu li:hover {
+        color: var(--success);
+        transition: color 0.1s ease-in-out;
+    }
+
+    &__submenu {
+        display: none;
+
+        &.active {
+            display: block;
+        }
+
+        li {
+            margin-bottom: 0.5rem;
+        }
+
+        li.active {
+            color: var(--success);
+        }
+    }
+}

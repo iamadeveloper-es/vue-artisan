@@ -1,22 +1,16 @@
 <script lang="ts">
+export default {
+    name: 'app-range-demo'
+};
+</script>
+
+<script setup lang="ts">
 import { ref } from 'vue';
 import AppRange from '../index.vue';
 
-export default {
-  name: 'app-range-demo',
-  components: {AppRange},
-  setup (){
-    const rangeVal0 = ref(78);
-    const rangeVal = ref(20);
-    const rangeVal2 = ref(40);
-
-    return {
-      rangeVal0, 
-      rangeVal, 
-      rangeVal2
-    };
-  }
-};
+const rangeVal0 = ref(78);
+const rangeVal = ref(20);
+const rangeVal2 = ref(40);
 
 </script>
 

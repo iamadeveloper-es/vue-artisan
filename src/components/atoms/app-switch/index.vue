@@ -1,67 +1,63 @@
 <script lang="ts">
-import { computed, onMounted, ref } from 'vue';
-import { useComponentFunctions } from '../../../composables/component-functions';
-
 export default {
-  name: 'app-switch',
-  props: {
+    name: 'app-switch'
+};
+</script>
+<script setup lang="ts">
+import { onMounted, ref } from 'vue';
+import { useComponentFunctions } from '../../../composables/component-functions';
+// import { useSlots } from 'vue';
+
+defineProps({
     modelValue: {
-      default: '',
-      required: true
+        default: '',
+        required: true
     },
     disabled: {
-      type: Boolean,
-      default: false
+        type: Boolean,
+        default: false
     },
     value: {
-      type: [String, Number, Boolean],
-      default: false
+        type: [String, Number, Boolean],
+        default: false
     },
     cClass: {
-      type: [String, Array]
+        type: [String, Array]
     },
     activeColor: {
-      type: String,
-      default: 'primary'
+        type: String,
+        default: 'primary'
     }
-  },
-  setup (props, context) {
-    const { randomId } = useComponentFunctions();
-    const id = ref('');
+});
+const { randomId } = useComponentFunctions();
+const id = ref('');
+// const slots = useSlots();
 
-    const isActive = ref(false);
+// const isActive = ref(false);
 
-    const setActiveColor = computed(() => {
-      return `app-check-radio__icon--${props.activeColor}`;
-    });
+// const setActiveColor = computed(() => {
+//   return `app-check-radio__icon--${props.activeColor}`;
+// });
 
-    const hasSlot = computed(() => {
-      return !!context.slots['label'];
-    });
+// const hasSlot = computed(() => {
+//   return !!slots['label'];
+// });
 
-    const emitValue = (ev: Event) => {
-      const target = ev.target as HTMLInputElement;
-      context.emit('update:modelValue', target.value);
-      context.emit('onChange', ev);
-    };
+const emit = defineEmits(['update:modelValue', 'onChange']);
 
-    const configComponent = () => {
-      id.value = randomId();
-    };
-
-    onMounted(() => {
-      configComponent();
-    });
-
-    return {
-      id,
-      isActive,
-      setActiveColor,
-      hasSlot,
-      emitValue
-    };
-  }
+const emitValue = (ev: Event) => {
+    const target = ev.target as HTMLInputElement;
+    emit('update:modelValue', target.value);
+    emit('onChange', ev);
 };
+
+const configComponent = () => {
+    id.value = randomId();
+};
+
+onMounted(() => {
+    configComponent();
+});
 </script>
 
 <template lang="pug">

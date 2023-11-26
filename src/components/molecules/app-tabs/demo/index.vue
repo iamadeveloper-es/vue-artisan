@@ -1,36 +1,31 @@
 <script lang="ts">
-import { ref } from 'vue';
-
-import AppTabs from '../index.vue';
 export default {
-  name: 'app-tabs-demo',
-  components: { AppTabs },
-  setup () {
-    const tabSelected = ref('tab2');
-    const tabs = ref([
-      {
+    name: 'app-tabs-demo'
+};
+</script>
+
+<script setup lang="ts">
+import { ref } from 'vue';
+import AppTabs from '../index.vue';
+
+const tabSelected = ref('tab2');
+const tabs = ref([
+    {
         text: 'Tab 1',
         value: 'tab1',
         name: 'Tab'
-      },
-      {
+    },
+    {
         text: 'Tab 2 con nombre muy largo',
         value: 'tab2',
         name: 'Tab'
-      },
-      {
+    },
+    {
         text: 'Tab 3',
         value: 'tab3',
         name: 'Tab'
-      }
-    ]);
-
-    return {
-      tabSelected,
-      tabs
-    };
-  }
-};
+    }
+]);
 </script>
 
 <template lang="pug">

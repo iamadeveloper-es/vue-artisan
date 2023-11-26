@@ -1,130 +1,118 @@
 <script lang="ts">
+export default {
+    name: 'app-pagination'
+};
+</script>
+<script setup lang="ts">
 import { computed, onMounted, ref, watch } from 'vue';
 import { useRouter } from 'vue-router';
 import { useRoute } from 'vue-router';
 
-export default {
-  name: 'app-pagination',
-  props: {
+const props = defineProps({
     totalPages: {
-      type: [String, Number],
-      required: true
+        type: [String, Number],
+        required: true
     },
     pagesToShow: {
-      type: Number,
-      default: 4
+        type: Number,
+        default: 4
     },
     routeName: {
-      type: String
+        type: String
     },
     previousIncon: {
-      type: [String, Array],
-      default: (() => ['fa-solid', 'fa-angle-left'])
+        type: [String, Array],
+        default: (() => ['fa-solid', 'fa-angle-left'])
     },
     nextIncon: {
-      type: [String, Array],
-      default: (() => ['fa-solid', 'fa-angle-right'])
+        type: [String, Array],
+        default: (() => ['fa-solid', 'fa-angle-right'])
     },
     firstPageIncon: {
-      type: [String, Array],
-      default: (() => ['fa-solid', 'fa-angles-left'])
+        type: [String, Array],
+        default: (() => ['fa-solid', 'fa-angles-left'])
     },
     lastPageIncon: {
-      type: [String, Array],
-      default: (() => ['fa-solid', 'fa-angles-right'])
+        type: [String, Array],
+        default: (() => ['fa-solid', 'fa-angles-right'])
     }
-  },
-  setup (props, context){
-    const total = ref();
-    const selectedPage = ref(1);
-    const button = ref(null);
-    const router = useRouter();
-    const route = useRoute();
-    const routeNameVal = ref();
+});
+const total = ref();
+const selectedPage = ref(1);
+// const button = ref(null);
+const router = useRouter();
+const route = useRoute();
+const routeNameVal = ref();
 
-    watch(() => route.query, (newVal) => {
+watch(() => route.query, (newVal) => {
       
-      if(newVal){
+    if(newVal){
         selectedPage.value = newVal.page ? Number(newVal.page) : 1;
         emitVal();
-      }
+    }
 
-    });
+});
 
-    const filteredPages = computed(() => {
-      const filtered = selectedPage.value >= props.pagesToShow ? 
+const filteredPages = computed(() => {
+    const filtered = selectedPage.value >= props.pagesToShow ? 
         total.value.slice(selectedPage.value - 2, selectedPage.value + 1) : 
         total.value.slice(0, props.pagesToShow);
-      return filtered;
-    });
+    return filtered;
+});
 
-    const showRightDots = computed(() => selectedPage.value < total.value.length);
-    const showLeftDots = computed(() => selectedPage.value >= props.pagesToShow);
+const showRightDots = computed(() => selectedPage.value < total.value.length);
+const showLeftDots = computed(() => selectedPage.value >= props.pagesToShow);
 
-    const setSelectedPage = (item: string) => {
-      selectedPage.value = Number(item);
-      navigate();
-    };
+const setSelectedPage = (item: string) => {
+    selectedPage.value = Number(item);
+    navigate();
+};
 
-    const previousPage = () => {
-      if(selectedPage.value != 1){
+const previousPage = () => {
+    if(selectedPage.value != 1){
         selectedPage.value = selectedPage.value - 1;
         navigate();
-      }
-    };
+    }
+};
 
-    const nextPage = () => {
-      if(selectedPage.value != total.value.length){
+const nextPage = () => {
+    if(selectedPage.value != total.value.length){
         selectedPage.value = selectedPage.value + 1;
         navigate();
-      }
-    };
-
-    const goToFirstPage = () => {
-      selectedPage.value = 1;
-      navigate();
-    };
-
-    const goToLastPage = () => {
-      selectedPage.value = total.value.length;
-      navigate();
-    };
-
-    const emitVal = () => {
-      context.emit('update', selectedPage.value);
-    };
-
-    const navigate = () => {
-      // router.push({name: props.routeName, query: {page: selectedPage.value}});
-      router.push({name: routeNameVal.value, query: {page: selectedPage.value}});
-    };
-
-    const configComponent = () => {
-      total.value = [...Array(Number(props.totalPages)).keys()].map(item => ++item);
-      selectedPage.value = route.query?.page ? Number(route.query.page) : 1;
-      routeNameVal.value = props.routeName ? props.routeName :route.name;
-      emitVal();
-    };
-
-    onMounted(() => {
-      configComponent();
-    });
-
-    return {
-      total,
-      selectedPage,
-      button,
-      filteredPages,
-      showLeftDots,
-      showRightDots,
-      setSelectedPage,
-      previousPage, 
-      nextPage, 
-      goToFirstPage, 
-      goToLastPage
-    };
-  }
+    }
 };
+
+const goToFirstPage = () => {
+    selectedPage.value = 1;
+    navigate();
+};
+
+const goToLastPage = () => {
+    selectedPage.value = total.value.length;
+    navigate();
+};
+
+const emit = defineEmits(['update']);
+
+const emitVal = () => {
+    emit('update', selectedPage.value);
+};
+
+const navigate = () => {
+    // router.push({name: props.routeName, query: {page: selectedPage.value}});
+    router.push({name: routeNameVal.value, query: {page: selectedPage.value}});
+};
+
+const configComponent = () => {
+    total.value = [...Array(Number(props.totalPages)).keys()].map(item => ++item);
+    selectedPage.value = route.query?.page ? Number(route.query.page) : 1;
+    routeNameVal.value = props.routeName ? props.routeName :route.name;
+    emitVal();
+};
+
+onMounted(() => {
+    configComponent();
+});
 </script>
 
 <template lang="pug">

@@ -1,7 +1,7 @@
 interface IAvatar {
-    name: String | string
-    img: String | string
-    alt?: String | string
+    name: string
+    img: string
+    alt?: string
     size?: Number
 }
 

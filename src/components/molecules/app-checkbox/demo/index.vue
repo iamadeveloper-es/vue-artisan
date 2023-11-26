@@ -1,82 +1,70 @@
 <script lang="ts">
+export default {
+    name: 'app-checkbox-demo'
+};
+</script>
+<script setup lang="ts">
 import { ref } from 'vue';
 
 import AppCheckbox from '../index.vue';
 
-export default {
-  name: 'app-checkbox-demo',
-  components: { AppCheckbox },
-
-  setup () {
-
-    const checkboxesConfig = ref([
-      {
+const checkboxesConfig = ref([
+    {
         color: 'info',
         label: 'User Jhon',
         value: 'Jhon'
-      },
-      {
+    },
+    {
         color: 'success',
         label: 'User pepe',
         value: 'Pepe'
-      }
-    ]);
+    }
+]);
 
-    const checkboxesConfig2 = ref({
-      color: 'info',
-      label: 'User Jhon',
-    });
+const checkboxesConfig2 = ref({
+    color: 'info',
+    label: 'User Jhon',
+});
 
-    const checkboxesConfig3 = ref([
-      {
+const checkboxesConfig3 = ref([
+    {
         color: 'info',
         label: 'User Jhon',
         value: {
-          name: 'Jhon',
-          age: 25,
+            name: 'Jhon',
+            age: 25,
         }
-      },
-      {
+    },
+    {
         color: 'success',
         label: 'User pepe',
         value: {
-          name: 'Pepe',
-          age: 45,
+            name: 'Pepe',
+            age: 45,
         }
-      },
-      {
+    },
+    {
         color: 'primary',
         label: 'User otro',
         value: {
-          name: 'Otro',
-          age: 37,
+            name: 'Otro',
+            age: 37,
         }
-      }
-    ]);
+    }
+]);
 
-    const inputVal = ref(['Jhon']);
-    const inputVal2 = ref(true);
-    const inputVal3 = ref([
-      {
+const inputVal = ref(['Jhon']);
+const inputVal2 = ref(true);
+const inputVal3 = ref([
+    {
         name: 'Pepe',
         age: 45,
-      },
-      {
+    },
+    {
         name: 'Otro',
         age: 37,
-      }
-    ]);
-
-    return {
-      inputVal,
-      inputVal2,
-      inputVal3,
-      checkboxesConfig,
-      checkboxesConfig2,
-      checkboxesConfig3
-    };
-  }
-};
+    }
+]);
 </script>
 
 <template lang="pug">

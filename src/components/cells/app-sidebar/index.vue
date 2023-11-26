@@ -1,23 +1,21 @@
 <script lang="ts">
-
 export default {
-  name: 'app-sidebar',
-  props: {
+    name: 'app-sidebar'
+};
+</script>
+<script setup lang="ts">
+
+defineProps({
     show: {
-      type: Boolean,
-      default: false
+        type: Boolean,
+        default: false
     },
     showLeft: {
-      type: Boolean,
-      default: true
+        type: Boolean,
+        default: true
     }
-  },
-  setup (){
-    return{
-            
-    };
-  }
-};
+});
+
 </script>
 
 <template lang="pug">

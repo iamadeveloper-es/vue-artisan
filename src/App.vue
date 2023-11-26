@@ -1,11 +1,11 @@
 <script lang="ts">
-import Dashboard from './views/dashboard.vue';
+import Dashboard from './views/dashboard-view/index.vue';
 
 export default {
-  components: {
-    Dashboard
-  },
-  setup () {}
+    components: {
+        Dashboard
+    },
+    setup () {}
 };
 </script>
 

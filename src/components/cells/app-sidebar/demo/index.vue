@@ -1,42 +1,32 @@
 <script lang="ts">
+export default {
+    name: 'app-sidebar-demo'
+};
+</script>
+<script setup lang="ts">
 import { ref } from 'vue';
 import AppSidebar from '../index.vue';
 import AppInputField from '../../../molecules/app-input-field/index.vue';
 import AppButton from '../../../molecules/app-button/index.vue';
 
-export default {
-  name: 'app-sidebar-demo',
-  components: {AppSidebar, AppInputField, AppButton},
-  setup (){
-    const showSidebarLeft = ref(false);
-    const showSidebarRight = ref(false);
-    const formData = ref({
-      name: '',
-      lastName: '',
-      job: ''
-    });
+const showSidebarLeft = ref(false);
+const showSidebarRight = ref(false);
+const formData = ref({
+    name: '',
+    lastName: '',
+    job: ''
+});
 
-    const showHideLeft = () => {
-      showSidebarLeft.value = !showSidebarLeft.value;
-    };
+const showHideLeft = () => {
+    showSidebarLeft.value = !showSidebarLeft.value;
+};
 
-    const showHideRight = () => {
-      showSidebarRight.value = !showSidebarRight.value;
-    };
+const showHideRight = () => {
+    showSidebarRight.value = !showSidebarRight.value;
+};
 
-    const onSubmit = () => {
-      console.log(formData.value);
-    };
-
-    return{
-      formData,
-      showSidebarLeft, 
-      showSidebarRight, 
-      showHideLeft,
-      showHideRight, 
-      onSubmit
-    };
-  }
+const onSubmit = () => {
+    console.log(formData.value);
 };
 </script>
 

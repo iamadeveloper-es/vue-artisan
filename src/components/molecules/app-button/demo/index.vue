@@ -1,37 +1,26 @@
 <script lang="ts">
+export default {
+    name: 'app-button-demo'
+};
+</script>
+<script setup lang="ts">
 import { ref } from 'vue';
 import AppButton from '../index.vue';
 
-export default {
-  name: 'app-button-demo',
-  components: {
-    AppButton
-  },
-  setup () {
-    const counter = ref(0);
-    const counter2 = ref(0);
-    const counter3 = ref(0);
-    const counter4 = ref(0);
-    const handleEvent = (button: string) => {
-      if (button === 'counter') {
+const counter = ref(0);
+const counter2 = ref(0);
+const counter3 = ref(0);
+const counter4 = ref(0);
+const handleEvent = (button: string) => {
+    if (button === 'counter') {
         counter.value++;
-      } else if (button === 'counter2') {
+    } else if (button === 'counter2') {
         counter2.value++;
-      } else if (button === 'counter3') {
+    } else if (button === 'counter3') {
         counter3.value++;
-      } else if (button === 'counter4') {
+    } else if (button === 'counter4') {
         counter4.value++;
-      }
-    };
-
-    return {
-      counter,
-      counter2,
-      counter3,
-      counter4,
-      handleEvent
-    };
-  }
+    }
 };
 </script>
 

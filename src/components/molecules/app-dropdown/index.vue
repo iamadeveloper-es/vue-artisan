@@ -1,46 +1,38 @@
 <script lang="ts">
+export default {
+    name: 'app-dropdown-demo'
+};
+</script>
+<script setup lang="ts">
 import { ref } from 'vue';
 import AppLink from '../../atoms/app-link/index.vue';
 
-export default {
-  name: 'app-dropdown',
-  components: {AppLink},
-  props: {
+defineProps({
     title: {
-      type: String,
-      required: true
+        type: String,
+        required: true
     },
     items: {
-      type: Array,
-      required: true
+        type: Array,
+        required: true
     },
     showDirection: {
-      type: String,
-      default: 'bottom'
+        type: String,
+        default: 'bottom'
     }
-  },
-  setup (){
-    const showMenu = ref(false);
+});
+const showMenu = ref(false);
 
-    const show = () => {
-      showMenu.value = true;
-    };
+// const show = () => {
+//   showMenu.value = true;
+// };
 
-    const hide = () => {
-      showMenu.value = false;
-    };
+const hide = () => {
+    showMenu.value = false;
+};
 
-    const toogleShow = () => {
-      showMenu.value = !showMenu.value;
-    };
-
-    return {
-      showMenu,
-      show,
-      hide,
-      toogleShow
-    };
-  }
+const toogleShow = () => {
+    showMenu.value = !showMenu.value;
 };
 </script>
 

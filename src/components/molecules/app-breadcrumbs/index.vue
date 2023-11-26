@@ -1,18 +1,21 @@
 <script lang="ts">
 export default {
-  name: 'app-breadcrumbs',
-  props: {
+    name: 'app-breadcrumbs'
+};
+</script>
+<script setup lang="ts">
+
+defineProps({
     items: {
-      type: Array,
-      required: true
+        type: Array,
+        required: true
     },
     divider: {
-      type: String,
-      default: '/'
+        type: String,
+        default: '/'
     }
-  },
-  setup () {}
-};
+});
+
 </script>
 
 <template lang="pug">

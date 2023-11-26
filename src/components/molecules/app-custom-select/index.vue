@@ -1,100 +1,87 @@
 <script lang="ts">
+export default {
+    name: 'app-custom-select'
+};
+</script>
+<script setup lang="ts">
 import { computed, ref } from 'vue';
 // import AppIcon from '../../atoms/app-icon/index.vue';
 import AppButton from '../app-button/index.vue';
 
-export default {
-  name: 'app-custom-select',
-  components: {
-    AppButton,
-    // AppIcon
-  },
-  props: {
+const props = defineProps({
     modelValue: {
-      type: String
+        type: String
     },
     options: {
-      type: Array,
-      required: true
+        type: Array,
+        required: true
     },
     label: {
-      type: String,
-      default: 'Selecciona una opción'
+        type: String,
+        default: 'Selecciona una opción'
     },
     disabled: {
-      type: Boolean,
-      default: false
+        type: Boolean,
+        default: false
     },
     inputName: {
-      type: String,
-      required: true
+        type: String,
+        required: true
     },
     floatingLabel: {
-      type: Boolean,
-      default: false
+        type: Boolean,
+        default: false
     },
     outlinedLabel: {
-      type: Boolean,
-      default: false
+        type: Boolean,
+        default: false
     },
     borderBottom: {
-      type: Boolean,
-      default: false
+        type: Boolean,
+        default: false
     },
     icon: {
-      type: [Array, String]
+        type: [Array, String]
     },
     iconSize: {
-      type: Number,
-      default: 15
+        type: Number,
+        default: 15
     }
-  },
-  setup (props, context) {
-    const show = ref(false);
+});
+const show = ref(false);
 
-    const getIcon = computed(() => {
-      const icon = props.icon;
-      const defaultIcon = ['fa-solid', 'fa-chevron-down'];
-      return icon?.length ? icon : defaultIcon;
-    });
+const getIcon = computed(() => {
+    const icon = props.icon;
+    const defaultIcon = ['fa-solid', 'fa-chevron-down'];
+    return icon?.length ? icon : defaultIcon;
+});
 
-    const iconClass = computed(() => {
-      return show.value ? 'collapse-open' : 'collapse-close';
-    });
+const iconClass = computed(() => {
+    return show.value ? 'collapse-open' : 'collapse-close';
+});
 
-    const emitValue = (ev: Event) => {
-      const target = ev.target as HTMLInputElement;
-      context.emit('update:modelValue', target.value);
-      context.emit('onChange', ev);
-    };
+const emit = defineEmits(['update:modelValue', 'onChange', 'onFocus', 'onBlur']);
 
-    const emitFocus = (ev: Event) => {
-      context.emit('onFocus', ev);
-    };
+const emitValue = (ev: Event) => {
+    const target = ev.target as HTMLInputElement;
+    emit('update:modelValue', target.value);
+    emit('onChange', ev);
+};
 
-    const emitBlur = (ev: Event) => {
-      context.emit('onBlur', ev);
-    };
+const emitFocus = (ev: Event) => {
+    emit('onFocus', ev);
+};
 
-    const toggleOptions = () => {
-      show.value = !show.value;
-    };
+const emitBlur = (ev: Event) => {
+    emit('onBlur', ev);
+};
 
-    const hide = () => {
-      show.value = false;
-    };
+const toggleOptions = () => {
+    show.value = !show.value;
+};
 
-    return {
-      show,
-      getIcon,
-      iconClass,
-      emitValue,
-      emitFocus,
-      emitBlur,
-      toggleOptions,
-      hide
-    };
-  }
+const hide = () => {
+    show.value = false;
 };
 </script>
 
@@ -102,11 +89,11 @@ export default {
 .app-custom-select(v-click-outside="hide")
     span.app-label(
     role="label", 
-    :class="{'label-float': floatingLabel, 'is-focused' : modelValue && floatingLabel || modelValue && outlinedLabel, 'label-outlined' : outlinedLabel}") {{ label }}
+    :class="[{'label-float': floatingLabel, 'is-focused' : modelValue && floatingLabel || modelValue && outlinedLabel, 'label-outlined' : outlinedLabel}]") {{ label }}
     app-button.app-input(
     @clicked="toggleOptions", 
     :text="modelValue",
-    :cClass="[{'b-bottom': borderBottom}, iconClass]" ,
+    :cClass="[{'b-bottom': borderBottom}, iconClass]",
     :icon="getIcon", 
     :iconSize="iconSize", 
     :disableRipple="true")
@@ -130,7 +117,7 @@ export default {
             :hidden="option.disabled", 
             :value="option.value", 
             @change="emitValue($event)", 
-            @focus="onFocus", 
+            @focus="emitFocus", 
             @blur="emitBlur")
             label.app-custom-select__label(
             :for="`list-item-${index}`") {{option.label}}

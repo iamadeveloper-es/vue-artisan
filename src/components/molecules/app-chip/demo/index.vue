@@ -1,12 +1,11 @@
 <script lang="ts">
+export default {
+    name: 'app-chip-demo'
+};
+</script>
+<script setup lang="ts">
 import AppChip from '../index.vue';
 
-export default {
-  name: 'app-chip-demo',
-  components: {
-    AppChip
-  }
-};
 </script>
 <template lang="pug">
 app-chip(

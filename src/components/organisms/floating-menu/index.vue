@@ -1,60 +1,57 @@
+
 <script lang="ts">
+export default {
+    name: 'app-floating-menu'
+};
+</script>
+
+<script setup lang="ts">
 import { ref, onMounted } from 'vue';
 
-export default {
-  name: 'floating-menu',
-  setup () {
-    const show = ref(false);
-    const scollPos = ref(0);
-    const menuItems = [
-      {
+const show = ref(false);
+const scollPos = ref(0);
+const menuItems = [
+    {
         name: 'Home',
         route: '/',
         icon: 'fa-solid fa-house'
-      },
-      {
+    },
+    {
         name: 'Account',
         route: '/account',
         icon: ''
-      },
-      {
+    },
+    {
         name: 'Data',
         route: '/data',
         icon: ''
-      }
-    ];
+    }
+];
 
-    onMounted(() => {
-      showMenu();
-    });
+onMounted(() => {
+    showMenu();
+});
 
-    const showMenu = () => {
-      window.addEventListener(
+const showMenu = () => {
+    window.addEventListener(
         'scroll',
         function () {
-          // or window.addEventListener("scroll"....
-          var st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
-          if (st > scollPos.value) {
-            // downscroll code
-            show.value = false;
-            // console.log('down')
-            console.log('hello world');
-          } else if (st < scollPos.value) {
-            // upscroll code
-            show.value = true;
-            // console.log('Up')
-          } // else was horizontal scroll
-          scollPos.value = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+            // or window.addEventListener("scroll"....
+            var st = window.pageYOffset || document.documentElement.scrollTop; // Credits: "https://github.com/qeremy/so/blob/master/so.dom.js#L426"
+            if (st > scollPos.value) {
+                // downscroll code
+                show.value = false;
+                // console.log('down')
+                console.log('hello world');
+            } else if (st < scollPos.value) {
+                // upscroll code
+                show.value = true;
+                // console.log('Up')
+            } // else was horizontal scroll
+            scollPos.value = st <= 0 ? 0 : st; // For Mobile or negative scrolling
         },
         false
-      );
-    };
-
-    return {
-      menuItems,
-      show
-    };
-  }
+    );
 };
 </script>
 
@@ -68,35 +65,5 @@ nav.floating-menu(:class="{ active: show }")
 </template>
 
 <style lang="scss">
-.floating-menu {
-    position: fixed;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    padding: 15px;
-    border-radius: 20px 20px 0 0;
-    overflow: hidden;
-    background-color: #ffffff;
-    transform: translateY(100%);
-    transition: transform 0.4s ease-in-out;
-
-    &.active {
-        transform: translateY(0);
-    }
-
-    ul {
-        list-style: none;
-        padding: 0;
-        margin: 0;
-        display: flex;
-        gap: 10px;
-        align-items: center;
-        justify-content: center;
-        width: 100%;
-    }
-
-    ul a {
-        text-decoration: none;
-    }
-}
+@import 'index';
 </style>

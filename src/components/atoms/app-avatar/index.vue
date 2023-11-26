@@ -1,73 +1,68 @@
 <script lang="ts">
+export default {
+    name: 'app-avatar'
+};
+</script>
+<script setup lang="ts">
 import { computed, type PropType } from 'vue';
 import { useImageFunctions } from '../../../composables/image-functions';
 import type { IAvatar } from './IAvatar';
 
-export default {
-  name: 'app-avatar',
-  props: {
+const props = defineProps({
     userInfo: {
-      type: Object as PropType<IAvatar>,
-      required: true
+        type: Object as PropType<IAvatar>,
+        required: true
     },
     clickable: {
-      type: Boolean,
-      default: false
+        type: Boolean,
+        default: false
     },
     isRounded: {
-      type: Boolean,
-      default: true
+        type: Boolean,
+        default: true
     },
     display: {
-      type: String,
-      validator (value) {
-        return 'img' === value || 'name' === value;
-      },
-      default: 'img'
+        type: String,
+        validator (value) {
+            return 'img' === value || 'name' === value;
+        },
+        default: 'img'
     },
     variant: {
-      type: String,
-      default: 'orange'
+        type: String,
+        default: 'orange'
     }
-  },
-  setup (props, context) {
-    const { getImageUrl } = useImageFunctions();
-    const defaultSize: number = 35;
+});
 
-    const getImage = computed((): String => {
-      const { img } = props.userInfo;
-      return getImageUrl(img);
-    });
+const emit = defineEmits(['clicked']);
 
-    const getSize = computed((): String => {
-      return props.userInfo.size ? `${props.userInfo.size}px` : `${defaultSize}px`;
-    });
+const { getImageUrl } = useImageFunctions();
+const defaultSize: number = 35;
 
-    const getFontSize = computed((): String => {
-      const size = props.userInfo.size ? props.userInfo.size / 2.5 : defaultSize / 2.5;
-      return `${size}px`;
-    });
+const getImage = computed((): string => {
+    const { img } = props.userInfo;
+    return getImageUrl(img);
+});
 
-    const getInitials = computed((): String => {
-      const { name } = props.userInfo;
-      const nameFirstChar = name.charAt(0).toUpperCase();
-      const nameSecondPart = name.split(' ')[1]?.charAt(0).toUpperCase();
+const getSize = computed((): String => {
+    return props.userInfo.size ? `${props.userInfo.size}px` : `${defaultSize}px`;
+});
 
-      return nameSecondPart ? `${nameFirstChar} ${nameSecondPart}` : `${nameFirstChar}`;
-    });
+const getFontSize = computed((): String => {
+    const size = props.userInfo.size ? props.userInfo.size / 2.5 : defaultSize / 2.5;
+    return `${size}px`;
+});
 
-    const emitEvent = (ev: Event) => {
-      context.emit('clicked', ev);
-    };
+const getInitials = computed((): String => {
+    const { name } = props.userInfo;
+    const nameFirstChar = name.charAt(0).toUpperCase();
+    const nameSecondPart = name.split(' ')[1]?.charAt(0).toUpperCase();
 
-    return {
-      getImage,
-      getSize,
-      getFontSize,
-      getInitials,
-      emitEvent
-    };
-  }
+    return nameSecondPart ? `${nameFirstChar} ${nameSecondPart}` : `${nameFirstChar}`;
+});
+
+const emitEvent = (ev: Event) => {
+    emit('clicked', ev);
 };
 </script>
 

@@ -1,21 +1,23 @@
 <script lang="ts">
+export default {
+    name: 'app-input-field-demo'
+};
+</script>
+
+<script setup lang="ts">
 import { ref } from 'vue';
 import AppInputField from '../index.vue';
 
-export default {
-  name: 'app-input-field-demo',
-  components: { AppInputField },
-  setup () {
-    const inputs = ref([
-      {
+const inputs = ref([
+    {
         value: 'Texto de ejemplo',
         name: 'input-text',
         label: 'Input con label outlined',
         placeholder: 'Escribe algo...',
         maxlength: 20,
         outlinedLabel: true
-      },
-      {
+    },
+    {
         value: '',
         name: 'input-text',
         label: 'Input con label flotante y border inferior',
@@ -23,8 +25,8 @@ export default {
         maxlength: 20,
         floatingLabel: true,
         borderBottom: true
-      },
-      {
+    },
+    {
         value: '',
         type: 'password',
         name: 'input-password',
@@ -32,8 +34,8 @@ export default {
         placeholder: 'Escribe algo...',
         floatingLabel: true,
         icon: ['fa-solid', 'fa-eye-slash']
-      },
-      {
+    },
+    {
         value: '',
         type: 'number',
         name: 'input-text',
@@ -41,8 +43,8 @@ export default {
         placeholder: 'Escribe algo...',
         min: 2,
         max: 10
-      },
-      {
+    },
+    {
         value: '',
         type: 'date',
         name: 'input-date',
@@ -50,33 +52,25 @@ export default {
         placeholder: 'Escribe algo...',
         floatingLabel: true,
         icon: ['fa-regular', 'fa-calendar']
-      },
-      {
+    },
+    {
         value: '',
         type: 'search',
         name: 'input-search',
         label: 'Input tipo search',
         placeholder: 'Escribe algo...',
         floatingLabel: true
-      }
-    ]);
+    }
+]);
 
-    const handleOnFocus = (ev: Event) => {
-      console.log('onFocus');
-      console.log(ev);
-    };
+const handleOnFocus = (ev: Event) => {
+    console.log('onFocus');
+    console.log(ev);
+};
 
-    const handleOnBlur = (ev: Event) => {
-      console.log('onBlur');
-      console.log(ev);
-    };
-
-    return {
-      inputs,
-      handleOnFocus,
-      handleOnBlur
-    };
-  }
+const handleOnBlur = (ev: Event) => {
+    console.log('onBlur');
+    console.log(ev);
 };
 </script>
 

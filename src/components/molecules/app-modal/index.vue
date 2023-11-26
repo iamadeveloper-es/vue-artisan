@@ -1,73 +1,72 @@
 <script lang="ts">
-import { ref, type Ref } from 'vue';
+export default {
+    name: 'app-modal'
+};
+</script>
+
+<script setup lang="ts">
+import { ref, useSlots, type Ref } from 'vue';
 import { useComponentFunctions } from '../../../composables/component-functions';
 import AppButton from '../app-button/index.vue';
 
-export default {
-  name: 'app-modal',
-  components: { AppButton },
-  props: {
+const props = defineProps({
     backDrop: {
-      type: Boolean,
-      default: true
+        type: Boolean,
+        default: true
     },
     transition: {
-      type: String,
-      default: 'modal-fade'
+        type: String,
+        default: 'modal-fade'
     },
     closeIcon: {
-      type: Array,
-      default: () => ['fa-regular', 'fa-circle-xmark']
+        type: Array,
+        default: () => ['fa-regular', 'fa-circle-xmark']
     },
     headerClass: {
-      type: [Array, String]
+        type: [Array, String]
     },
     bodyClass: {
-      type: [Array, String]
+        type: [Array, String]
     },
     footerClass: {
-      type: [Array, String]
+        type: [Array, String]
     },
     headerSticky: {
-      type: Boolean,
-      default: true
+        type: Boolean,
+        default: true
     },
     footerSticky: {
-      type: Boolean,
-      default: true
+        type: Boolean,
+        default: true
     }
-  },
-  setup (props, context) {
-    const { rippleEffect } = useComponentFunctions();
-    const isModalVisible: Ref<boolean> = ref(false);
-    const modal = ref(null);
+});
 
-    const show = (): void => {
-      isModalVisible.value = true;
-    };
+const { rippleEffect } = useComponentFunctions();
+const isModalVisible: Ref<boolean> = ref(false);
+const modal = ref(null);
+const slots = useSlots();
 
-    const hide = (ev: Event): void => {
-      const target = ev.target as HTMLInputElement;
-      if (target.getAttribute('data-dismiss') === 'modal' && props.backDrop) {
-        isModalVisible.value = false;
-      }
-      if (target.classList.contains('app-modal-dialog__close')) {
-        rippleEffect(ev, ev.target);
-      }
-    };
-
-    const hasSlot = (name: Readonly<string>): Boolean => !!context.slots[name];
-
-    return {
-      rippleEffect,
-      isModalVisible,
-      modal,
-      show,
-      hide,
-      hasSlot
-    };
-  }
+const show = (): void => {
+    isModalVisible.value = true;
 };
+
+const hide = (ev: Event): void => {
+    const target = ev.target as HTMLInputElement;
+    if (target.getAttribute('data-dismiss') === 'modal' && props.backDrop) {
+        isModalVisible.value = false;
+    }
+    if (target.classList.contains('app-modal-dialog__close')) {
+        rippleEffect(ev, ev.target);
+    }
+};
+
+const hasSlot = (name: Readonly<string>): Boolean => !!slots[name];
+
+defineExpose({
+    show,
+    hide
+});
+
 </script>
 
 <template lang="pug">
