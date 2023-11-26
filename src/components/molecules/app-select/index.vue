@@ -90,7 +90,7 @@ export default {
     :multiple="multiple"
     :class="{'b-bottom': borderBottom, 'disabled': disabled}")
         option(v-for="(option, index) in options", 
-        :key="option", 
+        :key="index", 
         :value="option.value",
         :selected="option.selected",
         :disabled="option.disabled",

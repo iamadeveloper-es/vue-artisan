@@ -51,7 +51,7 @@ export default {
 
 <template lang="pug">
 span.app-icon(
-:class="getVariant, getIcon",
+:class="[getVariant, getIcon]",
 @click="emitEvent", 
 :style="{'font-size': `${size}px`}")
 </template>

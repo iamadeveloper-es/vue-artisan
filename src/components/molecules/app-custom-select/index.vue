@@ -1,13 +1,13 @@
 <script lang="ts">
 import { computed, ref } from 'vue';
-import AppIcon from '../../atoms/app-icon/index.vue';
+// import AppIcon from '../../atoms/app-icon/index.vue';
 import AppButton from '../app-button/index.vue';
 
 export default {
   name: 'app-custom-select',
   components: {
     AppButton,
-    AppIcon
+    // AppIcon
   },
   props: {
     modelValue: {

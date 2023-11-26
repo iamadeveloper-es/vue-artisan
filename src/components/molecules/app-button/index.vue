@@ -88,7 +88,7 @@ export default {
 button.app-button(
   ref="button"
   :type="type", 
-  :class="cClass, getVariant, `app-button--icon-${iconPosition}`", 
+  :class="[cClass, getVariant, `app-button--icon-${iconPosition}`]", 
   :disabled="disabled", 
   @click="emitEvent")
     span.app-button--pointers-none {{ text }}

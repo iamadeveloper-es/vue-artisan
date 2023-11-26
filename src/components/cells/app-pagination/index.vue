@@ -42,7 +42,7 @@ export default {
     const route = useRoute();
     const routeNameVal = ref();
 
-    watch(() => route.query, (newVal, oldVal) => {
+    watch(() => route.query, (newVal) => {
       
       if(newVal){
         selectedPage.value = newVal.page ? Number(newVal.page) : 1;
@@ -133,11 +133,11 @@ nav.app-pagination(v-if="total")
     li.app-pagination__list-item
       button.app-pagination__button(@click="goToFirstPage()", 
       :disabled="selectedPage == 1")
-        <span :class="firstPageIncon"></span>
+        span(:class="firstPageIncon")
     li.app-pagination__list-item
       button.app-pagination__button(@click="previousPage()", 
       :disabled="selectedPage == 1")
-        <span :class=previousIncon></span>
+        span(:class="previousIncon")
     li.app-pagination__list-item.dots(v-if="showLeftDots")
       span.app-pagination__button.dots ...
     li.app-pagination__list-item(v-for="(page, index) in filteredPages", 
@@ -150,11 +150,11 @@ nav.app-pagination(v-if="total")
     li.app-pagination__list-item
       button.app-pagination__button(@click="nextPage()", 
       :disabled="selectedPage == totalPages")
-        <span :class="nextIncon"></span>
+        span(:class="nextIncon")
     li.app-pagination__list-item
       button.app-pagination__button(@click="goToLastPage()", 
       :disabled="selectedPage == totalPages")
-        <span :class="lastPageIncon"></span>
+        span(:class="lastPageIncon")
 </template>
 
 <style lang="scss">

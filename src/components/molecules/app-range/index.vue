@@ -89,7 +89,7 @@ export default {
 
     const dynamicOutput = () => {
       const thumbWidth = props.rangeHeight * 2 + variant.value;
-      const y = props.outputPosition;
+      // const y = props.outputPosition;
 
       const off = (input.value.clientWidth - thumbWidth) / (parseInt(input.value.max) - parseInt(input.value.min));
       const px = ((input.value.valueAsNumber - parseInt(input.value.min)) * off) - (output.value.clientWidth / 2) + (thumbWidth / 1.7);

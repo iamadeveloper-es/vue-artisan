@@ -79,7 +79,7 @@ transition(:name="transition")
         .app-modal__content(data-dismiss="modal")
             .app-modal-dialog
                 .app-modal-dialog__header(
-                :class="headerClass, {'sticky' : headerSticky}")
+                :class="[headerClass, {'sticky' : headerSticky}]")
                     slot(name="header")
                     app-button(
                     v-if="backDrop", 
@@ -95,7 +95,7 @@ transition(:name="transition")
                     slot(name="body")
                 .app-modal-dialog__footer(
                 v-if="hasSlot('footer')", 
-                :class="footerClass, {'sticky' : footerSticky}")
+                :class="[footerClass, {'sticky' : footerSticky}]")
                     slot(name="footer")
 </template>
 

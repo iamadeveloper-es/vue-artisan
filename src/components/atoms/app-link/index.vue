@@ -122,7 +122,7 @@ export default {
 <template lang="pug">
 router-link.app-link(
     :to="buildRoute"
-    :class="getVariant, getIconPosition")
+    :class="[getVariant, getIconPosition]")
     span.app-link__text(v-if="text") {{ text }}
     app-icon(
     v-if="hasIcon"

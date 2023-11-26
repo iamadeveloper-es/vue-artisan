@@ -8,6 +8,7 @@
         "eslint:recommended",
         "@vue/eslint-config-typescript",
         "@vue/eslint-config-prettier/skip-formatting",
+        "plugin:vue-pug/vue3-recommended",
         "prettier"
     ],
     "parserOptions": {

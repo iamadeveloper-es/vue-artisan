@@ -149,7 +149,7 @@ export default {
 
 <template lang="pug">
 .app-input-field.form-field-wrapper(
-:class="{'is-focused': (floatingLabel || outlinedLabel) && isFocused}, setLabelPosition")
+:class="[{'is-focused': (floatingLabel || outlinedLabel) && isFocused}, setLabelPosition]")
   label.app-label(v-if="label", 
   :class="{'accesible-hidden' : !showLabel, 'label-float' : floatingLabel, 'label-outlined' : outlinedLabel}", 
   :for="id") {{ label }}
@@ -174,7 +174,7 @@ export default {
   span.app-input-icon(v-if="modelValue.length && icon.length", 
   role="button",
   @click="iconAction", 
-  :class="icon, {'icon-float': floatingLabel || outlinedLabel}")
+  :class="[icon, {'icon-float': floatingLabel || outlinedLabel}]")
 </template>
 
 <style lang="scss">

@@ -82,7 +82,7 @@ export default {
 
 <template lang="pug">
 .app-input-field-demo
-  template(v-for="(item, index) in inputs")
+  template(v-for="(item, index) in inputs", :key="index")
     app-input-field(
     :type="item.type"
     :name="item.name"

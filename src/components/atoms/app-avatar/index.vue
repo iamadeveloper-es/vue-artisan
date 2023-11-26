@@ -74,7 +74,7 @@ export default {
 <template lang="pug">
 .app-avatar(
 :style="{'width': getSize, 'height': getSize}", 
-:class="{'app-avatar--has-action': clickable, 'app-avatar--rounded': isRounded}, `app-avatar--${variant}`" 
+:class="[{'app-avatar--has-action': clickable, 'app-avatar--rounded': isRounded}, `app-avatar--${variant}`]",
 @click="emitEvent")
     img.app-avatar__img(v-if="display === 'img'", 
     :src="getImage", 

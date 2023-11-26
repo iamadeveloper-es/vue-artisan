@@ -60,6 +60,7 @@ export default {
 
     const emitValue = (ev: Event) => {
       const target = ev.target as HTMLInputElement;
+      context.emit('onChange', target.value);
     };
 
     const configComponent = () => {

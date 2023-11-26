@@ -159,7 +159,9 @@ v-show="isModalVisible")
     .app-modal-swipe__content(data-dismiss="modal-swipe", 
     :class="getShowFrom")
         transition(name="slide-fade")
-            .app-modal-swipe-dialog(ref="modalDialog", 
+            .app-modal-swipe-dialog(
+            v-show="isModalVisible",
+            ref="modalDialog", 
             :class="getShowFrom"
             :style="{ transform: `${getTransformAxis}(${transformPos}px)` }")
                 .app-modal-swipe-dialog__header
