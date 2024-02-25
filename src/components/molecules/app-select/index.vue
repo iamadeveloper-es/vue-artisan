@@ -5,10 +5,10 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { onMounted, ref } from 'vue';
+import { computed, onMounted, ref } from 'vue';
 import { useComponentFunctions } from '../../../composables/component-functions';
 
-defineProps({
+const props = defineProps({
   modelValue: {
     type: String
   },
@@ -63,6 +63,21 @@ const emitValue = (ev) => {
   emit('update:modelValue', ev.target.value);
 };
 
+const model = computed({
+  get () {
+    return props.modelValue;
+  },
+  set (value) {
+    emit('update:modelValue', value);
+  },
+});
+
+const isSelected = computed(() => {
+  return props.options.some(option => option.selected)
+});
+
+
+
 const configComponent = () => {
   id.value = randomId();
 };
@@ -74,17 +89,18 @@ onMounted(() => {
 
 <template lang="pug">
 .app-select.form-field-wrapper(
-:class="{'is-focused': outlinedLabel && modelValue || floatingLabel && modelValue}"
+:class="{'is-focused': outlinedLabel && modelValue || floatingLabel && modelValue || isSelected}"
 )
-    select.app-input(@change="emitValue", 
+    select.app-input(
     :id="id",
     :name="name",
     :autofocus="autofocus", 
     :required="required",
-    :disabled="disabled"
-    :aria-label="label"
-    :size="size"
-    :multiple="multiple"
+    :disabled="disabled",
+    :aria-label="label",
+    :size="size",
+    :multiple="multiple",
+    v-model="model",
     :class="{'b-bottom': borderBottom, 'disabled': disabled}")
         option(v-for="(option, index) in options", 
         :key="index", 
