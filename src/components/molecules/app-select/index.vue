@@ -59,9 +59,9 @@ const { randomId } = useComponentFunctions();
 const id = ref('');
   
 const emit = defineEmits(['update:modelValue']);
-const emitValue = (ev) => {
-  emit('update:modelValue', ev.target.value);
-};
+// const emitValue = (ev) => {
+//   emit('update:modelValue', ev.target.value);
+// };
 
 const model = computed({
   get () {
@@ -73,7 +73,7 @@ const model = computed({
 });
 
 const isSelected = computed(() => {
-  return props.options.some(option => option.selected)
+  return props.options.some(option => option.selected);
 });
 
 
