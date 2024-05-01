@@ -9,16 +9,19 @@ import { computed } from 'vue';
 import { useRoute } from 'vue-router';
 
 const route = useRoute();
-const test = 'hola';
 const setComponentName = computed(() => {
   return route.name?.toLowerCase();
 });
 </script>
 
 <template lang="pug">
-div.app-info-component
+.app-info-component
   h1 Vue Ui Components
-  h3 {{ setComponentName }}
-  h2 {{ test }}
-  router-view
+  .app-info-component__wrapper
+    h3 {{ setComponentName }}
+    router-view
 </template>
+
+<style lang="scss">
+@import 'index';
+</style>

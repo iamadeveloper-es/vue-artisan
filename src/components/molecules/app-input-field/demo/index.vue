@@ -33,7 +33,16 @@ const inputs = ref([
     label: 'Input tipo password',
     placeholder: 'Escribe algo...',
     floatingLabel: true,
-    icon: ['fa-solid', 'fa-eye-slash']
+    icon: ['fa-solid', 'fa-eye'],
+    iconOnToggle: ['fa-solid', 'fa-eye-slash']
+  },
+  {
+    value: '',
+    type: 'search',
+    name: 'input-search',
+    label: 'Input tipo search',
+    placeholder: 'Escribe algo...',
+    floatingLabel: true
   },
   {
     value: '',
@@ -52,14 +61,6 @@ const inputs = ref([
     placeholder: 'Escribe algo...',
     floatingLabel: true,
     icon: ['fa-regular', 'fa-calendar']
-  },
-  {
-    value: '',
-    type: 'search',
-    name: 'input-search',
-    label: 'Input tipo search',
-    placeholder: 'Escribe algo...',
-    floatingLabel: true
   }
 ]);
 
@@ -76,6 +77,7 @@ const handleOnBlur = (ev: Event) => {
 
 <template lang="pug">
 .app-input-field-demo
+  p Inputs y sus variantes
   template(v-for="(item, index) in inputs", :key="index")
     app-input-field(
     :type="item.type"
@@ -85,10 +87,11 @@ const handleOnBlur = (ev: Event) => {
     :floatingLabel="item.floatingLabel",
     :outlinedLabel="item.outlinedLabel"
     :borderBottom="item.borderBottom", 
-    :min="item.min"
-    :max="item.max"
-    :maxlength="item.maxlength"
-    :icon="item.icon"
+    :min="item.min",
+    :max="item.max",
+    :maxlength="item.maxlength",
+    :icon="item.icon",
+    :iconOnToggle="item.iconOnToggle",
     v-model="item.value",
     @onFocus="handleOnFocus", 
     @onBlur="handleOnBlur")

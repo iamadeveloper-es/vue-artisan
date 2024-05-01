@@ -76,16 +76,26 @@ const props = defineProps({
   icon: {
     type: Array,
     default: () => ['fa-regular', 'fa-circle-xmark']
+  },
+  iconOnToggle: {
+    type: Array
+  },
+  puti: {
+    type: String
   }
 });
 const { randomId } = useComponentFunctions();
 const isFocused = ref(false);
 const inputType = ref(props.type);
+const showSecondaryIcon = ref(false);
 const id = ref('');
 
-// const passwordIcon = computed(() => {
-//   return inputType.value === 'password' ? '' : 'fa-eye';
-// });
+
+const getIcon = computed(() => {
+  return showSecondaryIcon.value && props.iconOnToggle?.length ? 
+    props.iconOnToggle :
+    props.icon;
+});
 
 const setLabelPosition = computed(() => {
   return !props.floatingLabel && !props.outlinedLabel ?
@@ -115,7 +125,9 @@ const clearField = () => {
 };
 
 const showPassword = () => {
-  inputType.value === 'password'
+  const isTypePassword = inputType.value === 'password';
+  showSecondaryIcon.value = isTypePassword;
+  isTypePassword
     ? (inputType.value = 'text')
     : (inputType.value = 'password');
 };
@@ -165,7 +177,7 @@ onMounted(() => {
   span.app-input-icon(v-if="modelValue.length && icon.length", 
   role="button",
   @click="iconAction", 
-  :class="[icon, {'icon-float': floatingLabel || outlinedLabel}]")
+  :class="[getIcon, {'icon-float': floatingLabel || outlinedLabel}]")
 </template>
 
 <style lang="scss">
