@@ -10,7 +10,7 @@ import { useComponentFunctions } from '../../../composables/component-functions'
 
 const props = defineProps({
   modelValue: {
-    type: String
+    type: [String, Number, Object]
   },
   options: {
     type: Array,
@@ -53,15 +53,15 @@ const props = defineProps({
   borderBottom: {
     type: Boolean,
     default: false
+  },
+  validations: {
+    type: String
   }
 });
 const { randomId } = useComponentFunctions();
 const id = ref('');
   
-const emit = defineEmits(['update:modelValue']);
-// const emitValue = (ev) => {
-//   emit('update:modelValue', ev.target.value);
-// };
+const emit = defineEmits(['update:modelValue', 'onChange']);
 
 const model = computed({
   get () {
@@ -76,7 +76,15 @@ const isSelected = computed(() => {
   return props.options.some(option => option.selected);
 });
 
+// const setSelected = computed(() => {
+//   const selectedIndex = props.options.findIndex(option => option?.selected);
+//   return selectedIndex ? selectedIndex : props.options[0].value;
+// });
 
+const emitValue = (ev: Event) => {
+  const target = ev.target as HTMLInputElement;
+  emit('onChange', target.value);
+};
 
 const configComponent = () => {
   id.value = randomId();
@@ -89,8 +97,10 @@ onMounted(() => {
 
 <template lang="pug">
 .app-select.form-field-wrapper(
+v-if="options.length",
 :class="{'is-focused': outlinedLabel && modelValue || floatingLabel && modelValue || isSelected}"
 )
+  .form-field-wrapper__inner
     select.app-input(
     :id="id",
     :name="name",
@@ -100,7 +110,9 @@ onMounted(() => {
     :aria-label="label",
     :size="size",
     :multiple="multiple",
+    :data-validations="validations",
     v-model="model",
+    @change="emitValue",
     :class="{'b-bottom': borderBottom, 'disabled': disabled}")
         option(v-for="(option, index) in options", 
         :key="index", 
@@ -113,6 +125,7 @@ onMounted(() => {
     :for="id",
     :class="{ 'label-float': floatingLabel, 'label-outlined' : outlinedLabel, 'label-disabled': disabled}"
     ) {{ label }}
+  span.form-error-message(:data-validation-error="`error-message-${id}`") df
 </template>
 
 <style lang="scss">
