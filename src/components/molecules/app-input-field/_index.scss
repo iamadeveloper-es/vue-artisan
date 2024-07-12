@@ -12,8 +12,12 @@
         font-size: 1.2rem;
         position: absolute;
         top: 65%;
-        right: 1rem;
+        padding: .50rem;
+        right: 0;
         transform: translateY(-50%);
+        height: var(--input-min-height);
+        background-color: transparent;
+        border: none;
         cursor: pointer;
 
         &.icon-float {

@@ -46,16 +46,18 @@ onMounted(() => {
 </script>
 
 <template lang="pug">
-ul.app-menu
-  li(v-for="(route, index) in routes"
-  :key="index")
-    span(:data-id="route.name"
-      @click="showHideMenuItems(route.name)") {{ capitalizeFirstChar(route.name) }}
-    ul.app-menu__submenu(v-if="route.children")
-      li(v-for="(child, index) in route.children"
-      :key="index", 
-      :class="{'active':child.name === currentRouteName}")
-        router-link(:to="child.path") {{ capitalizeFirstChar(child.name) }}
+.app-dashboard
+  h1 Vue 3 Ui Components
+  ul.app-menu
+    li(v-for="(route, index) in routes"
+    :key="index")
+      span(:data-id="route.name"
+        @click="showHideMenuItems(route.name)") {{ capitalizeFirstChar(route.name) }}
+      ul.app-menu__submenu(v-if="route.children")
+        li(v-for="(child, index) in route.children"
+        :key="index", 
+        :class="{'active':child.name === currentRouteName}")
+          router-link(:to="child.path") {{ capitalizeFirstChar(child.name) }}
 router-view
 </template>
 

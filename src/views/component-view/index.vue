@@ -16,7 +16,7 @@ const setComponentName = computed(() => {
 
 <template lang="pug">
 .app-info-component
-  h1 Vue Ui Components
+  //- h1 Vue Ui Components
   .app-info-component__wrapper
     h3 {{ setComponentName }}
     router-view

@@ -1,0 +1,13 @@
+.form-error-message{
+    display: none;
+    color: var(--danger);
+    font-size: 12px;
+    
+    &.show{
+        display: block;
+    }
+}
+
+input.has-errors{
+    border: 1.75px solid var(--danger)
+}
