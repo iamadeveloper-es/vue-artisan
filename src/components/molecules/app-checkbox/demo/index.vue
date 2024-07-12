@@ -55,6 +55,7 @@ const checkboxesConfig3 = ref([
 
 const inputVal = ref(['Jhon']);
 const inputVal2 = ref(true);
+const inputVal2B = ref(false);
 const inputVal3 = ref([
   {
     name: 'Pepe',
@@ -84,6 +85,16 @@ app-checkbox(
 :activeColor="checkboxesConfig2.color"
 :label="checkboxesConfig2.label"
 v-model="inputVal2")
+
+hr
+
+h4 BoleanoV2: {{ inputVal2B }}
+app-checkbox(
+:activeColor="checkboxesConfig2.color"
+:label="checkboxesConfig2.label",
+true-value="1",
+false-value="false",
+v-model="inputVal2B")
 
 hr
 

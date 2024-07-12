@@ -37,8 +37,9 @@ const inputs = ref([
     iconOnToggle: ['fa-solid', 'fa-eye-slash']
   },
   {
-    value: '',
+    value: 'df',
     type: 'search',
+    disabled: true,
     name: 'input-search',
     label: 'Input tipo search',
     placeholder: 'Escribe algo...',
@@ -89,6 +90,7 @@ const handleOnBlur = (ev: Event) => {
     :borderBottom="item.borderBottom", 
     :min="item.min",
     :max="item.max",
+    :disabled="item.disabled",
     :maxlength="item.maxlength",
     :icon="item.icon",
     :iconOnToggle="item.iconOnToggle",

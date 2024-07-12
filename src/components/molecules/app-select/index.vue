@@ -65,7 +65,7 @@ const emit = defineEmits(['update:modelValue']);
 
 const model = computed({
   get () {
-    return props.modelValue;
+    return props.modelValue || isSelected.value ? props.modelValue : emit('update:modelValue', props.options[0].value);
   },
   set (value) {
     emit('update:modelValue', value);

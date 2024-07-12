@@ -77,12 +77,12 @@ const props = defineProps({
     type: Array,
     default: () => ['fa-regular', 'fa-circle-xmark']
   },
+  validations: {
+    type: String
+  },
   iconOnToggle: {
     type: Array
   },
-  puti: {
-    type: String
-  }
 });
 const { randomId } = useComponentFunctions();
 const isFocused = ref(false);
@@ -152,12 +152,12 @@ onMounted(() => {
 
 <template lang="pug">
 .app-input-field.form-field-wrapper(
-:class="[{'is-focused': (floatingLabel || outlinedLabel) && isFocused}, setLabelPosition]")
+:class="[{'is-focused': (floatingLabel || outlinedLabel) && isFocused}, setLabelPosition, `form-field-wrapper--label-${labelPosition}`]")
   label.app-label(v-if="label", 
   :class="{'accesible-hidden' : !showLabel, 'label-float' : floatingLabel, 'label-outlined' : outlinedLabel}", 
   :for="id") {{ label }}
   input.app-input(
-  :class="{'disabled': disabled, 'b-bottom': borderBottom, 'hide-placeholder' : floatingLabel}"
+  :class="{'disabled': disabled, 'b-bottom': borderBottom, 'hide-placeholder' : floatingLabel, 'has-icon': modelValue.length && icon.length}"
   :value="modelValue"
   :type="inputType"
   :id="id"
@@ -171,10 +171,11 @@ onMounted(() => {
   :min="min"
   :max="max"
   :maxlength="maxlength"
+  :data-validations="validations"
   @input="emitValue",
   @focus="emitFocus",
   @blur="emitBlur")
-  span.app-input-icon(v-if="modelValue.length && icon.length", 
+  span.app-input-icon(v-if="modelValue.length && icon.length && !disabled", 
   role="button",
   @click="iconAction", 
   :class="[getIcon, {'icon-float': floatingLabel || outlinedLabel}]")

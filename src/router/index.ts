@@ -24,6 +24,7 @@ import AppSelect from '../components/molecules/app-select/demo/index.vue';
 import AppCustomSelect from '../components/molecules/app-custom-select/demo/index.vue';
 import AppTabs from '../components/molecules/app-tabs/demo/index.vue';
 import AppModal from '../components/molecules/app-modal/demo/index.vue';
+import AppModalV2 from '../components/molecules/app-modal-v2/demo/index.vue';
 import AppModalSwipe from '../components/molecules/app-modal-swipe/demo/index.vue';
 import AppSnackbar from '../components/molecules/app-snackbar/demo/index.vue';
 import AppAccordion from '../components/molecules/app-accordion/demo/index.vue';
@@ -146,6 +147,11 @@ const router = createRouter({
           path: '/app-modal',
           name: 'APP_MODAL',
           component: AppModal
+        },
+        {
+          path: '/app-modal-v2',
+          name: 'APP_MODALV2',
+          component: AppModalV2
         },
         {
           path: '/app-modal-swipe',
