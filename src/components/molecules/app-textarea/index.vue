@@ -62,6 +62,9 @@ const props = defineProps({
   },
   minLength: {
     type: Number
+  },
+  validations: {
+    type: String
   }
 });
 
@@ -98,27 +101,29 @@ onMounted(() => {
 
 <template lang="pug">
 .app-textarea.form-field-wrapper(:class="{'is-focused': (floatingLabel || outlinedLabel) && isFocused}")
-    textarea.app-input(
-    :class="{'b-bottom': borderBottom, 'disabled': disabled}",
-    :rows="rows",
-    :maxLength="maxLength",
-    :minLength="minLength",
-    :disabled="disabled",
-    :placeholder="placeholder",
-    :required="required",
-    :readonly="readOnly",
-    :aria-label="placeholder || label",
-    :aria-labelledby="ariaLabelledby",
-    :id="id"
-    :name="name"
-    :value="modelValue"
-    aria-placeholder="dsf",
-    @input="emitValue",
-    @focus="emitFocus",
-    @blur="emitBlur")
-    label.app-label(
-    :class="{'label-float' : floatingLabel, 'label-outlined' : outlinedLabel, 'label-disabled': disabled}"
-    :for="id") {{ label }}
+  label.app-label(
+  :class="{'label-float' : floatingLabel, 'label-outlined' : outlinedLabel, 'label-disabled': disabled}"
+  :for="id") {{ label }}
+  textarea.app-input(
+  :class="{'b-bottom': borderBottom, 'disabled': disabled}",
+  :rows="rows",
+  :maxLength="maxLength",
+  :minLength="minLength",
+  :disabled="disabled",
+  :placeholder="placeholder",
+  :required="required",
+  :readonly="readOnly",
+  :aria-label="placeholder || label",
+  :aria-labelledby="ariaLabelledby",
+  :id="id"
+  :name="name"
+  :value="modelValue"
+  aria-placeholder="dsf",
+  :data-validations="validations"
+  @input="emitValue",
+  @focus="emitFocus",
+  @blur="emitBlur")
+span.form-error-message(:data-validation-error="`error-message-${id}`") dsfds
 </template>
 
 <style lang="scss">

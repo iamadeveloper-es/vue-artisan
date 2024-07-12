@@ -31,4 +31,8 @@
         //Borrar outline
         outline: none;
     }
+
+    &.has-errors{
+        border: 1.75px solid var(--danger)
+    }
 }
