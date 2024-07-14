@@ -32,7 +32,8 @@ const handleEvent = (button: string) => {
       text="button",
       variant="big",
       :icon="['fa-solid', 'fa-plus']", 
-      :iconSize="15")
+      :iconSize="15",
+      disabled)
       p Botón big
       p(v-if="counter3 > 0") {{ `Botón clicado ${counter3} ${counter3 === 1 ? 'vez' : 'veces'}` }}
     div

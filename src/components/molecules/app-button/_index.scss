@@ -63,6 +63,11 @@
         pointer-events: none;
     }
 
+    &:disabled{
+        background-color: var(--disabled);
+        cursor: initial;
+    }
+
     .app-icon {
         color: currentColor;
         
