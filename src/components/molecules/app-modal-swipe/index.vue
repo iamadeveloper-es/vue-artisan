@@ -19,7 +19,7 @@ const props = defineProps({
     default: 'bottom'
   }
 });
-const { bodyBlocked } = useCommonFunctions();
+// const { bodyBlocked } = useCommonFunctions();
 const { isMobileSize } = useDeviceFunctions();
 const isMobile = isMobileSize();
 const modalSwipe = ref(null);
@@ -32,16 +32,16 @@ const dialogPagePos = ref(0);
 const dialogSize = ref(0);
 const animationTime = ref(0);
 
-watch(
-  () => isModalVisible.value,
-  (newVal) => {
-    if (newVal) {
-      bodyBlocked(true);
-    } else {
-      bodyBlocked();
-    }
-  }
-);
+// watch(
+//   () => isModalVisible.value,
+//   (newVal) => {
+//     if (newVal) {
+//       bodyBlocked(true);
+//     } else {
+//       bodyBlocked();
+//     }
+//   }
+// );
 
 const getShowFrom = computed(() => {
   return `show-from-${props.showFrom}`;
@@ -54,7 +54,7 @@ const getTransformAxis = computed(() => {
 
 const show = (): void => {
   isModalVisible.value = true;
-  bodyBlocked(true);
+  // bodyBlocked(true);
 
   setTimeout(() => {
     startProccess();
@@ -91,7 +91,6 @@ const resetModal = () => {
 const onTouchStart = () => {
   modalDialog.value.addEventListener('touchstart', (ev) => {
     const target = ev.touches[0];
-    console.log(modalDialog);
     if (props.showFrom === 'bottom') {
       startPressPos.value = target.clientY;
       dialogPagePos.value = modalDialog.value.offsetTop;
@@ -114,7 +113,6 @@ const onTouchEnd = () => {
                       ? ev.changedTouches[0].clientY
                       : ev.changedTouches[0].clientX;
 
-    console.log(touchPosition, pageLimit);
 
     if (showFrom === 'bottom' || showFrom === 'right') {
       if (touchPosition > pageLimit) {
@@ -140,7 +138,7 @@ defineExpose({
 });
 
 onUnmounted(() => {
-  bodyBlocked();
+  // bodyBlocked();
   transformPos.value = 0;
   isModalVisible.value = false;
 });
@@ -153,22 +151,22 @@ ref="modalSwipe",
 v-show="isModalVisible")
     .app-modal-swipe__content(data-dismiss="modal-swipe", 
     :class="getShowFrom")
-        transition(name="slide-fade")
-            .app-modal-swipe-dialog(
-            v-show="isModalVisible",
-            ref="modalDialog", 
-            :class="getShowFrom"
-            :style="{ transform: `${getTransformAxis}(${transformPos}px)` }")
-                .app-modal-swipe-dialog__header
-                    slot(name="header")
-                    button(data-dismiss="modal-swipe",
-                    class="app-modal-swipe-dialog__close" 
-                    :class="closeIcon",  
-                    @click="hide($event)")
-                .app-modal-swipe-dialog__body(v-if="hasSlot('body')")
-                    slot(name="body")
-                .app-modal-swipe-dialog__footer(v-if="hasSlot('footer')")
-                    slot(name="footer")
+      transition(name="slide-fade")
+        .app-modal-swipe-dialog(
+        v-show="isModalVisible",
+        ref="modalDialog", 
+        :class="getShowFrom"
+        :style="{ transform: `${getTransformAxis}(${transformPos}px)` }")
+            .app-modal-swipe-dialog__header
+              slot(name="header")
+              button(data-dismiss="modal-swipe",
+              class="app-modal-swipe-dialog__close" 
+              :class="closeIcon",  
+              @click="hide($event)")
+            .app-modal-swipe-dialog__body(v-if="hasSlot('body')")
+              slot(name="body")
+            .app-modal-swipe-dialog__footer(v-if="hasSlot('footer')")
+              slot(name="footer")
 
 </template>
 
