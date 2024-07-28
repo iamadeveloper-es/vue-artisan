@@ -3,7 +3,7 @@
     --stepper-progress-size: 0;
     list-style: none;
     margin: 0;
-    padding: 20px 0 20px 0;
+    padding: 10px 0 10px 0;
     display: flex;
     justify-content: space-between;
     width: 100%;
@@ -90,7 +90,8 @@
         transition: all .3s ease-out;
 
         &:disabled{
-            color: var(--tertiary-grey);
+            // color: var(--tertiary-grey);
+            color: currentColor;
         }
 
         &.completed{
@@ -102,12 +103,19 @@
         &.active{
             border: 2px solid var(--active-step);
             color: var(--active-step);
+            // background-color: var(--white);
         }
+    }
+
+    button.app-button{
+        border-radius: 100%;
     }
 
     @media (min-width: 768px){
         &__label{
             display: block;
+            min-width: 200px;
+            text-align: center;
         }
     }
 }

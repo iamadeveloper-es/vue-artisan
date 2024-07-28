@@ -3,6 +3,7 @@ export default {
   name: 'app-stepper'
 };
 </script>
+
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue';
 import AppButton from '../../molecules/app-button/index.vue';
@@ -15,6 +16,10 @@ const props = defineProps({
   labelDirection: {
     type: String,
     default: 'top'
+  },
+  isProccessCompleted: {
+    type: Boolean,
+    default: false
   }
 });
 const ol = ref(null);
@@ -53,14 +58,18 @@ const filterdSteps = computed(() => {
 });
 
 const setIcon = (step) => {
-  return step.icon && !step.completed ? 
-    step.icon.onEdit : step.icon && step.completed ? 
+  return step.icon && !step.completed && !props.isProccessCompleted ? 
+    step.icon.onEdit : step.icon && step.completed || step.icon && props.isProccessCompleted ? 
       step.icon.onClomplete : 
       [];
 };
 
+// const isDisabled = (step) => {
+//   return step.completed && !step.active || !step.completed && !step.active;
+// };
+
 const isDisabled = (step) => {
-  return step.completed && !step.active || !step.completed && !step.active;
+  return !step.completed && !step.active;
 };
 
 const emit = defineEmits(['clicked']);
@@ -70,7 +79,7 @@ const emitEvent = (index) => {
 };
 
 const updateProgress = () => {
-  ol.value?.style.setProperty('--stepper-progress-size', `${setProgressSize.value}%`);
+  ol.value?.style.setProperty('--stepper-progress-size', `${props.isProccessCompleted ? 100 : setProgressSize.value}%`);
 };
 
 const configComponent = () => {
@@ -90,8 +99,8 @@ onMounted(() => {
       span.app-stepper__label(:class="labelDirection") {{ step.label }}
       app-button(@clicked="emitEvent(index)", 
       :text="step.text", 
-      :disabled="isDisabled(step)", 
-      :cClass="['app-stepper__action', {'completed' : step.completed, 'active' : step.active}]", 
+      :disabled="isDisabled(step) || isProccessCompleted", 
+      :cClass="['app-stepper__action', {'completed' : step.completed || isProccessCompleted, 'active' : step.active && !isProccessCompleted}]", 
       :icon="setIcon(step)"
       :iconSize="12")
   TransitionGroup(name="slide-fade")
