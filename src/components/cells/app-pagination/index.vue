@@ -37,7 +37,7 @@ const props = defineProps({
     default: (() => ['fa-solid', 'fa-angles-right'])
   }
 });
-const total = ref();
+// const total = ref();
 const selectedPage = ref(1);
 // const button = ref(null);
 const router = useRouter();
@@ -53,14 +53,18 @@ watch(() => route.query, (newVal) => {
 
 });
 
+const computedTotal = computed(() => {
+  return [...Array(Number(props.totalPages)).keys()].map(item => ++item);
+});
+
 const filteredPages = computed(() => {
   const filtered = selectedPage.value >= props.pagesToShow ? 
-    total.value.slice(selectedPage.value - 2, selectedPage.value + 1) : 
-    total.value.slice(0, props.pagesToShow);
+    computedTotal.value.slice(selectedPage.value - 2, selectedPage.value + 1) : 
+    computedTotal.value.slice(0, props.pagesToShow);
   return filtered;
 });
 
-const showRightDots = computed(() => selectedPage.value < total.value.length);
+const showRightDots = computed(() => selectedPage.value < computedTotal.value.length);
 const showLeftDots = computed(() => selectedPage.value >= props.pagesToShow);
 
 const setSelectedPage = (item: string) => {
@@ -76,7 +80,7 @@ const previousPage = () => {
 };
 
 const nextPage = () => {
-  if(selectedPage.value != total.value.length){
+  if(selectedPage.value != computedTotal.value.length){
     selectedPage.value = selectedPage.value + 1;
     navigate();
   }
@@ -88,7 +92,7 @@ const goToFirstPage = () => {
 };
 
 const goToLastPage = () => {
-  selectedPage.value = total.value.length;
+  selectedPage.value = computedTotal.value.length;
   navigate();
 };
 
@@ -104,7 +108,7 @@ const navigate = () => {
 };
 
 const configComponent = () => {
-  total.value = [...Array(Number(props.totalPages)).keys()].map(item => ++item);
+  // total.value = [...Array(Number(props.totalPages)).keys()].map(item => ++item);
   selectedPage.value = route.query?.page ? Number(route.query.page) : 1;
   routeNameVal.value = props.routeName ? props.routeName :route.name;
   emitVal();
@@ -116,7 +120,7 @@ onMounted(() => {
 </script>
 
 <template lang="pug">
-nav.app-pagination(v-if="total")
+nav.app-pagination(v-if="computedTotal")
   ul.app-pagination__list
     li.app-pagination__list-item
       button.app-pagination__button(@click="goToFirstPage()", 
