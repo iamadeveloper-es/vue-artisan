@@ -1,15 +1,17 @@
 .app-snackbar {
     padding: 0.4rem;
     width: 100%;
-    // max-width: 300px;
+    max-width: max-content;
+    padding: 15px;
     position: fixed;
     left: 50%;
     transform: translateX(-50%);
     display: flex;
     flex-direction: row-reverse;
-    align-items: center;
+    align-items: flex-start;
     background-color: var(--white);
     border-radius: 5px;
+    // color: var(--white);
     box-shadow: 2px 2px 6px rgb(78, 78, 78);
     z-index: 999;
 
@@ -52,12 +54,13 @@
     }
 
     &__body {
-        font-size: 12px;
+        font-size: 14px;
         padding-right: 0.75rem;
         width: 100%;
     }
 
     &__close {
+        // text-decoration: underline;
         cursor: pointer;
     }
 
@@ -67,5 +70,9 @@
     }
     &--big {
         max-width: 540px;
+    }
+
+    &--danger{
+        background-color: var(--danger);
     }
 }
