@@ -19,6 +19,10 @@ const props = defineProps({
     type: [String, Number, Boolean, Object],
     default: false
   },
+  name: {
+    type: String,
+    required: true
+  },
   label: {
     type: String,
     default: 'Checkbox label'
@@ -26,6 +30,9 @@ const props = defineProps({
   activeColor: {
     type: String,
     default: 'primary'
+  },
+  validations: {
+    type: String
   }
 });
 const { randomId } = useComponentFunctions();
@@ -42,25 +49,31 @@ const hasSlot = computed(() => {
   return !!slots['label'];
 });
 
-const emit = defineEmits(['update:modelValue']);
+const hasLink = computed(() => {
+  return !!slots['link'];
+});
+
+
+const emit = defineEmits(['update:modelValue', 'onChange']);
 
 const model = computed({
   get () {
     return props.modelValue;
   },
   set (value) {
-    // debugger
     emit('update:modelValue', value);
   },
 });
 
 const isSelected = computed(() => {
-  return isChecked.value;
+  // return isChecked.value;
+  return !!props.modelValue && isChecked.value;
 });
 
 const emitValue = (ev: Event) => {
   const target = ev.target as HTMLInputElement;
   isChecked.value = target.checked;
+  emit('onChange', isChecked.value);
 };
 
 const configComponent = () => {
@@ -72,30 +85,36 @@ onMounted(() => {
   configComponent();
       
 });
+
 </script>
 
 <template lang="pug">
 .app-check-radio.app-checkbox(
 :class="{'disabled': disabled}" 
 :ref="id")
-    .app-check-radio__wrapper
-        span.app-check-radio__icon( ria-hidden="true", :class="isSelected ? setActiveColor : ''")
-            svg.v-icon__svg(xmlns="http://www.w3.org/2000/svg", viewBox="0 0 24 24", role="img", aria-hidden="true")
-                path(v-if="!isSelected", d="M19,3H5C3.89,3 3,3.89 3,5V19C3,20.1 3.9,21 5,21H19C20.1,21 21,20.1 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z")
-                path(v-else, d="M10,17L5,12L6.41,10.58L10,14.17L17.59,6.58L19,8M19,3H5C3.89,3 3,3.89 3,5V19C3,20.1 3.9,21 5,21H19C20.1,21 21,20.1 21,19V5C21,3.89 20.1,3 19,3Z")
-        input.app-check-radio__input(
-        :aria-checked="isSelected", 
-        :id="id", 
-        ref="checkboxRef",
-        :disabled="disabled",
-        role="checkbox", 
-        type="checkbox", 
-        v-model="model",
-        :value="value", 
-        @change="emitValue")
-    label.app-check-radio__label(:for="id") 
-        span(v-if="!hasSlot") {{label}}
-        slot(v-else, name="label")
+    .app-checkbox__inner
+      .app-check-radio__wrapper
+          span.app-check-radio__icon( ria-hidden="true", :class="isSelected ? setActiveColor : ''")
+              svg.v-icon__svg(xmlns="http://www.w3.org/2000/svg", viewBox="0 0 24 24", role="img", aria-hidden="true")
+                  path(v-if="!isSelected", d="M19,3H5C3.89,3 3,3.89 3,5V19C3,20.1 3.9,21 5,21H19C20.1,21 21,20.1 21,19V5C21,3.89 20.1,3 19,3M19,5V19H5V5H19Z")
+                  path(v-else, d="M10,17L5,12L6.41,10.58L10,14.17L17.59,6.58L19,8M19,3H5C3.89,3 3,3.89 3,5V19C3,20.1 3.9,21 5,21H19C20.1,21 21,20.1 21,19V5C21,3.89 20.1,3 19,3Z")
+          input.app-check-radio__input(
+          :aria-checked="isSelected", 
+          :id="id", 
+          ref="checkboxRef",
+          :disabled="disabled",
+          role="checkbox", 
+          type="checkbox", 
+          :name="name",
+          v-model="model",
+          :value="value", 
+          :data-validations="validations",
+          @change="emitValue")
+      label.app-check-radio__label(:for="id") 
+          span(v-if="!hasSlot") {{label}}
+          slot(v-else, name="label")
+          slot(v-if="hasLink", name="link")
+    span.form-error-message(:data-validation-error="`error-message-${id}`")
 </template>
 
 <style lang="scss">
