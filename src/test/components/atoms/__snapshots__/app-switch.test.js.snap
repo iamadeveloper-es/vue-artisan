@@ -1,0 +1,23 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`app-money > snapshot 1`] = `
+<div
+  amount="3525.05"
+  class="app-switch-wrapper"
+>
+  <label
+    class="app-switch"
+    for="app-switch-1"
+  >
+    <input
+      id="app-switch-1"
+      role="checkbox"
+      type="checkbox"
+      value=""
+    />
+    <span
+      class="app-switch__slider"
+    />
+  </label>
+</div>
+`;

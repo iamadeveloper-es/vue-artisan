@@ -64,17 +64,17 @@ onMounted(() => {
 .app-switch-wrapper(
 :class="{'disabled': disabled}" 
 :ref="id")
-    label.app-switch(:for="id")
-        input(
-        :aria-checked="modelValue?.status" 
-        :id="id" 
-        :disabled="disabled"
-        :checked="modelValue?.status"
-        role="checkbox" 
-        type="checkbox" 
-        :value="modelValue"
-        @change="emitValue($event)")
-        span.app-switch__slider
+  label.app-switch(:for="id")
+    input(
+    :aria-checked="modelValue?.status" 
+    :id="id" 
+    :disabled="disabled"
+    :checked="modelValue?.status"
+    role="checkbox" 
+    type="checkbox" 
+    :value="modelValue"
+    @change="emitValue($event)")
+    span.app-switch__slider
 </template>
 
 <style lang="scss">

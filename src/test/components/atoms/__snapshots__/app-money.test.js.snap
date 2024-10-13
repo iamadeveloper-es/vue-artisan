@@ -1,0 +1,9 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`app-money > snapshot 1`] = `
+<span
+  class="app-money"
+>
+  3.525,05 €
+</span>
+`;
