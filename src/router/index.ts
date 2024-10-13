@@ -26,6 +26,7 @@ import AppTabs from '../components/molecules/app-tabs/demo/index.vue';
 import AppModal from '../components/molecules/app-modal/demo/index.vue';
 import AppModalSwipe from '../components/molecules/app-modal-swipe/demo/index.vue';
 import AppSnackbar from '../components/molecules/app-snackbar/demo/index.vue';
+import AppAlert from '../components/molecules/app-alert/demo/index.vue';
 import AppAccordion from '../components/molecules/app-accordion/demo/index.vue';
 import AppChip from '../components/molecules/app-chip/demo/index.vue';
 import AppBreadcrumbs from '../components/molecules/app-breadcrumbs/demo/index.vue';
@@ -156,6 +157,11 @@ const router = createRouter({
           path: '/app-snackbar',
           name: 'APP_SNACKBAR',
           component: AppSnackbar
+        },
+        {
+          path: '/app-alert',
+          name: 'APP_ALERT',
+          component: AppAlert
         },
         {
           path: '/app-accordion',

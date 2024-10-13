@@ -9,7 +9,6 @@ import { computed } from 'vue';
 import { useRoute } from 'vue-router';
 
 const route = useRoute();
-const test = 'hola';
 const setComponentName = computed(() => {
   return route.name?.toLowerCase();
 });
@@ -19,6 +18,5 @@ const setComponentName = computed(() => {
 div.app-info-component
   h1 Vue Ui Components
   h3 {{ setComponentName }}
-  h2 {{ test }}
   router-view
 </template>

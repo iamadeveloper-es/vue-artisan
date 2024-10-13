@@ -1,0 +1,23 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`app-input-field > snapshot 1`] = `
+<div
+  class="app-input-field form-field-wrapper app-input-field--label-top"
+>
+  <label
+    class="app-label"
+    for="app-input-field-1"
+  >
+    userName
+  </label>
+  <input
+    aria-label="userName"
+    aria-labelledby="Input"
+    class="app-input"
+    id="app-input-field-1"
+    name="userInput"
+    type="text"
+  />
+  <!--v-if-->
+</div>
+`;
