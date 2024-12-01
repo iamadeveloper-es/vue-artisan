@@ -10,6 +10,7 @@ import AppBadge from '../components/atoms/app-badge/demo/index.vue';
 import AppLink from '../components/atoms/app-link/demo/index.vue';
 import AppIcon from '../components/atoms/app-icon/demo/index.vue';
 import AppProgress from '../components/atoms/app-progress/demo/index.vue';
+import AppCircularProgress from '../components/atoms/app-circular-progress/demo/index.vue';
 import AppSwitch from '../components/atoms/app-switch/demo/index.vue';
 import AppPicture from '../components/atoms/app-picture/demo/index.vue';
 import AppImage from '../components/atoms/app-image/demo/index.vue';
@@ -92,6 +93,11 @@ const router = createRouter({
           path: '/app-progress',
           name: 'APP_PROGRESS',
           component: AppProgress
+        },
+        {
+          path: '/app-circular-progress',
+          name: 'APP_CIRCULAR-PROGRESS',
+          component: AppCircularProgress
         },
         {
           path: '/app-switch',

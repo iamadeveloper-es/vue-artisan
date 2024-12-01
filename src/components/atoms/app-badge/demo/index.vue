@@ -62,7 +62,7 @@ const increment2 = () => {
           variant="primary")
 </template>
 
-<style lang="scss">
+<style lang="scss" scoped>
 .app-badge-demo-flex{
   display: flex;
 }

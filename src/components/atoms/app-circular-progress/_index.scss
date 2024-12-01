@@ -1,0 +1,29 @@
+.app-circular-progress {
+    position: relative;
+    width: fit-content;
+
+    &__counter{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    .progress-ring {
+        transform: rotate(-90deg); /* Rota el círculo para que comience en la parte superior */
+
+        &__circle {
+            fill: none;
+            stroke-width: 10;
+            stroke: #e6e6e6; /* Color de fondo */
+        }
+
+        &__circle-progress {
+            fill: none;
+            stroke-width: 10;
+            stroke: #4caf50; /* Color del progreso */
+            stroke-linecap: round;
+            transition: stroke-dashoffset 0.35s;
+        }
+    }
+}

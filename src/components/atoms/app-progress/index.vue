@@ -1,6 +1,6 @@
 <script lang="ts">
 export default {
-  name: 'app-progress'
+  name: 'app-progress-bar'
 };
 </script>
 <script setup lang="ts">
