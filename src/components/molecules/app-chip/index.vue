@@ -40,10 +40,18 @@ const getClosableIcon = computed(() => {
   return closableIcon;
 });
 
+const getId = computed(() => {
+  return props.text.split(' ').join('-').toLowerCase();
+});
+
 const emit = defineEmits(['onClick']);
 
-const emitValue = (ev: Event) => {
-  emit('onClick', ev);
+const emitValue = () => {
+  const payload = {
+    id: getId.value,
+    text: props.text
+  };
+  emit('onClick', payload);
 };
 
 const hide = () => {
@@ -51,11 +59,14 @@ const hide = () => {
 };
 </script>
 <template lang="pug">
-.app-chip(v-if="show")
+.app-chip(
+  v-if="show", 
+  :id="getId", 
+  @click="emitValue")
     app-icon(
     v-if="hasAppendIcon"
     :icon="appendIcon")
-    span.app-chip__text(@click="emitValue") {{ text }}
+    span.app-chip__text {{ text }}
     app-icon(
     v-if="hasPrependIcon"
     :icon="prependIcon")

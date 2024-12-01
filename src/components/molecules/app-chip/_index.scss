@@ -10,6 +10,7 @@
     margin-left: 3px;
 
     &__text {
+        pointer-events: none;
         font-size: 15px;
     }
 
