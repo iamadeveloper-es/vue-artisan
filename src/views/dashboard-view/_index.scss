@@ -2,8 +2,18 @@
     padding: .75rem;
 }
 
+.app-content{
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: 992px){
+        flex-direction: row;
+    }
+}
+
 .app-menu {
     padding: 0;
+    min-width: 190px;
     li span {
         margin-bottom: 0.5rem;
         display: inline-block;
@@ -34,5 +44,10 @@
         li.active {
             color: var(--success);
         }
+    }
+
+    @media (min-width: 992px){
+        border-right: 1px solid var(--dark-super-light);
+        margin-right: 1em;
     }
 }
