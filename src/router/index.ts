@@ -6,6 +6,7 @@ import AppTest from '../components/test.vue';
 
 //Atoms
 import AppAvatar from '../components/atoms/app-avatar/demo/index.vue';
+import AppBadge from '../components/atoms/app-badge/demo/index.vue';
 import AppLink from '../components/atoms/app-link/demo/index.vue';
 import AppIcon from '../components/atoms/app-icon/demo/index.vue';
 import AppProgress from '../components/atoms/app-progress/demo/index.vue';
@@ -61,6 +62,11 @@ const router = createRouter({
           path: '/app-avatar',
           name: 'APP_AVATAR',
           component: AppAvatar
+        },
+        {
+          path: '/app-badge',
+          name: 'APP_BADGE',
+          component: AppBadge
         },
         {
           path: '/app-link',
