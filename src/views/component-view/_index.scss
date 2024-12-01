@@ -7,4 +7,12 @@
         background-color: #e9f8ff;
         border-radius: 15px;
     }
+
+    @media (min-width: 992px){
+        flex-grow: 1;
+        
+        &__wrapper{
+            margin-top: 0;
+        }
+    }
 }
