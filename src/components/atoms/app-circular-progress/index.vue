@@ -4,8 +4,7 @@ export default {
 };
 </script>
 <script setup lang="ts">
-import { computed } from 'vue';
-
+import { computed, onMounted, ref } from 'vue';
 
 const props = defineProps({
   modelValue: {
@@ -17,20 +16,12 @@ const props = defineProps({
     default: 0
   },
   width: {
-    type: Number,
-    default: 60
+    type: String,
+    default: '80px'
   },
   height: {
-    type: Number,
-    default: 60
-  },
-  cx: {
-    type: Number,
-    default: 60
-  },
-  cy: {
-    type: Number,
-    default: 60
+    type: String,
+    default: '80px'
   },
   radio: {
     type: Number,
@@ -38,38 +29,45 @@ const props = defineProps({
   }
 });
 
-const setCX = computed(() => props.width / 2);
+const progressElement = ref(null);
 
-const setCY = computed(() => props.height / 2);
+const updateStyle = () => {
+  progressElement.value?.style.setProperty('--progress-width', props.width ? props.width : '120px');
+  progressElement.value?.style.setProperty('--progress-height', props.width ? props.width : '120px');
+};
 
-const strokeDashArray = computed(() => {
-  return 2 * Math.PI * props.radio;
-});
+const strokeDashArray = computed(() => 2 * Math.PI * props.radio);
 
 const calcPercent = computed(() => {
   return strokeDashArray.value * (1 - props.value/100);
+});
 
+onMounted(() => {
+  updateStyle();
 });
 
 </script>
 
 <template lang="pug">
-.app-circular-progress
-  span.app-circular-progress__counter 10
+.app-circular-progress(
+ref="progressElement", 
+role="progressbar", 
+:aria-valuenow="value")
+  span.app-circular-progress__counter {{value}} %
   svg.progress-ring(
-    :viewBox="0, 0, width, height",
-    :width="width * 2", 
-    :height="height * 2")
-      circle.progress-ring__circle(
-        :cx="setCX",
-        :cy="setCY",
-        :r="radio")
-      circle.progress-ring__circle-progress(
-        :cx="setCX",
-        :cy="setCY",
-        :r="radio",
-        :stroke-dasharray="strokeDashArray",
-        :stroke-dashoffset="calcPercent")
+    viewBox="0 0 120 120",
+    preserveAspectRatio="xMidYMid meet")
+    circle.progress-ring__circle(
+      cx="50%",
+      cy="50%",
+      :r="radio")
+    circle.progress-ring__circle-progress(
+      cx="50%",
+      cy="50%",
+      :r="radio",
+      :stroke-dasharray="strokeDashArray",
+      :stroke-dashoffset="calcPercent")
+
 </template>
 
 <style lang="scss">

@@ -56,7 +56,7 @@ describe('app-input-field', () => {
     describe('iconAction', () => {
 
       test('iconAction llama a clearField', () => {
-        const clearFieldSpy = vi.spyOn(wrapper.vm, 'clearField');
+        // const clearFieldSpy = vi.spyOn(wrapper.vm, 'clearField');
         wrapper.vm.iconAction();
 
         expect(wrapper.vm.isFocused).toBe(false);
