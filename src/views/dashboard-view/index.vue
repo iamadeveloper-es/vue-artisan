@@ -47,7 +47,6 @@ onMounted(() => {
 
 <template lang="pug">
 .app-dashboard
-  h1 Vue 3 Ui Components
   .app-content
     ul.app-menu
       li(v-for="(route, index) in routes"
