@@ -22,6 +22,16 @@ div
   @onClick="handleEvent", 
   text="chip 2", 
   :closable="true")
+  app-chip(
+  @onClick="handleEvent", 
+  text="chip 3", 
+  :closable="true",
+  variant="soft-squared")
+  app-chip(
+  @onClick="handleEvent", 
+  text="chip 2", 
+  :closable="true",
+  variant="squared")
 div(v-if="Object.keys(selection).length")
   pre {{selection}}
 </template>

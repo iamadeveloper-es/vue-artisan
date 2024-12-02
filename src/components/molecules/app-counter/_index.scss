@@ -1,0 +1,13 @@
+.app-counter{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    // gap: 5px;
+    width: fit-content;
+
+    &__amount{
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+    }
+}

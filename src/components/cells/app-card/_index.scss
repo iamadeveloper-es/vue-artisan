@@ -1,0 +1,41 @@
+.app-card{
+    
+    display: inline-block;
+    min-width: 200px;
+    border-radius: 3px;
+    border: 1px solid var(--secondary-grey);
+
+    &__top{
+        img{
+            width: 100%;
+        }
+    }
+
+    &__wrapper{
+        padding: 1em;
+    }
+
+    &__header{
+        
+    }
+
+    &__title{
+        margin: 10px 0 5px 0;
+    }
+
+    &__body{
+        
+    }
+
+    &__secondary-text{
+        font-size: 14px;
+    }
+    
+    &--outlined{
+        // border: 1px solid var(--secondary-grey);
+    }
+
+    &--elevation{
+        box-shadow: 1px 2px 2px var(--secondary-grey);
+    }
+}

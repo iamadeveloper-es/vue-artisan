@@ -25,6 +25,14 @@ const props = defineProps({
   text: {
     type: String,
     required: true
+  },
+  variant: {
+    type: String,
+    defalut: 'rounded',
+    validator (value: string) {
+      const variants = ['rounded', 'squared', 'soft-squared'];
+      return variants.includes(value);
+    }, 
   }
 });
 const closableIcon = ['fa-regular', 'fa-circle-xmark', 'app-chip__close'];
@@ -62,7 +70,8 @@ const hide = () => {
 .app-chip(
   v-if="show", 
   :id="getId", 
-  @click="emitValue")
+  @click="emitValue",
+  :class="[`app-chip--${variant}`]")
     app-icon(
     v-if="hasAppendIcon"
     :icon="appendIcon")

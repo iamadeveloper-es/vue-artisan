@@ -20,6 +20,7 @@ import AppMoney from '../components/atoms/app-money/demo/index.vue';
 import AppButton from '../components/molecules/app-button/demo/index.vue';
 import AppInputField from '../components/molecules/app-input-field/demo/index.vue';
 import AppCheckbox from '../components/molecules/app-checkbox/demo/index.vue';
+import AppCounter from '../components/molecules/app-counter/demo/index.vue';
 import AppRadio from '../components/molecules/app-radio/demo/index.vue';
 import AppTextarea from '../components/molecules/app-textarea/demo/index.vue';
 import AppSelect from '../components/molecules/app-select/demo/index.vue';
@@ -41,6 +42,7 @@ import AppCardRadio from '../components/cells/app-card-radio/demo/index.vue';
 import AppPagination from '../components/cells/app-pagination/demo/index.vue';
 import AppStepper from '../components/cells/app-stepper/demo/index.vue';
 import AppSidebar from '../components/cells/app-sidebar/demo/index.vue';
+import AppCard from '../components/cells/app-card/demo/index.vue';
 
 //Organisms
 import floatingMenu from '../components/organisms/floating-menu/demo/index.vue';
@@ -130,6 +132,11 @@ const router = createRouter({
           path: '/app-checkbox',
           name: 'APP_CHECKBOX',
           component: AppCheckbox
+        },
+        {
+          path: '/app-counter',
+          name: 'APP_COUNTER',
+          component: AppCounter
         },
         {
           path: '/app-radio',
@@ -232,6 +239,11 @@ const router = createRouter({
           path: '/app-sidebar',
           name: 'APP_SIDEBAR',
           component: AppSidebar
+        },
+        {
+          path: '/app-card',
+          name: 'APP_CARD',
+          component: AppCard
         }
       ]
     },

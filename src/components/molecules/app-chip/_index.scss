@@ -9,6 +9,18 @@
     margin-right: 3px;
     margin-left: 3px;
 
+    &--rounded{
+        border-radius: 25px;
+    }
+
+    &--squared{
+        border-radius: 0;
+    }
+
+    &--soft-squared{
+        border-radius: 3px;
+    }
+
     &__text {
         pointer-events: none;
         font-size: 15px;
