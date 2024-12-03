@@ -2,13 +2,13 @@
     /* Colors. */
     --white: #ffffff;
     --black: #000000;
+    --dark-300: #8a8a8a;
+    --dark-400: #4e4e4e;
     --dark: #333333;
-    --dark-light: #4e4e4e;
-    --dark-super-light: #8a8a8a;
-    --primary-blue: #1a759f;
-    --primary-grey: #edf6f9;
-    --secondary-grey: #d9dbdb;
-    --tertiary-grey: #adb5bd;
+    --primary: #1a759f;
+    --neutral: #edf6f9;
+    --neutral-600: #d9dbdb;
+    --neutral-800: #adb5bd;
     --vue-green: #4effbe;
     --info: #41a1d4;
     --success: #3bc53b;
@@ -20,15 +20,18 @@
     --shadhow-black-02: rgba(0, 0, 0, 0.2);
     --shadhow-black-012: rgba(0, 0, 0, 0.12);
     --shadhow-black-014: rgba(0, 0, 0, 0.14);
-    --shadow-primary-blue-01: rgba(26, 117, 159, .1);
-    --shadow-primary-blue-03: rgba(26, 117, 159, .3);
+    --shadow-primary-01: rgba(26, 117, 159, .1);
+    --shadow-primary-03: rgba(26, 117, 159, .3);
 
     /* Text colors */
     ----primary-text-color: var(--black);
 
     /* Border */
-    --radius-small: 3px;
-    --radius-regular: 5px;
+    --radius-xs: 3px;
+    --radius-sm: 5px;
+    --radius-md: 8px;
+    --radius-lg: 12px;
+    --radius-xl: 25px;
 
     --element-width: 0;
     --input-min-height: 55px;

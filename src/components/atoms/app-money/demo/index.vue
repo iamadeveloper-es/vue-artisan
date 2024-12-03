@@ -58,7 +58,7 @@ const moneyModels: Object = ref([
         width: auto;
         flex-direction: column;
         gap: 30px;
-        background-color: var(--secondary-grey);
+        background-color: var(--neutral-600);
         padding: 0.5rem;
 
         span {

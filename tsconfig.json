@@ -1,6 +1,6 @@
 {
   "extends": "@vue/tsconfig/tsconfig.dom.json",
-  "include": ["env.d.ts", "src/**/*", "src/**/*.vue"],
+  "include": ["env.d.ts", "src/**/*", "src/**/*.vue", "stories/atoms/app-avatar.story.vue", "stories/atoms/app-avatar.story.vue", "stories/cells/app-card-radio.story.vue", "stories/cells/app-card-radio.story.vue"],
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {

@@ -70,7 +70,7 @@ const links = ref([
 
     div {
         padding: 0.75rem;
-        background-color: var(--secondary-grey);
+        background-color: var(--neutral-600);
     }
 }
 </style>

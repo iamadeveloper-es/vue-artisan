@@ -37,9 +37,9 @@
         }
     }
 
-    &--primary-blue {
+    &--primary {
         #{$block}__bubble{
-            background-color: var(--primary-blue);
+            background-color: var(--primary);
         }
         #{$block}__count{
             color: var(--white);

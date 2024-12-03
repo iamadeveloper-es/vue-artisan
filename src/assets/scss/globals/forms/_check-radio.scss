@@ -4,10 +4,10 @@
     margin-bottom: 0.5rem;
 
     &.disabled .app-check-radio__label {
-        color: var(--tertiary-grey);
+        color: var(--neutral-800);
     }
     &.disabled .app-check-radio__icon {
-        color: var(--tertiary-grey);
+        color: var(--neutral-800);
     }
 
     &:hover .app-check-radio__icon::after {
@@ -53,8 +53,8 @@
         justify-content: center;
         line-height: 1;
         user-select: none;
-        color: var(--dark-light);
-        caret-color: var(--dark-light);
+        color: var(--dark-400);
+        caret-color: var(--dark-400);
 
         &::after {
             content: '';
@@ -83,7 +83,7 @@
         }
 
         &--primary {
-            color: var(--primary-blue);
+            color: var(--primary);
         }
         &--success {
             color: var(--success);

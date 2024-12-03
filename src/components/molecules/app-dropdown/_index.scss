@@ -3,7 +3,7 @@
     position: relative;
     padding: .5rem .75rem;
     cursor: pointer;
-    border: 1px solid var(--dark-super-light);
+    border: 1px solid var(--dark-300);
     border-radius: 3px;
     background-color: var(--white);
 
@@ -40,15 +40,15 @@
     }
 
     &__item{
-        border: 1px solid var(--dark-super-light);
+        border: 1px solid var(--dark-300);
         border-bottom: 0;
 
         &:hover{
-            background-color: var(--primary-grey);
+            background-color: var(--neutral);
         }
 
         &:last-of-type{
-            border-bottom: 1px solid var(--dark-super-light);
+            border-bottom: 1px solid var(--dark-300);
         }
 
         &.top:first-of-type{

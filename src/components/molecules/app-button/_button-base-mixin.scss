@@ -1,0 +1,6 @@
+//Mixin con estilos base para botones
+
+@mixin buttonBase($padding: 10px 12px, $lineHeight: 1.4){
+    padding: $padding;
+    line-height: $lineHeight;
+}

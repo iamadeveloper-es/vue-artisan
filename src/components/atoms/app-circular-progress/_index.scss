@@ -24,13 +24,13 @@
         &__circle {
             fill: none;
             stroke-width: 10;
-            stroke: var(--secondary-grey); /* Color de fondo */
+            stroke: var(--neutral-600); /* Color de fondo */
         }
 
         &__circle-progress {
             fill: none;
             stroke-width: 10;
-            stroke: var(--primary-blue); /* Color del progreso */
+            stroke: var(--primary); /* Color del progreso */
             stroke-linecap: round;
             transition: stroke-dashoffset 0.35s;
         }

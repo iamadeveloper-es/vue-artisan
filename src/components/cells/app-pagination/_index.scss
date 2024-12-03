@@ -8,7 +8,7 @@
     }
 
     &__list-item{
-        border: 1px solid var(--tertiary-grey);
+        border: 1px solid var(--neutral-800);
         border-right: 0;
         position: relative;
 
@@ -18,7 +18,7 @@
 
         &:last-of-type{
             border-radius: 0 3px 3px 0;
-            border-right: 1px solid var(--tertiary-grey);
+            border-right: 1px solid var(--neutral-800);
         }
 
     }
@@ -40,7 +40,7 @@
         }
 
         &.active{
-            background-color: var(--primary-blue);
+            background-color: var(--primary);
             color: var(--white);
         }
     }

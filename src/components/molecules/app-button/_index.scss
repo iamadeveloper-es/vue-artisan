@@ -1,4 +1,6 @@
+@import 'button-base-mixin';
 @import '../../../assets/scss/abstract/mixins/hover-current-color';
+
 .app-button {
     @include hoverCurrentColor();
     position: relative;
@@ -8,31 +10,41 @@
     text-align: center;
     overflow: hidden;
     border: none;
-    border-radius: 3px;
-    background-color: var(--primary-blue);
-    color: var(--white);
     cursor: pointer;
 
+    //Color
+    &--primary{
+        background-color: var(--primary);
+        color: var(--white);
+    }
+
+    //Variantes
+    &--outline{
+        @include buttonBase;
+        color: var(--primary);
+        background-color: transparent;
+        border: 1px solid var(--primary);
+    }
+
     &--regular {
-        padding: 10px 12px;
-        line-height: 1.4;
+        @include buttonBase;
     }
 
     &--small {
-        padding: 4px 8px;
-        line-height: 1.8;
+        @include buttonBase(4px 8px, 1.8);
     }
 
     &--big {
-        padding: 8px 18px;
-        line-height: 2.2;
+        @include buttonBase(8px 18px, 2.2);
     }
 
     &--full-width {
+        @include buttonBase;
         display: flex;
         width: 100%;
     }
 
+    //Posición del icono
     &--icon-right{
         flex-direction: row;
     }

@@ -3,7 +3,7 @@
     display: inline-block;
     min-width: 200px;
     border-radius: 3px;
-    border: 1px solid var(--secondary-grey);
+    border: 1px solid var(--neutral-600);
 
     &__top{
         img{
@@ -32,10 +32,10 @@
     }
     
     &--outlined{
-        // border: 1px solid var(--secondary-grey);
+        // border: 1px solid var(--neutral-600);
     }
 
     &--elevation{
-        box-shadow: 1px 2px 2px var(--secondary-grey);
+        box-shadow: 1px 2px 2px var(--neutral-600);
     }
 }

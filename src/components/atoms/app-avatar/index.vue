@@ -40,12 +40,12 @@ const { getImageUrl } = useImageFunctions();
 const defaultSize: number = 35;
 
 const getImage = computed((): string => {
-  const { img } = props.userInfo;
+  const { img } = props?.userInfo;
   return getImageUrl(img);
 });
 
 const getSize = computed((): String => {
-  return props.userInfo.size ? `${props.userInfo.size}px` : `${defaultSize}px`;
+  return props.userInfo?.size ? `${props.userInfo.size}px` : `${defaultSize}px`;
 });
 
 const getFontSize = computed((): String => {

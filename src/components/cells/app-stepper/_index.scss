@@ -1,5 +1,5 @@
 .app-stepper{
-    --active-step: var(--primary-blue);
+    --active-step: var(--primary);
     --stepper-progress-size: 0;
     list-style: none;
     margin: 0;
@@ -19,7 +19,7 @@
         width: 100%;
         left: 0;
         height: 2px;
-        background-color: var(--tertiary-grey);
+        background-color: var(--neutral-800);
     }
 
     &::before{
@@ -90,7 +90,7 @@
         transition: all .3s ease-out;
 
         &:disabled{
-            // color: var(--tertiary-grey);
+            // color: var(--neutral-800);
             color: currentColor;
         }
 

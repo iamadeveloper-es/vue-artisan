@@ -6,15 +6,15 @@
     border-radius: 3px;
     min-height: var(--input-min-height);
     background-color: var(--white);
-    border: 1px solid var(--dark-super-light);
+    border: 1px solid var(--dark-300);
 
     @at-root [readonly] {
         cursor: no-drop;
     }
 
     &.disabled {
-        color: var(--tertiary-grey);
-        border: 1px solid var(--tertiary-grey);
+        color: var(--neutral-800);
+        border: 1px solid var(--neutral-800);
     }
 
     &.hide-placeholder::placeholder {
@@ -25,7 +25,7 @@
         border-top: transparent;
         border-right: transparent;
         border-left: transparent;
-        border-bottom: 1px solid var(--dark-super-light);
+        border-bottom: 1px solid var(--dark-300);
         border-radius: 0;
         background-color: transparent;
         //Borrar outline

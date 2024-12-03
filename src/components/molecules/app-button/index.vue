@@ -4,9 +4,12 @@ export default {
 };
 </script>
 <script setup lang="ts">
-import { computed, ref } from 'vue';
+import { computed, ref, type PropType } from 'vue';
 import AppIcon from '../../atoms/app-icon/index.vue';
 import { useComponentFunctions } from '../../../composables/component-functions';
+
+type Variant = 'outline' | 'regular' | 'small' | 'big' | 'full-width' | 'round-regular' | 'round-medim' | 'round-big'
+type IconPosition = 'left' | 'right'
 
 const props = defineProps({
   text: {
@@ -17,16 +20,21 @@ const props = defineProps({
     type: String,
     default: 'button'
   },
-  cClass: {
-    type: [Array, String]
-  },
   variant: {
-    type: [Array, String],
+    type: [Array , String] as PropType<Variant[]> | PropType<Variant>,
     default: 'regular'
   },
   disabled: {
     type: Boolean,
     default: false
+  },
+  color: {
+    type: String,
+    default: 'primary'
+  },
+  borderRadius: {
+    type: String,
+    default: 'xs'
   },
   icon: {
     type: [Array, String]
@@ -39,7 +47,7 @@ const props = defineProps({
     type: String
   },
   iconPosition: {
-    type: String,
+    type: String as PropType<IconPosition>,
     default: 'right'
   },
   disableRipple: {
@@ -47,6 +55,8 @@ const props = defineProps({
     default: false
   }
 });
+
+const emit = defineEmits(['clicked']);
 const { rippleEffect } = useComponentFunctions();
 const button = ref(null);
 
@@ -67,8 +77,6 @@ const getIconPosition = computed(() => {
       'has-text-left' : '';
 });
 
-const emit = defineEmits(['clicked']);
-
 const emitEvent = (ev: Event): void => {
   if (!props.disableRipple) {
     rippleEffect(ev, button.value);
@@ -81,7 +89,7 @@ const emitEvent = (ev: Event): void => {
 button.app-button(
   ref="button"
   :type="type", 
-  :class="[cClass, getVariant, `app-button--icon-${iconPosition}`]", 
+  :class="[getVariant, `app-button--icon-${iconPosition}`, `app-button--${color}`, `b-radius--${borderRadius}`]", 
   :disabled="disabled", 
   @click="emitEvent")
     span.app-button--pointers-none {{ text }}
