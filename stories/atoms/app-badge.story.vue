@@ -20,7 +20,7 @@ const state = reactive({
                     <app-icon
                     :icon="['fa-regular', 'fa-envelope']"
                     :size="25"
-                    variant="primary">
+                    variant="primary"> 
                     </app-icon>
                 </template>
             </app-badge>
