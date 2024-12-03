@@ -1,5 +1,5 @@
 <!-- Meow.story.vue -->
-<script setup>
+<script setup lang="ts">
 import { reactive, ref } from 'vue';
 import AppAvatar from '../../src/components/atoms/app-avatar/index.vue';
 
@@ -21,7 +21,7 @@ const handleEvent = () => {
 
 </script>
 <template>
-    <Story title="atoms/app-avata" :layout="{ type: 'grid', width: 400 }">
+    <Story title="atoms/app-avatar" :layout="{ type: 'grid', width: 400 }">
         <Variant title="Imagen">
             <app-avatar
             :userInfo="imagen"
