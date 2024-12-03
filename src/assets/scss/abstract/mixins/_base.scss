@@ -1,0 +1,7 @@
+@mixin bgColor($color){
+    background-color: var(--#{$color})
+}
+
+@mixin textColor($color){
+    color: var(--#{$color})
+}

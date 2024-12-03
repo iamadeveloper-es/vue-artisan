@@ -6,7 +6,13 @@ export default {
 <script setup lang="ts">
 import { computed, type PropType } from 'vue';
 import { useImageFunctions } from '../../../composables/image-functions';
-import type { IAvatar } from './IAvatar';
+
+type IAvatar = {
+    name: string
+    img: string
+    alt?: string
+    size?: Number
+};
 
 const props = defineProps({
   userInfo: {
@@ -35,7 +41,6 @@ const props = defineProps({
 });
 
 const emit = defineEmits(['clicked']);
-
 const { getImageUrl } = useImageFunctions();
 const defaultSize: number = 35;
 
@@ -58,7 +63,7 @@ const getInitials = computed((): String => {
   const nameFirstChar = name.charAt(0).toUpperCase();
   const nameSecondPart = name.split(' ')[1]?.charAt(0).toUpperCase();
 
-  return nameSecondPart ? `${nameFirstChar} ${nameSecondPart}` : `${nameFirstChar}`;
+  return nameSecondPart ? `${nameFirstChar}.${nameSecondPart}` : `${nameFirstChar}`;
 });
 
 const emitEvent = (ev: Event) => {
@@ -73,7 +78,8 @@ const emitEvent = (ev: Event) => {
 @click="emitEvent")
     img.app-avatar__img(v-if="display === 'img'", 
     :src="getImage", 
-    :alt="userInfo.alt")
+    :alt="userInfo.alt",
+    :class="{ 'circle': isRounded }")
     .app-avatar__initials(v-else-if="display === 'name'", 
     :style="{'font-size': getFontSize, 'line-height': getFontSize}")
         strong() {{ getInitials }}

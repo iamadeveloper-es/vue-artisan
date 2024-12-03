@@ -5,33 +5,33 @@ import AppAvatar from '../../src/components/atoms/app-avatar/index.vue';
 
 
 const message = ref('');
-const userInfo1 = ref({
+const imagen = ref({
   name: 'Roberto Blanco',
   img: 'avatar.jpg'
 });
-const userInfo2 = ref({
+const iniciales = ref({
   name: 'Daniel verdú',
   img: 'avatar.jpg'
 });
 
 const handleEvent = () => {
-  message.value = userInfo1.value.name;
+  message.value = imagen.value.name;
 };
 
 
 </script>
 <template>
-    <Story title="atoms/app-avata">
-        <Variant title="imagen">
+    <Story title="atoms/app-avata" :layout="{ type: 'grid', width: 400 }">
+        <Variant title="Imagen">
             <app-avatar
-            :userInfo="userInfo1"
+            :userInfo="imagen"
             :clickable="true"
             @clicked="handleEvent"
             ></app-avatar>
         </Variant>
-        <Variant title="iniciales">
+        <Variant title="Iniciales">
             <app-avatar
-            :userInfo="userInfo2"
+            :userInfo="iniciales"
             display="name"
             ></app-avatar>
         </Variant>
