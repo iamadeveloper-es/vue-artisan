@@ -19,6 +19,7 @@ import AppMoney from '../components/atoms/app-money/demo/index.vue';
 //Molecules
 import AppButton from '../components/molecules/app-button/demo/index.vue';
 import AppInputField from '../components/molecules/app-input-field/demo/index.vue';
+import AppInputFile from '../components/molecules/app-input-file/demo/index.vue';
 import AppCheckbox from '../components/molecules/app-checkbox/demo/index.vue';
 import AppCounter from '../components/molecules/app-counter/demo/index.vue';
 import AppRadio from '../components/molecules/app-radio/demo/index.vue';
@@ -122,6 +123,11 @@ const router = createRouter({
           path: '/app-input-field',
           name: 'APP_INPUT_FIELD',
           component: AppInputField
+        },
+        {
+          path: '/app-input-file',
+          name: 'APP_INPUT_FILE',
+          component: AppInputFile
         },
         {
           path: '/app-textarea',

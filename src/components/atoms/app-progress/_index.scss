@@ -1,29 +1,62 @@
 .app-progress {
-    color: red;
-    background-color: red;
+    $block: '.app-progress';
+    width: 100%;
+    background-color: var(--bar-bg-color);
     position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
+    border-radius: var(--progress-radius);
+    height: .75em;
+    z-index: 10;
 
-    &[value] {
-        -webkit-appearance: none;
-        appearance: none;
-        width: 250px;
-        height: 20px;
-    }
-    &[value]::-webkit-progress-value {
-        transition: width 0.5s;
-        background: orange;
-    }
-
-    &[value]::-webkit-progress-bar {
-        background-color: #eee;
-        border-radius: 2px;
-        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
-    }
-
-    &[value]::-webkit-progress-value::before {
-        content: '80%';
+    &::before{
+        content: '';
+        width: 100%;
+        height: 100%;
         position: absolute;
-        right: 0;
-        top: -125%;
+        top: 0;
+        left: -100%;
+        background-color: var(--progress-bg-color);
+        transform: translateX(var(--progress-value));
+        z-index: -1;
+        transition: transform 1.2s ease-in-out;
+    }
+
+    &__counter{
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        height: 100%;
+        font-size: .9em;
+        color: var(--text-color);
+        z-index: 10;
+    }
+
+    &--xs{
+        height: .75em;
+        #{$block}__counter{
+            font-size: 11px;
+        }
+    }
+
+    &--sm{
+        height: 1em;
+        #{$block}__counter{
+            font-size: 13px;
+        }
+    }
+
+    &--md{
+        height: 1.25em;
+    }
+
+    &--lg{
+        height: 1.50em;
+    }
+
+    &--xl{
+        height: 2em;
     }
 }
