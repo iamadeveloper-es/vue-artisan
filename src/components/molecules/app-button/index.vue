@@ -8,7 +8,7 @@ import { computed, ref, type PropType } from 'vue';
 import AppIcon from '../../atoms/app-icon/index.vue';
 import { useComponentFunctions } from '../../../composables/component-functions';
 
-type Variant = 'outline' | 'regular' | 'small' | 'big' | 'full-width' | 'round-regular' | 'round-medim' | 'round-big'
+type Variant = 'transparent' | 'outline' | 'regular' | 'small' | 'big' | 'full-width' | 'round-regular' | 'round-medim' | 'round-big'
 type IconPosition = 'left' | 'right'
 
 const props = defineProps({

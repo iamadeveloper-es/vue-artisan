@@ -5,7 +5,8 @@ export default {
 </script>
 <script setup lang="ts">
 import { computed } from 'vue';
-import AppIcon from '../app-icon/index.vue';
+// import AppIcon from '../app-icon/index.vue';
+import AppIconSvg from '../app-icon-svg/index.vue';
 
 const props = defineProps({
   path: {
@@ -27,13 +28,16 @@ const props = defineProps({
     type: [Array<String>, String]
   },
   icon: {
-    type: [Array, String]
+    type: String
   },
   iconSize: {
-    type: Number,
-    default: 15
+    type: String,
+    default: '15px'
   },
   iconVariant: {
+    type: String
+  },
+  iconSpace: {
     type: String
   },
   iconPosition: {
@@ -117,11 +121,11 @@ router-link.app-link(
     :to="buildRoute"
     :class="[getVariant, getIconPosition]")
     span.app-link__text(v-if="text") {{ text }}
-    app-icon(
+    app-icon-svg(
     v-if="hasIcon"
     :icon="icon", 
-    :size="iconSize", 
-    :variant="iconVariant")
+    :size="iconSize",
+    :space="iconSpace")
 </template>
 
 <style lang="scss">

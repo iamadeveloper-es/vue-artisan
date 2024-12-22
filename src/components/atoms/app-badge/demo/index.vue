@@ -6,7 +6,7 @@ export default {
 <script setup lang="ts">
 import { ref } from 'vue';
 import AppBadge from '../index.vue';
-import AppIcon from '../../app-icon/index.vue';
+import AppIconSvg from '../../app-icon-svg/index.vue';
 import AppButton from '../../../molecules/app-button/index.vue';
 
 const badgeCount1 = ref(9);
@@ -28,10 +28,10 @@ const increment2 = () => {
     h4 Default
     app-badge(:count="badgeCount1")
       template(#content)
-        app-icon(
-          :icon="['fa-regular', 'fa-envelope']",
-          size="25"
-          variant="primary")
+        app-icon-svg(
+          icon="envelope",
+          size="25px",
+          color="primary")
     div
       app-button(
         @clicked="increment",
@@ -42,10 +42,10 @@ const increment2 = () => {
       :count="badgeCount2",
       position="bottom-right")
       template(#content)
-        app-icon(
-          :icon="['fa-regular', 'fa-envelope']",
-          size="25"
-          variant="primary")
+        app-icon-svg(
+          icon="envelope",
+          size="25px",
+          color="primary")
     div
       app-button(
         @clicked="increment2",
@@ -56,10 +56,10 @@ const increment2 = () => {
       :count="badgeCount2",
       hideCount="true")
       template(#content)
-        app-icon(
-          :icon="['fa-regular', 'fa-envelope']",
-          size="25"
-          variant="primary")
+        app-icon-svg(
+          icon="envelope",
+          size="25px",
+          color="primary")
 </template>
 
 <style lang="scss" scoped>

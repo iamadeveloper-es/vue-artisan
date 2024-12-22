@@ -1,0 +1,186 @@
+@import '../../../assets/scss/abstract/mixins/hover-current-color';
+
+.app-bottom-nav{
+    position: sticky;
+    bottom: 0;
+    top: 100%;
+    width: 100%;
+    overflow: hidden;
+    
+    &__list{
+        padding-left: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: none;
+    }
+
+    &__li{
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    &__action{
+        padding: 0 1em;
+        min-height: 45px;
+        border: none;
+        border-radius: 0;
+        background-color: transparent;
+        display: inline-flex;
+        flex-direction: column;
+        align-items: center;
+        min-width: 68px;
+        overflow: hidden;
+        cursor: pointer;
+
+        &:hover{
+            background-color: rgba(var(--neutral-600-rgb), .2);
+        }
+
+        &:focus{
+            background-color: rgba(var(--neutral-600-rgb), .5);
+
+            .app-svg{
+                animation: none; /* Resetea la animación previa */
+                animation: fadeOnFocusSVG .4s ease-out forwards;
+                -webkit-animation: none; /* Safari */
+                -webkit-animation: fadeOnFocusSVG 0.4s ease-in forwards; /* Safari */
+            }
+            span{
+                animation: fadeOnFocus .3s ease-in forwards;
+                -webkit-animation: fadeOnFocus 0.3s ease-in forwards; /* Safari */
+            }
+        }
+
+        &.interacted:not(:focus){
+            .app-svg{
+                animation: fadeOnBlurSVG .3s ease-in forwards;
+                -webkit-animation: fadeOnBlurSVG 0.3s ease-in forwards; /* Safari */
+            }
+            span{
+                animation: fadeOnBlur .3s ease-in forwards;
+                -webkit-animation: fadeOnBlur 0.3s ease-in forwards; /* Safari */
+            }
+        }
+
+
+        &:focus-visible{
+            background-color: rgba(var(--neutral-600-rgb), .5);
+            outline: rgba(var(--neutral-800-rgb), 8);
+        }
+
+        
+    }
+
+    &__action-inner{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        flex-grow: 1;
+        pointer-events: none;
+        // overflow: hidden;
+
+        .app-svg{
+            position: relative;
+            // transform: translateY(-10px);
+        }
+
+        span{
+            display: inline-block;
+            position: absolute;
+            font-size: 11px;
+            transform: translateY(100%);
+            opacity: 0;
+            // transform: translateY(150%);
+            // animation: fadeIn .9s ease-out 1;
+        }
+
+    }
+}
+
+@keyframes fadeOnFocusSVG {
+   0%{
+    transform: translateY(0);
+   }
+   100%{
+    transform: translateY(-5px);
+   } 
+}
+
+@-webkit-keyframes fadeOnFocusSVG { /* Safari */
+    0% {
+        transform: translateY(0);
+    }
+    100% {
+        transform: translateY(-5px);
+    }
+}
+
+@keyframes fadeOnBlurSVG {
+    0%{
+     transform: translateY(-5px);
+    }
+    100%{
+     transform: translateY(0);
+    } 
+ }
+
+ @-webkit-keyframes fadeOnBlurSVG { /* Safari */
+    0% {
+        transform: translateY(-5px);
+    }
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes fadeOnFocus{
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(80%);
+        opacity: 1;
+    }
+}
+
+@-webkit-keyframes fadeOnFocus { /* Safari */
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(80%);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOnBlur{
+    0%{
+        transform: translateY(80%);
+        opacity: 1;
+    }
+    80%{
+        opacity: 0;
+    }
+    100%{
+        transform: translateY(20%);
+    }
+
+}
+
+@-webkit-keyframes fadeOnBlur { /* Safari */
+    0% {
+        transform: translateY(80%);
+        opacity: 1;
+    }
+    80% {
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(20%);
+    }
+}

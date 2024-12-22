@@ -26,7 +26,15 @@ const props = defineProps({
   radio: {
     type: Number,
     default: 50
-  }
+  },
+  ringColorInner: {
+    type: String,
+    default: 'neutral-600'
+  },
+  ringColorOuter: {
+    type: String,
+    default: 'danger'
+  },
 });
 
 const progressElement = ref(null);
@@ -58,10 +66,12 @@ role="progressbar",
     viewBox="0 0 120 120",
     preserveAspectRatio="xMidYMid meet")
     circle.progress-ring__circle(
+      :style="`--progress-color-inner:var(--${ringColorInner})`",
       cx="50%",
       cy="50%",
       :r="radio")
     circle.progress-ring__circle-progress(
+      :style="`--progress-color-outer:var(--${ringColorOuter})`"
       cx="50%",
       cy="50%",
       :r="radio",

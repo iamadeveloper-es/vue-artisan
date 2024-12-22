@@ -9,6 +9,7 @@ import AppAvatar from '../components/atoms/app-avatar/demo/index.vue';
 import AppBadge from '../components/atoms/app-badge/demo/index.vue';
 import AppLink from '../components/atoms/app-link/demo/index.vue';
 import AppIcon from '../components/atoms/app-icon/demo/index.vue';
+import AppIconSvg from '../components/atoms/app-icon-svg/demo/index.vue';
 import AppProgress from '../components/atoms/app-progress/demo/index.vue';
 import AppCircularProgress from '../components/atoms/app-circular-progress/demo/index.vue';
 import AppSwitch from '../components/atoms/app-switch/demo/index.vue';
@@ -40,6 +41,7 @@ import AppRating from '../components/molecules/app-rating/demo/index.vue';
 
 //Cells
 import AppCardRadio from '../components/cells/app-card-radio/demo/index.vue';
+import AppBottomNav from '../components/cells/app-bottom-nav/demo/index.vue';
 import AppPagination from '../components/cells/app-pagination/demo/index.vue';
 import AppStepper from '../components/cells/app-stepper/demo/index.vue';
 import AppSkeleton from '../components/cells/app-skeleton/demo/index.vue';
@@ -49,6 +51,7 @@ import AppCard from '../components/cells/app-card/demo/index.vue';
 //Organisms
 import floatingMenu from '../components/organisms/floating-menu/demo/index.vue';
 import AppSlider from '../components/organisms/app-slider/demo/index.vue';
+import AppGridFlex from '../components/organisms/app-grid-flex/demo/index.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -82,6 +85,11 @@ const router = createRouter({
           path: '/app-icon',
           name: 'APP_ICON',
           component: AppIcon
+        },
+        {
+          path: '/app-icon-svg',
+          name: 'APP_ICON_SVG',
+          component: AppIconSvg
         },
         {
           path: '/app-picture',
@@ -233,6 +241,11 @@ const router = createRouter({
           component: AppCardRadio
         },
         {
+          path: '/app-bottom-nav',
+          name: 'APP_BOTTOM_NAV',
+          component: AppBottomNav
+        },
+        {
           path: '/app-pagination',
           name: 'APP_PAGINATION',
           component: AppPagination
@@ -273,6 +286,11 @@ const router = createRouter({
           path: '/app-slider',
           name: 'APP_SLIDER',
           component: AppSlider
+        },
+        {
+          path: '/app-grid-flex',
+          name: 'APP_GRID_FLEX',
+          component: AppGridFlex
         }
       ]
     }

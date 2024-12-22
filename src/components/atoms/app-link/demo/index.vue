@@ -7,36 +7,40 @@ export default {
 import { ref } from 'vue';
 import AppLink from '../index.vue';
 
-const icon = ['fa-solid', 'fa-house'];
+const icon = 'calendar';
 const links = ref([
   {
     name: 'TEST',
-    text: 'Link 1 sin icono',
+    text: 'Link 1',
     params: { id: '12' },
     query: { shoping: 123 }
   },
   {
     name: 'TEST',
     params: { id: '1235' },
-    text: 'Link 2 con icono a la derecha',
+    text: 'Link 2',
+    iconSpace: 'start-md',
     icon: icon
   },
   {
     path: '/test/:1',
-    text: 'Link 3 con icono a la izquierda',
+    text: 'Link 3',
+    iconSpace: 'end-md',
     icon: icon,
     iconPosition: 'left'
   },
   {
     path: '/test/:2',
-    text: 'Link 4 con icono abajo',
+    text: 'Link 4',
+    iconSpace: 'top-md',
     icon: icon,
     iconPosition: 'top'
   },
   {
     path: '/test/:3',
     query: { shoping: 123 },
-    text: 'Link 5 con icono arriba',
+    text: 'Link 5',
+    iconSpace: 'bottom-md',
     icon: icon,
     iconPosition: 'bottom'
   },
@@ -59,7 +63,8 @@ const links = ref([
         :queryParams="item.query"
         :text="item.text", 
         :icon="item.icon", 
-        :iconPosition="item.iconPosition")
+        :iconPosition="item.iconPosition",
+        :iconSpace="item.iconSpace")
 </template>
 
 <style lang="scss">
@@ -69,8 +74,8 @@ const links = ref([
     gap: 20px;
 
     div {
-        padding: 0.75rem;
-        background-color: var(--neutral-600);
+        // padding: 0.75rem;
+        // background-color: var(--neutral-600);
     }
 }
 </style>
