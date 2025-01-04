@@ -1,7 +1,17 @@
 {
   "name": "@iamadeveloper-es/vue3-ui-components",
   "version": "0.2.1",
+  "type": "module",
   "private": false,
+  "files": ["dist"],
+  "main": "./dist/my-lib.umd.cjs",
+  "module": "./dist/my-lib.js",
+  "exports": {
+    ".": {
+      "import": "./dist/my-lib.js",
+      "require": "./dist/my-lib.umd.cjs"
+    }
+  },
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
   },

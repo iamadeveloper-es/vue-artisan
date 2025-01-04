@@ -5,6 +5,7 @@ export default {
 </script>
 <script setup lang="ts">
 import { computed } from 'vue';
+// import { inject } from 'vue';
 
 const props = defineProps({
   icon: {
@@ -27,7 +28,8 @@ const props = defineProps({
   }
 });
 
-
+// const iconsSource = inject('icons');
+// debugger
 const getVariant = computed(() => {
   const variant: string | undefined = props.variant;
   return variant?.length ? `app-icon--${variant}` : '';

@@ -23,13 +23,13 @@ $breakpoints: (
 
         @for $i from 1 through $grid-columns{
             &--#{$i} {
-                flex-basis: (100% / $grid-columns) * $i;
+                flex-basis: calc(100% / $grid-columns) * $i;
             }
 
             @each $breakpoint, $width in $breakpoints {
                 @media (min-width: $width) {
                   &--#{$breakpoint}-#{$i} {
-                    flex-basis: (100% / $grid-columns) * $i;
+                    flex-basis: calc(100% / $grid-columns) * $i;
                   }
                 }
             }
