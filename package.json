@@ -1,5 +1,5 @@
 {
-  "name": "@iamadeveloper-es/vue3-ui-components",
+  "name": "@iamadeveloper-es/vue-artisan",
   "version": "0.2.1",
   "type": "module",
   "private": false,
@@ -15,7 +15,7 @@
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
   },
-  "repository": "https://github.com/iamadeveloper-es/vue3-ui-components.git",
+  "repository": "https://github.com/iamadeveloper-es/vue-artisan.git",
   "scripts": {
     "dev": "vite",
     "build": "run-p type-check build-only",

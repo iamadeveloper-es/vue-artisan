@@ -28,5 +28,5 @@ El componente `app-badge` es un indicador visual que se utiliza para mostrar not
 </template>
 
 <script setup lang="ts">
-import AppBadge from '@iamadeveloper-es/vue3-ui-components/components/AppBadge.vue';
+import AppBadge from '@iamadeveloper-es/vue-artisan/components/AppBadge.vue';
 </script>
