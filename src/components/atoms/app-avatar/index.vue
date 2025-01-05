@@ -34,9 +34,13 @@ const props = defineProps({
     },
     default: 'img'
   },
-  variant: {
+  bgColor: {
     type: String,
-    default: 'orange'
+    default: 'var(--va-accent)'
+  },
+  textColor: {
+    type: String,
+    default: 'var(--va-white)'
   }
 });
 
@@ -73,8 +77,8 @@ const emitEvent = (ev: Event) => {
 
 <template lang="pug">
 .app-avatar(
-:style="{'width': getSize, 'height': getSize}", 
-:class="[{'app-avatar--has-action': clickable, 'app-avatar--rounded': isRounded}, `app-avatar--${variant}`]",
+:style="{'width': getSize, 'height': getSize, 'color': textColor, 'background-color': bgColor}", 
+:class="[{'app-avatar--has-action': clickable, 'app-avatar--rounded': isRounded}]",
 @click="emitEvent")
     img.app-avatar__img(v-if="display === 'img'", 
     :src="getImage", 
