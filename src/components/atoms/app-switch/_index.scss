@@ -24,7 +24,7 @@
         left: 0;
         right: 0;
         bottom: 0;
-        background-color: var(--neutral);
+        background-color: var(--va-neutral-500);
         -webkit-transition: 0.4s;
         border-radius: 34px;
         transition: 0.4s;
@@ -37,18 +37,26 @@
         width: 16px;
         left: 2px;
         bottom: 2px;
-        background-color: var(--neutral-800);
+        background-color: var(--va-neutral-900);
         -webkit-transition: 0.4s;
         border-radius: 50%;
         transition: 0.4s;
     }
 
     input:checked + .app-switch__slider {
-        background-color: var(--vue-green);
+        background-color: var(--va-accent-300);
     }
 
     input:focus + .app-switch__slider {
-        box-shadow: 0 0 1px var(--vue-green);
+        box-shadow: 0 0 1px var(--va-accent-300);
+    }
+
+    input:checked + .app-switch__slider::before {
+        background-color: var(--va-accent-500);
+    }
+
+    input:focus + .app-switch__slider::before {
+        box-shadow: 0 0 1px var(--va-accent-500);
     }
 
     input:checked + .app-switch__slider:before {

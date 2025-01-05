@@ -14,16 +14,16 @@
 
     //Color
     &--primary{
-        background-color: var(--primary);
-        color: var(--white);
+        background-color: var(--va-accent);
+        color: var(--va-white);
     }
 
     //Variantes
     &--outline{
         @include buttonBase;
-        color: var(--primary);
+        color: var(--va-accent);
         background-color: transparent;
-        border: 1px solid var(--primary);
+        border: 1px solid var(--va-accent);
     }
 
     &--regular {
@@ -76,7 +76,7 @@
     }
 
     &:disabled{
-        background-color: var(--disabled);
+        background-color: var(--va-disabled);
         cursor: initial;
     }
 

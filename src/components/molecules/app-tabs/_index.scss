@@ -30,12 +30,12 @@
     &__tab {
         position: relative;
         padding: 0.75rem 0.75rem;
-        color: var(--neutral-800);
+        color: var(--va-neutral-800);
         border-radius: 5px;
         overflow: hidden;
 
         &.active {
-            color: var(--primary);
+            color: var(--va-accent);
         }
     }
 
@@ -46,7 +46,7 @@
         width: 100%;
         width: var(--tab-width);
         height: 2px;
-        background-color: var(--primary);
+        background-color: var(--va-accent);
         transform: translateX(var(--tab-left));
         transition:
             transform 0.3s ease-in,

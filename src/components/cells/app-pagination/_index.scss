@@ -8,7 +8,7 @@
     }
 
     &__list-item{
-        border: 1px solid var(--neutral-800);
+        border: 1px solid var(--va-neutral-800);
         border-right: 0;
         position: relative;
 
@@ -18,7 +18,7 @@
 
         &:last-of-type{
             border-radius: 0 3px 3px 0;
-            border-right: 1px solid var(--neutral-800);
+            border-right: 1px solid var(--va-neutral-800);
         }
 
     }
@@ -32,7 +32,7 @@
         margin: 0;
         padding: .5rem .75rem;
         border: none;
-        background-color: var(--white);
+        background-color: var(--va-white);
         cursor: pointer;
 
         &:not(.dots){
@@ -40,8 +40,8 @@
         }
 
         &.active{
-            background-color: var(--primary);
-            color: var(--white);
+            background-color: var(--va-accent);
+            color: var(--va-white);
         }
     }
 }

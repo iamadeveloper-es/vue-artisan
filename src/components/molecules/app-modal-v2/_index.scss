@@ -21,7 +21,7 @@
     .app-modal-dialog {
         width: 100%;
         max-width: 678px;
-        background-color: var(--white);
+        background-color: var(--va-white);
         border-radius: 5px;
         box-shadow: 2px 2px 6px rgb(78, 78, 78);
         overflow-y: scroll;
@@ -46,7 +46,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
-            background-color: var(--white);
+            background-color: var(--va-white);
 
             &.sticky{
                 position: sticky;
@@ -56,7 +56,7 @@
         }
 
         &__footer {
-            background-color: var(--white);
+            background-color: var(--va-white);
 
             &.sticky{
                 position: sticky;
@@ -81,7 +81,7 @@
             border: none;
             border-radius: 100%;
             background-color: transparent;
-            color: var(--neutral-800);
+            color: var(--va-neutral-800);
             font-size: 1.5rem;
             margin-left: auto;
             cursor: pointer;

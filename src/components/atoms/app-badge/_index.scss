@@ -24,25 +24,25 @@
     }
 
     &__count{
-        color: var(--dark);
+        color: var(--va-darken);
     }
 
     //Modificadores color
     &--danger {
         #{$block}__bubble{
-            background-color: var(--danger);
+            background-color: var(--va-danger);
         }
         #{$block}__count{
-            color: var(--white);
+            color: var(--va-white);
         }
     }
 
     &--primary {
         #{$block}__bubble{
-            background-color: var(--primary);
+            background-color: var(--va-accent);
         }
         #{$block}__count{
-            color: var(--white);
+            color: var(--va-white);
         }
     }
 

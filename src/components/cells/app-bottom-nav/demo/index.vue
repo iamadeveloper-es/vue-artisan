@@ -48,7 +48,7 @@ const links = [
     width: 50%;
     // min-height: 500px;
 
-    border: 1px solid var(--neutral-600);
+    border: 1px solid var(--va-neutral-600);
   }
 }
 </style>

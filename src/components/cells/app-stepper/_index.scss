@@ -1,5 +1,5 @@
 .app-stepper{
-    --active-step: var(--primary);
+    --active-step: var(--va-accent);
     --stepper-progress-size: 0;
     list-style: none;
     margin: 0;
@@ -19,7 +19,7 @@
         width: 100%;
         left: 0;
         height: 2px;
-        background-color: var(--neutral-800);
+        background-color: var(--va-neutral-800);
     }
 
     &::before{
@@ -46,7 +46,7 @@
         // border-radius: 100%;
         // overflow: hidden;
         position: relative;
-        background-color: var(--white);
+        background-color: var(--va-white);
         z-index: 20;
     }
 
@@ -74,7 +74,7 @@
         &.completed{
             border: 2px solid var(--active-step);
             background-color: var(--active-step);
-            color: var(--white);
+            color: var(--va-white);
         }
     }
 
@@ -85,25 +85,25 @@
         line-height: 0;
         border: 2px solid;
         border-radius: 100%;
-        background-color: var(--white);
+        background-color: var(--va-white);
         cursor: pointer;
         transition: all .3s ease-out;
 
         &:disabled{
-            // color: var(--neutral-800);
+            // color: var(--va-neutral-800);
             color: currentColor;
         }
 
         &.completed{
             border: 2px solid var(--active-step);
             background-color: var(--active-step);
-            color: var(--white);
+            color: var(--va-white);
         }
 
         &.active{
             border: 2px solid var(--active-step);
             color: var(--active-step);
-            // background-color: var(--white);
+            // background-color: var(--va-white);
         }
     }
 

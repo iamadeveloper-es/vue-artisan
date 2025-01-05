@@ -16,16 +16,16 @@ $spaces: ('xs': 3px, 'sm': 5px, 'md': 7px);
         transform: rotate(-180deg);
     }
     &--primary {
-        color: var(--primary);
+        color: var(--va-accent);
     }
     &--success {
-        color: var(--success);
+        color: var(--va-success);
     }
     &--danger {
-        color: var(--danger);
+        color: var(--va-danger);
     }
     &--info {
-        color: var(--warning);
+        color: var(--va-warning);
     }
 
     &--space-start-xs{

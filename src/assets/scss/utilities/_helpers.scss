@@ -1,32 +1,19 @@
 .b-radius{
-    border-radius: var(--radius-md);
+    border-radius: var(--va-radius-md);
 
     &--xs{
-        border-radius: var(--radius-xs);
+        border-radius: var(--va-radius-xs);
     }
 
     &--sm{
-        border-radius: var(--radius-sm);
+        border-radius: var(--va-radius-sm);
     }
 
     &--lg{
-        border-radius: var(--radius-lg);
+        border-radius: var(--va-radius-lg);
     }
 
     &--xl{
-        border-radius: var(--radius-xl);
-    }
-}
-
-.text-color{
-
-    &--primary{
-        color: var(--primary);
-    }
-}
-
-.bg-color{
-    &--orange{
-        
+        border-radius: var(--va-radius-xl);
     }
 }

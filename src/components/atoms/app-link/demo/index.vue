@@ -73,9 +73,5 @@ const links = ref([
     flex-direction: column;
     gap: 20px;
 
-    div {
-        // padding: 0.75rem;
-        // background-color: var(--neutral-600);
-    }
 }
 </style>

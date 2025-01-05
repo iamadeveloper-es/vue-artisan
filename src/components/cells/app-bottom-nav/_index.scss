@@ -35,11 +35,11 @@
         cursor: pointer;
 
         &:hover{
-            background-color: rgba(var(--neutral-600-rgb), .2);
+            background-color: rgba(var(--va-neutral-600-rgb), .2);
         }
 
         &:focus{
-            background-color: rgba(var(--neutral-600-rgb), .5);
+            background-color: rgba(var(--va-neutral-600-rgb), .5);
 
             .app-svg{
                 animation: none; /* Resetea la animación previa */
@@ -66,8 +66,8 @@
 
 
         &:focus-visible{
-            background-color: rgba(var(--neutral-600-rgb), .5);
-            outline: rgba(var(--neutral-800-rgb), 8);
+            background-color: rgba(var(--va-neutral-600-rgb), .5);
+            outline: rgba(var(--va-neutral-800-rgb), 8);
         }
 
         

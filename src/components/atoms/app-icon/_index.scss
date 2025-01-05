@@ -11,15 +11,15 @@
         transform: rotate(-180deg);
     }
     &--primary {
-        color: var(--primary);
+        color: var(--va-accent);
     }
     &--success {
-        color: var(--success);
+        color: var(--va-success);
     }
     &--danger {
-        color: var(--danger);
+        color: var(--va-danger);
     }
     &--info {
-        color: var(--warning);
+        color: var(--va-warning);
     }
 }

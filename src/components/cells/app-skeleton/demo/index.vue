@@ -62,7 +62,7 @@ import AppSkeleton from '../index.vue';
     max-width: 300px;
     padding: 15px;
     border-radius: 3px;
-    border: 1px solid var(--neutral-600);
+    border: 1px solid var(--va-neutral-600);
     border-radius: 5px;
   }
 }

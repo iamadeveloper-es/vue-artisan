@@ -9,9 +9,9 @@
     display: flex;
     flex-direction: row-reverse;
     align-items: flex-start;
-    background-color: var(--white);
+    background-color: var(--va-white);
     border-radius: 5px;
-    // color: var(--white);
+    // color: var(--va-white);
     box-shadow: 2px 2px 6px rgb(78, 78, 78);
     z-index: 999;
 
@@ -73,6 +73,6 @@
     }
 
     &--danger{
-        background-color: var(--danger);
+        background-color: var(--va-danger);
     }
 }
