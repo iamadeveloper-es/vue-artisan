@@ -12,7 +12,7 @@ export default {
 <template lang="pug">
 .app-wrapper
   header
-    h1 Vue 3 UI Components
+    h1 Vue Artisan
     h2 Set minimalísta de componentes
   dashboard
 </template>
