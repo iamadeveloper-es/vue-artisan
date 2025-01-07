@@ -1,12 +1,12 @@
-.app-rating{
-    $block: '.app-rating';
+.va-rating{
+    $block: '.va-rating';
     display: flex;
     gap: 3px;
     &__item{
         width: 25px;
         cursor: pointer;
 
-        .app-icon{
+        .va-icon{
             color: var(--icon-color);
         }
 
@@ -15,7 +15,7 @@
         }
 
         &.active{
-            .app-icon{
+            .va-icon{
                 color: var(--icon-color-active);
             }
         }

@@ -1,12 +1,12 @@
 <script lang="ts">
 export default {
-  name: 'app-rating'
+  name: 'va-rating'
 };
 </script>
 
 <script lang="ts" setup>
 import { computed, onMounted, reactive, readonly, ref } from 'vue';
-import AppIcon from '../../atoms/va-icon/index.vue';
+import VaIcon from '../../atoms/va-icon/index.vue';
 
 const props = defineProps({
   ratingCount: {
@@ -66,19 +66,25 @@ const setIconOnActive = computed(() => {
 
 </script>
 
-<template lang="pug">
-.app-rating(
-  :class="{ 'disabled': readOnly }",
-  :style="[`--icon-color:var(--${color})`, `--icon-color-active:var(--${colorActive})`]")
-    .app-rating__item(
-        v-for="(item, index) in ratingCount", :key="index",
-        @click="emitValue(index)",
-        @mouseover="readOnly ? itemSelected.id = undefined : itemSelected.id = index",
-        @mouseleave="itemSelected.id = undefined",
-        :data-id="index",
-        :class="{ 'active': index < selected || index <= itemSelected.id}")
-        app-icon(
-          :icon="index < selected || index <= itemSelected.id ? iconOnActive : icon")
+<template>
+<div
+class="va-rating"
+:class="{ 'disabled': readOnly }"
+:style="[`--icon-color:var(--${color})`, `--icon-color-active:var(--${colorActive})`]"
+>
+  <div
+    class="va-rating__item"
+    v-for="(item, index) in ratingCount"
+    :key="index"
+    @click="emitValue(index)"
+    @mouseover="readOnly ? itemSelected.id = undefined : itemSelected.id = index"
+    @mouseleave="itemSelected.id = undefined"
+    :data-id="index"
+    :class="{ 'active': index < selected || index <= itemSelected.id}"
+  >
+    <VaIcon :icon="index < selected || index <= itemSelected.id ? iconOnActive : icon"/>
+  </div>
+</div>
 </template>
 
 <style lang="scss">

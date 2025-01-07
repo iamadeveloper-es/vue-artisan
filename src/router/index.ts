@@ -37,7 +37,7 @@ import VaChip from '../components/molecules/va-chip/demo/index.vue';
 import VaBreadcrumbs from '../components/molecules/va-breadcrumbs/demo/index.vue';
 import VaDropdown from '../components/molecules/va-dropdown/demo/index.vue';
 import VaRange from '../components/molecules/va-range/demo/index.vue';
-import AppRating from '../components/molecules/app-rating/demo/index.vue';
+import VaRating from '../components/molecules/va-rating/demo/index.vue';
 
 //Cells
 import AppCardRadio from '../components/cells/app-card-radio/demo/index.vue';
@@ -224,9 +224,9 @@ const router = createRouter({
           component: VaRange
         },
         {
-          path: '/app-rating',
-          name: 'APP_RATING',
-          component: AppRating
+          path: '/va-rating',
+          name: 'VA_RATING',
+          component: VaRating
         }
       ]
     },
