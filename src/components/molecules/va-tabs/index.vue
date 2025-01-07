@@ -1,6 +1,6 @@
 <script lang="ts">
 export default {
-  name: 'app-tabs'
+  name: 'va-tabs'
 };
 </script>
 
@@ -65,32 +65,42 @@ onMounted(() => {
 });
 </script>
 
-<template lang="pug">
-.app-tabs(
+<template>
+<div
+class="va-tabs"
 tabindex="-1"
 role="tablist"
-)
-    .app-tabs__tab(
-    v-for="(tab, index) in formatedTabs"
-    :key="index"
-    ref="itemRefs"
-    :data-value="tab.value"
-    :class="{'active': tab.value === modelValue}", 
-    @click="rippleEffect($event, $event.target.parentElement)")
-        input.app-tabs__input(
-        type="radio"
-        :id="tab.id"
-        :name="tab.name"
-        :value="tab.value"
-        :tabindex="index === 0 ? 0 : -1"
-        role="tab"
-        @change="emitValue($event)")
-        label.app-tabs__label(
-        :for="tab.id"
-        ) {{ tab.text }}
-    .app-tabs__indicator
-TransitionGroup(name="slide-fade")
-    slot(name="tabBody")
+>
+  <div
+  class="va-tabs__tab"
+  v-for="(tab, index) in formatedTabs"
+  :key="index"
+  ref="itemRefs"
+  :data-value="tab.value"
+  :class="{'active': tab.value === modelValue}"
+  @click="rippleEffect($event, $event.target.parentElement)"
+  >
+    <input
+    class="va-tabs__input"
+    type="radio"
+    :id="tab.id"
+    :name="tab.name"
+    :value="tab.value"
+    :tabindex="index === 0 ? 0 : -1"
+    role="tab"
+    @change="emitValue($event)"
+    >
+    <label
+    class="va-tabs__label"
+    :for="tab.id"
+    >{{ tab.text }}</label>
+  </div>
+  <div
+  class="va-tabs__indicator"></div>
+</div>
+<TransitionGroup name="slide-fade">
+  <slot name="tabBody"></slot>
+</TransitionGroup>
 </template>
 
 <style lang="scss">

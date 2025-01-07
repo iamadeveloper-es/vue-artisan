@@ -26,7 +26,7 @@ import AppRadio from '../components/molecules/app-radio/demo/index.vue';
 import VaTextarea from '../components/molecules/va-textarea/demo/index.vue';
 import VaSelect from '../components/molecules/va-select/demo/index.vue';
 import VaCustomSelect from '../components/molecules/va-custom-select/demo/index.vue';
-import AppTabs from '../components/molecules/app-tabs/demo/index.vue';
+import VaTabs from '../components/molecules/va-tabs/demo/index.vue';
 import AppModal from '../components/molecules/app-modal/demo/index.vue';
 import AppModalV2 from '../components/molecules/app-modal-v2/demo/index.vue';
 import AppModalSwipe from '../components/molecules/app-modal-swipe/demo/index.vue';
@@ -169,9 +169,9 @@ const router = createRouter({
           component: VaButton
         },
         {
-          path: '/app-tabs',
-          name: 'APP_TABS',
-          component: AppTabs
+          path: '/va-tabs',
+          name: 'VA_TABS',
+          component: VaTabs
         },
         {
           path: '/app-modal',

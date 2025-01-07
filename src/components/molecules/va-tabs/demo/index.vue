@@ -1,12 +1,12 @@
 <script lang="ts">
 export default {
-  name: 'app-tabs-demo'
+  name: 'va-tabs-demo'
 };
 </script>
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import AppTabs from '../index.vue';
+import VaTabs from '../index.vue';
 
 const tabSelected = ref('tab2');
 const tabs = ref([
@@ -28,18 +28,21 @@ const tabs = ref([
 ]);
 </script>
 
-<template lang="pug">
-app-tabs(
+<template >
+<va-tabs
 v-model="tabSelected"
 :tabs="tabs"
-)
-    template(
-    #tabBody
-    )
-        div(v-if="tabSelected === 'tab1'")
-            p Tab1
-        div(v-else-if="tabSelected === 'tab2'")
-            p Tab2
-        div(v-else)
-            p Tab3
+>
+  <template #tabBody>
+    <div v-if="tabSelected === 'tab1'">
+      <p>Tab1</p>
+    </div>
+    <div v-else-if="tabSelected === 'tab2'">
+      <p>Tab2</p>
+    </div>
+    <div v-else>
+      <p>Tab3</p>
+    </div>
+  </template>
+</va-tabs>
 </template>
