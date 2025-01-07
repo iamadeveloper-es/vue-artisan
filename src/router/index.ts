@@ -28,7 +28,7 @@ import VaSelect from '../components/molecules/va-select/demo/index.vue';
 import VaCustomSelect from '../components/molecules/va-custom-select/demo/index.vue';
 import VaTabs from '../components/molecules/va-tabs/demo/index.vue';
 import AppModal from '../components/molecules/app-modal/demo/index.vue';
-import AppModalV2 from '../components/molecules/app-modal-v2/demo/index.vue';
+import VaModalV2 from '../components/molecules/va-modal-v2/demo/index.vue';
 import AppModalSwipe from '../components/molecules/app-modal-swipe/demo/index.vue';
 import VaSnackbar from '../components/molecules/va-snackbar/demo/index.vue';
 import VaAlert from '../components/molecules/va-alert/demo/index.vue';
@@ -179,9 +179,9 @@ const router = createRouter({
           component: AppModal
         },
         {
-          path: '/app-modal-v2',
-          name: 'APP_MODALV2',
-          component: AppModalV2
+          path: '/va-modal-v2',
+          name: 'VA_MODALV2',
+          component: VaModalV2
         },
         {
           path: '/app-modal-swipe',

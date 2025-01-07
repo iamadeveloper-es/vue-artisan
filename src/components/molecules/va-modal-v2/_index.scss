@@ -1,4 +1,4 @@
-.app-modal-v2 {
+.va-modal-v2 {
     // font-family: map-get($base, 'font');
     position: fixed;
     top: 0;
@@ -18,7 +18,7 @@
         justify-content: center;
     }
 
-    .app-modal-dialog {
+    .va-modal-dialog {
         width: 100%;
         max-width: 678px;
         background-color: var(--va-white);
