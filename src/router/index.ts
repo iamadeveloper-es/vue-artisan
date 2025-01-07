@@ -22,7 +22,7 @@ import VaButton from '../components/molecules/va-button/demo/index.vue';
 import VaInputField from '../components/molecules/va-input-field/demo/index.vue';
 import VaCheckbox from '../components/molecules/va-checkbox/demo/index.vue';
 import VACounter from '../components/molecules/va-counter/demo/index.vue';
-import AppRadio from '../components/molecules/app-radio/demo/index.vue';
+import VaRadio from '../components/molecules/va-radio/demo/index.vue';
 import VaTextarea from '../components/molecules/va-textarea/demo/index.vue';
 import VaSelect from '../components/molecules/va-select/demo/index.vue';
 import VaCustomSelect from '../components/molecules/va-custom-select/demo/index.vue';
@@ -149,9 +149,9 @@ const router = createRouter({
           component: VACounter
         },
         {
-          path: '/app-radio',
-          name: 'APP_RADIO',
-          component: AppRadio
+          path: '/va-radio',
+          name: 'VA_RADIO',
+          component: VaRadio
         },
         {
           path: '/va-select',
