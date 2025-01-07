@@ -5,7 +5,7 @@ export default {
 </script>
 <script setup lang="ts">
 import { computed } from 'vue';
-import VaIconSvg from '../app-icon-svg/index.vue';
+import VaIconSvg from '../va-icon-svg/index.vue';
 
 const props = defineProps({
   path: {

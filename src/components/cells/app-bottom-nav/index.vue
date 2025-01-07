@@ -4,7 +4,7 @@ export default {
 };
 </script>
 <script setup lang="ts">
-import AppSvg from '../../atoms/app-svg/index.vue';
+import AppSvg from '../../atoms/va-svg/index.vue';
 import { useComponentFunctions } from '@/composables/component-functions';
 import { ref, type PropType } from 'vue';
 

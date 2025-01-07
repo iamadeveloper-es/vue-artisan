@@ -14,7 +14,7 @@ const icon = ref(null);
 watch(
   () => props.name,
   (newName) => {
-    icon.value = defineAsyncComponent(() => 
+    icon.value = defineAsyncComponent(() =>
       import(`../../../assets/icons/${newName}.svg`)
     );
   },
@@ -22,8 +22,8 @@ watch(
 );
 </script>
 
-<template lang="pug">
-component(:is="icon")
+<template>
+<component :is="icon"></component>
 </template>
 
 <style lang="scss">
