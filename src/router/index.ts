@@ -31,7 +31,7 @@ import AppModal from '../components/molecules/app-modal/demo/index.vue';
 import AppModalV2 from '../components/molecules/app-modal-v2/demo/index.vue';
 import AppModalSwipe from '../components/molecules/app-modal-swipe/demo/index.vue';
 import AppSnackbar from '../components/molecules/app-snackbar/demo/index.vue';
-import AppAlert from '../components/molecules/app-alert/demo/index.vue';
+import VaAlert from '../components/molecules/va-alert/demo/index.vue';
 import VaAccordion from '../components/molecules/va-accordion/demo/index.vue';
 import AppChip from '../components/molecules/app-chip/demo/index.vue';
 import AppBreadcrumbs from '../components/molecules/app-breadcrumbs/demo/index.vue';
@@ -194,9 +194,9 @@ const router = createRouter({
           component: AppSnackbar
         },
         {
-          path: '/app-alert',
-          name: 'APP_ALERT',
-          component: AppAlert
+          path: '/va-alert',
+          name: 'VA_ALERT',
+          component: VaAlert
         },
         {
           path: '/va-accordion',
