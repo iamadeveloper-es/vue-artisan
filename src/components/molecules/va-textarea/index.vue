@@ -1,6 +1,6 @@
 <script lang="ts">
 export default {
-  name: 'app-textarea'
+  name: 'va-textarea'
 };
 </script>
 
@@ -99,31 +99,39 @@ onMounted(() => {
 });
 </script>
 
-<template lang="pug">
-.app-textarea.form-field-wrapper(:class="{'is-focused': (floatingLabel || outlinedLabel) && isFocused}")
-  label.app-label(
-  :class="{'label-float' : floatingLabel, 'label-outlined' : outlinedLabel, 'label-disabled': disabled}"
-  :for="id") {{ label }}
-  textarea.app-input(
-  :class="{'b-bottom': borderBottom, 'disabled': disabled}",
-  :rows="rows",
-  :maxLength="maxLength",
-  :minLength="minLength",
-  :disabled="disabled",
-  :placeholder="placeholder",
-  :required="required",
-  :readonly="readOnly",
-  :aria-label="placeholder || label",
-  :aria-labelledby="ariaLabelledby",
-  :id="id"
-  :name="name"
-  :value="modelValue"
-  aria-placeholder="dsf",
-  :data-validations="validations"
-  @input="emitValue",
-  @focus="emitFocus",
-  @blur="emitBlur")
-span.form-error-message(:data-validation-error="`error-message-${id}`") dsfds
+<template>
+<div
+class="va-textarea form-field-wrapper"
+:class="{'is-focused': (floatingLabel || outlinedLabel) && isFocused}"
+>
+  <label
+    class="va-label"
+    :class="{'label-float' : floatingLabel, 'label-outlined' : outlinedLabel, 'label-disabled': disabled}"
+    :for="id"
+  >{{ label }}</label>
+  <textarea
+    class="va-input"
+    :class="{'b-bottom': borderBottom, 'disabled': disabled}"
+    :rows="rows"
+    :maxLength="maxLength"
+    :minLength="minLength"
+    :disabled="disabled"
+    :placeholder="placeholder"
+    :required="required"
+    :readonly="readOnly"
+    :aria-label="placeholder || label"
+    :aria-labelledby="ariaLabelledby"
+    :id="id"
+    :name="name"
+    :value="modelValue"
+    aria-placeholder="dsf"
+    :data-validations="validations"
+    @input="emitValue"
+    @focus="emitFocus"
+    @blur="emitBlur"
+  ></textarea>
+</div>
+<span class="form-error-message" :data-validation-error="`error-message-${id}`"></span>
 </template>
 
 <style lang="scss">

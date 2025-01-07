@@ -23,7 +23,7 @@ import AppInputField from '../components/molecules/app-input-field/demo/index.vu
 import VaCheckbox from '../components/molecules/va-checkbox/demo/index.vue';
 import VACounter from '../components/molecules/va-counter/demo/index.vue';
 import AppRadio from '../components/molecules/app-radio/demo/index.vue';
-import AppTextarea from '../components/molecules/app-textarea/demo/index.vue';
+import VaTextarea from '../components/molecules/va-textarea/demo/index.vue';
 import AppSelect from '../components/molecules/app-select/demo/index.vue';
 import VaCustomSelect from '../components/molecules/va-custom-select/demo/index.vue';
 import AppTabs from '../components/molecules/app-tabs/demo/index.vue';
@@ -134,9 +134,9 @@ const router = createRouter({
           component: AppInputField
         },
         {
-          path: '/app-textarea',
-          name: 'APP_TEXTAREA',
-          component: AppTextarea
+          path: '/va-textarea',
+          name: 'VA_TEXTAREA',
+          component: VaTextarea
         },
         {
           path: '/va-checkbox',

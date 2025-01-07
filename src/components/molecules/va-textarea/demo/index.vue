@@ -1,12 +1,12 @@
 <script lang="ts">
 export default {
-  name: 'app-textarea-demo'
+  name: 'va-textarea-demo'
 };
 </script>
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import AppTextarea from '../index.vue';
+import VaTextarea from '../index.vue';
 
 const textareas = ref([
   {
@@ -45,23 +45,25 @@ const textareas = ref([
 ]);
 </script>
 
-<template lang="pug">
-.app-textarea-demo 
-    app-textarea(
-    v-for="(item, index) in textareas",
-    :key="index", 
-    v-model="item.value", 
-    :label="item.label", 
-    :name="item.name", 
+<template>
+<div class="va-textarea-demo">
+  <VaTextarea
+    v-for="(item, index) in textareas"
+    :key="index"
+    v-model="item.value"
+    :label="item.label"
+    :name="item.name"
     :rows="item.rows"
-    :outlinedLabel="item.outlinedLabel", 
-    :floatingLabel="item.floatingLabel", 
-    :borderBottom="item.borderBottom")
+    :outlinedLabel="item.outlinedLabel"
+    :floatingLabel="item.floatingLabel"
+    :borderBottom="item.borderBottom"
+  />
+</div>
 </template>
 
 <style lang="scss">
-.app-textarea-demo {
-    .app-textarea {
+.va-textarea-demo {
+    .va-textarea {
         margin-top: 2rem;
     }
 }
