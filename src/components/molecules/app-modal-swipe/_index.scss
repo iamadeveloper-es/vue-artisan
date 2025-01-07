@@ -1,4 +1,4 @@
-.app-modal-swipe {
+.va-modal-swipe {
     position: fixed;
     top: 0;
     bottom: 0;
@@ -29,7 +29,7 @@
         }
     }
 
-    .app-modal-swipe-dialog {
+    .va-modal-swipe-dialog {
         width: 100%;
         max-width: 100%;
         background-color: var(--va-white);
@@ -128,7 +128,7 @@
     }
 
     @media (min-width: 992px) {
-        .app-modal-swipe-dialog {
+        .va-modal-swipe-dialog {
             &.show-from-left {
                 width: 70vw;
                 max-width: 670px;

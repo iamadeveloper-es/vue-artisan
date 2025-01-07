@@ -1,6 +1,6 @@
 <script lang="ts">
 export default {
-  name: 'app-modal-swipe'
+  name: 'va-modal-swipe'
 };
 </script>
 
@@ -144,30 +144,25 @@ onUnmounted(() => {
 });
 </script>
 
-<template lang="pug">
-.app-modal-swipe(
-ref="modalSwipe", 
-@click="hide($event)", 
-v-show="isModalVisible")
-    .app-modal-swipe__content(data-dismiss="modal-swipe", 
-    :class="getShowFrom")
-      transition(name="slide-fade")
-        .app-modal-swipe-dialog(
-        v-show="isModalVisible",
-        ref="modalDialog", 
-        :class="getShowFrom"
-        :style="{ transform: `${getTransformAxis}(${transformPos}px)` }")
-            .app-modal-swipe-dialog__header
-              slot(name="header")
-              button(data-dismiss="modal-swipe",
-              class="app-modal-swipe-dialog__close" 
-              :class="closeIcon",  
-              @click="hide($event)")
-            .app-modal-swipe-dialog__body(v-if="hasSlot('body')")
-              slot(name="body")
-            .app-modal-swipe-dialog__footer(v-if="hasSlot('footer')")
-              slot(name="footer")
-
+<template>
+<div class="va-modal-swipe" ref="modalSwipe" @click="hide($event)" v-show="isModalVisible">
+  <div class="va-modal-swipe__content" data-dismiss="modal-swipe" :class="getShowFrom">
+    <transition name="slide-fade">
+      <div class="va-modal-swipe-dialog" v-show="isModalVisible" ref="modalDialog" :class="getShowFrom" :style="{ transform: `${getTransformAxis}(${transformPos}px)` }">
+        <div class="va-modal-swipe-dialog__header">
+          <slot name="header"></slot>
+          <button class="va-modal-swipe-dialog__close" data-dismiss="modal-swipe" :class="closeIcon" @click="hide($event)"></button>
+        </div>
+        <div class="va-modal-swipe-dialog__body" v-if="hasSlot('body')">
+          <slot name="body"></slot>
+        </div>
+        <div class="va-modal-swipe-dialog__footer" v-if="hasSlot('footer')">
+          <slot name="footer"></slot>
+        </div>
+      </div>
+    </transition>
+  </div>
+</div>
 </template>
 
 <style lang="scss">
