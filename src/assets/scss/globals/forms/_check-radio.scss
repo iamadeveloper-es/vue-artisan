@@ -1,16 +1,16 @@
-.app-check-radio {
+.va-check-radio {
     display: flex;
     align-items: center;
     margin-bottom: 0.5rem;
 
-    &.disabled .app-check-radio__label {
+    &.disabled .va-check-radio__label {
         color: var(--va-neutral-800);
     }
-    &.disabled .app-check-radio__icon {
+    &.disabled .va-check-radio__icon {
         color: var(--va-neutral-800);
     }
 
-    &:hover .app-check-radio__icon::after {
+    &:hover .va-check-radio__icon::after {
         opacity: 0.3;
     }
 

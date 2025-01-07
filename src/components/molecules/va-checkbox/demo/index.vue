@@ -1,12 +1,12 @@
 <script lang="ts">
 export default {
-  name: 'app-checkbox-demo'
+  name: 'va-checkbox-demo'
 };
 </script>
 <script setup lang="ts">
 import { ref } from 'vue';
 
-import AppCheckbox from '../index.vue';
+import VaCheckbox from '../index.vue';
 
 const checkboxesConfig = ref([
   {
@@ -74,45 +74,50 @@ const inputVal3 = ref([
 ]);
 </script>
 
-<template lang="pug">
-h4 Multiple: {{ inputVal }}
-app-checkbox(
-v-for="(item, index) in checkboxesConfig",
-:key="index",
-:activeColor="item.color",
+<template>
+<h4>Multiple: {{ inputVal }}</h4>
+<VaCheckbox
+v-for="(item, index) in checkboxesConfig"
+:key="index"
+:activeColor="item.color"
 :label="item.label"
-:value="item.value",
+:value="item.value"
 :name="item.name"
-v-model="inputVal")
+v-model="inputVal"
+/>
 
-hr
+<hr>
 
-h4 Boleano: {{ inputVal2 }}
-app-checkbox(
+<h4>Boleano: {{ inputVal2 }}</h4>
+<VaCheckbox
 :activeColor="checkboxesConfig2.color"
 :label="checkboxesConfig2.label"
 :name="checkboxesConfig2.name"
-v-model="inputVal2")
+v-model="inputVal2"
+/>
 
-hr
+<hr>
 
-h4 BoleanoV2: {{ inputVal2B }}
-app-checkbox(
+<h4>BoleanoV2: {{ inputVal2B }}</h4>
+<VaCheckbox
 :activeColor="checkboxesConfig2.color"
-:label="checkboxesConfig2.label",
+:label="checkboxesConfig2.label"
 :name="checkboxesConfig2.name"
-true-value="1",
-false-value="false",
-v-model="inputVal2B")
+true-value="1"
+false-value="false"
+v-model="inputVal2B"
+/>
 
-hr
+<hr>
 
-h4 Multiple object value: {{ inputVal3 }}
-app-checkbox(
-v-for="(item, index) in checkboxesConfig3",
-:key="index",
+<h4>Multiple object value: {{ inputVal3 }}</h4>
+<VaCheckbox
+v-for="(item, index) in checkboxesConfig3"
+:key="index"
 :activeColor="item.color"
 :label="item.label"
-:value="item.value",
-v-model="inputVal3")
+:value="item.value"
+v-model="inputVal3"
+:name="item.name"
+/>
 </template>
