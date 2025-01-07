@@ -67,13 +67,13 @@ const router = createRouter({
       component: ComponentView,
       children: [
         {
-          path: '/app-avatar',
-          name: 'APP_AVATAR',
+          path: '/va-avatar',
+          name: 'VA_AVATAR',
           component: VaAvatar
         },
         {
-          path: '/app-badge',
-          name: 'APP_BADGE',
+          path: '/va-badge',
+          name: 'VA_BADGE',
           component: VaBadge
         },
         {

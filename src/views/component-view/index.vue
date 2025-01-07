@@ -10,13 +10,12 @@ import { useRoute } from 'vue-router';
 
 const route = useRoute();
 const setComponentName = computed(() => {
-  return route.name?.toLowerCase();
+  return route.name?.toLowerCase().replaceAll('_', '-');
 });
 </script>
 
 <template lang="pug">
 .app-info-component
-  //- h1 Vue Ui Components
   .app-info-component__wrapper
     h3 {{ setComponentName }}
     router-view
