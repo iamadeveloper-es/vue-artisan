@@ -1,6 +1,6 @@
 <script lang="ts">
 export default {
-  name: 'app-skeleton'
+  name: 'va-skeleton'
 };
 </script>
 
@@ -34,10 +34,13 @@ const props = defineProps({
 });
 </script>
 
-<template lang="pug">
-span.app-skeleton(
-  :class="[`app-skeleton--${variant}`, `animation-${animation}`]",
-  :style="[`--skeleton-width:${sWidth}`, `--skeleton-height:${sHeight}`, `--skeleton-border-radius:${bRadius}`]")
+<template>
+<span
+class="va-skeleton"
+:class="[`va-skeleton--${variant}`, `animation-${animation}`]"
+:style="[`--skeleton-width:${sWidth}`, `--skeleton-height:${sHeight}`, `--skeleton-border-radius:${bRadius}`]"
+>
+</span>
 </template>
 
 <style lang="scss">

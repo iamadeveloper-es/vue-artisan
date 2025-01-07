@@ -44,7 +44,7 @@ import AppCardRadio from '../components/cells/app-card-radio/demo/index.vue';
 import AppBottomNav from '../components/cells/app-bottom-nav/demo/index.vue';
 import AppPagination from '../components/cells/app-pagination/demo/index.vue';
 import AppStepper from '../components/cells/app-stepper/demo/index.vue';
-import AppSkeleton from '../components/cells/app-skeleton/demo/index.vue';
+import VaSkeleton from '../components/cells/va-skeleton/demo/index.vue';
 import AppSidebar from '../components/cells/app-sidebar/demo/index.vue';
 import AppCard from '../components/cells/app-card/demo/index.vue';
 
@@ -256,9 +256,9 @@ const router = createRouter({
           component: AppStepper
         },
         {
-          path: '/app-skeleton',
-          name: 'APP_SKELETON',
-          component: AppSkeleton
+          path: '/va-skeleton',
+          name: 'VA_SKELETON',
+          component: VaSkeleton
         },
         {
           path: '/app-sidebar',
