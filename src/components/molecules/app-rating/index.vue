@@ -31,11 +31,11 @@ const props = defineProps({
   },
   color: {
     type: String,
-    default: 'neutral-800'
+    default: 'va-neutral-800'
   },
   colorActive: {
     type: String,
-    default: 'warning'
+    default: 'va-warning'
   },
   hasSecondaryIcon: {
     type: Boolean,

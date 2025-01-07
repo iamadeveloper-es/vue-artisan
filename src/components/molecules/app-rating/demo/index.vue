@@ -22,7 +22,7 @@ const handleValue = (ev) => {
     app-rating(@clicked="handleValue", currentSelection="1", readOnly="true")
   .app-rating-demo__item
     h4 Otros iconos
-    app-rating(@clicked="handleValue", :icon="['fa-regular', 'fa-heart']", :iconOnActive="['fa-solid', 'fa-heart']", colorActive="danger")
+    app-rating(@clicked="handleValue", :icon="['fa-regular', 'fa-heart']", :iconOnActive="['fa-solid', 'fa-heart']", colorActive="va-danger")
 </template>
 
 <style lang="scss">

@@ -38,15 +38,15 @@ const props = defineProps({
   },
   textColor: {
     type: String,
-    default: 'dark-400'
+    default: 'va-darken-400'
   },
   bgColor: {
     type: String,
-    default: 'neutral-600'
+    default: 'va-neutral-600'
   },
   progressBgColor: {
     type: String,
-    default: 'primary'
+    default: 'va-accent'
   }
 });
 

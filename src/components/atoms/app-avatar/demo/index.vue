@@ -9,7 +9,7 @@ import AppAvatar from '../index.vue';
 import type { IAvatar } from '../IAvatar';
 
 const avatarInfo1: Ref<IAvatar> = ref({
-  name: 'Roberto Vaquero',
+  name: 'John Doe',
   img: 'avatar.jpg'
 });
 
@@ -26,20 +26,19 @@ const handleEvent = () => {
 </script>
 
 <template lang="pug">
-.app-avatar-demo 
+.app-avatar-demo
     .flex
         app-avatar(
-        :userInfo="avatarInfo1", 
-        :clickable="true", 
+        :userInfo="avatarInfo1",
+        :clickable="true",
         @clicked="handleEvent")
-
         div
             p Click en el avatar
             p(v-if="message") {{ `Usuario: ${message}` }}
 
     .flex
         app-avatar(
-        :userInfo="avatarInfo2", 
+        :userInfo="avatarInfo2",
         display="name")
 </template>
 

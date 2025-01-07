@@ -29,11 +29,11 @@ const props = defineProps({
   },
   ringColorInner: {
     type: String,
-    default: 'neutral-600'
+    default: 'va-neutral-600'
   },
   ringColorOuter: {
     type: String,
-    default: 'danger'
+    default: 'va-danger'
   },
 });
 
