@@ -1,16 +1,16 @@
 <!-- Meow.story.vue -->
 <script setup lang="ts">
-import { reactive, ref } from 'vue';
-import AppAvatar from '../../src/components/atoms/app-avatar/index.vue';
+import { ref } from 'vue';
+import VaAvatar from '../../src/components/atoms/va-avatar/index.vue';
 
 
 const message = ref('');
 const imagen = ref({
-  name: 'Roberto Blanco',
+  name: 'John Doe',
   img: 'avatar.jpg'
 });
 const iniciales = ref({
-  name: 'Daniel verdú',
+  name: 'John Doe',
   img: 'avatar.jpg'
 });
 
@@ -21,26 +21,25 @@ const handleEvent = () => {
 
 </script>
 <template>
-    <Story title="atoms/app-avatar" :layout="{ type: 'grid', width: 400 }">
+    <Story title="atoms/va-avatar" :layout="{ type: 'grid', width: 400 }">
         <Variant title="Imagen">
-            <app-avatar
+            <va-avatar
             :userInfo="imagen"
             :clickable="true"
             @clicked="handleEvent"
-            ></app-avatar>
+            ></va-avatar>
         </Variant>
         <Variant title="Iniciales">
-            <app-avatar
+            <va-avatar
             :userInfo="iniciales"
             display="name"
-            ></app-avatar>
+            ></va-avatar>
         </Variant>
     </Story>
 </template>
 
 <docs lang="md">
   # Avatar
-  
+
   Checkout this [cool video](https://www.youtube.com/watch?v=dQw4w9WgXcQ)!
 </docs>
-  

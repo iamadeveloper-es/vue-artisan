@@ -5,7 +5,7 @@ import ComponentView from '../views/component-view/index.vue';
 import AppTest from '../components/test.vue';
 
 //Atoms
-import AppAvatar from '../components/atoms/app-avatar/demo/index.vue';
+import VaAvatar from '../components/atoms/va-avatar/demo/index.vue';
 import AppBadge from '../components/atoms/app-badge/demo/index.vue';
 import AppLink from '../components/atoms/app-link/demo/index.vue';
 import AppIcon from '../components/atoms/app-icon/demo/index.vue';
@@ -69,7 +69,7 @@ const router = createRouter({
         {
           path: '/app-avatar',
           name: 'APP_AVATAR',
-          component: AppAvatar
+          component: VaAvatar
         },
         {
           path: '/app-badge',

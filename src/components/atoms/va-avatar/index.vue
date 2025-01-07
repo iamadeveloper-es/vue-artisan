@@ -1,6 +1,6 @@
 <script lang="ts">
 export default {
-  name: 'app-avatar'
+  name: 'va-avatar'
 };
 </script>
 <script setup lang="ts">
@@ -12,7 +12,7 @@ type IAvatar = {
     img: string
     alt?: string
     size?: Number
-};
+}
 
 const props = defineProps({
   userInfo: {
@@ -53,11 +53,11 @@ const getImage = computed((): string => {
   return getImageUrl(img);
 });
 
-const getSize = computed((): String => {
+const getSize = computed((): string => {
   return props.userInfo?.size ? `${props.userInfo.size}px` : `${defaultSize}px`;
 });
 
-const getFontSize = computed((): String => {
+const getFontSize = computed((): string => {
   const size = props.userInfo.size ? props.userInfo.size / 2.5 : defaultSize / 2.5;
   return `${size}px`;
 });
@@ -75,18 +75,28 @@ const emitEvent = (ev: Event) => {
 };
 </script>
 
-<template lang="pug">
-.app-avatar(
-:style="{'width': getSize, 'height': getSize, 'color': textColor, 'background-color': bgColor}", 
-:class="[{'app-avatar--has-action': clickable, 'app-avatar--rounded': isRounded}]",
-@click="emitEvent")
-    img.app-avatar__img(v-if="display === 'img'", 
-    :src="getImage", 
-    :alt="userInfo.alt",
-    :class="{ 'circle': isRounded }")
-    .app-avatar__initials(v-else-if="display === 'name'", 
-    :style="{'font-size': getFontSize, 'line-height': getFontSize}")
-        strong() {{ getInitials }}
+<template>
+    <div
+        class="va-avatar"
+        :style="{ width: getSize, height: getSize, color: textColor, 'background-color': bgColor }"
+        :class="[{ 'va-avatar--has-action': clickable, 'va-avatar--rounded': isRounded }]"
+        @click="emitEvent"
+    >
+        <img
+            class="va-avatar__img"
+            v-if="display === 'img'"
+            :src="getImage"
+            :alt="userInfo.alt"
+            :class="{ circle: isRounded }"
+        />
+        <span
+            class="va-avatar__initials"
+            v-else-if="display === 'name'"
+            :style="{ 'font-size': getFontSize, 'line-height': getFontSize }"
+        >
+            <strong>{{ getInitials }}</strong>
+        </span>
+    </div>
 </template>
 
 <style lang="scss">
