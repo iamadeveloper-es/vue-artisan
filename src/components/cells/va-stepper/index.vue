@@ -1,12 +1,12 @@
 <script lang="ts">
 export default {
-  name: 'app-stepper'
+  name: 'va-stepper'
 };
 </script>
 
 <script setup lang="ts">
 import { computed, onMounted, ref } from 'vue';
-import AppButton from '../../molecules/va-button/index.vue';
+import VaButton from '../../molecules/va-button/index.vue';
 
 const props = defineProps({
   steps: {
@@ -91,20 +91,21 @@ onMounted(() => {
 });
 </script>
 
-<template lang="pug">
-.app-stepper-wrapper
-  ol.app-stepper(ref="ol")
-    li.app-stepper__item(v-for="(step, index) in filterdSteps",
-    :key="index")
-      span.app-stepper__label(:class="labelDirection") {{ step.label }}
-      app-button(@clicked="emitEvent(index)",
-      :text="step.text",
-      :disabled="isDisabled(step) || isProccessCompleted",
-      :cClass="['app-stepper__action', {'completed' : step.completed || isProccessCompleted, 'active' : step.active && !isProccessCompleted}]",
-      :icon="setIcon(step)"
-      :iconSize="12")
-  TransitionGroup(name="slide-fade")
-    slot(name="stepperContent")
+<template>
+<div class="va-stepper-wrapper">
+  <ol class="va-stepper" ref="ol">
+    <li class="va-stepper__item" v-for="(step, index) in filterdSteps" :key="index"><span class="va-stepper__label" :class="labelDirection">{{ step.label }}</span>
+      <va-button
+      @clicked="emitEvent(index)"
+      :text="step.text"
+      :disabled="isDisabled(step) || isProccessCompleted"
+      :cClass="['va-stepper__action', {'completed' : step.completed || isProccessCompleted, 'active' : step.active && !isProccessCompleted}]" :icon="setIcon(step)" :iconSize="12"></va-button>
+    </li>
+  </ol>
+  <TransitionGroup name="slide-fade">
+    <slot name="stepperContent"></slot>
+  </TransitionGroup>
+</div>
 </template>
 
 <style lang="scss">

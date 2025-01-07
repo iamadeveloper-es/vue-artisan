@@ -1,4 +1,4 @@
-.app-stepper{
+.va-stepper{
     --active-step: var(--va-accent);
     --stepper-progress-size: 0;
     list-style: none;
@@ -107,7 +107,7 @@
         }
     }
 
-    button.app-button{
+    button.va-button{
         border-radius: 100%;
     }
 

@@ -1,12 +1,12 @@
 <script lang="ts">
 export default {
-  name: 'app-stepper-demo'
+  name: 'va-stepper-demo'
 };
 </script>
 <script setup lang="ts">
 import { ref } from 'vue';
-import AppStepper from '../index.vue';
-import AppInputField from '../../../molecules/va-input-field/index.vue';
+import VaStepper from '../index.vue';
+import VaInputField from '../../../molecules/va-input-field/index.vue';
 
 const formOne = ref('');
 const formTwo = ref('');
@@ -101,58 +101,42 @@ const validateFormFourth = () => {
 };
 </script>
 
-<template lang="pug">
-.app-stepper-demo
-  app-stepper(:steps="steps",
-  @clicked="handleEvent")
-    template(#stepperContent)
-      form(v-if="!completedSteps.one",
-      @submit.prevent="validateFormOne")
-        app-input-field(
-        v-model="formOne",
-        name="account",
-        label="Cuenta",
-        :outlinedLabel="true")
-        button(type="submit", :disabled="!formOne") Completar
+<template>
 
-      form(v-if="completedSteps.one && !completedSteps.two",
-      @submit.prevent="validateFormTwo")
-        app-input-field(
-        v-model="formTwo",
-        name="adress",
-        label="Dirección",
-        :outlinedLabel="true")
-        button(type="submit", :disabled="!formTwo") Completar
-
-      form(v-if="completedSteps.two && !completedSteps.three",
-      @submit.prevent="validateFormThree")
-        app-input-field(
-        v-model="formThree",
-        name="payment",
-        label="Pago",
-        :outlinedLabel="true")
-        button(type="submit", :disabled="!formThree") Completar
-
-      form(v-if="completedSteps.three && !completedSteps.fourth",
-      @submit.prevent="validateFormFourth")
-        app-input-field(
-        v-model="formFourth",
-        name="confirm",
-        label="Confirmación",
-        :outlinedLabel="true")
-        button(type="submit", :disabled="!formFourth") Finalizar
-
-  div(v-if="completedSteps.fourth")
-    h3 Datos introducidos:
-    p Cuenta: {{ formOne }}
-    p Dirección: {{ formTwo }}
-    p Pago: {{ formThree }}
-    p Confirmación: {{ formFourth }}
+<div class="va-stepper-demo">
+  <va-stepper :steps="steps" @clicked="handleEvent">
+    <template #stepperContent>
+      <form v-if="!completedSteps.one" @submit.prevent="validateFormOne">
+        <va-input-field v-model="formOne" name="account" label="Cuenta" :outlinedLabel="true"></va-input-field>
+        <button type="submit" :disabled="!formOne">Completar</button>
+      </form>
+      <form v-if="completedSteps.one &amp;&amp; !completedSteps.two" @submit.prevent="validateFormTwo">
+        <va-input-field v-model="formTwo" name="adress" label="Dirección" :outlinedLabel="true"></va-input-field>
+        <button type="submit" :disabled="!formTwo">Completar</button>
+      </form>
+      <form v-if="completedSteps.two &amp;&amp; !completedSteps.three" @submit.prevent="validateFormThree">
+        <va-input-field v-model="formThree" name="payment" label="Pago" :outlinedLabel="true"></va-input-field>
+        <button type="submit" :disabled="!formThree">Completar</button>
+      </form>
+      <form v-if="completedSteps.three &amp;&amp; !completedSteps.fourth" @submit.prevent="validateFormFourth">
+        <va-input-field v-model="formFourth" name="confirm" label="Confirmación" :outlinedLabel="true"></va-input-field>
+        <button type="submit" :disabled="!formFourth">Finalizar</button>
+      </form>
+    </template>
+  </va-stepper>
+  <div v-if="completedSteps.fourth">
+    <h3>Datos introducidos:</h3>
+    <p>Cuenta: {{ formOne }}</p>
+    <p>Dirección: {{ formTwo }}</p>
+    <p>Pago: {{ formThree }}</p>
+    <p>Confirmación: {{ formFourth }}</p>
+  </div>
+</div>
 </template>
 
 <style lang="scss">
-.app-stepper-demo{
-  .app-stepper{
+.va-stepper-demo{
+  .va-stepper{
     max-width: 90%;
     margin-left: auto;
     margin-right: auto;
