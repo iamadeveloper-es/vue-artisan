@@ -1,11 +1,11 @@
 <script lang="ts">
 export default {
-  name: 'app-progress-demo'
+  name: 'va-progress-demo'
 };
 </script>
 <script setup lang="ts">
-import AppProgress from '../index.vue';
-import AppButton from '../../../molecules/app-button/index.vue';
+import VaProgress from '../index.vue';
+import VaButton from '../../../molecules/app-button/index.vue';
 import { ref } from 'vue';
 
 const progressValue1 = ref(Math.floor(Math.random() * 100) + 1);
@@ -23,41 +23,48 @@ const handleEvent = () => {
 };
 </script>
 
-<template lang="pug">
-.app-progress-demo
-  h5 Default (xs)
-  app-progress(
-    :value="progressValue1")
-  h5 sm
-  app-progress(
-    :value="progressValue2", 
-    size="sm",
-    showCounter="true")
-  h5 md
-  app-progress(
-    :value="progressValue3", 
-    size="md")
-  h5 lg
-  app-progress(
-    :value="progressValue4", 
-    size="lg",
-    showCounter="true")
-  h5 xl
-  app-progress(
-    :value="progressValue5", 
-    size="xl")
-  app-button(
-    text="Mover progreso",
-    @clicked="handleEvent")
+<template>
+<div class="va-progress-demo">
+  <h5>Default (xs)</h5>
+  <VaProgress
+    :value="progressValue1"
+  />
+  <h5>sm</h5>
+  <VaProgress
+    :value="progressValue2"
+    size="sm"
+    :showCounter="true"
+  />
+  <h5>md</h5>
+  <VaProgress
+    :value="progressValue3"
+    size="md"
+  />
+  <h5>lg</h5>
+  <VaProgress
+    :value="progressValue4"
+    size="lg"
+    :showCounter="true"
+  />
+  <h5>xl</h5>
+  <VaProgress
+    :value="progressValue5"
+    size="xl"
+  />
+  <VaButton
+    text="Mover progreso"
+    @clicked="handleEvent"
+  />
+</div>
 </template>
 
 <style lang="scss" scoped>
-.app-progress-demo{
+.va-progress-demo{
   h5{
     margin: 5px;
   }
 }
-.app-progress{
+.va-progress{
   margin-bottom: 1em;
 }
 </style>

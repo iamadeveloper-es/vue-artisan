@@ -1,6 +1,6 @@
 <script lang="ts">
 export default {
-  name: 'app-progress-bar'
+  name: 'va-progress-bar'
 };
 </script>
 <script setup lang="ts">
@@ -56,16 +56,19 @@ const setValue = computed(() => {
 
 </script>
 
-<template lang="pug">
-.app-progress(
-role="range",
-:aria-valuemax="valuemax",
-:aria-valuenow="setValue",
-:aria-label="ariaLabel",
-:valuemin="valuemin",
-:class="[`app-progress--${size}`]",
-:style="[`--progress-value:${setValue}%`, `--progress-bg-color:var(--${progressBgColor})`, `--bar-bg-color:var(--${bgColor})`, `--text-color:var(--${textColor})`]")
-  span.app-progress__counter(v-if="showCounter") {{ `${setValue}%` }}
+<template>
+<div
+class="va-progress"
+role="range"
+:aria-valuemax="valuemax"
+:aria-valuenow="setValue"
+:aria-label="ariaLabel"
+:valuemin="valuemin"
+:class="[`va-progress--${size}`]"
+:style="[`--progress-value:${setValue}%`, `--progress-bg-color:var(--${progressBgColor})`, `--bar-bg-color:var(--${bgColor})`, `--text-color:var(--${textColor})`]"
+>
+  <span class="va-progress__counter" v-if="showCounter">{{ `${setValue}%` }}</span>
+</div>
 </template>
 
 <style lang="scss">
