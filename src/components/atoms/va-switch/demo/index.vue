@@ -1,11 +1,11 @@
 <script lang="ts">
 export default {
-  name: 'app-switch-demo'
+  name: 'va-switch-demo'
 };
 </script>
 <script setup lang="ts">
 import { ref } from 'vue';
-import AppSwitch from '../index.vue';
+import VaSwitch from '../index.vue';
 
 const checkboxConfig = ref({
   color: 'info',
@@ -32,11 +32,12 @@ const handleChangeEvent = (ev) => {
 };
 </script>
 
-<template lang="pug">
-app-switch(
+<template>
+<VaSwitch
 :activeColor="checkboxConfig.color"
 :disabled="checkboxConfig.disabled"
 :label="checkboxConfig.label"
-v-model="inputVal"
-@onChange="handleChangeEvent")
+v-model="inputVal.val"
+@onChange="handleChangeEvent"
+/>
 </template>

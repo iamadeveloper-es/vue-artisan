@@ -1,6 +1,6 @@
 <script lang="ts">
 export default {
-  name: 'app-switch'
+  name: 'va-switch'
 };
 </script>
 <script setup lang="ts">
@@ -31,17 +31,6 @@ defineProps({
 });
 const { randomId } = useComponentFunctions();
 const id = ref('');
-// const slots = useSlots();
-
-// const isActive = ref(false);
-
-// const setActiveColor = computed(() => {
-//   return `app-check-radio__icon--${props.activeColor}`;
-// });
-
-// const hasSlot = computed(() => {
-//   return !!slots['label'];
-// });
 
 const emit = defineEmits(['update:modelValue', 'onChange']);
 
@@ -60,21 +49,29 @@ onMounted(() => {
 });
 </script>
 
-<template lang="pug">
-.app-switch-wrapper(
-:class="{'disabled': disabled}" 
-:ref="id")
-  label.app-switch(:for="id")
-    input(
-    :aria-checked="modelValue?.status" 
-    :id="id" 
-    :disabled="disabled"
-    :checked="modelValue?.status"
-    role="checkbox" 
-    type="checkbox" 
-    :value="modelValue"
-    @change="emitValue($event)")
-    span.app-switch__slider
+<template>
+<div
+class="va-switch-wrapper"
+:class="{'disabled': disabled}"
+:ref="id"
+>
+  <label
+    class="va-switch"
+    :for="id"
+  >
+    <input
+      :aria-checked="modelValue?.status"
+      :id="id"
+      :disabled="disabled"
+      :checked="modelValue?.status"
+      role="checkbox"
+      type="checkbox"
+      :value="modelValue"
+      @change="emitValue($event)"
+    >
+    <span class="va-switch__slider"></span>
+  </label>
+</div>
 </template>
 
 <style lang="scss">
