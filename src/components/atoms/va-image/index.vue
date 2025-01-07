@@ -1,6 +1,6 @@
 <script lang="ts">
 export default {
-  name: 'app-image'
+  name: 'va-image'
 };
 </script>
 <script setup lang="ts">
@@ -17,10 +17,8 @@ defineProps({
 
 </script>
 
-<template lang="pug">
-img.app-image(
-:src="src", 
-:alt="alt")
+<template>
+<img class="va-image" :src="src" :alt="alt">
 </template>
 
 <style lang="scss">
