@@ -1,17 +1,17 @@
 <script lang="ts">
 export default {
-  name: 'app-snackbar'
+  name: 'va-snackbar'
 };
 </script>
 
 <script setup lang="ts">
 import { type Ref, ref, useSlots } from 'vue';
-import AppIcon from '../../atoms/va-icon/index.vue';
+import VaIcon from '../../atoms/va-icon/index.vue';
 
 const props = defineProps({
   closeIcon: {
     type: Array,
-    default: () => ['fa-regular', 'fa-circle-xmark', 'app-snackbar__close']
+    default: () => ['fa-regular', 'fa-circle-xmark', 'va-snackbar__close']
   },
   hasIcon: {
     type: Boolean,
@@ -73,21 +73,34 @@ defineExpose({
 });
 </script>
 
-<template lang="pug">
-transition(name="fade")
-    .app-snackbar(v-show="isVisible",
-    :class="`app-snackbar--${position}`")
-        .app-snackbar__header
-            app-icon(
-            v-if="hasIcon"
-            :icon="closeIcon",
-            :size="IconSize",
-            :variant="iconVariant"
-            @iconClicked="hide")
-            button(v-else,
-            @click="hide") {{ closeText }}
-        .app-snackbar__body(v-if="hasSlot('body')")
-            slot(name="body")
+<template>
+<transition name="fade">
+  <div
+  class="va-snackbar"
+  v-show="isVisible"
+  :class="`va-snackbar--${position}`"
+  >
+    <div class="va-snackbar__header">
+      <VaIcon
+      v-if="hasIcon"
+      :icon="closeIcon"
+      :size="IconSize"
+      :variant="iconVariant"
+      @iconClicked="hide"
+      />
+      <button
+      v-else
+      @click="hide"
+      >{{ closeText }}</button>
+    </div>
+    <div
+    class="va-snackbar__body"
+    v-if="hasSlot('body')"
+    >
+      <slot name="body"></slot>
+    </div>
+  </div>
+</transition>
 </template>
 
 <style lang="scss">

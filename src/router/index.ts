@@ -30,7 +30,7 @@ import AppTabs from '../components/molecules/app-tabs/demo/index.vue';
 import AppModal from '../components/molecules/app-modal/demo/index.vue';
 import AppModalV2 from '../components/molecules/app-modal-v2/demo/index.vue';
 import AppModalSwipe from '../components/molecules/app-modal-swipe/demo/index.vue';
-import AppSnackbar from '../components/molecules/app-snackbar/demo/index.vue';
+import VaSnackbar from '../components/molecules/va-snackbar/demo/index.vue';
 import VaAlert from '../components/molecules/va-alert/demo/index.vue';
 import VaAccordion from '../components/molecules/va-accordion/demo/index.vue';
 import VaChip from '../components/molecules/va-chip/demo/index.vue';
@@ -189,9 +189,9 @@ const router = createRouter({
           component: AppModalSwipe
         },
         {
-          path: '/app-snackbar',
-          name: 'APP_SNACKBAR',
-          component: AppSnackbar
+          path: '/va-snackbar',
+          name: 'VA_SNACKBAR',
+          component: VaSnackbar
         },
         {
           path: '/va-alert',
