@@ -1,11 +1,11 @@
 <script lang="ts">
 export default {
-  name: 'app-breadcrumbs-demo'
+  name: 'va-breadcrumbs-demo'
 };
 </script>
 <script setup lang="ts">
 import { ref } from 'vue';
-import AppBreadcrumbs from '../index.vue';
+import VaBreadcrumbs from '../index.vue';
 
 const items = ref([
   {
@@ -26,6 +26,6 @@ const items = ref([
 ]);
 </script>
 
-<template lang="pug">
-app-breadcrumbs(:items="items")
+<template>
+<VaBreadcrumbs :items="items"/>
 </template>

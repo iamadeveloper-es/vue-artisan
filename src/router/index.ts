@@ -34,7 +34,7 @@ import AppSnackbar from '../components/molecules/app-snackbar/demo/index.vue';
 import VaAlert from '../components/molecules/va-alert/demo/index.vue';
 import VaAccordion from '../components/molecules/va-accordion/demo/index.vue';
 import AppChip from '../components/molecules/app-chip/demo/index.vue';
-import AppBreadcrumbs from '../components/molecules/app-breadcrumbs/demo/index.vue';
+import VaBreadcrumbs from '../components/molecules/va-breadcrumbs/demo/index.vue';
 import AppDropdown from '../components/molecules/app-dropdown/demo/index.vue';
 import AppRange from '../components/molecules/app-range/demo/index.vue';
 import AppRating from '../components/molecules/app-rating/demo/index.vue';
@@ -209,9 +209,9 @@ const router = createRouter({
           component: AppChip
         },
         {
-          path: '/app-breadcrumbs',
-          name: 'APP_BREADCRUMBS',
-          component: AppBreadcrumbs
+          path: '/va-breadcrumbs',
+          name: 'VA_BREADCRUMBS',
+          component: VaBreadcrumbs
         },
         {
           path: '/app-dropdown',

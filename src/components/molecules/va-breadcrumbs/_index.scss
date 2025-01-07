@@ -1,4 +1,4 @@
-.app-breadcrumbs {
+.va-breadcrumbs {
     list-style: none;
     padding: 0;
     margin: 0;
@@ -16,8 +16,8 @@
     }
 
     &--disabled {
-        .app-breadcrumbs__link,
-        .app-breadcrumbs__divider {
+        .va-breadcrumbs__link,
+        .va-breadcrumbs__divider {
             color: var(--va-neutral-800);
         }
     }
