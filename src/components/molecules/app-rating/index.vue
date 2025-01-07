@@ -6,7 +6,7 @@ export default {
 
 <script lang="ts" setup>
 import { computed, onMounted, reactive, readonly, ref } from 'vue';
-import AppIcon from '../../atoms/app-icon/index.vue';
+import AppIcon from '../../atoms/va-icon/index.vue';
 
 const props = defineProps({
   ratingCount: {

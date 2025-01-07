@@ -6,7 +6,7 @@ export default {
 <script setup lang="ts">
 import { computed, ref } from 'vue';
 import { useComponentFunctions } from '../../../composables/component-functions';
-import AppIcon from '../../atoms/app-icon/index.vue';
+import AppIcon from '../../atoms/va-icon/index.vue';
 
 const props = defineProps({
   modelValue: {
@@ -85,29 +85,29 @@ const leave = (el: HTMLElement) => {
 .app-accordion(ref="accordion")
     .app-accordion__header
         input.app-accordion__input(
-        type="checkbox", 
-        :id="setId", 
-        :value="setId", 
-        :name="setId", 
+        type="checkbox",
+        :id="setId",
+        :value="setId",
+        :name="setId",
         @change="emitValue")
         label.accesible-hidden(
-        :for="setId") {{ title }} 
+        :for="setId") {{ title }}
         span.app-accordion__label {{ title }}
         app-icon(
         :class="iconClass"
-        :icon="getIcon", 
-        :size="iconSize", 
-        :variant="iconVariant", 
-        :onActiveIcon="onActiveIcon", 
+        :icon="getIcon",
+        :size="iconSize",
+        :variant="iconVariant",
+        :onActiveIcon="onActiveIcon",
         :isClicked="isSelected")
     transition(
-    name="accordion", 
-    v-on:before-enter="beforeEnter", 
-    v-on:enter="enter", 
-    v-on:before-leave="beforeLeave", 
+    name="accordion",
+    v-on:before-enter="beforeEnter",
+    v-on:enter="enter",
+    v-on:before-leave="beforeLeave",
     v-on:leave="leave")
-        .app-accordion__body(v-show="isSelected") 
-            .body-inner 
+        .app-accordion__body(v-show="isSelected")
+            .body-inner
                 slot(name="content")
 </template>
 

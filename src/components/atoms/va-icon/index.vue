@@ -1,6 +1,6 @@
 <script lang="ts">
 export default {
-  name: 'app-icon'
+  name: 'va-icon'
 };
 </script>
 <script setup lang="ts">
@@ -28,11 +28,9 @@ const props = defineProps({
   }
 });
 
-// const iconsSource = inject('icons');
-// debugger
 const getVariant = computed(() => {
   const variant: string | undefined = props.variant;
-  return variant?.length ? `app-icon--${variant}` : '';
+  return variant?.length ? `va-icon--${variant}` : '';
 });
 
 const getIcon = computed(() => {
@@ -49,11 +47,12 @@ const emitEvent = (ev: Event): void => {
 };
 </script>
 
-<template lang="pug">
-span.app-icon(
-:class="[getVariant, getIcon]",
-@click="emitEvent", 
-:style="{'font-size': `${size}px`}")
+<template>
+<span class="va-icon"
+:class="[getVariant, getIcon]"
+@click="emitEvent"
+:style="{'font-size': `${size}px`}"
+></span>
 </template>
 
 <style lang="scss">

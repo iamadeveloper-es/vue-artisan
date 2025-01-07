@@ -5,7 +5,7 @@ export default {
 </script>
 <script setup lang="ts">
 import AppButton from '../../molecules/app-button/index.vue';
-import AppIcon from '../../atoms/app-icon/index.vue';
+import AppIcon from '../../atoms/va-icon/index.vue';
 
 const props = defineProps({
   modelValue: {
@@ -33,12 +33,12 @@ const increase = () => {
 .app-counter
     app-button(
       @clicked="decrease",
-      :icon="['fa-solid', 'fa-minus']", 
+      :icon="['fa-solid', 'fa-minus']",
       :iconSize="15")
     span.app-counter__amount {{modelValue}}
     app-button(
       @clicked="increase",
-      :icon="['fa-solid', 'fa-plus']", 
+      :icon="['fa-solid', 'fa-plus']",
       :iconSize="15")
 
 </template>

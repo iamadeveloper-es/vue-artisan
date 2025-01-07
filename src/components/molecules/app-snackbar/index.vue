@@ -6,7 +6,7 @@ export default {
 
 <script setup lang="ts">
 import { type Ref, ref, useSlots } from 'vue';
-import AppIcon from '../../atoms/app-icon/index.vue';
+import AppIcon from '../../atoms/va-icon/index.vue';
 
 const props = defineProps({
   closeIcon: {
@@ -75,16 +75,16 @@ defineExpose({
 
 <template lang="pug">
 transition(name="fade")
-    .app-snackbar(v-show="isVisible", 
+    .app-snackbar(v-show="isVisible",
     :class="`app-snackbar--${position}`")
         .app-snackbar__header
             app-icon(
             v-if="hasIcon"
-            :icon="closeIcon", 
-            :size="IconSize", 
+            :icon="closeIcon",
+            :size="IconSize",
             :variant="iconVariant"
             @iconClicked="hide")
-            button(v-else, 
+            button(v-else,
             @click="hide") {{ closeText }}
         .app-snackbar__body(v-if="hasSlot('body')")
             slot(name="body")

@@ -5,7 +5,7 @@ export default {
 </script>
 <script setup lang="ts">
 import { computed, ref } from 'vue';
-import AppIcon from '../../atoms/app-icon/index.vue';
+import AppIcon from '../../atoms/va-icon/index.vue';
 
 const props = defineProps({
   appendIcon: {
@@ -32,7 +32,7 @@ const props = defineProps({
     validator (value: string) {
       const variants = ['rounded', 'squared', 'soft-squared'];
       return variants.includes(value);
-    }, 
+    },
   }
 });
 const closableIcon = ['fa-regular', 'fa-circle-xmark', 'app-chip__close'];
@@ -68,8 +68,8 @@ const hide = () => {
 </script>
 <template lang="pug">
 .app-chip(
-  v-if="show", 
-  :id="getId", 
+  v-if="show",
+  :id="getId",
   @click="emitValue",
   :class="[`app-chip--${variant}`]")
     app-icon(
@@ -80,8 +80,8 @@ const hide = () => {
     v-if="hasPrependIcon"
     :icon="prependIcon")
     span(
-    v-if="closable", 
-    :class="getClosableIcon", 
+    v-if="closable",
+    :class="getClosableIcon",
     @click="hide")
 </template>
 

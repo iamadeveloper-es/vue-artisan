@@ -5,7 +5,7 @@ export default {
 </script>
 <script setup lang="ts">
 import { computed, ref, type PropType } from 'vue';
-import AppIcon from '../../atoms/app-icon/index.vue';
+import AppIcon from '../../atoms/va-icon/index.vue';
 import { useComponentFunctions } from '../../../composables/component-functions';
 
 type Variant = 'transparent' | 'outline' | 'regular' | 'small' | 'big' | 'full-width' | 'round-regular' | 'round-medim' | 'round-big'
@@ -73,7 +73,7 @@ const getVariant = computed(() => {
 
 const getIconPosition = computed(() => {
   return props.text.length && props.iconPosition === 'left' ?
-    'has-text-right' : props.text.length && props.iconPosition === 'right' ? 
+    'has-text-right' : props.text.length && props.iconPosition === 'right' ?
       'has-text-left' : '';
 });
 
@@ -88,15 +88,15 @@ const emitEvent = (ev: Event): void => {
 <template lang="pug">
 button.app-button(
   ref="button"
-  :type="type", 
-  :class="[getVariant, `app-button--icon-${iconPosition}`, `app-button--${color}`, `b-radius--${borderRadius}`]", 
-  :disabled="disabled", 
+  :type="type",
+  :class="[getVariant, `app-button--icon-${iconPosition}`, `app-button--${color}`, `b-radius--${borderRadius}`]",
+  :disabled="disabled",
   @click="emitEvent")
     span.app-button--pointers-none {{ text }}
     app-icon(
     v-if="hasIcon",
     :icon="[icon, getIconPosition]",
-    :size="iconSize", 
+    :size="iconSize",
     :variant="iconVariant")
 </template>
 

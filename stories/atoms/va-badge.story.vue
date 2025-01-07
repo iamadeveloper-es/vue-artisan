@@ -1,7 +1,7 @@
 <script lang="ts" setup>
 import { reactive } from 'vue';
 import VaBadge from '../../src/components/atoms/va-badge/index.vue';
-import AppIcon from '../../src/components/atoms/app-icon/index.vue';
+import AppIcon from '../../src/components/atoms/va-icon/index.vue';
 
 const state = reactive({
   count: 78,

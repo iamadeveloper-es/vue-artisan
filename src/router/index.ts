@@ -9,7 +9,7 @@ import VaAvatar from '../components/atoms/va-avatar/demo/index.vue';
 import VaBadge from '../components/atoms/va-badge/demo/index.vue';
 import VaLink from '../components/atoms/va-link/demo/index.vue';
 import VaMoney from '../components/atoms/va-money/demo/index.vue';
-import AppIcon from '../components/atoms/app-icon/demo/index.vue';
+import VaIcon from '../components/atoms/va-icon/demo/index.vue';
 import VaIconSvg from '../components/atoms/va-icon-svg/demo/index.vue';
 import VaProgress from '../components/atoms/va-progress/demo/index.vue';
 import VaCircularProgress from '../components/atoms/va-circular-progress/demo/index.vue';
@@ -82,9 +82,9 @@ const router = createRouter({
           component: VaLink
         },
         {
-          path: '/app-icon',
-          name: 'APP_ICON',
-          component: AppIcon
+          path: '/va-icon',
+          name: 'VA_ICON',
+          component: VaIcon
         },
         {
           path: '/va-icon-svg',

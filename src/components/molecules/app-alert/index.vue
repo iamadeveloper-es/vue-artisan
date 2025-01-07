@@ -6,7 +6,7 @@ export default {
 
 <script setup lang="ts">
 import { computed, type Ref, ref, useSlots } from 'vue';
-import AppIcon from '../../atoms/app-icon/index.vue';
+import AppIcon from '../../atoms/va-icon/index.vue';
 
 const props = defineProps({
   alertType: {
@@ -56,16 +56,16 @@ defineExpose({
 
 <template lang="pug">
 transition(name="fade")
-    .app-alert(v-show="isVisible", 
+    .app-alert(v-show="isVisible",
     :class="`app-alert--${alertType}`")
         .app-alert__header
             app-icon(
             v-if="hasIcon"
-            :icon="closeIcon", 
-            :size="IconSize", 
+            :icon="closeIcon",
+            :size="IconSize",
             :variant="iconVariant"
             @iconClicked="hide")
-            button(v-else, 
+            button(v-else,
             @click="hide") {{ closeText }}
         .app-alert__body(v-if="hasSlot('body')")
           h2 hola
