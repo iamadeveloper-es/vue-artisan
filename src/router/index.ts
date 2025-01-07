@@ -35,7 +35,7 @@ import VaAlert from '../components/molecules/va-alert/demo/index.vue';
 import VaAccordion from '../components/molecules/va-accordion/demo/index.vue';
 import VaChip from '../components/molecules/va-chip/demo/index.vue';
 import VaBreadcrumbs from '../components/molecules/va-breadcrumbs/demo/index.vue';
-import AppDropdown from '../components/molecules/app-dropdown/demo/index.vue';
+import VaDropdown from '../components/molecules/va-dropdown/demo/index.vue';
 import AppRange from '../components/molecules/app-range/demo/index.vue';
 import AppRating from '../components/molecules/app-rating/demo/index.vue';
 
@@ -214,9 +214,9 @@ const router = createRouter({
           component: VaBreadcrumbs
         },
         {
-          path: '/app-dropdown',
-          name: 'APP_DROPDOWN',
-          component: AppDropdown
+          path: '/va-dropdown',
+          name: 'VA_DROPDOWN',
+          component: VaDropdown
         },
         {
           path: '/app-range',

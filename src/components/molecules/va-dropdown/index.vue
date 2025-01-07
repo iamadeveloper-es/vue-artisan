@@ -1,6 +1,6 @@
 <script lang="ts">
 export default {
-  name: 'app-dropdown-demo'
+  name: 'va-dropdown-demo'
 };
 </script>
 <script setup lang="ts">
@@ -23,10 +23,6 @@ defineProps({
 });
 const showMenu = ref(false);
 
-// const show = () => {
-//   showMenu.value = true;
-// };
-
 const hide = () => {
   showMenu.value = false;
 };
@@ -36,21 +32,34 @@ const toogleShow = () => {
 };
 </script>
 
-<template lang="pug">
-button.app-dropdown(@click="toogleShow",
-v-click-outside="hide",
-aria-haspopup="menu") {{ title }}
-    ul.app-dropdown__list(v-if="showMenu",
+<template>
+<button
+  class="va-dropdown"
+  @click="toogleShow"
+  v-click-outside="hide"
+  aria-haspopup="menu"
+> {{ title }}
+  <ul
+    class="va-dropdown__list"
+    v-if="showMenu"
     :class="showDirection"
-    role="menu",
-    tabindex="-1")
-        li.app-dropdown__item(v-for="(item, index) in items",
-        :key="index",
+    role="menu"
+    tabindex="-1"
+    >
+      <li
+        class="va-dropdown__item"
+        v-for="(item, index) in items"
+        :key="index"
         :class="showDirection"
-        role="presentation")
-          va-link(
-            role="menuitem"
-            v-bind="item")
+        role="presentation"
+      >
+        <VaLink
+          role="menuitem"
+          v-bind="item"
+        />
+      </li>
+    </ul>
+</button>
 </template>
 
 <style lang="scss">

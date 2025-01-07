@@ -1,10 +1,10 @@
 <script lang="ts">
 export default {
-  name: 'app-dropdown-demo'
+  name: 'va-dropdown-demo'
 };
 </script>
 <script setup lang="ts">
-import AppDropdown from '../index.vue';
+import VaDropdown from '../index.vue';
 
 const icon = ['fa-solid', 'fa-house'];
 const items = [
@@ -35,26 +35,32 @@ const items = [
 ];
 </script>
 
-<template lang="pug">
-.app-dropdown-demo 
-  app-dropdown(title="Dropdown bottom", 
-  :items="items")
-
-  app-dropdown(title="Dropdown top", 
-  :items="items", 
-  showDirection="top")
-
-  app-dropdown(title="Dropdown right", 
-  :items="items", 
-  showDirection="right")
-
-  app-dropdown(title="Dropdown left", 
-  :items="items", 
-  showDirection="left")
+<template>
+<div class="va-dropdown-demo">
+  <VaDropdown
+  title="Dropdown bottom"
+  :items="items"
+  />
+  <VaDropdown
+  title="Dropdown top"
+  :items="items"
+  showDirection="top"
+  />
+  <VaDropdown
+  title="Dropdown right"
+  :items="items"
+  showDirection="right"
+  />
+  <VaDropdown
+  title="Dropdown left"
+  :items="items"
+  showDirection="left"
+  />
+</div>
 </template>
 
 <style lang="scss">
-.app-dropdown-demo{
+.va-dropdown-demo{
   display: flex;
   gap: 7.5rem;
   flex-wrap: wrap;
