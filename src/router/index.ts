@@ -8,6 +8,7 @@ import AppTest from '../components/test.vue';
 import VaAvatar from '../components/atoms/va-avatar/demo/index.vue';
 import VaBadge from '../components/atoms/va-badge/demo/index.vue';
 import VaLink from '../components/atoms/va-link/demo/index.vue';
+import VaMoney from '../components/atoms/va-money/demo/index.vue';
 import AppIcon from '../components/atoms/app-icon/demo/index.vue';
 import AppIconSvg from '../components/atoms/app-icon-svg/demo/index.vue';
 import AppProgress from '../components/atoms/app-progress/demo/index.vue';
@@ -15,7 +16,6 @@ import AppCircularProgress from '../components/atoms/app-circular-progress/demo/
 import AppSwitch from '../components/atoms/app-switch/demo/index.vue';
 import AppPicture from '../components/atoms/app-picture/demo/index.vue';
 import AppImage from '../components/atoms/app-image/demo/index.vue';
-import AppMoney from '../components/atoms/app-money/demo/index.vue';
 
 //Molecules
 import AppButton from '../components/molecules/app-button/demo/index.vue';
@@ -117,9 +117,9 @@ const router = createRouter({
           component: AppSwitch
         },
         {
-          path: '/app-money',
-          name: 'APP_MONEY',
-          component: AppMoney
+          path: '/va-money',
+          name: 'VA_MONEY',
+          component: VaMoney
         }
       ]
     },

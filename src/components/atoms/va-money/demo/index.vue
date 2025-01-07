@@ -1,14 +1,14 @@
 <script lang="ts">
 export default {
-  name: 'app-money-demo'
+  name: 'va-money-demo'
 };
 </script>
 <script setup lang="ts">
 import { ref } from 'vue';
-import AppMoney from '../index.vue';
+import VaMoney from '../index.vue';
 
 const amount = 1475.56;
-const moneyModels: Object = ref([
+const moneyModels = ref([
   {
     desc: 'US Dollar model',
     lang: 'en-US',
@@ -35,20 +35,34 @@ const moneyModels: Object = ref([
 ]);
 </script>
 
-<template lang="pug">
-.app-money-demo
+<template>
+<div class="va-money-demo">
+  <div
+    class="flex"
+    v-for="(item, index) in moneyModels"
+    :key="index"
+  >
+    <span>{{ item.desc }}</span>
+    <VaMoney
+      :lang="item.lang"
+      :currency="item.currency"
+      :amount="item.amount"
+    />
+  </div>
+</div>
+<!-- .va-money-demo
     .flex(
-    v-for="(item, index) in moneyModels", 
+    v-for="(item, index) in moneyModels",
     :key="index")
         span {{ item.desc }}
         app-money(
-        :lang="item.lang", 
-        :currency="item.currency", 
-        :amount="item.amount")
+        :lang="item.lang",
+        :currency="item.currency",
+        :amount="item.amount") -->
 </template>
 
 <style lang="scss">
-.app-money-demo {
+.va-money-demo {
     display: flex;
     flex-direction: column;
     gap: 30px;

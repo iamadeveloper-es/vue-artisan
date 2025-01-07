@@ -1,6 +1,6 @@
 <script lang="ts">
 export default {
-  name: 'app-money'
+  name: 'va-money'
 };
 </script>
 <script setup lang="ts">
@@ -46,8 +46,8 @@ onMounted(() => {
 });
 </script>
 
-<template lang="pug">
-span.app-money {{ formatedNumber }}
+<template>
+<span class="va-money">{{ formatedNumber }}</span>
 </template>
 
 <style lang="scss">
