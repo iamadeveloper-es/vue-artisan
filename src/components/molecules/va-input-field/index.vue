@@ -1,6 +1,6 @@
 <script lang="ts">
 export default {
-  name: 'app-input-field'
+  name: 'va-input-field'
 };
 </script>
 
@@ -93,14 +93,14 @@ const id = ref('');
 
 
 const getIcon = computed(() => {
-  return showSecondaryIcon.value && props.iconOnToggle?.length ? 
+  return showSecondaryIcon.value && props.iconOnToggle?.length ?
     props.iconOnToggle :
     props.icon;
 });
 
 const setLabelPosition = computed(() => {
   return !props.floatingLabel && !props.outlinedLabel ?
-    `app-input-field--label-${props.labelPosition}` : '';
+    `va-input-field--label-${props.labelPosition}` : '';
 });
 
 const emit = defineEmits(['update:modelValue', 'onFocus', 'onBlur']);
@@ -152,37 +152,49 @@ onMounted(() => {
 
 </script>
 
-<template lang="pug">
-.app-input-field.form-field-wrapper(
-:class="[{'is-focused': (floatingLabel || outlinedLabel) && isFocused}, setLabelPosition, `form-field-wrapper--label-${labelPosition}`]")
-  .form-field-wrapper__inner
-    label.app-label(v-if="label", 
-    :class="{'accesible-hidden' : !showLabel, 'label-float' : floatingLabel, 'label-outlined' : outlinedLabel}", 
-    :for="id") {{ label }}
-    input.app-input(
-    :class="{'disabled': disabled, 'b-bottom': borderBottom, 'hide-placeholder' : floatingLabel, 'has-icon': modelValue.length && icon.length}"
-    :value="modelValue"
-    :type="inputType"
-    :id="id"
-    :name="name"
-    :placeholder="placeholder"
-    :aria-label="placeholder || label"
-    :aria-labelledby="ariaLabelledby"
-    :disabled="disabled"
-    :required="required"
-    :readonly="readonly"
-    :min="min"
-    :max="max"
-    :maxlength="maxlength"
-    :data-validations="validations"
-    @input="emitValue",
-    @focus="emitFocus",
-    @blur="emitBlur")
-    button.app-input-icon(v-if="modelValue.length && icon.length && !disabled", 
-    type="button",
-    @click="iconAction", 
-    :class="[getIcon, {'icon-float': floatingLabel || outlinedLabel}]")
-  span.form-error-message(:data-validation-error="`error-message-${id}`")
+<template>
+<div
+class="va-input-field form-field-wrapper"
+:class="[{'is-focused': (floatingLabel || outlinedLabel) && isFocused}, setLabelPosition, `form-field-wrapper--label-${labelPosition}`]"
+>
+  <div class="form-field-wrapper__inner">
+    <label
+      class="va-label"
+      v-if="label"
+      :class="{'accesible-hidden' : !showLabel, 'label-float' : floatingLabel, 'label-outlined' : outlinedLabel}"
+      :for="id"
+    >{{ label }}</label>
+    <input
+      class="va-input"
+      :class="{'disabled': disabled, 'b-bottom': borderBottom, 'hide-placeholder' : floatingLabel, 'has-icon': modelValue.length && icon.length}"
+      :value="modelValue"
+      :type="inputType"
+      :id="id"
+      :name="name"
+      :placeholder="placeholder"
+      :aria-label="placeholder || label"
+      :aria-labelledby="ariaLabelledby"
+      :disabled="disabled"
+      :required="required"
+      :readonly="readonly"
+      :min="min"
+      :max="max"
+      :maxlength="maxlength"
+      :data-validations="validations"
+      @input="emitValue"
+      @focus="emitFocus"
+      @blur="emitBlur"
+    >
+    <button
+      class="va-input-icon"
+      v-if="modelValue.length && icon.length && !disabled"
+      type="button"
+      @click="iconAction"
+      :class="[getIcon, {'icon-float': floatingLabel || outlinedLabel}]"
+      ></button>
+  </div>
+  <span class="form-error-message" :data-validation-error="`error-message-${id}`"></span>
+</div>
 </template>
 
 <style lang="scss">

@@ -1,12 +1,12 @@
 <script lang="ts">
 export default {
-  name: 'app-input-field-demo'
+  name: 'va-input-field-demo'
 };
 </script>
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import AppInputField from '../index.vue';
+import VaInputField from '../index.vue';
 
 const inputs = ref([
   {
@@ -76,33 +76,36 @@ const handleOnBlur = (ev: Event) => {
 };
 </script>
 
-<template lang="pug">
-.app-input-field-demo
-  p Inputs y sus variantes
-  template(v-for="(item, index) in inputs", :key="index")
-    app-input-field(
+<template>
+<div class="va-input-field-demo">
+  <p>Inputs y sus variantes</p>
+  <template v-for="(item, index) in inputs" :key="index">
+    <VaInputField
     :type="item.type"
     :name="item.name"
-    :label="item.label",
-    :placeholder="item.placeholder", 
-    :floatingLabel="item.floatingLabel",
+    :label="item.label"
+    :placeholder="item.placeholder"
+    :floatingLabel="item.floatingLabel"
     :outlinedLabel="item.outlinedLabel"
-    :borderBottom="item.borderBottom", 
-    :min="item.min",
-    :max="item.max",
-    :disabled="item.disabled",
-    :maxlength="item.maxlength",
-    :icon="item.icon",
-    :iconOnToggle="item.iconOnToggle",
-    v-model="item.value",
-    @onFocus="handleOnFocus", 
-    @onBlur="handleOnBlur")
-    p(v-if="item.value") Valor del input: {{ item.value }}
+    :borderBottom="item.borderBottom"
+    :min="item.min"
+    :max="item.max"
+    :disabled="item.disabled"
+    :maxlength="item.maxlength"
+    :icon="item.icon"
+    :iconOnToggle="item.iconOnToggle"
+    v-model="item.value"
+    @onFocus="handleOnFocus"
+    @onBlur="handleOnBlur"
+    />
+    <p v-if="item.value">Valor del input: {{ item.value }}</p>
+  </template>
+</div>
 </template>
 
 <style lang="scss">
-.app-input-field-demo {
-    .app-input-field {
+.va-input-field-demo {
+    .va-input-field {
         margin-top: 2rem;
     }
 }

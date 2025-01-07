@@ -19,7 +19,7 @@ import VaImage from '../components/atoms/va-image/demo/index.vue';
 
 //Molecules
 import VaButton from '../components/molecules/va-button/demo/index.vue';
-import AppInputField from '../components/molecules/app-input-field/demo/index.vue';
+import VaInputField from '../components/molecules/va-input-field/demo/index.vue';
 import VaCheckbox from '../components/molecules/va-checkbox/demo/index.vue';
 import VACounter from '../components/molecules/va-counter/demo/index.vue';
 import AppRadio from '../components/molecules/app-radio/demo/index.vue';
@@ -129,9 +129,9 @@ const router = createRouter({
       component: ComponentView,
       children: [
         {
-          path: '/app-input-field',
-          name: 'APP_INPUT_FIELD',
-          component: AppInputField
+          path: '/va-input-field',
+          name: 'VA_INPUT_FIELD',
+          component: VaInputField
         },
         {
           path: '/va-textarea',
