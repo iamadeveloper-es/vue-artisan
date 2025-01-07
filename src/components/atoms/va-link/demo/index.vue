@@ -1,11 +1,11 @@
 <script lang="ts">
 export default {
-  name: 'app-link-demo'
+  name: 'va-link-demo'
 };
 </script>
 <script setup lang="ts">
 import { ref } from 'vue';
-import AppLink from '../index.vue';
+import VaLink from '../index.vue';
 
 const icon = 'calendar';
 const links = ref([
@@ -51,24 +51,28 @@ const links = ref([
 ]);
 </script>
 
-<template lang="pug">
-.app-link-demo 
-    div(
-    v-for="(item, index) in links", 
-    :key="index")
-        app-link(
-        :path="item.path", 
-        :routeName="item.name"
-        :params="item.params", 
-        :queryParams="item.query"
-        :text="item.text", 
-        :icon="item.icon", 
-        :iconPosition="item.iconPosition",
-        :iconSpace="item.iconSpace")
+<template>
+<div class="va-link-demo">
+  <div
+    v-for="(item, index) in links"
+    :key="index"
+  >
+    <VaLink
+      :path="item.path"
+      :routeName="item.name"
+      :params="item.params"
+      :queryParams="item.query"
+      :text="item.text"
+      :icon="item.icon"
+      :iconPosition="item.iconPosition"
+      :iconSpace="item.iconSpace"
+    />
+  </div>
+</div>
 </template>
 
 <style lang="scss">
-.app-link-demo {
+.va-link-demo {
     display: flex;
     flex-direction: column;
     gap: 20px;

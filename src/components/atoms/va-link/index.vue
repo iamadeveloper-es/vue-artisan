@@ -1,12 +1,11 @@
 <script lang="ts">
 export default {
-  name: 'app-link'
+  name: 'va-link'
 };
 </script>
 <script setup lang="ts">
 import { computed } from 'vue';
-// import AppIcon from '../app-icon/index.vue';
-import AppIconSvg from '../app-icon-svg/index.vue';
+import VaIconSvg from '../app-icon-svg/index.vue';
 
 const props = defineProps({
   path: {
@@ -57,15 +56,15 @@ const hasIcon = computed((): Number | void => {
 const getVariant = computed((): string | string[] => {
   const variant: String | String[] | undefined = props.variant;
   return Array.isArray(variant)
-    ? variant.map((item) => `app-link--${item} `)
+    ? variant.map((item) => `va-link--${item} `)
     : variant
-      ? `app-link--${variant}`
+      ? `va-link--${variant}`
       : '';
 });
 
 const getIconPosition = computed((): string => {
   const position: string = props.iconPosition;
-  return hasIcon.value ? `app-link--icon-${position}` : '';
+  return hasIcon.value ? `va-link--icon-${position}` : '';
 });
 
 const getParams = computed((): Object | undefined => {
@@ -116,16 +115,20 @@ const buildRoute = computed((): Object => {
 
 </script>
 
-<template lang="pug">
-router-link.app-link(
-    :to="buildRoute"
-    :class="[getVariant, getIconPosition]")
-    span.app-link__text(v-if="text") {{ text }}
-    app-icon-svg(
+<template>
+<router-link
+class="va-link"
+:to="buildRoute"
+:class="[getVariant, getIconPosition]"
+>
+  <span class="va-link__text" v-if="text">{{ text }}</span>
+  <VaIconSvg
     v-if="hasIcon"
-    :icon="icon", 
-    :size="iconSize",
-    :space="iconSpace")
+    :icon="icon"
+    :size="iconSize"
+    :space="iconSpace"
+  />
+</router-link>
 </template>
 
 <style lang="scss">

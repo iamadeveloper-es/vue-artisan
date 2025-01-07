@@ -5,7 +5,7 @@ export default {
 </script>
 <script setup lang="ts">
 import { ref } from 'vue';
-import AppLink from '../../atoms/app-link/index.vue';
+import VaLink from '../../atoms/va-link/index.vue';
 
 defineProps({
   title: {
@@ -37,18 +37,18 @@ const toogleShow = () => {
 </script>
 
 <template lang="pug">
-button.app-dropdown(@click="toogleShow", 
-v-click-outside="hide", 
+button.app-dropdown(@click="toogleShow",
+v-click-outside="hide",
 aria-haspopup="menu") {{ title }}
-    ul.app-dropdown__list(v-if="showMenu", 
+    ul.app-dropdown__list(v-if="showMenu",
     :class="showDirection"
-    role="menu", 
-    tabindex="-1") 
-        li.app-dropdown__item(v-for="(item, index) in items", 
-        :key="index", 
+    role="menu",
+    tabindex="-1")
+        li.app-dropdown__item(v-for="(item, index) in items",
+        :key="index",
         :class="showDirection"
         role="presentation")
-          app-link(
+          va-link(
             role="menuitem"
             v-bind="item")
 </template>
