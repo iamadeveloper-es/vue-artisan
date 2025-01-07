@@ -1,6 +1,6 @@
 <script lang="ts" setup>
-import { ref, reactive } from 'vue';
-import AppBadge from '../../src/components/atoms/app-badge/index.vue';
+import { reactive } from 'vue';
+import VaBadge from '../../src/components/atoms/va-badge/index.vue';
 import AppIcon from '../../src/components/atoms/app-icon/index.vue';
 
 const state = reactive({
@@ -11,19 +11,19 @@ const state = reactive({
 </script>
 
 <template>
-    <Story title="atoms/app-badge" :layout="{ type: 'grid', width: 400}">
+    <Story title="atoms/va-badge" :layout="{ type: 'grid', width: 400}">
         <Variant>
-            <app-badge 
+            <va-badge
             :count="state.count"
             :show-bubble="state.showBubble">
                 <template #content>
                     <app-icon
                     :icon="['fa-regular', 'fa-envelope']"
                     :size="25"
-                    variant="primary"> 
+                    variant="primary">
                     </app-icon>
                 </template>
-            </app-badge>
+            </va-badge>
             <template #controls>
                 <HstText v-model="state.count" title="count" />
                 <HstCheckbox v-model="state.showBubble" title="showBubble" />

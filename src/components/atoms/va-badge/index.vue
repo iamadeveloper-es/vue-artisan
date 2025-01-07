@@ -1,6 +1,6 @@
 <script lang="ts">
 export default {
-  name: 'app-badge'
+  name: 'va-badge'
 };
 </script>
 <script setup lang="ts">
@@ -37,29 +37,39 @@ const props = defineProps({
 });
 
 const setCount = computed(() => {
-  const {count, maxCount} = props;
+  const { count, maxCount } = props;
   return count && Number(count) < maxCount ? count : `${maxCount - 1}+`;
 });
 
 const setVariant = computed(() => {
-  return `app-badge--${props.variant}`;
+  return `va-badge--${props.variant}`;
 });
 
 const setPosition = computed(() => {
   const validPositions = ['top-left', 'top-right', 'bottom-left', 'bottom-right'];
-  return validPositions.includes(props.position) ? 
+  return validPositions.includes(props.position) ?
     props.position : 'top-right';
 });
 
 </script>
 
-<template lang="pug">
-span.app-badge(:class="[setVariant, `app-badge--${setPosition}`, {[`app-badge--hide-count-${setPosition}`]: hideCount}]")
-  slot(name="content")
-  span.app-badge__bubble(
-    v-show="showBubble", 
-    :class="{ 'animate': animation }")
-    span.app-badge__count(v-if="!hideCount") {{setCount}}
+<template>
+  <span
+    class="va-badge"
+    :class="[setVariant, `va-badge--${setPosition}`, { [`va-badge--hide-count-${setPosition}`]: hideCount }]"
+  >
+    <slot name="content"></slot>
+    <span
+      class="va-badge__bubble"
+      v-show="showBubble"
+      :class="{ 'animate': animation }"
+    >
+      <span
+      class="va-badge__count"
+      v-if="!hideCount"
+      >{{ setCount }}</span>
+    </span>
+  </span>
 </template>
 
 <style lang="scss">

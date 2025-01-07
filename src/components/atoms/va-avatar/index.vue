@@ -77,22 +77,22 @@ const emitEvent = (ev: Event) => {
 
 <template>
     <div
-        class="va-avatar"
-        :style="{ width: getSize, height: getSize, color: textColor, 'background-color': bgColor }"
-        :class="[{ 'va-avatar--has-action': clickable, 'va-avatar--rounded': isRounded }]"
-        @click="emitEvent"
+      class="va-avatar"
+      :style="{ width: getSize, height: getSize, color: textColor, 'background-color': bgColor }"
+      :class="[{ 'va-avatar--has-action': clickable, 'va-avatar--rounded': isRounded }]"
+      @click="emitEvent"
     >
         <img
-            class="va-avatar__img"
-            v-if="display === 'img'"
-            :src="getImage"
-            :alt="userInfo.alt"
-            :class="{ circle: isRounded }"
+          class="va-avatar__img"
+          v-if="display === 'img'"
+          :src="getImage"
+          :alt="userInfo.alt"
+          :class="{ circle: isRounded }"
         />
         <span
-            class="va-avatar__initials"
-            v-else-if="display === 'name'"
-            :style="{ 'font-size': getFontSize, 'line-height': getFontSize }"
+          class="va-avatar__initials"
+          v-else-if="display === 'name'"
+          :style="{ 'font-size': getFontSize, 'line-height': getFontSize }"
         >
             <strong>{{ getInitials }}</strong>
         </span>

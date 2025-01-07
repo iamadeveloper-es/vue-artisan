@@ -1,8 +1,8 @@
-# AppBadge tutorial
+# VaBadge tutorial
 
 ## Descripción
 
-El componente `app-badge` es un indicador visual que se utiliza para mostrar notificaciones, contadores o estados.
+El componente `va-badge` es un indicador visual que se utiliza para mostrar notificaciones, contadores o estados.
 
 
 ## Slots
@@ -17,16 +17,16 @@ El componente `app-badge` es un indicador visual que se utiliza para mostrar not
 
 ```vue
 <template>
-  <app-badge 
+  <va-badge 
     :count="42" 
     variant="success" 
     position="bottom-left">
     <template #content>
       <img src="avatar.png" alt="User Avatar" />
     </template>
-  </app-badge>
+  </va-badge>
 </template>
 
 <script setup lang="ts">
-import AppBadge from '@iamadeveloper-es/vue-artisan/components/AppBadge.vue';
+import VaBadge from '@iamadeveloper-es/vue-artisan/components/VaBadge.vue';
 </script>
