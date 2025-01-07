@@ -1,6 +1,6 @@
 <script lang="ts">
 export default {
-  name: 'app-circular-progress'
+  name: 'va-circular-progress'
 };
 </script>
 <script setup lang="ts">
@@ -56,28 +56,37 @@ onMounted(() => {
 
 </script>
 
-<template lang="pug">
-.app-circular-progress(
-ref="progressElement", 
-role="progressbar", 
-:aria-valuenow="value")
-  span.app-circular-progress__counter {{value}} %
-  svg.progress-ring(
-    viewBox="0 0 120 120",
-    preserveAspectRatio="xMidYMid meet")
-    circle.progress-ring__circle(
-      :style="`--progress-color-inner:var(--${ringColorInner})`",
-      cx="50%",
-      cy="50%",
-      :r="radio")
-    circle.progress-ring__circle-progress(
+<template>
+<div
+class="va-circular-progress"
+ref="progressElement"
+role="progressbar"
+:aria-valuenow="value"
+>
+  <span class="va-circular-progress__counter">{{value}} %</span>
+  <svg
+    class="progress-ring"
+    viewBox="0 0 120 120"
+    preserveAspectRatio="xMidYMid meet"
+  >
+    <circle
+      class="progress-ring__circle"
+      :style="`--progress-color-inner:var(--${ringColorInner})`"
+      cx="50%"
+      cy="50%"
+      :r="radio"
+    ></circle>
+    <circle
+      class="progress-ring__circle-progress"
       :style="`--progress-color-outer:var(--${ringColorOuter})`"
-      cx="50%",
-      cy="50%",
-      :r="radio",
-      :stroke-dasharray="strokeDashArray",
-      :stroke-dashoffset="calcPercent")
-
+      cx="50%"
+      cy="50%"
+      :r="radio"
+      :stroke-dasharray="strokeDashArray"
+      :stroke-dashoffset="calcPercent"
+    ></circle>
+  </svg>
+</div>
 </template>
 
 <style lang="scss">

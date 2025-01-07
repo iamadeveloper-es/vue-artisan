@@ -12,7 +12,7 @@ import VaMoney from '../components/atoms/va-money/demo/index.vue';
 import AppIcon from '../components/atoms/app-icon/demo/index.vue';
 import AppIconSvg from '../components/atoms/app-icon-svg/demo/index.vue';
 import VaProgress from '../components/atoms/va-progress/demo/index.vue';
-import AppCircularProgress from '../components/atoms/app-circular-progress/demo/index.vue';
+import VaCircularProgress from '../components/atoms/va-circular-progress/demo/index.vue';
 import VaSwitch from '../components/atoms/va-switch/demo/index.vue';
 import VaPicture from '../components/atoms/va-picture/demo/index.vue';
 import VaImage from '../components/atoms/va-image/demo/index.vue';
@@ -107,9 +107,9 @@ const router = createRouter({
           component: VaProgress
         },
         {
-          path: '/app-circular-progress',
-          name: 'APP_CIRCULAR-PROGRESS',
-          component: AppCircularProgress
+          path: '/va-circular-progress',
+          name: 'VA_CIRCULAR-PROGRESS',
+          component: VaCircularProgress
         },
         {
           path: '/va-switch',
