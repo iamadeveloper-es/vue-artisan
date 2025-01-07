@@ -6,7 +6,7 @@ export default {
 <script setup lang="ts">
 import { ref } from 'vue';
 import AppSidebar from '../index.vue';
-import AppInputField from '../../../molecules/app-input-field/index.vue';
+import AppInputField from '../../../molecules/va-input-field/index.vue';
 import AppButton from '../../../molecules/va-button/index.vue';
 
 const showSidebarLeft = ref(false);

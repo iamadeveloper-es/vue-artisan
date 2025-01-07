@@ -6,7 +6,7 @@ export default {
 <script setup lang="ts">
 import { ref } from 'vue';
 import AppStepper from '../index.vue';
-import AppInputField from '../../../molecules/app-input-field/index.vue';
+import AppInputField from '../../../molecules/va-input-field/index.vue';
 
 const formOne = ref('');
 const formTwo = ref('');
@@ -20,43 +20,43 @@ const completedSteps = ref({
 });
 const steps = ref([
   {
-    label: 'Cuenta', 
+    label: 'Cuenta',
     text: '',
-    completed: false, 
+    completed: false,
     icon: {
       onEdit: ['fa-solid', 'fa-pen'],
       onClomplete: ['fa-solid', 'fa-check']
     }
   },
   {
-    label: 'Dirección', 
+    label: 'Dirección',
     text: '',
-    completed: false, 
+    completed: false,
     icon: {
-      onEdit: ['fa-solid', 'fa-pen'], 
+      onEdit: ['fa-solid', 'fa-pen'],
       onClomplete: ['fa-solid', 'fa-check']
     }
   },
   {
-    label: 'Pago', 
+    label: 'Pago',
     text: '',
-    completed: false, 
+    completed: false,
     icon: {
-      onEdit: ['fa-solid', 'fa-pen'], 
+      onEdit: ['fa-solid', 'fa-pen'],
       onClomplete: ['fa-solid', 'fa-check']
     }
   },
   {
-    label: 'Confirmación', 
+    label: 'Confirmación',
     text: '',
-    completed: false, 
+    completed: false,
     icon: {
-      onEdit: ['fa-solid', 'fa-pen'], 
+      onEdit: ['fa-solid', 'fa-pen'],
       onClomplete: ['fa-solid', 'fa-check']
     }
-  }, 
+  },
   // {
-  //   label: 'Confirmación', 
+  //   label: 'Confirmación',
   //   text: '5',
   //   completed: false
   // }
@@ -68,7 +68,7 @@ const handleEvent = (ev) => {
 };
 
 const handleSteps = (ev) => {
-      
+
   steps.value[ev].completed = true;
 };
 
@@ -102,11 +102,11 @@ const validateFormFourth = () => {
 </script>
 
 <template lang="pug">
-.app-stepper-demo 
-  app-stepper(:steps="steps", 
+.app-stepper-demo
+  app-stepper(:steps="steps",
   @clicked="handleEvent")
     template(#stepperContent)
-      form(v-if="!completedSteps.one", 
+      form(v-if="!completedSteps.one",
       @submit.prevent="validateFormOne")
         app-input-field(
         v-model="formOne",
@@ -115,7 +115,7 @@ const validateFormFourth = () => {
         :outlinedLabel="true")
         button(type="submit", :disabled="!formOne") Completar
 
-      form(v-if="completedSteps.one && !completedSteps.two", 
+      form(v-if="completedSteps.one && !completedSteps.two",
       @submit.prevent="validateFormTwo")
         app-input-field(
         v-model="formTwo",
@@ -124,7 +124,7 @@ const validateFormFourth = () => {
         :outlinedLabel="true")
         button(type="submit", :disabled="!formTwo") Completar
 
-      form(v-if="completedSteps.two && !completedSteps.three", 
+      form(v-if="completedSteps.two && !completedSteps.three",
       @submit.prevent="validateFormThree")
         app-input-field(
         v-model="formThree",
@@ -133,7 +133,7 @@ const validateFormFourth = () => {
         :outlinedLabel="true")
         button(type="submit", :disabled="!formThree") Completar
 
-      form(v-if="completedSteps.three && !completedSteps.fourth", 
+      form(v-if="completedSteps.three && !completedSteps.fourth",
       @submit.prevent="validateFormFourth")
         app-input-field(
         v-model="formFourth",
@@ -143,7 +143,7 @@ const validateFormFourth = () => {
         button(type="submit", :disabled="!formFourth") Finalizar
 
   div(v-if="completedSteps.fourth")
-    h3 Datos introducidos: 
+    h3 Datos introducidos:
     p Cuenta: {{ formOne }}
     p Dirección: {{ formTwo }}
     p Pago: {{ formThree }}

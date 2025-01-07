@@ -1,6 +1,6 @@
 // sum.test.js
 import { shallowMount } from '@vue/test-utils';
-import AppInputField from '../../../components/molecules/app-input-field/index.vue';
+import AppInputField from '../../../components/molecules/va-input-field/index.vue';
 import { expect, test, describe, beforeEach, vi } from 'vitest';
 
 
@@ -32,7 +32,7 @@ describe('app-input-field', () => {
   describe('Acciones', () => {
 
     test('modelValue debe ser actualizado', async () => {
-      
+
       await wrapper.find('input').setValue('test');
       expect(wrapper.props('modelValue')).toBe('test');
 
@@ -43,7 +43,7 @@ describe('app-input-field', () => {
     //   await wrapper.setProps({
     //     icon: ['fa-regular', 'fa-calendar']
     //   });
-      
+
     //   await wrapper.find('input').setValue('contenido');
     //   expect(wrapper.props('modelValue')).toBe('contenido');
 
@@ -90,19 +90,19 @@ describe('app-input-field', () => {
       //     await wrapper.setProps({
       //       icon: ['fa-regular', 'fa-calendar']
       //     });
-        
+
       //     await wrapper.find('input').setValue('contenido');
       //     expect(wrapper.props('modelValue')).toBe('contenido');
 
       //     const spy2 = vi.spyOn(wrapper.vm, 'iconAction');
-  
+
       //     await wrapper.find('span.app-input-icon').trigger('click');
 
-        
-      //     // expect(spy2).toHaveBeenCalled();
-      //     expect(wrapper.props('modelValue')).toBe(''); 
 
-  
+      //     // expect(spy2).toHaveBeenCalled();
+      //     expect(wrapper.props('modelValue')).toBe('');
+
+
       //   });
 
       //   test('iconAction llama a showPassword y muestra/oculta la contraseña si es type password', async () => {
@@ -111,12 +111,12 @@ describe('app-input-field', () => {
       //       type: 'password'
       //     });
 
-        
+
       //     await wrapper.find('input').setValue('contenido');
       //     expect(wrapper.props('modelValue')).toBe('contenido');
-  
+
       //     await wrapper.find('.app-input-icon').trigger('clicked');
-        
+
       //     expect(wrapper.vm.inputType).toBe('text');
 
     //   });
