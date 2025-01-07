@@ -1,12 +1,12 @@
 <script lang="ts">
 export default {
-  name: 'app-select-demo'
+  name: 'va-select-demo'
 };
 </script>
 
 <script setup lang="ts">
 import { onMounted, ref } from 'vue';
-import AppSelect from '../index.vue';
+import VaSelect from '../index.vue';
 
 const selected = ref('');
 const selected2 = ref('');
@@ -63,7 +63,7 @@ const options3 = [
   {
     value: '',
     text: 'Opción por defecto',
-    selected: true, 
+    selected: true,
     disabled: true,
     hidden: true,
   },
@@ -118,40 +118,42 @@ onMounted(() => {
 });
 </script>
 
-<template lang="pug">
-.app-select-demo 
-    app-select(
-    :options="options"
-    name="select-option-1",
-    label="Selecciona una opción", 
-    :floatingLabel="true",
-    v-model="selected")
-
-    app-select(
-    :options="options2"
-    name="select-option-2",
-    label="Selecciona una opción", 
-    :outlinedLabel="true",
-    v-model="selected2")
-
-    app-select(
-    :options="options3"
-    name="select-option-3",
-    label="Selecciona una opción", 
-    :floatingLabel="true",
-    v-model="selected3")
-
-    app-select(
-    :options="options4"
-    name="select-option-4",
-    label="Selecciona una opción sin selected", 
-    :floatingLabel="true",
-    v-model="selected4")
+<template>
+<div class="va-select-demo">
+  <VaSelect
+  :options="options"
+  name="select-option-1"
+  label="Selecciona una opción"
+  :floatingLabel="true"
+  v-model="selected"
+  />
+  <VaSelect
+  :options="options2"
+  name="select-option-2"
+  label="Selecciona una opción"
+  :outlinedLabel="true"
+  v-model="selected2"
+  />
+  <VaSelect
+  :options="options3"
+  name="select-option-3"
+  label="Selecciona una opción"
+  :floatingLabel="true"
+  v-model="selected3"
+  />
+  <VaSelect
+  :options="options4"
+  name="select-option-4"
+  label="Selecciona una opción sin selected"
+  :floatingLabel="true"
+  v-model="selected4"
+  />
+</div>
 </template>
 
 <style lang="scss">
-.app-select-demo {
-    .app-select {
+.va-select-demo {
+    .va-select {
         margin-bottom: 3rem;
     }
 }

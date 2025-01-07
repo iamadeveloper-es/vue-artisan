@@ -1,6 +1,6 @@
 <script lang="ts">
 export default {
-  name: 'app-select'
+  name: 'va-select'
 };
 </script>
 
@@ -60,7 +60,7 @@ const props = defineProps({
 });
 const { randomId } = useComponentFunctions();
 const id = ref('');
-  
+
 const emit = defineEmits(['update:modelValue', 'onChange']);
 
 const model = computed({
@@ -95,37 +95,47 @@ onMounted(() => {
 });
 </script>
 
-<template lang="pug">
-.app-select.form-field-wrapper(
-v-if="options.length",
+<template>
+<div
+class="va-select form-field-wrapper"
+v-if="options.length"
 :class="{'is-focused': outlinedLabel && modelValue || floatingLabel && modelValue || isSelected}"
-)
-  .form-field-wrapper__inner
-    select.app-input(
-    :id="id",
-    :name="name",
-    :autofocus="autofocus", 
-    :required="required",
-    :disabled="disabled",
-    :aria-label="label",
-    :size="size",
-    :multiple="multiple",
-    :data-validations="validations",
-    v-model="model",
-    @change="emitValue",
-    :class="{'b-bottom': borderBottom, 'disabled': disabled}")
-        option(v-for="(option, index) in options", 
-        :key="index", 
-        :value="option.value",
-        :selected="option.selected",
-        :disabled="option.disabled",
+>
+  <div class="form-field-wrapper__inner">
+    <select
+      class="va-input"
+      :id="id"
+      :name="name"
+      :autofocus="autofocus"
+      :required="required"
+      :disabled="disabled"
+      :aria-label="label"
+      :size="size"
+      :multiple="multiple"
+      :data-validations="validations"
+      v-model="model"
+      @change="emitValue"
+      :class="{'b-bottom': borderBottom, 'disabled': disabled}"
+    >
+      <option
+        v-for="(option, index) in options"
+        :key="index"
+        :value="option.value"
+        :selected="option.selected"
+        :disabled="option.disabled"
         :hidden="option.hidden"
-        ) {{ option.text }}
-    label.app-label(
-    :for="id",
-    :class="{ 'label-float': floatingLabel, 'label-outlined' : outlinedLabel, 'label-disabled': disabled}"
-    ) {{ label }}
-  span.form-error-message(:data-validation-error="`error-message-${id}`") df
+      >
+        {{ option.text }}
+      </option>
+    </select>
+    <label
+      class="va-label"
+      :for="id"
+      :class="{ 'label-float': floatingLabel, 'label-outlined' : outlinedLabel, 'label-disabled': disabled}"
+    >{{ label }}</label>
+  </div>
+  <span class="form-error-message" :data-validation-error="`error-message-${id}`"></span>
+</div>
 </template>
 
 <style lang="scss">
