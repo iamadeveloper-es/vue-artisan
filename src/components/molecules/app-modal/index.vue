@@ -7,7 +7,7 @@ export default {
 <script setup lang="ts">
 import { ref, useSlots, type Ref } from 'vue';
 import { useComponentFunctions } from '../../../composables/component-functions';
-import AppButton from '../app-button/index.vue';
+import AppButton from '../va-button/index.vue';
 
 const props = defineProps({
   backDrop: {
@@ -73,7 +73,7 @@ defineExpose({
 transition(:name="transition")
     .app-modal(
         ref="modal"
-        @click="hide($event)", 
+        @click="hide($event)",
         v-show="isModalVisible")
         .app-modal__content(data-dismiss="modal")
             .app-modal-dialog
@@ -81,19 +81,19 @@ transition(:name="transition")
                 :class="[headerClass, {'sticky' : headerSticky}]")
                     slot(name="header")
                     app-button(
-                    v-if="backDrop", 
+                    v-if="backDrop",
                     data-dismiss="modal",
-                    class="app-modal-dialog__close" 
-                    :class="closeIcon",  
+                    class="app-modal-dialog__close"
+                    :class="closeIcon",
                     @click="hide($event)")
                 .app-modal-dialog__full(v-if="hasSlot('full')")
                   slot(name="full")
                 .app-modal-dialog__body(
-                v-if="hasSlot('body')", 
+                v-if="hasSlot('body')",
                 :class="bodyClass")
                     slot(name="body")
                 .app-modal-dialog__footer(
-                v-if="hasSlot('footer')", 
+                v-if="hasSlot('footer')",
                 :class="[footerClass, {'sticky' : footerSticky}]")
                     slot(name="footer")
 </template>

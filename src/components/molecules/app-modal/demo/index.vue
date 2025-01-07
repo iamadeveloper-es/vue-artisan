@@ -6,7 +6,7 @@ export default {
 
 <script setup lang="ts">
 import { ref } from 'vue';
-import AppButton from '../../app-button/index.vue';
+import AppButton from '../../va-button/index.vue';
 import AppModal from '../index.vue';
 
 const modal1 = ref(null);

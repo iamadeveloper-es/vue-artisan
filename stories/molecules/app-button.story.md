@@ -25,7 +25,7 @@ El componente `app-button` es un botón reutilizable que admite texto, íconos y
 </template>
 
 <script setup lang="ts">
-import AppButton from '@iamadeveloper-es/vue-artisan/components/molecules/app-button/index.vue';
+import AppButton from '@iamadeveloper-es/vue-artisan/components/molecules/va-button/index.vue';
 
 const handleClick = (event: Event) => {
   console.log('Button clicked:', event);

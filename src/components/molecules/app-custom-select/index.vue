@@ -6,7 +6,7 @@ export default {
 <script setup lang="ts">
 import { computed, ref } from 'vue';
 // import AppIcon from '../../atoms/va-icon/index.vue';
-import AppButton from '../app-button/index.vue';
+import AppButton from '../va-button/index.vue';
 
 const props = defineProps({
   modelValue: {

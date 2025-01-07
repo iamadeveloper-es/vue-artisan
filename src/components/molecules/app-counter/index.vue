@@ -4,7 +4,7 @@ export default {
 };
 </script>
 <script setup lang="ts">
-import AppButton from '../../molecules/app-button/index.vue';
+import AppButton from '../../molecules/va-button/index.vue';
 import AppIcon from '../../atoms/va-icon/index.vue';
 
 const props = defineProps({

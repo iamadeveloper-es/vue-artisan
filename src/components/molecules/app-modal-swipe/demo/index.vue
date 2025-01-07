@@ -6,7 +6,7 @@ export default {
 
 <script setup lang="ts">
 import AppModalSwipe from '../index.vue';
-import AppButton from '../../app-button/index.vue';
+import AppButton from '../../va-button/index.vue';
 import { ref } from 'vue';
 
 const modal1 = ref(null);
@@ -28,11 +28,11 @@ const showModal3 = () => {
 
 <template lang="pug">
 .app-modal-swipe-demo
-    app-button(text="Mostrar modal desde abajo", 
+    app-button(text="Mostrar modal desde abajo",
     @clicked="showModal1")
-    app-button(text="Mostrar modal desde derecha", 
+    app-button(text="Mostrar modal desde derecha",
     @clicked="showModal2")
-    app-button(text="Mostrar modal desde izquierda", 
+    app-button(text="Mostrar modal desde izquierda",
     @clicked="showModal3")
     app-modal-swipe(ref="modal1")
         template(#header)
@@ -43,7 +43,7 @@ const showModal3 = () => {
         template(#footer)
             p Esto es el footer
 
-    app-modal-swipe(ref="modal2", 
+    app-modal-swipe(ref="modal2",
     showFrom="right")
         template(#header)
             h3 Modal 2 con scroll
@@ -53,7 +53,7 @@ const showModal3 = () => {
         template(#footer)
             p Esto es el footer
 
-    app-modal-swipe(ref="modal3", 
+    app-modal-swipe(ref="modal3",
     showFrom="left")
         template(#header)
             h3 Modal 2 con scroll

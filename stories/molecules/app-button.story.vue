@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { reactive } from 'vue';
-import AppButton from '../../src/components/molecules/app-button/index.vue';
+import AppButton from '../../src/components/molecules/va-button/index.vue';
 import { logEvent } from 'histoire/client';
 
 const regular = reactive({
@@ -31,7 +31,7 @@ const big = reactive({
 const roundMedium = reactive({
   counter: 0,
   variant: 'round-medium',
-  icon: ['fa-solid', 'fa-plus'], 
+  icon: ['fa-solid', 'fa-plus'],
   iconSize: 20
 });
 
@@ -92,10 +92,10 @@ const handleEvent = (button) => {
     <Variant title="Full width">
         <app-button v-bind="fullWidth" @clicked="handleEvent('fullWidth'), logEvent('clicked', $event)"></app-button>
         <p>{{ fullWidth.counter }}</p>
-        
+
         <!-- <template #source>
             <textarea v-pre>
-                <app-button 
+                <app-button
                 text="button"
                 variant="['regular', 'full-width']"
                 @clicked="handleEvent">
@@ -103,7 +103,7 @@ const handleEvent = (button) => {
             </textarea>
       </template> -->
     </Variant>
-    
+
 </Story>
 </template>
 

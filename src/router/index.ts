@@ -18,7 +18,7 @@ import VaPicture from '../components/atoms/va-picture/demo/index.vue';
 import VaImage from '../components/atoms/va-image/demo/index.vue';
 
 //Molecules
-import AppButton from '../components/molecules/app-button/demo/index.vue';
+import VaButton from '../components/molecules/va-button/demo/index.vue';
 import AppInputField from '../components/molecules/app-input-field/demo/index.vue';
 import AppCheckbox from '../components/molecules/app-checkbox/demo/index.vue';
 import AppCounter from '../components/molecules/app-counter/demo/index.vue';
@@ -164,9 +164,9 @@ const router = createRouter({
           component: AppCustomSelect
         },
         {
-          path: '/app-button',
-          name: 'APP_BUTTON',
-          component: AppButton
+          path: '/va-button',
+          name: 'VA_BUTTON',
+          component: VaButton
         },
         {
           path: '/app-tabs',

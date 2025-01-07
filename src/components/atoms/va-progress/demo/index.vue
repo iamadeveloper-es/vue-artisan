@@ -5,7 +5,7 @@ export default {
 </script>
 <script setup lang="ts">
 import VaProgress from '../index.vue';
-import VaButton from '../../../molecules/app-button/index.vue';
+import VaButton from '../../../molecules/va-button/index.vue';
 import { ref } from 'vue';
 
 const progressValue1 = ref(Math.floor(Math.random() * 100) + 1);

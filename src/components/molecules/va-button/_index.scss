@@ -1,7 +1,7 @@
 @import 'button-base-mixin';
 @import '../../../assets/scss/abstract/mixins/hover-current-color';
 
-.app-button {
+.va-button {
     @include hoverCurrentColor();
     position: relative;
     display: inline-flex;
@@ -80,7 +80,7 @@
         cursor: initial;
     }
 
-    .app-icon {
+    .va-icon {
         color: currentColor;
         
         &.has-text-right{

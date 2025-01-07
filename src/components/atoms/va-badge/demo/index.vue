@@ -7,7 +7,7 @@ export default {
 import { ref } from 'vue';
 import VaBadge from '../index.vue';
 import VaIconSvg from '../../va-icon-svg/index.vue';
-import VaButton from '../../../molecules/app-button/index.vue';
+import VaButton from '../../../molecules/va-button/index.vue';
 
 const badgeCount1 = ref(9);
 const badgeCount2 = ref(78);

@@ -1,14 +1,14 @@
 <script lang="ts">
 export default {
-  name: 'app-button'
+  name: 'va-button'
 };
 </script>
 <script setup lang="ts">
 import { computed, ref, type PropType } from 'vue';
-import AppIcon from '../../atoms/va-icon/index.vue';
+import VaIcon from '../../atoms/va-icon/index.vue';
 import { useComponentFunctions } from '../../../composables/component-functions';
 
-type Variant = 'transparent' | 'outline' | 'regular' | 'small' | 'big' | 'full-width' | 'round-regular' | 'round-medim' | 'round-big'
+type Variant = 'transparent' | 'outline' | 'regular' | 'small' | 'big' | 'full-width' | 'round-regular' | 'round-medium' | 'round-big'
 type IconPosition = 'left' | 'right'
 
 const props = defineProps({
@@ -67,8 +67,8 @@ const hasIcon = computed(() => {
 const getVariant = computed(() => {
   const variant = props.variant;
   return Array.isArray(variant)
-    ? variant.map((item) => `app-button--${item} `)
-    : `app-button--${variant}`;
+    ? variant.map((item) => `va-button--${item} `)
+    : `va-button--${variant}`;
 });
 
 const getIconPosition = computed(() => {
@@ -85,19 +85,23 @@ const emitEvent = (ev: Event): void => {
 };
 </script>
 
-<template lang="pug">
-button.app-button(
-  ref="button"
-  :type="type",
-  :class="[getVariant, `app-button--icon-${iconPosition}`, `app-button--${color}`, `b-radius--${borderRadius}`]",
-  :disabled="disabled",
-  @click="emitEvent")
-    span.app-button--pointers-none {{ text }}
-    app-icon(
-    v-if="hasIcon",
-    :icon="[icon, getIconPosition]",
-    :size="iconSize",
-    :variant="iconVariant")
+<template>
+<button
+class="va-button"
+ref="button"
+:type="type"
+:class="[getVariant, `va-button--icon-${iconPosition}`, `va-button--${color}`, `b-radius--${borderRadius}`]"
+:disabled="disabled"
+@click="emitEvent"
+>
+  <span class="va-button--pointers-none">{{ text }}</span>
+  <VaIcon
+    v-if="hasIcon"
+    :icon="[icon, getIconPosition]"
+    :size="iconSize"
+    :variant="iconVariant"
+  />
+</button>
 </template>
 
 <style lang="scss">

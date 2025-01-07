@@ -7,7 +7,7 @@ export default {
 import { ref } from 'vue';
 import AppSidebar from '../index.vue';
 import AppInputField from '../../../molecules/app-input-field/index.vue';
-import AppButton from '../../../molecules/app-button/index.vue';
+import AppButton from '../../../molecules/va-button/index.vue';
 
 const showSidebarLeft = ref(false);
 const showSidebarRight = ref(false);
@@ -32,7 +32,7 @@ const onSubmit = () => {
 
 <template lang="pug">
 .app-sidebar-demo
-  app-sidebar(:show="showSidebarLeft", 
+  app-sidebar(:show="showSidebarLeft",
   :showLeft="true")
     template(#sidebarContent)
       h3 Ejemplo de sidebar lateral izquierdo
@@ -55,14 +55,14 @@ const onSubmit = () => {
         label="Profesión",
         :floatingLabel="true")
 
-        app-button(type="submit", 
+        app-button(type="submit",
         text="Enviar")
 
-      app-button(@clicked="showHideLeft", 
-      text="Cerrar sidebar", 
+      app-button(@clicked="showHideLeft",
+      text="Cerrar sidebar",
       :variant="['regular', 'full-width']")
 
-  app-sidebar(:show="showSidebarRight", 
+  app-sidebar(:show="showSidebarRight",
   :showLeft="false")
     template(#sidebarContent)
       h3 Ejemplo de sidebar lateral derecho
@@ -85,18 +85,18 @@ const onSubmit = () => {
         label="Profesión",
         :floatingLabel="true")
 
-        app-button(type="submit", 
+        app-button(type="submit",
         text="Enviar")
 
-      app-button(@clicked="showHideRight", 
-      text="Cerrar sidebar", 
+      app-button(@clicked="showHideRight",
+      text="Cerrar sidebar",
       :variant="['regular', 'full-width']")
-  .flex 
+  .flex
     div
-      app-button(@clicked="showHideLeft", 
+      app-button(@clicked="showHideLeft",
       text="Toggle sidebar left")
     div
-      app-button(@clicked="showHideRight", 
+      app-button(@clicked="showHideRight",
       text="Toggle sidebar right")
 </template>
 
