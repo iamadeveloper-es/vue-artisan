@@ -27,7 +27,7 @@ import VaTextarea from '../components/molecules/va-textarea/demo/index.vue';
 import VaSelect from '../components/molecules/va-select/demo/index.vue';
 import VaCustomSelect from '../components/molecules/va-custom-select/demo/index.vue';
 import VaTabs from '../components/molecules/va-tabs/demo/index.vue';
-import AppModal from '../components/molecules/app-modal/demo/index.vue';
+import VaModal from '../components/molecules/va-modal/demo/index.vue';
 import VaModalV2 from '../components/molecules/va-modal-v2/demo/index.vue';
 import VaModalSwipe from '../components/molecules/va-modal-swipe/demo/index.vue';
 import VaSnackbar from '../components/molecules/va-snackbar/demo/index.vue';
@@ -174,9 +174,9 @@ const router = createRouter({
           component: VaTabs
         },
         {
-          path: '/app-modal',
-          name: 'APP_MODAL',
-          component: AppModal
+          path: '/va-modal',
+          name: 'VA_MODAL',
+          component: VaModal
         },
         {
           path: '/va-modal-v2',

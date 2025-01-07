@@ -1,13 +1,13 @@
 <script lang="ts">
 export default {
-  name: 'app-modal'
+  name: 'va-modal'
 };
 </script>
 
 <script setup lang="ts">
 import { ref, useSlots, type Ref } from 'vue';
 import { useComponentFunctions } from '../../../composables/component-functions';
-import AppButton from '../va-button/index.vue';
+import VaButton from '../va-button/index.vue';
 
 const props = defineProps({
   backDrop: {
@@ -55,7 +55,7 @@ const hide = (ev: Event): void => {
   if (target.getAttribute('data-dismiss') === 'modal' && props.backDrop) {
     isModalVisible.value = false;
   }
-  if (target.classList.contains('app-modal-dialog__close')) {
+  if (target.classList.contains('va-modal-dialog__close')) {
     rippleEffect(ev, ev.target);
   }
 };
@@ -69,33 +69,29 @@ defineExpose({
 
 </script>
 
-<template lang="pug">
-transition(:name="transition")
-    .app-modal(
-        ref="modal"
-        @click="hide($event)",
-        v-show="isModalVisible")
-        .app-modal__content(data-dismiss="modal")
-            .app-modal-dialog
-                .app-modal-dialog__header(
-                :class="[headerClass, {'sticky' : headerSticky}]")
-                    slot(name="header")
-                    app-button(
-                    v-if="backDrop",
-                    data-dismiss="modal",
-                    class="app-modal-dialog__close"
-                    :class="closeIcon",
-                    @click="hide($event)")
-                .app-modal-dialog__full(v-if="hasSlot('full')")
-                  slot(name="full")
-                .app-modal-dialog__body(
-                v-if="hasSlot('body')",
-                :class="bodyClass")
-                    slot(name="body")
-                .app-modal-dialog__footer(
-                v-if="hasSlot('footer')",
-                :class="[footerClass, {'sticky' : footerSticky}]")
-                    slot(name="footer")
+<template>
+
+<transition :name="transition">
+  <div class="va-modal" ref="modal" @click="hide($event)" v-show="isModalVisible">
+    <div class="va-modal__content" data-dismiss="modal">
+      <div class="va-modal-dialog">
+        <div class="va-modal-dialog__header" :class="[headerClass, {'sticky' : headerSticky}]">
+          <slot name="header"></slot>
+          <va-button class="va-modal-dialog__close" v-if="backDrop" data-dismiss="modal" :class="closeIcon" @click="hide($event)"></va-button>
+        </div>
+        <div class="va-modal-dialog__full" v-if="hasSlot('full')">
+          <slot name="full"></slot>
+        </div>
+        <div class="va-modal-dialog__body" v-if="hasSlot('body')" :class="bodyClass">
+          <slot name="body"></slot>
+        </div>
+        <div class="va-modal-dialog__footer" v-if="hasSlot('footer')" :class="[footerClass, {'sticky' : footerSticky}]">
+          <slot name="footer"></slot>
+        </div>
+      </div>
+    </div>
+  </div>
+</transition>
 </template>
 
 <style lang="scss">
