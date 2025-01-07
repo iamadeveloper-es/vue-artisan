@@ -1,12 +1,12 @@
 <script lang="ts">
 export default {
-  name: 'app-accordion'
+  name: 'va-accordion'
 };
 </script>
 <script setup lang="ts">
 import { computed, ref } from 'vue';
 import { useComponentFunctions } from '../../../composables/component-functions';
-import AppIcon from '../../atoms/va-icon/index.vue';
+import VaIcon from '../../atoms/va-icon/index.vue';
 
 const props = defineProps({
   modelValue: {
@@ -81,10 +81,54 @@ const leave = (el: HTMLElement) => {
 };
 </script>
 
-<template lang="pug">
-.app-accordion(ref="accordion")
-    .app-accordion__header
-        input.app-accordion__input(
+<template>
+<div
+class="va-accordion"
+ref="accordion"
+>
+  <div class="va-accordion__header">
+    <input
+      class="va-accordion__input"
+      type="checkbox"
+      :id="setId"
+      :value="setId"
+      :name="setId"
+      @change="emitValue"
+    >
+    <label
+      class="accesible-hidden"
+      :for="setId"
+    >{{ title }}</label>
+    <span class="va-accordion__label ">{{ title }}</span>
+    <VaIcon
+      :class="iconClass"
+      :icon="getIcon"
+      :size="iconSize"
+      :variant="iconVariant"
+      :onActiveIcon="onActiveIcon"
+      :isClicked="isSelected"
+    />
+  </div>
+  <transition
+    name="accordion"
+    v-on:before-enter="beforeEnter"
+    v-on:enter="enter"
+    v-on:before-leave="beforeLeave"
+    v-on:leave="leave"
+  >
+    <div
+      class="va-accordion__body"
+      v-show="isSelected"
+    >
+      <div class="body-inner">
+        <slot name="content"></slot>
+      </div>
+    </div>
+  </transition>
+</div>
+<!-- .va-accordion(ref="accordion")
+    .va-accordion__header
+        input.va-accordion__input(
         type="checkbox",
         :id="setId",
         :value="setId",
@@ -92,8 +136,8 @@ const leave = (el: HTMLElement) => {
         @change="emitValue")
         label.accesible-hidden(
         :for="setId") {{ title }}
-        span.app-accordion__label {{ title }}
-        app-icon(
+        span.va-accordion__label {{ title }}
+        va-icon(
         :class="iconClass"
         :icon="getIcon",
         :size="iconSize",
@@ -106,9 +150,9 @@ const leave = (el: HTMLElement) => {
     v-on:enter="enter",
     v-on:before-leave="beforeLeave",
     v-on:leave="leave")
-        .app-accordion__body(v-show="isSelected")
+        .va-accordion__body(v-show="isSelected")
             .body-inner
-                slot(name="content")
+                slot(name="content") -->
 </template>
 
 <style lang="scss">
