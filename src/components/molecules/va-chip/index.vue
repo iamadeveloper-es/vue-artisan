@@ -1,11 +1,11 @@
 <script lang="ts">
 export default {
-  name: 'app-chip'
+  name: 'va-chip'
 };
 </script>
 <script setup lang="ts">
 import { computed, ref } from 'vue';
-import AppIcon from '../../atoms/va-icon/index.vue';
+import VaIcon from '../../atoms/va-icon/index.vue';
 
 const props = defineProps({
   appendIcon: {
@@ -35,7 +35,7 @@ const props = defineProps({
     },
   }
 });
-const closableIcon = ['fa-regular', 'fa-circle-xmark', 'app-chip__close'];
+const closableIcon = ['fa-regular', 'fa-circle-xmark', 'va-chip__close'];
 const show = ref(true);
 
 const hasAppendIcon = computed(() => {
@@ -66,23 +66,29 @@ const hide = () => {
   show.value = false;
 };
 </script>
-<template lang="pug">
-.app-chip(
-  v-if="show",
-  :id="getId",
-  @click="emitValue",
-  :class="[`app-chip--${variant}`]")
-    app-icon(
+<template>
+<div
+class="va-chip"
+v-if="show"
+:id="getId"
+@click="emitValue"
+:class="[`va-chip--${variant}`]"
+>
+  <VaIcon
     v-if="hasAppendIcon"
-    :icon="appendIcon")
-    span.app-chip__text {{ text }}
-    app-icon(
+    :icon="appendIcon"
+  />
+  <span class="va-chip__text">{{ text }}</span>
+  <VaIcon
     v-if="hasPrependIcon"
-    :icon="prependIcon")
-    span(
-    v-if="closable",
-    :class="getClosableIcon",
-    @click="hide")
+    :icon="prependIcon"
+  />
+  <span
+    v-if="closable"
+    :class="getClosableIcon"
+    @click="hide"
+  ></span>
+</div>
 </template>
 
 <style lang="scss">
