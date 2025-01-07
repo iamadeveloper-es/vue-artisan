@@ -25,7 +25,7 @@ import VACounter from '../components/molecules/va-counter/demo/index.vue';
 import AppRadio from '../components/molecules/app-radio/demo/index.vue';
 import AppTextarea from '../components/molecules/app-textarea/demo/index.vue';
 import AppSelect from '../components/molecules/app-select/demo/index.vue';
-import AppCustomSelect from '../components/molecules/app-custom-select/demo/index.vue';
+import VaCustomSelect from '../components/molecules/va-custom-select/demo/index.vue';
 import AppTabs from '../components/molecules/app-tabs/demo/index.vue';
 import AppModal from '../components/molecules/app-modal/demo/index.vue';
 import AppModalV2 from '../components/molecules/app-modal-v2/demo/index.vue';
@@ -159,9 +159,9 @@ const router = createRouter({
           component: AppSelect
         },
         {
-          path: '/app-custom-select',
-          name: 'APP_CUSTOM_SELECT',
-          component: AppCustomSelect
+          path: '/va-custom-select',
+          name: 'VA_CUSTOM_SELECT',
+          component: VaCustomSelect
         },
         {
           path: '/va-button',

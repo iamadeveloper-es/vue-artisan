@@ -1,12 +1,12 @@
 <script lang="ts">
 export default {
-  name: 'app-custom-select'
+  name: 'va-custom-select'
 };
 </script>
 <script setup lang="ts">
 import { computed, ref } from 'vue';
 // import AppIcon from '../../atoms/va-icon/index.vue';
-import AppButton from '../va-button/index.vue';
+import VaButton from '../va-button/index.vue';
 
 const props = defineProps({
   modelValue: {
@@ -85,12 +85,64 @@ const hide = () => {
 };
 </script>
 
-<template lang="pug">
-.app-custom-select(v-click-outside="hide")
-    span.app-label(
+<template>
+<div
+class="va-custom-select"
+v-click-outside="hide"
+>
+  <span
+  class="va-label"
+  role="label"
+  :class="[{'label-float': floatingLabel, 'is-focused' : modelValue && floatingLabel || modelValue && outlinedLabel, 'label-outlined' : outlinedLabel}]"
+  >{{ label }}</span>
+  <VaButton
+    @clicked="toggleOptions"
+    :text="modelValue"
+    :cClass="['va-input', {'b-bottom': borderBottom}, iconClass]"
+    :icon="getIcon"
+    :iconSize="iconSize"
+    :disableRipple="true"
+  />
+  <ol
+    v-show="show"
+    class="va-custom-select__options"
+    role="listbox"
+    :tabindex="show ? -1 : 0"
+  >
+    <li
+      class="va-custom-select__li"
+      v-for="(option, index) in options"
+      :key="index"
+      role="option"
+      :aria-labelledby="`list-item-${index}`"
+      @keyup.enter="toggleOptions"
+    >
+      <input
+        class="va-custom-select__input"
+        aria-hidden="true"
+        role="radio"
+        type="radio"
+        :id="`list-item-${index}`"
+        :name="inputName"
+        :disabled="option.disabled"
+        :hidden="option.disabled"
+        :value="option.value"
+        @change="emitValue($event)"
+        @focus="emitFocus"
+        @blur="emitBlur"
+      >
+      <label
+        class="va-custom-select__label"
+        :for="`list-item-${index}`"
+      >{{ option.label }}</label>
+    </li>
+  </ol>
+</div>
+<!-- .va-custom-select(v-click-outside="hide")
+    span.va-label(
     role="label",
     :class="[{'label-float': floatingLabel, 'is-focused' : modelValue && floatingLabel || modelValue && outlinedLabel, 'label-outlined' : outlinedLabel}]") {{ label }}
-    app-button.app-input(
+    va-button.va-input(
     @clicked="toggleOptions",
     :text="modelValue",
     :cClass="[{'b-bottom': borderBottom}, iconClass]",
@@ -98,16 +150,16 @@ const hide = () => {
     :iconSize="iconSize",
     :disableRipple="true")
     ol(v-show="show",
-    class="app-custom-select__options",
+    class="va-custom-select__options",
     role="listbox",
     :tabindex="show ? -1 : 0")
-        li.app-custom-select__li(
+        li.va-custom-select__li(
         v-for="(option, index) in options",
         :key="index",
         role="option",
         :aria-labelledby="`list-item-${index}`",
         @keyup.enter="toggleOptions")
-            input.app-custom-select__input(
+            input.va-custom-select__input(
             aria-hidden="true",
             role="radio",
             type="radio",
@@ -119,8 +171,8 @@ const hide = () => {
             @change="emitValue($event)",
             @focus="emitFocus",
             @blur="emitBlur")
-            label.app-custom-select__label(
-            :for="`list-item-${index}`") {{option.label}}
+            label.va-custom-select__label(
+            :for="`list-item-${index}`") {{option.label}} -->
 </template>
 
 <style lang="scss">

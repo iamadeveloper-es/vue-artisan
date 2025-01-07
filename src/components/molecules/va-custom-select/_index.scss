@@ -1,8 +1,8 @@
-.app-custom-select {
+.va-custom-select {
     position: relative;
     cursor: pointer;
 
-    .app-label {
+    .va-label {
         &.label-float.is-focused {
             opacity: 0.8;
             transform: translateY(-0px) scale(0.65);
@@ -15,7 +15,7 @@
         }
     }
 
-    .app-button {
+    .va-button {
         width: 100%;
         padding: 10px 10px;
         min-height: 50px;
@@ -88,15 +88,15 @@
         cursor: pointer;
     }
 
-    .app-icon {
+    .va-icon {
         pointer-events: none;
     }
 
-    .collapse-open .app-icon {
+    .collapse-open .va-icon {
         transform: rotate(-180deg);
         transition: transform 0.2s ease-in-out;
     }
-    .collapse-close .app-icon {
+    .collapse-close .va-icon {
         transform: rotate(0deg);
         transition: transform 0.2s ease-in-out;
     }
