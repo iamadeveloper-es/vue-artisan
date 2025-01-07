@@ -1,6 +1,6 @@
 <script lang="ts">
 export default {
-  name: 'app-range'
+  name: 'va-range'
 };
 </script>
 
@@ -26,7 +26,7 @@ const props = defineProps({
     default: 0
   },
   max: {
-    type: Number, 
+    type: Number,
     default: 100
   },
   step: {
@@ -38,13 +38,13 @@ const props = defineProps({
     default: 'small'
   },
   rangeHeight: {
-    type: Number, 
+    type: Number,
     default: 8
   },
   showOutput: {
     type: Boolean,
     default: false
-  }, 
+  },
   outputPosition: {
     type: String,
     default: 'top'
@@ -55,14 +55,14 @@ const id = ref('');
 const input: Ref<null> | Ref<HTMLInputElement> = ref(null) as unknown as HTMLInputElement;
 const output = ref(null);
 const variantSize: Object = {
-  small: 2, 
+  small: 2,
   medium: 6,
   big: 10
 };
 const variant: Ref<number> = ref(0);
 
 const setOutputPos = computed(() => {
-  return props.showOutput ? `app-range--output-${props.outputPosition}` : '';
+  return props.showOutput ? `va-range--output-${props.outputPosition}` : '';
 });
 
 const emit = defineEmits(['update:modelValue']);
@@ -75,7 +75,7 @@ const emitValue = (ev: Event) => {
   }
 };
 
-const setRangeSizes = () => { 
+const setRangeSizes = () => {
   const rangeThumbSize = props.rangeHeight * 2 + variant.value;
   const rangePosition = (props.rangeHeight / 2) + variant.value / 2;
 
@@ -120,25 +120,35 @@ onMounted(() => {
 
 </script>
 
-<template lang="pug">
-.app-range(
-:class="setOutputPos") 
-    label.app-label(v-if="label", 
-    :class="'accesible-hidden'", 
-    :for="id") {{ label }}
-    input.app-range__input(
-    type="range",
+<template>
+<div
+class="va-range"
+:class="setOutputPos"
+>
+  <label
+    class="va-label"
+    v-if="label"
+    :class="'accesible-hidden'"
+    :for="id"
+  ></label>
+  <input
+    class="va-range__input"
+    type="range"
     ref="input"
-    :name="name",
-    :id="id", 
-    :min="min", 
-    :max="max", 
-    :step="step", 
-    :value="modelValue" 
-    @input="emitValue")
-    output.app-range__output(
+    :name="name"
+    :id="id"
+    :min="min"
+    :max="max"
+    :step="step"
+    :value="modelValue"
+    @input="emitValue"
+  >
+  <output
+    class="va-range__output"
     v-if="showOutput"
-    ref="output") {{ modelValue }}
+    ref="output"
+  >{{ modelValue }}</output>
+</div>
 </template>
 
 <style lang="scss">
