@@ -14,7 +14,7 @@ import AppIconSvg from '../components/atoms/app-icon-svg/demo/index.vue';
 import AppProgress from '../components/atoms/app-progress/demo/index.vue';
 import AppCircularProgress from '../components/atoms/app-circular-progress/demo/index.vue';
 import VaSwitch from '../components/atoms/va-switch/demo/index.vue';
-import AppPicture from '../components/atoms/app-picture/demo/index.vue';
+import VaPicture from '../components/atoms/va-picture/demo/index.vue';
 import VaImage from '../components/atoms/va-image/demo/index.vue';
 
 //Molecules
@@ -92,9 +92,9 @@ const router = createRouter({
           component: AppIconSvg
         },
         {
-          path: '/app-picture',
-          name: 'APP_PICTURE',
-          component: AppPicture
+          path: '/va-picture',
+          name: 'VA_PICTURE',
+          component: VaPicture
         },
         {
           path: '/va-image',
