@@ -1,15 +1,15 @@
 // sum.test.js
 import { shallowMount } from '@vue/test-utils';
-import AppSwitch from '../../../components/atoms/app-switch/index.vue';
+import VaSwitch from '../../../components/atoms/va-switch/index.vue';
 import { expect, test, describe, beforeEach } from 'vitest';
 
 
 
-const wrapper = shallowMount(AppSwitch, {
+const wrapper = shallowMount(VaSwitch, {
   props: {}
 });
 
-describe('app-money', () => {
+describe('va-money', () => {
 
   beforeEach(async () => {
     // Clear mocks and add some testing data after before each test run

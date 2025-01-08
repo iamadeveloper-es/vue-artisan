@@ -14,11 +14,13 @@ const setComponentName = computed(() => {
 });
 </script>
 
-<template lang="pug">
-.app-info-component
-  .app-info-component__wrapper
-    h3 {{ setComponentName }}
-    router-view
+<template>
+<div class="va-info-component">
+  <div class="va-info-component__wrapper">
+    <h3>{{ setComponentName }}</h3>
+    <router-view></router-view>
+  </div>
+</div>
 </template>
 
 <style lang="scss">

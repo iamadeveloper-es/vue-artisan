@@ -9,12 +9,14 @@ export default {
 };
 </script>
 
-<template lang="pug">
-.app-wrapper
-  header
-    h1 Vue Artisan
-    h2 Set minimalísta de componentes
-  dashboard
+<template>
+<div class="va-wrapper">
+  <header>
+    <h1>Vue Artisan</h1>
+    <h2>Set minimalísta de componentes</h2>
+  </header>
+  <dashboard></dashboard>
+</div>
 </template>
 
 <style lang="scss" scoped>
@@ -22,7 +24,7 @@ body{
   padding: 0;
   margin: 0;
 }
-.app-wrapper{
+.va-wrapper{
   // padding: .75em;
 
   header{
