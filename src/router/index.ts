@@ -50,7 +50,6 @@ import VaCard from '../components/cells/va-card/demo/index.vue';
 
 //Organisms
 import floatingMenu from '../components/organisms/floating-menu/demo/index.vue';
-import AppSlider from '../components/organisms/app-slider/demo/index.vue';
 import AppGridFlex from '../components/organisms/app-grid-flex/demo/index.vue';
 
 const router = createRouter({
@@ -281,11 +280,6 @@ const router = createRouter({
           path: '/floating-menu',
           name: 'FLOATING_MENU',
           component: floatingMenu
-        },
-        {
-          path: '/app-slider',
-          name: 'APP_SLIDER',
-          component: AppSlider
         },
         {
           path: '/app-grid-flex',

@@ -1,11 +1,11 @@
 <script lang="ts">
 export default {
-  name: 'app-slider-demo'
+  name: 'va-slider-demo'
 };
 </script>
 
 <script setup lang="ts">
-import AppSlider from '../index.vue';
+import VaSlider from '../index.vue';
 
 const items = [
   {
@@ -35,7 +35,9 @@ const items = [
 ];
 </script>
 
-<template lang="pug">
-.app-slider-demo
-  app-slider(:items="items")
+<template>
+
+<div class="va-slider-demo">
+  <va-slider :items="items"></va-slider>
+</div>
 </template>
