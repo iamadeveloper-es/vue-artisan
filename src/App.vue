@@ -13,7 +13,7 @@ export default {
 <div class="va-wrapper">
   <header>
     <h1>Vue Artisan</h1>
-    <h2>Set minimalísta de componentes</h2>
+    <h2>Set minimalísta de componentes para Vue 3</h2>
   </header>
   <dashboard></dashboard>
 </div>
