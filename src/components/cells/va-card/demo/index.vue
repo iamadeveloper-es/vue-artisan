@@ -4,7 +4,7 @@ export default {
 };
 </script>
 <script setup lang="ts">
-import { reactive, ref } from 'vue';
+import { ref } from 'vue';
 import VaCard from '../index.vue';
 
 const cards = ref([

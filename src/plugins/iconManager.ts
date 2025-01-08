@@ -4,10 +4,10 @@ export default {
     // Plugin code goes here
     app.config.globalProperties.$icons = options.icons.src;
     import('@/assets/fontawesome/css/all.min.css').then((icons) => {
-        debugger
+      // debugger;
       app.provide('icons', icons);
-      debugger
+      // debugger;
     });
-    debugger;
+    // debugger;
   }
 };

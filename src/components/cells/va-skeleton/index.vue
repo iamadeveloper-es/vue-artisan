@@ -5,12 +5,11 @@ export default {
 </script>
 
 <script lang="ts" setup>
-import { computed, type PropType } from 'vue';
 
 type SkeletonType = 'rect' | 'circle'
 type SkeletonAnimation = 'wave' | 'pulse'
 
-const props = defineProps({
+defineProps({
   variant: {
     type: String as PropType<SkeletonType>,
     default: 'rect'

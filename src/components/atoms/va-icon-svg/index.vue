@@ -4,7 +4,7 @@ export default {
 };
 </script>
 <script setup lang="ts">
-import { computed, ref, watch } from 'vue';
+import { computed } from 'vue';
 import VaSvg from '../../atoms/va-svg/index.vue';
 
 const props = defineProps({

@@ -49,7 +49,7 @@ const { getImageUrl } = useImageFunctions();
 const defaultSize: number = 35;
 
 const getImage = computed((): string => {
-  const { img } = props?.userInfo;
+  const { img } = props.userInfo;
   return getImageUrl(img);
 });
 

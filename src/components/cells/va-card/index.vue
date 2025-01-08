@@ -6,7 +6,7 @@ export default {
 <script setup lang="ts">
 import { computed, useSlots } from 'vue';
 
-const props = defineProps({
+defineProps({
   title: {
     type: String
   },
@@ -27,9 +27,9 @@ const props = defineProps({
 
 const slots = useSlots();
 
-const hasBody = computed(() => {
-  return !!slots['body'];
-});
+// const hasBody = computed(() => {
+//   return !!slots['body'];
+// });
 
 const hasFooter = computed(() => {
   return !!slots['footer'];

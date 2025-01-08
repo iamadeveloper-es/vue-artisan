@@ -5,8 +5,6 @@ export default {
 </script>
 <script setup lang="ts">
 import VaSvg from '../../atoms/va-svg/index.vue';
-import { useComponentFunctions } from '@/composables/component-functions';
-import { ref, type PropType } from 'vue';
 
 type LinkType = {
     route: string,
@@ -14,7 +12,7 @@ type LinkType = {
     external: boolean,
     icon: string
 }
-const props = defineProps({
+defineProps({
   links: {
     type: Array as PropType<LinkType[]>,
     required: true
@@ -22,8 +20,8 @@ const props = defineProps({
 });
 
 const emit = defineEmits(['clicked']);
-const { rippleEffect } = useComponentFunctions();
-const buttonSelected = ref(null);
+// const { rippleEffect } = useComponentFunctions();
+// const buttonSelected = ref(null);
 
 const emitEvent = (ev: Event): void => {
   const target = ev.target as HTMLButtonElement;

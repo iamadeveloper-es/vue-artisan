@@ -5,7 +5,7 @@ export default {
 </script>
 
 <script lang="ts" setup>
-import { computed, onMounted, reactive, readonly, ref } from 'vue';
+import { reactive, ref } from 'vue';
 import VaIcon from '../../atoms/va-icon/index.vue';
 
 const props = defineProps({
@@ -60,9 +60,9 @@ const emitValue = (index: number) => {
   }
 };
 
-const setIconOnActive = computed(() => {
-  return props.iconOnActive && props.iconOnActive.length && props.hasSecondaryIcon ? props.iconOnActive : props.icon;
-});
+// const setIconOnActive = computed(() => {
+//   return props.iconOnActive && props.iconOnActive.length && props.hasSecondaryIcon ? props.iconOnActive : props.icon;
+// });
 
 </script>
 

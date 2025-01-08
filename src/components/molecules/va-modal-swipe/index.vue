@@ -5,9 +5,9 @@ export default {
 </script>
 
 <script setup lang="ts">
-import { useCommonFunctions } from '@/composables/common-functions';
+// import { useCommonFunctions } from '@/composables/common-functions';
 import { useDeviceFunctions } from '@/composables/device-functions';
-import { computed, type Ref, ref, watch, onUnmounted, useSlots } from 'vue';
+import { computed, type Ref, ref, onUnmounted, useSlots } from 'vue';
 
 const props = defineProps({
   closeIcon: {
