@@ -46,7 +46,7 @@ import VaPagination from '../components/cells/va-pagination/demo/index.vue';
 import VaStepper from '../components/cells/va-stepper/demo/index.vue';
 import VaSkeleton from '../components/cells/va-skeleton/demo/index.vue';
 import VaSidebar from '../components/cells/va-sidebar/demo/index.vue';
-import AppCard from '../components/cells/app-card/demo/index.vue';
+import VaCard from '../components/cells/va-card/demo/index.vue';
 
 //Organisms
 import floatingMenu from '../components/organisms/floating-menu/demo/index.vue';
@@ -266,9 +266,9 @@ const router = createRouter({
           component: VaSidebar
         },
         {
-          path: '/app-card',
-          name: 'APP_CARD',
-          component: AppCard
+          path: '/va-card',
+          name: 'VA_CARD',
+          component: VaCard
         }
       ]
     },

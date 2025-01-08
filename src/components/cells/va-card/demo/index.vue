@@ -1,11 +1,11 @@
 <script lang="ts">
 export default {
-  name: 'app-card-demo'
+  name: 'va-card-demo'
 };
 </script>
 <script setup lang="ts">
 import { reactive, ref } from 'vue';
-import AppCard from '../index.vue';
+import VaCard from '../index.vue';
 
 const cards = ref([
   {
@@ -32,23 +32,19 @@ const cards = ref([
 ]);
 </script>
 
-<template lang="pug">
-.app-card-demo
-    app-card(
-      v-for="(item, index) in cards" :key="index"
-      :title="item.title",
-      :secondaryText="item.secondaryText",
-      :image="item.image",
-      :paragraphs="item.paragraphs")
+<template>
+<div class="va-card-demo">
+  <va-card v-for="(item, index) in cards" :key="index" :title="item.title" :secondaryText="item.secondaryText" :image="item.image" :paragraphs="item.paragraphs"></va-card>
+</div>
 </template>
 
 <style lang="scss">
-.app-card-demo{
+.va-card-demo{
   display: flex;
   gap: 5px;
   flex-wrap: wrap;
 
-  .app-card{
+  .va-card{
     width: calc(100% / 4);
   }
 }
