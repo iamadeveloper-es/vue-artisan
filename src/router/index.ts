@@ -49,7 +49,7 @@ import VaSidebar from '../components/cells/va-sidebar/demo/index.vue';
 import VaCard from '../components/cells/va-card/demo/index.vue';
 
 //Organisms
-import floatingMenu from '../components/organisms/floating-menu/demo/index.vue';
+import VaFloatingMenu from '../components/organisms/va-floating-menu/demo/index.vue';
 import AppGridFlex from '../components/organisms/app-grid-flex/demo/index.vue';
 
 const router = createRouter({
@@ -277,9 +277,9 @@ const router = createRouter({
       component: ComponentView,
       children: [
         {
-          path: '/floating-menu',
-          name: 'FLOATING_MENU',
-          component: floatingMenu
+          path: '/va-floating-menu',
+          name: 'VA_FLOATING_MENU',
+          component: VaFloatingMenu
         },
         {
           path: '/app-grid-flex',

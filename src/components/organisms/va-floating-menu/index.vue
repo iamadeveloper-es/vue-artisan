@@ -1,7 +1,7 @@
 
 <script lang="ts">
 export default {
-  name: 'app-floating-menu'
+  name: 'va-floating-menu'
 };
 </script>
 
@@ -55,13 +55,14 @@ const showMenu = () => {
 };
 </script>
 
-<template lang="pug">
-nav.floating-menu(:class="{ active: show }")
-  ul
-    li(v-for="(item, index) in menuItems" 
-    :key="index")
-      router-link(:to="item.route") {{ item.name }}
-        span.fa-solid.fa-house
+<template>
+<nav class="va-floating-menu" :class="{ active: show }">
+  <ul>
+    <li v-for="(item, index) in menuItems" :key="index">
+      <router-link :to="item.route">{{ item.name }}<span class="fa-solid fa-house"></span></router-link>
+    </li>
+  </ul>
+</nav>
 </template>
 
 <style lang="scss">
