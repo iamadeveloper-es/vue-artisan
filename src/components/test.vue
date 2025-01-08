@@ -2,7 +2,7 @@
 import { useRoute } from 'vue-router';
 
 export default {
-  name: 'app-test',
+  name: 'va-test',
   setup () {
     const route = useRoute();
     return {
@@ -12,7 +12,7 @@ export default {
 };
 </script>
 
-<template lang="pug">
-p Ruta TEST
-pre {{ route }}
+<template>
+<p>Ruta TEST</p>
+<pre>{{ route }}</pre>
 </template>

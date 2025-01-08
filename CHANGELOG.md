@@ -17,3 +17,4 @@ Todos los cambios importantes de este proyecto se documentarán en este archivo.
 - Refactor de nomenclatura variables CSS para evitar conflictos
 - Refactor de prefijo de componentes a "va-" para evitar conflictos
 - Se elimina Pug y se hacen los componentes con HTML plano
+- Se eliminan todas las dependencias y referencias de pug
