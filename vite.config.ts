@@ -37,9 +37,9 @@ export default defineConfig(({mode}) => {
     build: {
       lib: {
         entry: resolve(__dirname, 'src/index.ts'),
-        name: 'MyLib',
+        name: 'VueArtsian',
         // the proper extensions will be added
-        fileName: 'my-lib',
+        fileName: 'vue-artisan',
       },
       rollupOptions: {
         // make sure to externalize deps that shouldn't be bundled

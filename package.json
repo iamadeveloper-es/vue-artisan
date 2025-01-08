@@ -1,19 +1,24 @@
 {
   "name": "@iamadeveloper-es/vue-artisan",
   "version": "0.2.2",
+  "description": "Set minimalísta de componentes para Vue 3",
   "type": "module",
   "private": false,
   "files": [
     "dist"
   ],
-  "main": "./dist/my-lib.umd.cjs",
-  "module": "./dist/my-lib.js",
+  "author": "iamadeveloper.es iamadeveloper.es@gmail.com",
+  "main": "./dist/vue-artisan.umd.cjs",
+  "umd:main": "dist/vue-artisan.umd.cjs",
+  "source": "src/index.js",
+  "module": "./dist/vue-artisan.js",
   "exports": {
     ".": {
-      "import": "./dist/my-lib.js",
-      "require": "./dist/my-lib.umd.cjs"
+      "import": "./dist/vue-artisan.js",
+      "require": "./dist/vue-artisan.umd.cjs"
     }
   },
+  "license": "MIT",
   "publishConfig": {
     "registry": "https://npm.pkg.github.com"
   },
