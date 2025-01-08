@@ -42,7 +42,7 @@ import VaRating from '../components/molecules/va-rating/demo/index.vue';
 //Cells
 import AppCardRadio from '../components/cells/app-card-radio/demo/index.vue';
 import VaBottomNav from '../components/cells/va-bottom-nav/demo/index.vue';
-import AppPagination from '../components/cells/app-pagination/demo/index.vue';
+import VaPagination from '../components/cells/va-pagination/demo/index.vue';
 import VaStepper from '../components/cells/va-stepper/demo/index.vue';
 import VaSkeleton from '../components/cells/va-skeleton/demo/index.vue';
 import VaSidebar from '../components/cells/va-sidebar/demo/index.vue';
@@ -246,9 +246,9 @@ const router = createRouter({
           component: VaBottomNav
         },
         {
-          path: '/app-pagination',
-          name: 'APP_PAGINATION',
-          component: AppPagination
+          path: '/va-pagination',
+          name: 'VA_PAGINATION',
+          component: VaPagination
         },
         {
           path: '/va-stepper',

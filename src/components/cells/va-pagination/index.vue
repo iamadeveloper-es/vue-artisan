@@ -1,6 +1,6 @@
 <script lang="ts">
 export default {
-  name: 'app-pagination'
+  name: 'va-pagination'
 };
 </script>
 <script setup lang="ts">
@@ -45,7 +45,7 @@ const route = useRoute();
 const routeNameVal = ref();
 
 watch(() => route.query, (newVal) => {
-      
+
   if(newVal){
     selectedPage.value = newVal.page ? Number(newVal.page) : 1;
     emitVal();
@@ -58,8 +58,8 @@ const computedTotal = computed(() => {
 });
 
 const filteredPages = computed(() => {
-  const filtered = selectedPage.value >= props.pagesToShow ? 
-    computedTotal.value.slice(selectedPage.value - 2, selectedPage.value + 1) : 
+  const filtered = selectedPage.value >= props.pagesToShow ?
+    computedTotal.value.slice(selectedPage.value - 2, selectedPage.value + 1) :
     computedTotal.value.slice(0, props.pagesToShow);
   return filtered;
 });
@@ -119,34 +119,29 @@ onMounted(() => {
 });
 </script>
 
-<template lang="pug">
-nav.app-pagination(v-if="computedTotal")
-  ul.app-pagination__list
-    li.app-pagination__list-item
-      button.app-pagination__button(@click="goToFirstPage()", 
-      :disabled="selectedPage == 1")
-        span(:class="firstPageIncon")
-    li.app-pagination__list-item
-      button.app-pagination__button(@click="previousPage()", 
-      :disabled="selectedPage == 1")
-        span(:class="previousIncon")
-    li.app-pagination__list-item.dots(v-if="showLeftDots")
-      span.app-pagination__button.dots ...
-    li.app-pagination__list-item(v-for="(page, index) in filteredPages", 
-    :key="index")
-      button.app-pagination__button(@click="setSelectedPage(page)", 
-      :class="{'active' : selectedPage == page}")
-        span {{ page }}
-    li.app-pagination__list-item.dots(v-if="showRightDots")
-      span.app-pagination__button.dots ...
-    li.app-pagination__list-item
-      button.app-pagination__button(@click="nextPage()", 
-      :disabled="selectedPage == totalPages")
-        span(:class="nextIncon")
-    li.app-pagination__list-item
-      button.app-pagination__button(@click="goToLastPage()", 
-      :disabled="selectedPage == totalPages")
-        span(:class="lastPageIncon")
+<template>
+
+<nav class="va-pagination" v-if="computedTotal">
+  <ul class="va-pagination__list">
+    <li class="va-pagination__list-item">
+      <button class="va-pagination__button" @click="goToFirstPage()" :disabled="selectedPage == 1"><span :class="firstPageIncon"></span></button>
+    </li>
+    <li class="va-pagination__list-item">
+      <button class="va-pagination__button" @click="previousPage()" :disabled="selectedPage == 1"><span :class="previousIncon"></span></button>
+    </li>
+    <li class="va-pagination__list-item dots" v-if="showLeftDots"><span class="va-pagination__button dots">...</span></li>
+    <li class="va-pagination__list-item" v-for="(page, index) in filteredPages" :key="index">
+      <button class="va-pagination__button" @click="setSelectedPage(page)" :class="{'active' : selectedPage == page}"><span>{{ page }}</span></button>
+    </li>
+    <li class="va-pagination__list-item dots" v-if="showRightDots"><span class="va-pagination__button dots">...</span></li>
+    <li class="va-pagination__list-item">
+      <button class="va-pagination__button" @click="nextPage()" :disabled="selectedPage == totalPages"><span :class="nextIncon"></span></button>
+    </li>
+    <li class="va-pagination__list-item">
+      <button class="va-pagination__button" @click="goToLastPage()" :disabled="selectedPage == totalPages"><span :class="lastPageIncon"></span></button>
+    </li>
+  </ul>
+</nav>
 </template>
 
 <style lang="scss">

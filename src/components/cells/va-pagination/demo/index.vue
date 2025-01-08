@@ -1,10 +1,10 @@
 <script lang="ts">
 export default {
-  name: 'app-pagination-demo'
+  name: 'va-pagination-demo'
 };
 </script>
 <script setup lang="ts">
-import AppPagination from '../index.vue';
+import VaPagination from '../index.vue';
 import { ref } from 'vue';
 
 const data = ref();
@@ -21,11 +21,10 @@ const getPosts = (ev: number) => {
 };
 </script>
 
-<template lang="pug">
-app-pagination(
-totalPages="20",
-@update="getPosts")
-div(v-if="data")
-  pre {{ data }}
+<template>
 
+<va-pagination totalPages="20" @update="getPosts"></va-pagination>
+<div v-if="data">
+  <pre>{{ data }}</pre>
+</div>
 </template>
