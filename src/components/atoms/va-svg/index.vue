@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { defineAsyncComponent, ref, watch } from 'vue';
+import { defineAsyncComponent, markRaw, shallowRef, watch } from 'vue';
 
 // Define las props
 const props = defineProps({
@@ -9,13 +9,17 @@ const props = defineProps({
   },
 });
 
-const icon = ref(null);
+// Usa shallowRef en lugar de ref
+const icon = shallowRef(null);
 
 watch(
   () => props.name,
   (newName) => {
-    icon.value = defineAsyncComponent(() =>
-      import(`../../../assets/icons/${newName}.svg`)
+    // Usa markRaw para evitar reactividad innecesaria
+    icon.value = markRaw(
+      defineAsyncComponent(() =>
+        import(`../../../assets/icons/${newName}.svg`)
+      )
     );
   },
   { immediate: true }
@@ -23,7 +27,7 @@ watch(
 </script>
 
 <template>
-<component :is="icon"></component>
+  <component :is="icon"></component>
 </template>
 
 <style lang="scss">

@@ -110,15 +110,15 @@ const validateFormFourth = () => {
         <va-input-field v-model="formOne" name="account" label="Cuenta" :outlinedLabel="true"></va-input-field>
         <button type="submit" :disabled="!formOne">Completar</button>
       </form>
-      <form v-if="completedSteps.one &amp;&amp; !completedSteps.two" @submit.prevent="validateFormTwo">
+      <form v-if="completedSteps.one && !completedSteps.two" @submit.prevent="validateFormTwo">
         <va-input-field v-model="formTwo" name="adress" label="Dirección" :outlinedLabel="true"></va-input-field>
         <button type="submit" :disabled="!formTwo">Completar</button>
       </form>
-      <form v-if="completedSteps.two &amp;&amp; !completedSteps.three" @submit.prevent="validateFormThree">
+      <form v-if="completedSteps.two && !completedSteps.three" @submit.prevent="validateFormThree">
         <va-input-field v-model="formThree" name="payment" label="Pago" :outlinedLabel="true"></va-input-field>
         <button type="submit" :disabled="!formThree">Completar</button>
       </form>
-      <form v-if="completedSteps.three &amp;&amp; !completedSteps.fourth" @submit.prevent="validateFormFourth">
+      <form v-if="completedSteps.three && !completedSteps.fourth" @submit.prevent="validateFormFourth">
         <va-input-field v-model="formFourth" name="confirm" label="Confirmación" :outlinedLabel="true"></va-input-field>
         <button type="submit" :disabled="!formFourth">Finalizar</button>
       </form>

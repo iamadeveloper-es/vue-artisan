@@ -38,12 +38,12 @@ const hasFooter = computed(() => {
 
 <template>
 <article class="va-card" :class="[`va-card--${variant}`]">
-  <div class="va-card__top" v-if="image &amp;&amp; Object.keys(image).length"><img :src="image.url" :alt="img?.alt"></div>
+  <div class="va-card__top" v-if="image && Object.keys(image).length"><img :src="image.url" :alt="image?.alt"></div>
   <div class="va-card__wrapper">
     <header class="va-card__header" v-if="title || secondaryText">
       <h4 class="va-card__title" v-if="secondaryText">{{title}}</h4><span class="va-card__secondary-text" v-if="secondaryText">{{secondaryText}}</span>
     </header>
-    <div class="va-card__body" v-if="paragraphs &amp;&amp; paragraphs.length">
+    <div class="va-card__body" v-if="paragraphs && paragraphs.length">
       <div v-for="(item, index) in paragraphs" :key="index">
         <p v-html="item"></p>
       </div>
