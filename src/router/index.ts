@@ -40,7 +40,7 @@ import VaRange from '../components/molecules/va-range/demo/index.vue';
 import VaRating from '../components/molecules/va-rating/demo/index.vue';
 
 //Cells
-import AppCardRadio from '../components/cells/app-card-radio/demo/index.vue';
+import VaCardRadio from '../components/cells/va-card-radio/demo/index.vue';
 import VaBottomNav from '../components/cells/va-bottom-nav/demo/index.vue';
 import VaPagination from '../components/cells/va-pagination/demo/index.vue';
 import VaStepper from '../components/cells/va-stepper/demo/index.vue';
@@ -236,9 +236,9 @@ const router = createRouter({
       component: ComponentView,
       children: [
         {
-          path: '/app-card-radio',
-          name: 'APP_CARD_RADIO',
-          component: AppCardRadio
+          path: '/va-card-radio',
+          name: 'VA_CARD_RADIO',
+          component: VaCardRadio
         },
         {
           path: '/va-bottom-nav',

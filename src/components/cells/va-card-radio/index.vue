@@ -1,6 +1,6 @@
 <script lang="ts">
 export default {
-  name: 'app-card-radio'
+  name: 'va-card-radio'
 };
 </script>
 <script setup lang="ts">
@@ -23,7 +23,7 @@ const props = defineProps({
 const isChecked = computed(() => {
   return props.modelValue === props.value;
 });
-  
+
 const emit = defineEmits(['update:modelValue', 'onChange']);
 const emitValue = (ev: Event) => {
   const target = ev.target as HTMLInputElement;
@@ -32,15 +32,11 @@ const emitValue = (ev: Event) => {
 };
 </script>
 
-<template lang="pug">
-.app-card-radio(:class="{'active': isChecked}")
-  input.app-card-radio__input(type="radio", 
-  :value="value", 
-  :name="name",
-  :checked="isChecked" 
-  @change="emitValue($event)")
-  slot(name="content")
-
+<template>
+<div class="va-card-radio" :class="{'active': isChecked}">
+  <input class="va-card-radio__input" type="radio" :value="value" :name="name" :checked="isChecked" @change="emitValue($event)">
+  <slot name="content"></slot>
+</div>
 </template>
 
 <style lang="scss">
