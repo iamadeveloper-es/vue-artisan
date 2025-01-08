@@ -1,16 +1,16 @@
-.app-check-radio {
+.va-check-radio {
     display: flex;
     align-items: center;
     margin-bottom: 0.5rem;
 
-    &.disabled .app-check-radio__label {
-        color: var(--neutral-800);
+    &.disabled .va-check-radio__label {
+        color: var(--va-neutral-800);
     }
-    &.disabled .app-check-radio__icon {
-        color: var(--neutral-800);
+    &.disabled .va-check-radio__icon {
+        color: var(--va-neutral-800);
     }
 
-    &:hover .app-check-radio__icon::after {
+    &:hover .va-check-radio__icon::after {
         opacity: 0.3;
     }
 
@@ -53,8 +53,8 @@
         justify-content: center;
         line-height: 1;
         user-select: none;
-        color: var(--dark-400);
-        caret-color: var(--dark-400);
+        color: var(--va-darken-400);
+        caret-color: var(--va-darken-400);
 
         &::after {
             content: '';
@@ -83,16 +83,16 @@
         }
 
         &--primary {
-            color: var(--primary);
+            color: var(--va-accent);
         }
         &--success {
-            color: var(--success);
+            color: var(--va-success);
         }
         &--danger {
-            color: var(--danger);
+            color: var(--va-danger);
         }
         &--info {
-            color: var(--warning);
+            color: var(--va-warning);
         }
     }
 }

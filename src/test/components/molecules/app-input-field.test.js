@@ -1,11 +1,11 @@
 // sum.test.js
 import { shallowMount } from '@vue/test-utils';
-import AppInputField from '../../../components/molecules/app-input-field/index.vue';
+import VaInputField from '../../../components/molecules/va-input-field/index.vue';
 import { expect, test, describe, beforeEach, vi } from 'vitest';
 
 
 
-const wrapper = shallowMount(AppInputField, {
+const wrapper = shallowMount(VaInputField, {
   props: {
     name: 'userInput',
     label: 'userName',
@@ -14,7 +14,7 @@ const wrapper = shallowMount(AppInputField, {
   }
 });
 
-describe('app-input-field', () => {
+describe('va-input-field', () => {
 
   beforeEach(async () => {
     // Clear mocks and add some testing data after before each test run
@@ -32,7 +32,7 @@ describe('app-input-field', () => {
   describe('Acciones', () => {
 
     test('modelValue debe ser actualizado', async () => {
-      
+
       await wrapper.find('input').setValue('test');
       expect(wrapper.props('modelValue')).toBe('test');
 
@@ -43,11 +43,11 @@ describe('app-input-field', () => {
     //   await wrapper.setProps({
     //     icon: ['fa-regular', 'fa-calendar']
     //   });
-      
+
     //   await wrapper.find('input').setValue('contenido');
     //   expect(wrapper.props('modelValue')).toBe('contenido');
 
-    //   await wrapper.find('.app-input-icon').trigger('click');
+    //   await wrapper.find('.va-input-icon').trigger('click');
 
     //   expect(wrapper.props('modelValue')).toBeFalsy();
 
@@ -90,19 +90,19 @@ describe('app-input-field', () => {
       //     await wrapper.setProps({
       //       icon: ['fa-regular', 'fa-calendar']
       //     });
-        
+
       //     await wrapper.find('input').setValue('contenido');
       //     expect(wrapper.props('modelValue')).toBe('contenido');
 
       //     const spy2 = vi.spyOn(wrapper.vm, 'iconAction');
-  
-      //     await wrapper.find('span.app-input-icon').trigger('click');
 
-        
+      //     await wrapper.find('span.va-input-icon').trigger('click');
+
+
       //     // expect(spy2).toHaveBeenCalled();
-      //     expect(wrapper.props('modelValue')).toBe(''); 
+      //     expect(wrapper.props('modelValue')).toBe('');
 
-  
+
       //   });
 
       //   test('iconAction llama a showPassword y muestra/oculta la contraseña si es type password', async () => {
@@ -111,12 +111,12 @@ describe('app-input-field', () => {
       //       type: 'password'
       //     });
 
-        
+
       //     await wrapper.find('input').setValue('contenido');
       //     expect(wrapper.props('modelValue')).toBe('contenido');
-  
-      //     await wrapper.find('.app-input-icon').trigger('clicked');
-        
+
+      //     await wrapper.find('.va-input-icon').trigger('clicked');
+
       //     expect(wrapper.vm.inputType).toBe('text');
 
     //   });

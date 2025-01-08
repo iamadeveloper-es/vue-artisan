@@ -1,0 +1,34 @@
+.va-rating{
+    $block: '.va-rating';
+    display: flex;
+    gap: 3px;
+    &__item{
+        width: 25px;
+        cursor: pointer;
+
+        .va-icon{
+            color: var(--icon-color);
+        }
+
+        &:hover{
+            transform: scale(1.1);
+        }
+
+        &.active{
+            .va-icon{
+                color: var(--icon-color-active);
+            }
+        }
+    }
+
+    &.disabled{
+
+        #{$block}__item:hover{
+            transform: scale(1);
+        }
+
+        #{$block}__item{
+            cursor: initial;
+        }
+    }
+}

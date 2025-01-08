@@ -11,13 +11,12 @@ npm install @iamadeveloper-es/vue-artisan
 
 ### main.js en la parte superior del archivo importamos los archivos CSS:
 ```js
-import '@iamadeveloper-es/vue-artisan/src/assets/fontawesome/css/all.min.css'
-import '@iamadeveloper-es/vue-artisan/src/assets/scss/index.scss'
+import '@iamadeveloper-es/vue-artisan/dist/css/style.css'
 ```
 
 ### Importar un componente:
 ```js
-import AppLink from '@iamadeveloper-es/vue-artisan/src/components/atoms/app-link/index.vue'
+import { VALink } from '@iamadeveloper-es/vue-artisan'
 ```
 
 ### Arrancar el proyecto:

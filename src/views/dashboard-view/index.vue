@@ -20,7 +20,7 @@ const capitalizeFirstChar = (str: string): string => {
 };
 
 const showHideMenuItems = (routeName) => {
-  const menuItems = document.querySelectorAll('.app-menu li span[data-id]');
+  const menuItems = document.querySelectorAll('.va-menu li span[data-id]');
   menuItems.forEach((element) => {
     const dataId = element.getAttribute('data-id');
     if (dataId !== routeName) {
@@ -45,20 +45,21 @@ onMounted(() => {
 });
 </script>
 
-<template lang="pug">
-.app-dashboard
-  .app-content
-    ul.app-menu
-      li(v-for="(route, index) in routes"
-      :key="index")
-        span(:data-id="route.name"
-          @click="showHideMenuItems(route.name)") {{ capitalizeFirstChar(route.name) }}
-        ul.app-menu__submenu(v-if="route.children")
-          li(v-for="(child, index) in route.children"
-          :key="index", 
-          :class="{'active':child.name === currentRouteName}")
-            router-link(:to="child.path") {{ capitalizeFirstChar(child.name) }}
-    router-view
+<template>
+<div class="va-dashboard">
+  <div class="va-content">
+    <ul class="va-menu">
+      <li v-for="(route, index) in routes" :key="index"><span :data-id="route.name" @click="showHideMenuItems(route.name)">{{ capitalizeFirstChar(route.name)}}</span>
+        <ul class="va-menu__submenu" v-if="route.children">
+          <li v-for="(child, index) in route.children" :key="index" :class="{'active':child.name === currentRouteName}">
+            <router-link :to="child.path">{{ capitalizeFirstChar(child.name.replace('VA_', '')) }}</router-link>
+          </li>
+        </ul>
+      </li>
+    </ul>
+    <router-view></router-view>
+  </div>
+</div>
 </template>
 
 <style lang="scss" scoped>

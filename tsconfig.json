@@ -1,6 +1,6 @@
 {
   "extends": "@vue/tsconfig/tsconfig.dom.json",
-  "include": ["env.d.ts", "src/**/*", "src/**/*.vue", "stories/atoms/app-avatar.story.vue", "stories/atoms/app-avatar.story.vue", "stories/cells/app-card-radio.story.vue", "stories/cells/app-card-radio.story.vue"],
+  "include": ["env.d.ts", "src/**/*", "src/**/*.vue", "stories/atoms/va-avatar.story.vue", "stories/atoms/va-avatar.story.vue", "stories/cells/va-card-radio.story.vue", "stories/cells/va-card-radio.story.vue"],
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
@@ -12,8 +12,5 @@
     {
       "path": "./tsconfig.node.json"
     }
-  ],
-  "vueCompilerOptions": {
- 		"plugins": ["@volar/vue-language-plugin-pug"]
- 	}
+  ]
 }

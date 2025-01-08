@@ -1,4 +1,4 @@
-.app-label {
+.va-label {
     margin-bottom: 0.3rem;
     display: inline-block;
 
@@ -24,7 +24,7 @@
         position: absolute;
         top: 5px;
         left: 10px;
-        background-color: var(--white);
+        background-color: var(--va-white);
         transform: translate3d(0, 0, 0) scale(1);
         transform-origin: left top;
         z-index: 10;
@@ -32,6 +32,6 @@
     }
 
     &.label-disabled {
-        color: var(--neutral-800);
+        color: var(--va-neutral-800);
     }
 }

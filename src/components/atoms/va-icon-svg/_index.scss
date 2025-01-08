@@ -1,0 +1,70 @@
+@use "sass:map";
+
+$spaces: ('xs': 3px, 'sm': 5px, 'md': 7px);
+
+.va-icon-svg {
+    display: inline-block;
+    line-height: 1;
+    width: var(--icon-size, 20px);
+
+    &__svg{
+        pointer-events: none;
+    }
+
+    //Variants
+    &--rotate-180-deg {
+        transform: rotate(-180deg);
+    }
+    &--primary {
+        color: var(--va-accent);
+    }
+    &--success {
+        color: var(--va-success);
+    }
+    &--danger {
+        color: var(--va-danger);
+    }
+    &--info {
+        color: var(--va-warning);
+    }
+
+    &--space-start-xs{
+        margin-left: map.get($spaces , 'xs' );
+    }
+    &--space-start-sm{
+        margin-left: map-get($spaces , 'sm' );
+    }
+    &--space-start-md{
+        margin-left: map-get($spaces , 'md' );
+    }
+
+    &--space-end-xs{
+        margin-right: map.get($spaces , 'xs' );
+    }
+    &--space-end-sm{
+        margin-right: map-get($spaces , 'sm' );
+    }
+    &--space-end-md{
+        margin-right: map-get($spaces , 'md' );
+    }
+
+    &--space-top-xs{
+        margin-top: map.get($spaces , 'xs' );
+    }
+    &--space-top-sm{
+        margin-top: map-get($spaces , 'sm' );
+    }
+    &--space-top-md{
+        margin-top: map-get($spaces , 'md' );
+    }
+
+    &--space-bottom-xs{
+        margin-bottom: map.get($spaces , 'xs' );
+    }
+    &--space-bottom-sm{
+        margin-bottom: map-get($spaces , 'sm' );
+    }
+    &--space-bottom-md{
+        margin-bottom: map-get($spaces , 'md' );
+    }
+}

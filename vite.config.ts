@@ -4,7 +4,6 @@ import { defineConfig } from 'vite';
 import vue from '@vitejs/plugin-vue';
 import svgLoader from 'vite-svg-loader';
 import autoprefixer from 'autoprefixer';
-// import vuePugPlugin from 'vue-pug-plugin';
 
 // https://vitejs.dev/config/
 export default defineConfig(({mode}) => {
@@ -13,10 +12,7 @@ export default defineConfig(({mode}) => {
     plugins: [
       vue({
         template: {
-          preprocessOptions: {
-            // 'preprocessOptions' is passed through to the pug compiler
-            // plugins: [vuePugPlugin]
-          }
+          preprocessOptions: {}
         }
       }),
       svgLoader()
@@ -41,9 +37,9 @@ export default defineConfig(({mode}) => {
     build: {
       lib: {
         entry: resolve(__dirname, 'src/index.ts'),
-        name: 'MyLib',
+        name: 'VueArtsian',
         // the proper extensions will be added
-        fileName: 'my-lib',
+        fileName: 'vue-artisan',
       },
       rollupOptions: {
         // make sure to externalize deps that shouldn't be bundled

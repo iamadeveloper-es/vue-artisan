@@ -5,53 +5,52 @@ import ComponentView from '../views/component-view/index.vue';
 import AppTest from '../components/test.vue';
 
 //Atoms
-import AppAvatar from '../components/atoms/app-avatar/demo/index.vue';
-import AppBadge from '../components/atoms/app-badge/demo/index.vue';
-import AppLink from '../components/atoms/app-link/demo/index.vue';
-import AppIcon from '../components/atoms/app-icon/demo/index.vue';
-import AppIconSvg from '../components/atoms/app-icon-svg/demo/index.vue';
-import AppProgress from '../components/atoms/app-progress/demo/index.vue';
-import AppCircularProgress from '../components/atoms/app-circular-progress/demo/index.vue';
-import AppSwitch from '../components/atoms/app-switch/demo/index.vue';
-import AppPicture from '../components/atoms/app-picture/demo/index.vue';
-import AppImage from '../components/atoms/app-image/demo/index.vue';
-import AppMoney from '../components/atoms/app-money/demo/index.vue';
+import VaAvatar from '../components/atoms/va-avatar/demo/index.vue';
+import VaBadge from '../components/atoms/va-badge/demo/index.vue';
+import VaLink from '../components/atoms/va-link/demo/index.vue';
+import VaMoney from '../components/atoms/va-money/demo/index.vue';
+import VaIcon from '../components/atoms/va-icon/demo/index.vue';
+import VaIconSvg from '../components/atoms/va-icon-svg/demo/index.vue';
+import VaProgress from '../components/atoms/va-progress/demo/index.vue';
+import VaCircularProgress from '../components/atoms/va-circular-progress/demo/index.vue';
+import VaSwitch from '../components/atoms/va-switch/demo/index.vue';
+import VaPicture from '../components/atoms/va-picture/demo/index.vue';
+import VaImage from '../components/atoms/va-image/demo/index.vue';
 
 //Molecules
-import AppButton from '../components/molecules/app-button/demo/index.vue';
-import AppInputField from '../components/molecules/app-input-field/demo/index.vue';
-import AppCheckbox from '../components/molecules/app-checkbox/demo/index.vue';
-import AppCounter from '../components/molecules/app-counter/demo/index.vue';
-import AppRadio from '../components/molecules/app-radio/demo/index.vue';
-import AppTextarea from '../components/molecules/app-textarea/demo/index.vue';
-import AppSelect from '../components/molecules/app-select/demo/index.vue';
-import AppCustomSelect from '../components/molecules/app-custom-select/demo/index.vue';
-import AppTabs from '../components/molecules/app-tabs/demo/index.vue';
-import AppModal from '../components/molecules/app-modal/demo/index.vue';
-import AppModalV2 from '../components/molecules/app-modal-v2/demo/index.vue';
-import AppModalSwipe from '../components/molecules/app-modal-swipe/demo/index.vue';
-import AppSnackbar from '../components/molecules/app-snackbar/demo/index.vue';
-import AppAlert from '../components/molecules/app-alert/demo/index.vue';
-import AppAccordion from '../components/molecules/app-accordion/demo/index.vue';
-import AppChip from '../components/molecules/app-chip/demo/index.vue';
-import AppBreadcrumbs from '../components/molecules/app-breadcrumbs/demo/index.vue';
-import AppDropdown from '../components/molecules/app-dropdown/demo/index.vue';
-import AppRange from '../components/molecules/app-range/demo/index.vue';
-import AppRating from '../components/molecules/app-rating/demo/index.vue';
+import VaButton from '../components/molecules/va-button/demo/index.vue';
+import VaInputField from '../components/molecules/va-input-field/demo/index.vue';
+import VaCheckbox from '../components/molecules/va-checkbox/demo/index.vue';
+import VACounter from '../components/molecules/va-counter/demo/index.vue';
+import VaRadio from '../components/molecules/va-radio/demo/index.vue';
+import VaTextarea from '../components/molecules/va-textarea/demo/index.vue';
+import VaSelect from '../components/molecules/va-select/demo/index.vue';
+import VaCustomSelect from '../components/molecules/va-custom-select/demo/index.vue';
+import VaTabs from '../components/molecules/va-tabs/demo/index.vue';
+import VaModal from '../components/molecules/va-modal/demo/index.vue';
+import VaModalV2 from '../components/molecules/va-modal-v2/demo/index.vue';
+import VaModalSwipe from '../components/molecules/va-modal-swipe/demo/index.vue';
+import VaSnackbar from '../components/molecules/va-snackbar/demo/index.vue';
+import VaAlert from '../components/molecules/va-alert/demo/index.vue';
+import VaAccordion from '../components/molecules/va-accordion/demo/index.vue';
+import VaChip from '../components/molecules/va-chip/demo/index.vue';
+import VaBreadcrumbs from '../components/molecules/va-breadcrumbs/demo/index.vue';
+import VaDropdown from '../components/molecules/va-dropdown/demo/index.vue';
+import VaRange from '../components/molecules/va-range/demo/index.vue';
+import VaRating from '../components/molecules/va-rating/demo/index.vue';
 
 //Cells
-import AppCardRadio from '../components/cells/app-card-radio/demo/index.vue';
-import AppBottomNav from '../components/cells/app-bottom-nav/demo/index.vue';
-import AppPagination from '../components/cells/app-pagination/demo/index.vue';
-import AppStepper from '../components/cells/app-stepper/demo/index.vue';
-import AppSkeleton from '../components/cells/app-skeleton/demo/index.vue';
-import AppSidebar from '../components/cells/app-sidebar/demo/index.vue';
-import AppCard from '../components/cells/app-card/demo/index.vue';
+import VaCardRadio from '../components/cells/va-card-radio/demo/index.vue';
+import VaBottomNav from '../components/cells/va-bottom-nav/demo/index.vue';
+import VaPagination from '../components/cells/va-pagination/demo/index.vue';
+import VaStepper from '../components/cells/va-stepper/demo/index.vue';
+import VaSkeleton from '../components/cells/va-skeleton/demo/index.vue';
+import VaSidebar from '../components/cells/va-sidebar/demo/index.vue';
+import VaCard from '../components/cells/va-card/demo/index.vue';
 
 //Organisms
-import floatingMenu from '../components/organisms/floating-menu/demo/index.vue';
-import AppSlider from '../components/organisms/app-slider/demo/index.vue';
-import AppGridFlex from '../components/organisms/app-grid-flex/demo/index.vue';
+import VaFloatingMenu from '../components/organisms/va-floating-menu/demo/index.vue';
+import VaGridFlex from '../components/organisms/va-grid-flex/demo/index.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -67,59 +66,59 @@ const router = createRouter({
       component: ComponentView,
       children: [
         {
-          path: '/app-avatar',
-          name: 'APP_AVATAR',
-          component: AppAvatar
+          path: '/va-avatar',
+          name: 'VA_AVATAR',
+          component: VaAvatar
         },
         {
-          path: '/app-badge',
-          name: 'APP_BADGE',
-          component: AppBadge
+          path: '/va-badge',
+          name: 'VA_BADGE',
+          component: VaBadge
         },
         {
-          path: '/app-link',
-          name: 'APP_LINK',
-          component: AppLink
+          path: '/va-link',
+          name: 'VA_LINK',
+          component: VaLink
         },
         {
-          path: '/app-icon',
-          name: 'APP_ICON',
-          component: AppIcon
+          path: '/va-icon',
+          name: 'VA_ICON',
+          component: VaIcon
         },
         {
-          path: '/app-icon-svg',
-          name: 'APP_ICON_SVG',
-          component: AppIconSvg
+          path: '/va-icon-svg',
+          name: 'VA_ICON_SVG',
+          component: VaIconSvg
         },
         {
-          path: '/app-picture',
-          name: 'APP_PICTURE',
-          component: AppPicture
+          path: '/va-picture',
+          name: 'VA_PICTURE',
+          component: VaPicture
         },
         {
-          path: '/app-image',
-          name: 'APP_IMAGE',
-          component: AppImage
+          path: '/va-image',
+          name: 'VA_IMAGE',
+          component: VaImage
         },
         {
-          path: '/app-progress',
-          name: 'APP_PROGRESS',
-          component: AppProgress
+          path: '/va-progress',
+          name: 'VA_PROGRESS',
+          component: VaProgress
         },
         {
-          path: '/app-circular-progress',
-          name: 'APP_CIRCULAR-PROGRESS',
-          component: AppCircularProgress
+          path: '/va-circular-progress',
+          name: 'VA_CIRCULAR-PROGRESS',
+          component: VaCircularProgress
         },
         {
-          path: '/app-switch',
-          name: 'APP_SWITCH',
-          component: AppSwitch
+          path: '/va-switch',
+          name: 'VA_SWITCH',
+          component: VaSwitch
         },
         {
-          path: '/app-money',
-          name: 'APP_MONEY',
-          component: AppMoney
+          path: '/va-money',
+          name: 'VA_MONEY',
+          component: VaMoney
         }
       ]
     },
@@ -129,104 +128,104 @@ const router = createRouter({
       component: ComponentView,
       children: [
         {
-          path: '/app-input-field',
-          name: 'APP_INPUT_FIELD',
-          component: AppInputField
+          path: '/va-input-field',
+          name: 'VA_INPUT_FIELD',
+          component: VaInputField
         },
         {
-          path: '/app-textarea',
-          name: 'APP_TEXTAREA',
-          component: AppTextarea
+          path: '/va-textarea',
+          name: 'VA_TEXTAREA',
+          component: VaTextarea
         },
         {
-          path: '/app-checkbox',
-          name: 'APP_CHECKBOX',
-          component: AppCheckbox
+          path: '/va-checkbox',
+          name: 'VA_CHECKBOX',
+          component: VaCheckbox
         },
         {
-          path: '/app-counter',
-          name: 'APP_COUNTER',
-          component: AppCounter
+          path: '/va-counter',
+          name: 'VA_COUNTER',
+          component: VACounter
         },
         {
-          path: '/app-radio',
-          name: 'APP_RADIO',
-          component: AppRadio
+          path: '/va-radio',
+          name: 'VA_RADIO',
+          component: VaRadio
         },
         {
-          path: '/app-select',
-          name: 'APP_SELECT',
-          component: AppSelect
+          path: '/va-select',
+          name: 'VA_SELECT',
+          component: VaSelect
         },
         {
-          path: '/app-custom-select',
-          name: 'APP_CUSTOM_SELECT',
-          component: AppCustomSelect
+          path: '/va-custom-select',
+          name: 'VA_CUSTOM_SELECT',
+          component: VaCustomSelect
         },
         {
-          path: '/app-button',
-          name: 'APP_BUTTON',
-          component: AppButton
+          path: '/va-button',
+          name: 'VA_BUTTON',
+          component: VaButton
         },
         {
-          path: '/app-tabs',
-          name: 'APP_TABS',
-          component: AppTabs
+          path: '/va-tabs',
+          name: 'VA_TABS',
+          component: VaTabs
         },
         {
-          path: '/app-modal',
-          name: 'APP_MODAL',
-          component: AppModal
+          path: '/va-modal',
+          name: 'VA_MODAL',
+          component: VaModal
         },
         {
-          path: '/app-modal-v2',
-          name: 'APP_MODALV2',
-          component: AppModalV2
+          path: '/va-modal-v2',
+          name: 'VA_MODALV2',
+          component: VaModalV2
         },
         {
-          path: '/app-modal-swipe',
-          name: 'APP_MODAL_SWIPE',
-          component: AppModalSwipe
+          path: '/va-modal-swipe',
+          name: 'VA_MODAL_SWIPE',
+          component: VaModalSwipe
         },
         {
-          path: '/app-snackbar',
-          name: 'APP_SNACKBAR',
-          component: AppSnackbar
+          path: '/va-snackbar',
+          name: 'VA_SNACKBAR',
+          component: VaSnackbar
         },
         {
-          path: '/app-alert',
-          name: 'APP_ALERT',
-          component: AppAlert
+          path: '/va-alert',
+          name: 'VA_ALERT',
+          component: VaAlert
         },
         {
-          path: '/app-accordion',
-          name: 'APP_ACCORDION',
-          component: AppAccordion
+          path: '/va-accordion',
+          name: 'VA_ACCORDION',
+          component: VaAccordion
         },
         {
-          path: '/app-chip',
-          name: 'APP_CHIP',
-          component: AppChip
+          path: '/va-chip',
+          name: 'VA_CHIP',
+          component: VaChip
         },
         {
-          path: '/app-breadcrumbs',
-          name: 'APP_BREADCRUMBS',
-          component: AppBreadcrumbs
+          path: '/va-breadcrumbs',
+          name: 'VA_BREADCRUMBS',
+          component: VaBreadcrumbs
         },
         {
-          path: '/app-dropdown',
-          name: 'APP_DROPDOWN',
-          component: AppDropdown
+          path: '/va-dropdown',
+          name: 'VA_DROPDOWN',
+          component: VaDropdown
         },
         {
-          path: '/app-range',
-          name: 'APP_RANGE',
-          component: AppRange
+          path: '/va-range',
+          name: 'VA_RANGE',
+          component: VaRange
         },
         {
-          path: '/app-rating',
-          name: 'APP_RATING',
-          component: AppRating
+          path: '/va-rating',
+          name: 'VA_RATING',
+          component: VaRating
         }
       ]
     },
@@ -236,39 +235,39 @@ const router = createRouter({
       component: ComponentView,
       children: [
         {
-          path: '/app-card-radio',
-          name: 'APP_CARD_RADIO',
-          component: AppCardRadio
+          path: '/va-card-radio',
+          name: 'VA_CARD_RADIO',
+          component: VaCardRadio
         },
         {
-          path: '/app-bottom-nav',
-          name: 'APP_BOTTOM_NAV',
-          component: AppBottomNav
+          path: '/va-bottom-nav',
+          name: 'VA_BOTTOM_NAV',
+          component: VaBottomNav
         },
         {
-          path: '/app-pagination',
-          name: 'APP_PAGINATION',
-          component: AppPagination
+          path: '/va-pagination',
+          name: 'VA_PAGINATION',
+          component: VaPagination
         },
         {
-          path: '/app-stepper',
-          name: 'APP_STEPPER',
-          component: AppStepper
+          path: '/va-stepper',
+          name: 'VA_STEPPER',
+          component: VaStepper
         },
         {
-          path: '/app-skeleton',
-          name: 'APP_SKELETON',
-          component: AppSkeleton
+          path: '/va-skeleton',
+          name: 'VA_SKELETON',
+          component: VaSkeleton
         },
         {
-          path: '/app-sidebar',
-          name: 'APP_SIDEBAR',
-          component: AppSidebar
+          path: '/va-sidebar',
+          name: 'VA_SIDEBAR',
+          component: VaSidebar
         },
         {
-          path: '/app-card',
-          name: 'APP_CARD',
-          component: AppCard
+          path: '/va-card',
+          name: 'VA_CARD',
+          component: VaCard
         }
       ]
     },
@@ -278,19 +277,14 @@ const router = createRouter({
       component: ComponentView,
       children: [
         {
-          path: '/floating-menu',
-          name: 'FLOATING_MENU',
-          component: floatingMenu
+          path: '/va-floating-menu',
+          name: 'VA_FLOATING_MENU',
+          component: VaFloatingMenu
         },
         {
-          path: '/app-slider',
-          name: 'APP_SLIDER',
-          component: AppSlider
-        },
-        {
-          path: '/app-grid-flex',
-          name: 'APP_GRID_FLEX',
-          component: AppGridFlex
+          path: '/va-grid-flex',
+          name: 'VA_GRID_FLEX',
+          component: VaGridFlex
         }
       ]
     }

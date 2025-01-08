@@ -1,0 +1,94 @@
+@import 'button-base-mixin';
+@import '../../../assets/scss/abstract/mixins/hover-current-color';
+
+.va-button {
+    @include hoverCurrentColor();
+    position: relative;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    overflow: hidden;
+    border: none;
+    cursor: pointer;
+
+    //Color
+    &--primary{
+        background-color: var(--va-accent);
+        color: var(--va-white);
+    }
+
+    //Variantes
+    &--outline{
+        @include buttonBase;
+        color: var(--va-accent);
+        background-color: transparent;
+        border: 1px solid var(--va-accent);
+    }
+
+    &--regular {
+        @include buttonBase;
+    }
+
+    &--small {
+        @include buttonBase(4px 8px, 1.8);
+    }
+
+    &--big {
+        @include buttonBase(8px 18px, 2.2);
+    }
+
+    &--full-width {
+        @include buttonBase;
+        display: flex;
+        width: 100%;
+    }
+
+    //Posición del icono
+    &--icon-right{
+        flex-direction: row;
+    }
+
+    &--icon-left{
+        flex-direction: row-reverse;
+    }
+
+    &--round-regular{
+        border-radius: 100%;
+        min-width: 45px;
+        min-height: 45px;
+    }
+
+    &--round-medium{
+        border-radius: 100%;
+        min-width: 50px;
+        min-height: 50px;
+    }
+
+    &--round-big{
+        border-radius: 100%;
+        min-width: 60px;
+        min-height: 60px;
+    }
+
+    &--pointers-none {
+        pointer-events: none;
+    }
+
+    &:disabled{
+        background-color: var(--va-disabled);
+        cursor: initial;
+    }
+
+    .va-icon {
+        color: currentColor;
+        
+        &.has-text-right{
+            margin-right: 0.75rem;
+        }
+
+        &.has-text-left{
+            margin-left: 0.75rem;
+        }
+    }
+}

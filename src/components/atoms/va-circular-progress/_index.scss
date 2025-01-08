@@ -1,0 +1,38 @@
+.va-circular-progress {
+    --progress-width: 0;
+    --progress-height: 0;
+    position: relative;
+    // width: fit-content;
+    width: var(--progress-width);
+    height: var(--progress-height);
+
+    &__counter{
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        display: inline-block;
+        width: 100%;
+        text-align: center;
+    }
+
+    .progress-ring {
+        transform: rotate(-90deg); /* Rota el círculo para que comience en la parte superior */
+        width: 100%;
+        height: auto;
+
+        &__circle {
+            fill: none;
+            stroke-width: 10;
+            stroke: var(--progress-color-inner); /* Color de fondo */
+        }
+
+        &__circle-progress {
+            fill: none;
+            stroke-width: 10;
+            stroke: var(--progress-color-outer); /* Color del progreso */
+            stroke-linecap: round;
+            transition: stroke-dashoffset 0.35s;
+        }
+    }
+}

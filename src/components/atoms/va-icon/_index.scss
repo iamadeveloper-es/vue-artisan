@@ -1,0 +1,25 @@
+.va-icon {
+    position: relative;
+    font-size: inherit;
+    color: currentColor;
+    overflow: hidden;
+    display: table;
+    transition: all 0.15s ease-in-out;
+
+    //Variants
+    &--rotate-180-deg {
+        transform: rotate(-180deg);
+    }
+    &--primary {
+        color: var(--va-accent);
+    }
+    &--success {
+        color: var(--va-success);
+    }
+    &--danger {
+        color: var(--va-danger);
+    }
+    &--info {
+        color: var(--va-warning);
+    }
+}
