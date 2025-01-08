@@ -1,6 +1,6 @@
 @import '../../../assets/scss/abstract/mixins/hover-current-color';
 
-.app-bottom-nav{
+.va-bottom-nav{
     position: sticky;
     bottom: 0;
     top: 100%;
@@ -41,7 +41,7 @@
         &:focus{
             background-color: rgba(var(--va-neutral-600-rgb), .5);
 
-            .app-svg{
+            .va-svg{
                 animation: none; /* Resetea la animación previa */
                 animation: fadeOnFocusSVG .4s ease-out forwards;
                 -webkit-animation: none; /* Safari */
@@ -54,7 +54,7 @@
         }
 
         &.interacted:not(:focus){
-            .app-svg{
+            .va-svg{
                 animation: fadeOnBlurSVG .3s ease-in forwards;
                 -webkit-animation: fadeOnBlurSVG 0.3s ease-in forwards; /* Safari */
             }
@@ -82,7 +82,7 @@
         pointer-events: none;
         // overflow: hidden;
 
-        .app-svg{
+        .va-svg{
             position: relative;
             // transform: translateY(-10px);
         }

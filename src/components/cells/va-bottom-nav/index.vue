@@ -1,10 +1,10 @@
 <script lang="ts">
 export default {
-  name: 'app-bottom-bar'
+  name: 'va-bottom-bar'
 };
 </script>
 <script setup lang="ts">
-import AppSvg from '../../atoms/va-svg/index.vue';
+import VaSvg from '../../atoms/va-svg/index.vue';
 import { useComponentFunctions } from '@/composables/component-functions';
 import { ref, type PropType } from 'vue';
 
@@ -33,16 +33,18 @@ const emitEvent = (ev: Event): void => {
 };
 </script>
 
-<template lang="pug">
-nav.app-bottom-nav
-    ul.app-bottom-nav__list
-        li.app-bottom-nav__item(v-for="(item, index) in links" :key="index")
-            //- router-link.app-bottom-nav__link(:to="item.route") {{ item.label }}
-            button.app-bottom-nav__action(@click="emitEvent")
-              .app-bottom-nav__action-inner
-                app-svg(:name="item.icon", fill="red", stroke="blue", width="15")
-                span {{ item.label }}
-
+<template>
+<nav class="va-bottom-nav">
+  <ul class="va-bottom-nav__list">
+    <li class="va-bottom-nav__item" v-for="(item, index) in links" :key="index">
+      <button class="va-bottom-nav__action" @click="emitEvent">
+        <div class="va-bottom-nav__action-inner">
+          <va-svg :name="item.icon" fill="red" stroke="blue" width="15"></va-svg><span>{{ item.label }}</span>
+        </div>
+      </button>
+    </li>
+  </ul>
+</nav>
 </template>
 
 <style lang="scss">

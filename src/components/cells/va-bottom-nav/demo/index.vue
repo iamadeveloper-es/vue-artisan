@@ -1,10 +1,10 @@
 <script lang="ts">
 export default {
-  name: 'app-bottom-bar-demo'
+  name: 'va-bottom-bar-demo'
 };
 </script>
 <script setup lang="ts">
-import AppBottomBar from '../index.vue';
+import VaBottomBar from '../index.vue';
 
 const links = [
   {
@@ -30,14 +30,16 @@ const links = [
 ];
 </script>
 
-<template lang="pug">
-.app-bottom-nav-demo
-  .app-bottom-nav-demo__wrapper
-    app-bottom-bar(:links="links")
+<template>
+<div class="va-bottom-nav-demo">
+  <div class="va-bottom-nav-demo__wrapper">
+    <va-bottom-bar :links="links"></va-bottom-bar>
+  </div>
+</div>
 </template>
 
 <style lang="scss">
-.app-bottom-nav-demo{
+.va-bottom-nav-demo{
   position: relative;
   display: flex;
   justify-content: center;
