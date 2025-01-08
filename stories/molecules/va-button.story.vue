@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { reactive } from 'vue';
-import AppButton from '../../src/components/molecules/va-button/index.vue';
+import VaButton from '../../src/components/molecules/va-button/index.vue';
 import { logEvent } from 'histoire/client';
 
 const regular = reactive({
@@ -66,40 +66,40 @@ const handleEvent = (button) => {
 </script>
 
 <template>
-<Story title="molecules/app-button" :layout="{ type: 'grid', width: 400 }">
+<Story title="molecules/va-button" :layout="{ type: 'grid', width: 400 }">
     <Variant title="Regular">
         <template #default>
-            <app-button v-bind="regular" @clicked="handleEvent('regular'), logEvent('clicked', $event)"></app-button>
+            <va-button v-bind="regular" @clicked="handleEvent('regular'), logEvent('clicked', $event)"></va-button>
             <p>{{ regular.counter }}</p>
         </template>
     </Variant>
     <Variant title="Small">
-        <app-button v-bind="small" @clicked="handleEvent('small'), logEvent('clicked', $event)"></app-button>
+        <va-button v-bind="small" @clicked="handleEvent('small'), logEvent('clicked', $event)"></va-button>
         <p>{{ small.counter }}</p>
     </Variant>
     <Variant title="Outline">
-        <app-button v-bind="outline" @clicked="handleEvent('outline'), logEvent('clicked', $event)"></app-button>
+        <va-button v-bind="outline" @clicked="handleEvent('outline'), logEvent('clicked', $event)"></va-button>
         <p>{{ outline.counter }}</p>
     </Variant>
     <Variant title="Big">
-        <app-button v-bind="big" @clicked="handleEvent('big'), logEvent('clicked', $event)"></app-button>
+        <va-button v-bind="big" @clicked="handleEvent('big'), logEvent('clicked', $event)"></va-button>
         <p>{{ big.counter }}</p>
     </Variant>
     <Variant title="Round medium">
-        <app-button v-bind="roundMedium" @clicked="handleEvent('roundMedium'), logEvent('clicked', $event)"></app-button>
+        <va-button v-bind="roundMedium" @clicked="handleEvent('roundMedium'), logEvent('clicked', $event)"></va-button>
         <p>{{ roundMedium.counter }}</p>
     </Variant>
     <Variant title="Full width">
-        <app-button v-bind="fullWidth" @clicked="handleEvent('fullWidth'), logEvent('clicked', $event)"></app-button>
+        <va-button v-bind="fullWidth" @clicked="handleEvent('fullWidth'), logEvent('clicked', $event)"></va-button>
         <p>{{ fullWidth.counter }}</p>
 
         <!-- <template #source>
             <textarea v-pre>
-                <app-button
+                <va-button
                 text="button"
                 variant="['regular', 'full-width']"
                 @clicked="handleEvent">
-                </app-button>
+                </va-button>
             </textarea>
       </template> -->
     </Variant>
