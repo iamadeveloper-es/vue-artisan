@@ -1,6 +1,6 @@
 <script lang="ts">
 export default {
-  name: 'app-grid-flex'
+  name: 'va-grid-flex'
 };
 </script>
 
@@ -8,9 +8,11 @@ export default {
 
 </script>
 
-<template lang="pug">
-.app-grid-flex
-  slot
+<template>
+
+<div class="va-grid-flex">
+  <slot></slot>
+</div>
 </template>
 
 <style lang="scss">

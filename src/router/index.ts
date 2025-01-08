@@ -50,7 +50,7 @@ import VaCard from '../components/cells/va-card/demo/index.vue';
 
 //Organisms
 import VaFloatingMenu from '../components/organisms/va-floating-menu/demo/index.vue';
-import AppGridFlex from '../components/organisms/app-grid-flex/demo/index.vue';
+import VaGridFlex from '../components/organisms/va-grid-flex/demo/index.vue';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -282,9 +282,9 @@ const router = createRouter({
           component: VaFloatingMenu
         },
         {
-          path: '/app-grid-flex',
-          name: 'APP_GRID_FLEX',
-          component: AppGridFlex
+          path: '/va-grid-flex',
+          name: 'VA_GRID_FLEX',
+          component: VaGridFlex
         }
       ]
     }

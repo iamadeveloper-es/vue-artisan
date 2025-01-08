@@ -3,17 +3,17 @@ $breakpoints: (
   sm: 960px,
   md: 1280px
 );
-.app-grid-flex{
+.va-grid-flex{
     max-width: 1200px;
     margin-left: auto;
     margin-right: auto;
 
-    .app-row{
+    .va-row{
         display: flex;
         flex-wrap: wrap;
     }
 
-    .app-col{
+    .va-col{
         flex-grow: 0;
         flex-shrink: 0;
         flex-basis: 100%;

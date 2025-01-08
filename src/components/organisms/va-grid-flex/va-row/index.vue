@@ -1,6 +1,6 @@
 <script lang="ts">
 export default {
-  name: 'app-row'
+  name: 'va-row'
 };
 </script>
 
@@ -8,9 +8,10 @@ export default {
 
 </script>
 
-<template lang="pug">
-.app-row
-  slot
+<template>
+<div class="va-row">
+  <slot></slot>
+</div>
 </template>
 
 <style lang="scss">
