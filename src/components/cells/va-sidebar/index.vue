@@ -1,6 +1,6 @@
 <script lang="ts">
 export default {
-  name: 'app-sidebar'
+  name: 'va-sidebar'
 };
 </script>
 <script setup lang="ts">
@@ -18,9 +18,10 @@ defineProps({
 
 </script>
 
-<template lang="pug">
-.app-sidebar(:class="{ 'show': show, 'show-left' : showLeft, 'show-right' : !showLeft}")
-    slot(name="sidebarContent")
+<template>
+<div class="va-sidebar" :class="{ 'show': show, 'show-left' : showLeft, 'show-right' : !showLeft}">
+  <slot name="sidebarContent"></slot>
+</div>
 </template>
 
 <style lang="scss">

@@ -45,7 +45,7 @@ import VaBottomNav from '../components/cells/va-bottom-nav/demo/index.vue';
 import AppPagination from '../components/cells/app-pagination/demo/index.vue';
 import VaStepper from '../components/cells/va-stepper/demo/index.vue';
 import VaSkeleton from '../components/cells/va-skeleton/demo/index.vue';
-import AppSidebar from '../components/cells/app-sidebar/demo/index.vue';
+import VaSidebar from '../components/cells/va-sidebar/demo/index.vue';
 import AppCard from '../components/cells/app-card/demo/index.vue';
 
 //Organisms
@@ -261,9 +261,9 @@ const router = createRouter({
           component: VaSkeleton
         },
         {
-          path: '/app-sidebar',
-          name: 'APP_SIDEBAR',
-          component: AppSidebar
+          path: '/va-sidebar',
+          name: 'VA_SIDEBAR',
+          component: VaSidebar
         },
         {
           path: '/app-card',
