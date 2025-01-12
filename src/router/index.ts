@@ -58,7 +58,8 @@ const router = createRouter({
     {
       path: '/test/:id',
       name: 'TEST',
-      component: AppTest
+      component: AppTest,
+      children: []
     },
     {
       path: '/atoms',

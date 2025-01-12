@@ -1,12 +1,11 @@
-<script lang="ts">
+<script lang="ts" setup>
 import Dashboard from './views/dashboard-view/index.vue';
+import { useRouter } from 'vue-router';
+import AutoComplete from './views/dashboard-view/autocomplete/index.vue';
 
-export default {
-  components: {
-    Dashboard
-  },
-  setup () {}
-};
+const router = useRouter();
+const routes = router.options.routes;
+
 </script>
 
 <template>
@@ -14,6 +13,7 @@ export default {
   <header>
     <h1>Vue Artisan</h1>
     <h2>Set minimalísta de componentes para Vue 3</h2>
+    <AutoComplete :routes="routes"/>
   </header>
   <dashboard></dashboard>
 </div>
