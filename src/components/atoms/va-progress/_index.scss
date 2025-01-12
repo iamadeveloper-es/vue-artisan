@@ -25,13 +25,20 @@
     }
 
     &__counter{
-        position: relative;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: var(--progress-value);
+        min-width: 30px;
+        pointer-events: none;
         display: inline-flex;
         align-items: center;
+        justify-content: center;
         height: 100%;
         font-size: .9em;
         color: var(--text-color);
         z-index: 10;
+        transition: width 1.2s ease-in-out;
     }
 
     &--xs{

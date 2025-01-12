@@ -38,7 +38,7 @@ const props = defineProps({
   },
   textColor: {
     type: String,
-    default: 'va-darken-400'
+    default: 'va-white'
   },
   bgColor: {
     type: String,
@@ -67,7 +67,10 @@ role="range"
 :class="[`va-progress--${size}`]"
 :style="[`--progress-value:${setValue}%`, `--progress-bg-color:var(--${progressBgColor})`, `--bar-bg-color:var(--${bgColor})`, `--text-color:var(--${textColor})`]"
 >
-  <span class="va-progress__counter" v-if="showCounter">{{ `${setValue}%` }}</span>
+  <span
+    class="va-progress__counter"
+    v-if="showCounter"
+    >{{ `${setValue}%` }}</span>
 </div>
 </template>
 
