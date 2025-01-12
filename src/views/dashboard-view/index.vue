@@ -13,6 +13,10 @@ const router = useRouter();
 const route = useRoute();
 const routes = router.options.routes;
 
+const sortedRoutes = (routes) => {
+  return routes.sort((a,b) => (a.name > b.name) ? 1 : ((b.name > a.name) ? -1 : 0));
+};
+
 const capitalizeFirstChar = (str: string): string => {
   const firstLetter = str.charAt(0).toUpperCase();
   const text = str.slice(1).toLowerCase().replaceAll('_', ' ');
@@ -51,7 +55,7 @@ onMounted(() => {
     <ul class="va-menu">
       <li v-for="(route, index) in routes" :key="index"><span :data-id="route.name" @click="showHideMenuItems(route.name)">{{ capitalizeFirstChar(route.name)}}</span>
         <ul class="va-menu__submenu" v-if="route.children">
-          <li v-for="(child, index) in route.children" :key="index" :class="{'active':child.name === currentRouteName}">
+          <li v-for="(child, index) in sortedRoutes(route.children)" :key="index" :class="{'active':child.name === currentRouteName}">
             <router-link :to="child.path">{{ capitalizeFirstChar(child.name.replace('VA_', '')) }}</router-link>
           </li>
         </ul>
