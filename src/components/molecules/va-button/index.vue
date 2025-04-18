@@ -6,7 +6,7 @@ export default {
 <script setup lang="ts">
 import { computed, ref, type PropType } from 'vue';
 import VaIcon from '../../atoms/va-icon/index.vue';
-import { useComponentFunctions } from '../../../composables/component-functions';
+// import { useComponentFunctions } from '../../../composables/component-functions';
 
 type Variant = 'transparent' | 'outline' | 'regular' | 'small' | 'big' | 'full-width' | 'round-regular' | 'round-medium' | 'round-big'
 type IconPosition = 'left' | 'right'
@@ -57,7 +57,7 @@ const props = defineProps({
 });
 
 const emit = defineEmits(['clicked']);
-const { rippleEffect } = useComponentFunctions();
+// const { rippleEffect } = useComponentFunctions();
 const button = ref(null);
 
 const hasIcon = computed(() => {
@@ -78,9 +78,9 @@ const getIconPosition = computed(() => {
 });
 
 const emitEvent = (ev: Event): void => {
-  if (!props.disableRipple) {
-    rippleEffect(ev, button.value);
-  }
+  // if (!props.disableRipple) {
+  //   // rippleEffect(ev, button.value);
+  // }
   emit('clicked', ev);
 };
 </script>
@@ -93,6 +93,7 @@ ref="button"
 :class="[getVariant, `va-button--icon-${iconPosition}`, `va-button--${color}`, `b-radius--${borderRadius}`]"
 :disabled="disabled"
 @click="emitEvent"
+v-ripple="disableRipple"
 >
   <span class="va-button--pointers-none">{{ text }}</span>
   <VaIcon

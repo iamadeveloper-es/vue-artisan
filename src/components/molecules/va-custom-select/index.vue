@@ -46,6 +46,10 @@ const props = defineProps({
   iconSize: {
     type: Number,
     default: 15
+  },
+  disableRipple: {
+    type: Boolean,
+    default: false
   }
 });
 const show = ref(false);
@@ -101,7 +105,7 @@ v-click-outside="hide"
     :cClass="['va-input', {'b-bottom': borderBottom}, iconClass]"
     :icon="getIcon"
     :iconSize="iconSize"
-    :disableRipple="true"
+    v-ripple="disableRipple"
   />
   <ol
     v-show="show"
@@ -138,41 +142,6 @@ v-click-outside="hide"
     </li>
   </ol>
 </div>
-<!-- .va-custom-select(v-click-outside="hide")
-    span.va-label(
-    role="label",
-    :class="[{'label-float': floatingLabel, 'is-focused' : modelValue && floatingLabel || modelValue && outlinedLabel, 'label-outlined' : outlinedLabel}]") {{ label }}
-    va-button.va-input(
-    @clicked="toggleOptions",
-    :text="modelValue",
-    :cClass="[{'b-bottom': borderBottom}, iconClass]",
-    :icon="getIcon",
-    :iconSize="iconSize",
-    :disableRipple="true")
-    ol(v-show="show",
-    class="va-custom-select__options",
-    role="listbox",
-    :tabindex="show ? -1 : 0")
-        li.va-custom-select__li(
-        v-for="(option, index) in options",
-        :key="index",
-        role="option",
-        :aria-labelledby="`list-item-${index}`",
-        @keyup.enter="toggleOptions")
-            input.va-custom-select__input(
-            aria-hidden="true",
-            role="radio",
-            type="radio",
-            :id="`list-item-${index}`",
-            :name="inputName",
-            :disabled="option.disabled",
-            :hidden="option.disabled",
-            :value="option.value",
-            @change="emitValue($event)",
-            @focus="emitFocus",
-            @blur="emitBlur")
-            label.va-custom-select__label(
-            :for="`list-item-${index}`") {{option.label}} -->
 </template>
 
 <style lang="scss">

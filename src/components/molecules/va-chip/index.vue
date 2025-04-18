@@ -73,6 +73,7 @@ v-if="show"
 :id="getId"
 @click="emitValue"
 :class="[`va-chip--${variant}`]"
+v-ripple
 >
   <VaIcon
     v-if="hasAppendIcon"

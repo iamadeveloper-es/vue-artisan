@@ -18,6 +18,7 @@ import VaPicture from '../components/atoms/va-picture/demo/index.vue';
 import VaImage from '../components/atoms/va-image/demo/index.vue';
 
 //Molecules
+import VaAvatarGroup from '../components/molecules/va-avatar-group/demo/index.vue';
 import VaButton from '../components/molecules/va-button/demo/index.vue';
 import VaInputField from '../components/molecules/va-input-field/demo/index.vue';
 import VaCheckbox from '../components/molecules/va-checkbox/demo/index.vue';
@@ -162,6 +163,11 @@ const router = createRouter({
           path: '/va-custom-select',
           name: 'VA_CUSTOM_SELECT',
           component: VaCustomSelect
+        },
+        {
+          path: '/va-avatar-group',
+          name: 'VA_AVATAR_GROUP',
+          component: VaAvatarGroup
         },
         {
           path: '/va-button',

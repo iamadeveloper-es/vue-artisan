@@ -56,6 +56,10 @@ const props = defineProps({
   },
   validations: {
     type: String
+  },
+  disableRipple: {
+    type: Boolean,
+    default: false
   }
 });
 const { randomId } = useComponentFunctions();
@@ -116,6 +120,7 @@ v-if="options.length"
       v-model="model"
       @change="emitValue"
       :class="{'b-bottom': borderBottom, 'disabled': disabled}"
+      v-ripple="disableRipple"
     >
       <option
         v-for="(option, index) in options"

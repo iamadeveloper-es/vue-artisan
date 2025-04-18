@@ -123,21 +123,21 @@ onMounted(() => {
 
 <nav class="va-pagination" v-if="computedTotal">
   <ul class="va-pagination__list">
-    <li class="va-pagination__list-item">
+    <li v-ripple class="va-pagination__list-item">
       <button class="va-pagination__button" @click="goToFirstPage()" :disabled="selectedPage == 1"><span :class="firstPageIncon"></span></button>
     </li>
-    <li class="va-pagination__list-item">
+    <li v-ripple class="va-pagination__list-item">
       <button class="va-pagination__button" @click="previousPage()" :disabled="selectedPage == 1"><span :class="previousIncon"></span></button>
     </li>
-    <li class="va-pagination__list-item dots" v-if="showLeftDots"><span class="va-pagination__button dots">...</span></li>
-    <li class="va-pagination__list-item" v-for="(page, index) in filteredPages" :key="index">
+    <li v-ripple class="va-pagination__list-item dots" v-if="showLeftDots"><span class="va-pagination__button dots">...</span></li>
+    <li v-ripple class="va-pagination__list-item" v-for="(page, index) in filteredPages" :key="index">
       <button class="va-pagination__button" @click="setSelectedPage(page)" :class="{'active' : selectedPage == page}"><span>{{ page }}</span></button>
     </li>
-    <li class="va-pagination__list-item dots" v-if="showRightDots"><span class="va-pagination__button dots">...</span></li>
-    <li class="va-pagination__list-item">
+    <li v-ripple class="va-pagination__list-item dots" v-if="showRightDots"><span class="va-pagination__button dots">...</span></li>
+    <li v-ripple class="va-pagination__list-item">
       <button class="va-pagination__button" @click="nextPage()" :disabled="selectedPage == totalPages"><span :class="nextIncon"></span></button>
     </li>
-    <li class="va-pagination__list-item">
+    <li v-ripple class="va-pagination__list-item">
       <button class="va-pagination__button" @click="goToLastPage()" :disabled="selectedPage == totalPages"><span :class="lastPageIncon"></span></button>
     </li>
   </ul>

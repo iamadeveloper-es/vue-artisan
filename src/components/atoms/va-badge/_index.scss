@@ -8,7 +8,7 @@
 
     &__bubble{
         position: absolute;
-        transform-origin: center;
+        transform-origin: 10px 10px;
         min-width: 20px;
         padding: 3px;
         display: flex;
@@ -49,26 +49,30 @@
     //Modificadores posición
     &--top-left {
         #{$block}__bubble{
-            bottom: calc(100% - 12px);
-            left: calc(0% - 12px);
+            top: 2px;
+            left: 2px;
+            transform: matrix(1, 0, 0, 1, -10, -10)
         }
     }
     &--top-right {
         #{$block}__bubble{
-            bottom: calc(100% - 12px);
-            right: calc(-100% + 12px);
+            top: 2.79688px;
+            right: 2.79688px;
+            transform: matrix(1, 0, 0, 1, 10, -10);
         }
     }
     &--bottom-left {
         #{$block}__bubble{
-            top: calc(100% - 12px);
-            left: calc(0% - 12px);
+            bottom: 2px;
+            left: 2px;
+            transform: matrix(1, 0, 0, 1, -10, 10)
         }
     }
     &--bottom-right {
         #{$block}__bubble{
-            top: calc(100% - 12px);
-            right: calc(-100% + 12px);
+            top: 2px;
+            right: 2px;
+            transform: matrix(1, 0, 0, 1, 10, 10)
         }
     }
 
@@ -85,8 +89,9 @@
         #{$block}__bubble{
             min-width: 10px;
             height: 10px;
-            bottom: calc(100% - 8px);
-            right: calc(-100% + 20px);
+            top: 8px;
+            right: 5px;
+            transform: matrix(1, 0, 0, 1, 10, -10);
         }
     }
 

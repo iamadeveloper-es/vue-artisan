@@ -1,21 +1,16 @@
-import { fileURLToPath } from 'node:url';
-import { mergeConfig, defineConfig } from 'vite';
-import { configDefaults } from 'vitest/config';
-import viteConfig from './vite.config';
+// vitest.config.ts
+import { defineConfig, mergeConfig } from 'vitest/config';
+import viteConfigFn from './vite.config';
 
-export default mergeConfig(
-  viteConfig,
-  defineConfig({
+export default defineConfig(async () => {
+  const viteConfig = await viteConfigFn({ mode: 'test' }); // <-- Ejecutamos la función
+  return mergeConfig(viteConfig, {
     test: {
-      coverage: {
-        provider: 'istanbul' // or 'v8'
-      },
       environment: 'jsdom',
-      exclude: [...configDefaults.exclude, 'e2e/*'],
-      root: fileURLToPath(new URL('./', import.meta.url)),
-      transformMode: {
-        web: [/\.[jt]sx$/]
+      include: ['**/*.{test,spec}.ts?(x)'],
+      coverage: {
+        provider: 'istanbul'
       }
     }
-  })
-);
+  });
+});

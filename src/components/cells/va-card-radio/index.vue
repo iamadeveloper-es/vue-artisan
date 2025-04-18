@@ -33,7 +33,7 @@ const emitValue = (ev: Event) => {
 </script>
 
 <template>
-<div class="va-card-radio" :class="{'active': isChecked}">
+<div class="va-card-radio" :class="{'active': isChecked}" v-ripple>
   <input class="va-card-radio__input" type="radio" :value="value" :name="name" :checked="isChecked" @change="emitValue($event)">
   <slot name="content"></slot>
 </div>

@@ -20,19 +20,30 @@
         justify-content: center;
         align-items: center;
 
-        strong {
+        span {
             display: inline-block;
             width: 100%;
             text-align: center;
         }
     }
 
+    &--truncate{
+        overflow: hidden;
+        text-overflow: ellipsis;
+        white-space: nowrap;
+    }
+
     //Variants
-    &--has-action {
+    &--action {
         cursor: pointer;
     }
 
     &--rounded {
         border-radius: 100%;
+    }
+
+    &--bordered{
+        border: 1.5px solid;
+        padding: .050rem;
     }
 }

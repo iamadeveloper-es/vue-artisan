@@ -8,6 +8,7 @@ import { ref } from 'vue';
 import VaBadge from '../index.vue';
 import VaIconSvg from '../../va-icon-svg/index.vue';
 import VaButton from '../../../molecules/va-button/index.vue';
+import VAAvatar from '../../va-avatar/index.vue';
 
 const badgeCount1 = ref(9);
 const badgeCount2 = ref(78);
@@ -26,12 +27,21 @@ const increment2 = () => {
 <div class="va-badge-demo-flex">
   <div class="va-badge-demo-item">
     <h4>Default</h4>
-    <VaBadge :count="badgeCount1">
+    <!-- <VaBadge :count="badgeCount1">
       <template #content>
         <VaIconSvg
           icon="envelope"
           size="25px"
           color="primary"
+        />
+      </template>
+    </VaBadge> -->
+    <VaBadge :count="badgeCount1">
+      <template #content>
+        <VAAvatar
+        :name="'Babco gonzalez gonzález'"
+        :image="'./images/avatar.jpg'"
+        :size="'xl'"
         />
       </template>
     </VaBadge>

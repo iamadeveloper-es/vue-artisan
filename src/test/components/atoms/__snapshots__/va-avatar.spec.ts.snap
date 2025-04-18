@@ -1,0 +1,33 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`VaAvatar.vue > aplica la clase de acción cuando \`clickable\` es verdadero 1`] = `
+"<div class="va-avatar va-avatar--action va-avatar--rounded">
+  <!--v-if-->
+</div>"
+`;
+
+exports[`VaAvatar.vue > aplica la clase de borde cuando \`isBordered\` es verdadero 1`] = `
+"<div class="va-avatar va-avatar--rounded va-avatar--bordered">
+  <!--v-if-->
+</div>"
+`;
+
+exports[`VaAvatar.vue > aplica la clase de borde redondeado si \`isRounded\` es verdadero 1`] = `
+"<div class="va-avatar va-avatar--rounded">
+  <!--v-if-->
+</div>"
+`;
+
+exports[`VaAvatar.vue > emite el evento \`clicked\` cuando se hace clic 1`] = `
+"<div class="va-avatar va-avatar--action va-avatar--rounded">
+  <!--v-if-->
+</div>"
+`;
+
+exports[`VaAvatar.vue > muestra las iniciales del nombre cuando \`display\` es "name" 1`] = `"<div class="va-avatar va-avatar--rounded"><span class="va-avatar__initials" style="line-height: var(--va-text-xs, var(--va-text-md));"><span class="va-avatar--truncate">JD</span></span></div>"`;
+
+exports[`VaAvatar.vue > renderiza el texto personalizado si se pasa la prop \`text\` 1`] = `"<div class="va-avatar va-avatar--rounded"><span class="va-avatar__initials" style="line-height: var(--va-text-xs, var(--va-text-md));"><span class="va-avatar--truncate">Hola!</span></span></div>"`;
+
+exports[`VaAvatar.vue > renderiza una imagen cuando se pasa la prop \`image\` y el display es "img" 1`] = `"<div class="va-avatar va-avatar--rounded"><img class="va-avatar__img circle" src="https://example.com/avatar.jpg" alt="John Doe"></div>"`;
+
+exports[`VaAvatar.vue > usa el nombre por defecto si no se proporciona uno 1`] = `"<div class="va-avatar va-avatar--rounded"><span class="va-avatar__initials" style="line-height: var(--va-text-xs, var(--va-text-md));"><span class="va-avatar--truncate">AN</span></span></div>"`;

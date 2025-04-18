@@ -22,7 +22,7 @@ const props = defineProps({
   }
 });
 
-const { randomId, rippleEffect } = useComponentFunctions();
+const { randomId } = useComponentFunctions();
 const itemRefs: Ref<HTMLElement[]> = ref([]);
 
 watch(
@@ -78,7 +78,7 @@ role="tablist"
   ref="itemRefs"
   :data-value="tab.value"
   :class="{'active': tab.value === modelValue}"
-  @click="rippleEffect($event, $event.target.parentElement)"
+  v-ripple
   >
     <input
     class="va-tabs__input"

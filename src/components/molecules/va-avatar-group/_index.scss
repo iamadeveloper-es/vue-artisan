@@ -1,0 +1,59 @@
+.va-avatar-group{
+    position: relative;
+    display: flex;
+    align-items: center;
+    
+    .va-avatar{
+        margin-inline-end: calc(var(--va-spacing) * -3);
+        box-shadow: 0 0 0 2px var(--va-white);
+    }
+
+    &--active{
+        .va-avatar{
+            cursor: pointer;
+            transition: margin-inline-end .2s ease-out;
+    
+            &:hover{
+                margin-inline-end: 0;
+            }
+        }
+    }
+
+    &__count{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: relative;
+        overflow: hidden;
+        border-radius: 100%;
+        box-shadow: 0 0 0 2px var(--va-white);
+
+        // &__img {
+        //     width: 100%;
+            
+        //     &.circle{
+        //         border-radius: 100%;
+        //     }
+        // }
+
+        &__initials {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+            span {
+                display: inline-block;
+                width: 100%;
+                text-align: center;
+            }
+        }
+
+        &--truncate{
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+        }
+    }
+}

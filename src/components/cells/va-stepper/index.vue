@@ -22,7 +22,7 @@ const props = defineProps({
     default: false
   }
 });
-const ol = ref(null);
+const orderList = ref(null);
 
 const setProgressSize = computed(() => {
   const filterCompleted = props.steps.filter(item => item.completed).length;
@@ -79,7 +79,7 @@ const emitEvent = (index) => {
 };
 
 const updateProgress = () => {
-  ol.value?.style.setProperty('--stepper-progress-size', `${props.isProccessCompleted ? 100 : setProgressSize.value}%`);
+  orderList.value?.style.setProperty('--stepper-progress-size', `${props.isProccessCompleted ? 100 : setProgressSize.value}%`);
 };
 
 const configComponent = () => {
@@ -93,7 +93,7 @@ onMounted(() => {
 
 <template>
 <div class="va-stepper-wrapper">
-  <ol class="va-stepper" ref="ol">
+  <ol class="va-stepper" ref="orderList">
     <li class="va-stepper__item" v-for="(step, index) in filterdSteps" :key="index"><span class="va-stepper__label" :class="labelDirection">{{ step.label }}</span>
       <va-button
       @clicked="emitEvent(index)"

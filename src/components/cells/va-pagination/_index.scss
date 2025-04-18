@@ -11,6 +11,7 @@
         border: 1px solid var(--va-neutral-800);
         border-right: 0;
         position: relative;
+        overflow: hidden;
 
         &:first-of-type{
             border-radius: 3px 0 0 3px;

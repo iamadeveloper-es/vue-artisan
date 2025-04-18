@@ -1,23 +1,28 @@
-<script lang="ts">
-export default {
-  name: 'va-avatar'
-};
-</script>
 <script setup lang="ts">
-import { computed, type PropType } from 'vue';
-import { useImageFunctions } from '../../../composables/image-functions';
+import { computed, ref } from 'vue';
+import type { Size } from '@/types';
 
-type IAvatar = {
-    name: string
-    img: string
-    alt?: string
-    size?: Number
-}
+defineOptions({
+  name: 'va-avatar'
+});
 
 const props = defineProps({
-  userInfo: {
-    type: Object as PropType<IAvatar>,
-    required: true
+  image: {
+    type: String
+  },
+  name: {
+    type: String,
+    default: 'Avatar name'
+  },
+  alt: {
+    type: String
+  },
+  text: {
+    type: String
+  },
+  size: {
+    type: String,
+    default: 'xs'
   },
   clickable: {
     type: Boolean,
@@ -35,68 +40,74 @@ const props = defineProps({
     default: 'img'
   },
   bgColor: {
-    type: String,
-    default: 'var(--va-accent)'
+    type: String
   },
-  textColor: {
+  color: {
     type: String,
-    default: 'var(--va-white)'
+    default: 'va-white'
+  },
+  isBordered: {
+    type: Boolean,
+    default: false
   }
 });
 
 const emit = defineEmits(['clicked']);
-const { getImageUrl } = useImageFunctions();
-const defaultSize: number = 35;
+const defaultSize: Size = 'md';
+const imageError = ref(false);
 
-const getImage = computed((): string => {
-  const { img } = props.userInfo;
-  return getImageUrl(img);
+const getBG = computed(() => {
+  const colors = ['va-accent', 'va-info', 'va-success', 'va-warning', 'va-danger'];
+  const randomIndex = Math.floor(Math.random() * colors.length);
+  return props.bgColor ? props.bgColor : colors[randomIndex];
 });
 
-const getSize = computed((): string => {
-  return props.userInfo?.size ? `${props.userInfo.size}px` : `${defaultSize}px`;
+const initials = computed((): String => {
+  const { name } = props;
+  const firstChar = name.charAt(0).toUpperCase();
+  const secondChar = name.split(' ')[1]?.charAt(0).toUpperCase();
+
+  return secondChar ? `${firstChar}${secondChar}` : `${firstChar}`;
 });
 
-const getFontSize = computed((): string => {
-  const size = props.userInfo.size ? props.userInfo.size / 2.5 : defaultSize / 2.5;
-  return `${size}px`;
-});
-
-const getInitials = computed((): String => {
-  const { name } = props.userInfo;
-  const nameFirstChar = name.charAt(0).toUpperCase();
-  const nameSecondPart = name.split(' ')[1]?.charAt(0).toUpperCase();
-
-  return nameSecondPart ? `${nameFirstChar}.${nameSecondPart}` : `${nameFirstChar}`;
-});
+const isImageDisplay = computed(() => props.image && props.display === 'img' && !imageError.value);
 
 const emitEvent = (ev: Event) => {
   emit('clicked', ev);
 };
+
 </script>
 
 <template>
-    <div
-      class="va-avatar"
-      :style="{ width: getSize, height: getSize, color: textColor, 'background-color': bgColor }"
-      :class="[{ 'va-avatar--has-action': clickable, 'va-avatar--rounded': isRounded }]"
-      @click="emitEvent"
+  <div
+    class="va-avatar"
+    :style="
+      {width: `var(--va-size-${size}, var(--va-size-${defaultSize}))`,
+      height: `var(--va-size-${size}, var(--va-size-${defaultSize}))`,
+      color: isImageDisplay ? '' : `var(--${color})`,
+      backgroundColor: isImageDisplay ? '' : `var(--${getBG})`,
+      borderColor: !isBordered && !color ? '' : `var(--${color})`}"
+    :class="[{ 'va-avatar--action': clickable, 'va-avatar--rounded': isRounded, 'va-avatar--bordered': isBordered }]"
+    @click="emitEvent"
+  >
+    <img
+      class="va-avatar__img"
+      v-if="isImageDisplay && !text && !imageError"
+      :src="image"
+      :alt="alt ? alt : name"
+      :class="{ circle: isRounded }"
+      @error="imageError = true"
+    />
+    <span
+      class="va-avatar__initials"
+      v-else-if="display === 'name' || text"
+      :style="{
+        fontSize: `var(--va-text-${size}, var(--va-text-${defaultSize}))`,
+        lineHeight: `var(--va-text-${size}, var(--va-text-${defaultSize}))`}"
     >
-        <img
-          class="va-avatar__img"
-          v-if="display === 'img'"
-          :src="getImage"
-          :alt="userInfo.alt"
-          :class="{ circle: isRounded }"
-        />
-        <span
-          class="va-avatar__initials"
-          v-else-if="display === 'name'"
-          :style="{ 'font-size': getFontSize, 'line-height': getFontSize }"
-        >
-            <strong>{{ getInitials }}</strong>
-        </span>
-    </div>
+        <span class="va-avatar--truncate">{{ display === 'name' && !text ? initials : text }}</span>
+    </span>
+  </div>
 </template>
 
 <style lang="scss">

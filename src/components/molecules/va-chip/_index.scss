@@ -8,6 +8,8 @@
     background-color: var(--va-neutral-600);
     margin-right: 3px;
     margin-left: 3px;
+    position: relative;
+    overflow: hidden;
 
     &--rounded{
         border-radius: 25px;

@@ -6,6 +6,7 @@
     border: 1px solid var(--va-neutral-600);
     border-radius: 3px;
     padding: 10px;
+    overflow: hidden;
 
     &.active{
         border: 1px solid var(--va-neutral-800);
