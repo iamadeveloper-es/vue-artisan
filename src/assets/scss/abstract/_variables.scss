@@ -48,4 +48,21 @@
     /* Miscelania */
     --va-input-min-height: 55px;
 
+    /* Text size */
+    --va-text-xs: 0.75rem;
+    --va-text-sm: 0.875rem;
+    --va-text-md: 1rem;
+    --va-text-lg: 1.125rem;
+    --va-text-xl: 1.25rem;
+
+    --va-spacing: .25rem;
+
+    --va-size-xs: calc(var(--va-spacing) * 6);
+    --va-size-sm: calc(var(--va-spacing) * 7);
+    --va-size-md: calc(var(--va-spacing) * 8);
+    --va-size-lg: calc(var(--va-spacing) * 9);
+    --va-size-xl: calc(var(--va-spacing) * 10);
+    
+
 }
+
