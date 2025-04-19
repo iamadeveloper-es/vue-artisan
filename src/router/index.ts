@@ -20,6 +20,7 @@ import VaImage from '../components/atoms/va-image/demo/index.vue';
 //Molecules
 import VaAvatarGroup from '../components/molecules/va-avatar-group/demo/index.vue';
 import VaButton from '../components/molecules/va-button/demo/index.vue';
+import VaTooltip from '../components/molecules/va-tooltip/demo/index.vue';
 import VaInputField from '../components/molecules/va-input-field/demo/index.vue';
 import VaCheckbox from '../components/molecules/va-checkbox/demo/index.vue';
 import VACounter from '../components/molecules/va-counter/demo/index.vue';
@@ -173,6 +174,11 @@ const router = createRouter({
           path: '/va-button',
           name: 'VA_BUTTON',
           component: VaButton
+        },
+        {
+          path: '/va-tooltip',
+          name: 'VA_TOOLTIP',
+          component: VaTooltip
         },
         {
           path: '/va-tabs',
