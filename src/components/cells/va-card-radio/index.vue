@@ -40,5 +40,5 @@ const emitValue = (ev: Event) => {
 </template>
 
 <style lang="scss">
-@import 'index';
+@use 'index';
 </style>
