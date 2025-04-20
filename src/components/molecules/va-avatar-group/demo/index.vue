@@ -52,7 +52,7 @@ const avatarData = {
 </script>
 
 <template>
-  <div class="va-avatar-group-demo">
+  <div class="va-avatar-group-demo demo">
     <!-- Variante de grupo -->
     <div class="variant-section">
       <h2>Avatar Group</h2>
@@ -92,49 +92,5 @@ const avatarData = {
 </template>
 
 <style lang="scss">
-.va-avatar-group-demo{
-  display: flex;
-  flex-direction: column;
-  gap: 40px;
 
-  .variant-wrapper {
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    gap: 20px;
-    padding: 20px;
-    background-color: #f5f5f5;
-    border-radius: 8px;
-  }
-
-  h2 {
-    margin-bottom: 10px;
-    font-size: 1.2rem;
-    color: #333;
-    border-bottom: 2px solid #ddd;
-    padding-bottom: 5px;
-  }
-
-  .flex {
-    display: flex;
-    flex-direction: column;
-    flex-wrap: wrap;
-    gap: 15px;
-    justify-content: center;
-    align-items: center;
-  }
-
-  .va-avatar-demo__message {
-    font-size: 14px;
-    color: #555;
-    margin-top: 8px;
-    display: block;
-
-    span {
-      display: inline-block;
-      margin-top: 0.5rem;
-      font-weight: bold;
-    }
-  }
-}
 </style>

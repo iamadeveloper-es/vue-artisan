@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { computed, nextTick, onBeforeUnmount, onMounted, ref, useSlots, watch, type PropType } from 'vue';
+import { computed, onBeforeUnmount, onMounted, ref, watch, type PropType } from 'vue';
 
 type TooltipPositions = 'top' | 'bottom' | 'left' | 'right'
 
@@ -19,14 +19,21 @@ const props = defineProps({
 });
 
 const availableValues = ['top', 'bottom', 'left', 'right'];
-const slot = useSlots();
-const trigger = ref<HTMLElement | null>(null);
+const trigger = ref<Element | null>(null);
 const tooltip = ref<HTMLElement | null>(null);
+const tooltipObserver = ref<IntersectionObserver | null>(null)
 const showTooltip = ref(false);
-const tooltipInitialPosition = ref(availableValues.includes(props.position) ? props.position : 'top');
-const tooltipPosition = ref(tooltipInitialPosition);
+const tooltipPosition = ref(props.position);
 
-const observer = ref(null);
+const tooltipInitialPosition = computed(() => {
+  return availableValues.includes(props.position) ? props.position : 'top';
+});
+
+watch(showTooltip, async (newVal, oldVal) => {
+  if(newVal === true){
+    observeTrigger();
+  }
+});
 
 const show = () => {
   showTooltip.value = true;
@@ -36,73 +43,69 @@ const hide = () => {
   showTooltip.value = false;
 };
 
-watch(showTooltip, async (newVal, oldVal) => {
-  if(newVal === true){
-    observeTrigger();
-  }
-});
 
-// const checkPosition = computed(() => {
-//   return availableValues.includes(props.position) ? props.position : 'top';
-// });
-
-const spaceAvobe = computed(() => {
-  const tooltipHeight = tooltip.value?.getBoundingClientRect().height;
-  const triggerElement = trigger.value as HTMLElement;
-  const triggerTop = triggerElement.offsetTop;
-  const triggerLeft = triggerElement.offsetLeft;
-
-  return tooltipHeight > triggerTop;
-
-});
-
-const callback = (entries, observer) => {
-
+const callback = (entries: IntersectionObserverEntry[]) => {
   entries.forEach(entry => {
-    const tooltipHeight = tooltip.value?.getBoundingClientRect().height as number;
-    const tooltipWidth = tooltip.value?.getBoundingClientRect().width as number;
-    const spaceAboveTop = entry.boundingClientRect.top as number;
-    const spaceAboveBottom = entry.boundingClientRect.bottom as number;
-    const spaceAboveLeft = entry.boundingClientRect.left as number;
-    const spaceAboveRight = entry.boundingClientRect.right as number;
-    if(entry.isIntersecting){
-      console.log('Visible!!');
+    if (!tooltip.value) return;
 
+    const tooltipRect = tooltip.value.getBoundingClientRect();
+    const tooltipHeight = tooltipRect.height;
+    const tooltipWidth = tooltipRect.width;
 
-      if(['top', 'bottom'].includes(tooltipInitialPosition.value) && tooltipHeight > spaceAboveTop){
-        tooltipPosition.value = 'bottom';
+    const triggerRect = entry.boundingClientRect;
+
+    const spaceTop = triggerRect.top;
+    const spaceBottom = window.innerHeight - triggerRect.bottom;
+    const spaceLeft = triggerRect.left;
+    const spaceRight = window.innerWidth - triggerRect.right;
+
+    if (entry.isIntersecting) {
+      if (tooltipInitialPosition.value === 'top') {
+        tooltipPosition.value = tooltipHeight > spaceTop ? 'bottom' : 'top';
       }
-      else{
-        tooltipPosition.value = 'top'
+
+      if (tooltipInitialPosition.value === 'bottom') {
+        tooltipPosition.value = tooltipHeight > spaceBottom ? 'top' : 'bottom';
       }
-      // else if(['left', 'right'].includes(tooltipInitialPosition.value)){
-      //   tooltipPosition.value = 'top';
-      // }
+
+      if (tooltipInitialPosition.value === 'left') {
+        tooltipPosition.value = tooltipWidth > spaceLeft ? 'right' : 'left';
+      }
+
+      if (tooltipInitialPosition.value === 'right') {
+        tooltipPosition.value = tooltipWidth > spaceRight ? 'left' : 'right';
+      }
     }
-    // else{
-    //   console.log('No se ve!!!');
-    //   if(tooltipHeight > spaceAboveTop){
-    //     tooltipPosition.value = 'bottom';
-    //   }
-    //   else{
-    //     tooltipPosition.value = 'top';
-    //   }
-    // }
   });
 };
 
-const observeTrigger = () => {
-  const observer = new IntersectionObserver(callback, {
-    root: document,
-    rootMargin: '0px',
-    threshold: 0
-  });
 
-  observer.observe(trigger.value);
+const observeTrigger = () => {
+  if(trigger.value){
+    tooltipObserver.value = new IntersectionObserver(callback, {
+      root: document,
+      rootMargin: '0px',
+      threshold: 0
+    });
+
+    tooltipObserver.value.observe(trigger.value);
+  }
+};
+
+const stopObserving = () => {
+  if (tooltipObserver.value && trigger.value) {
+    tooltipObserver.value.unobserve(trigger.value);
+    tooltipObserver.value.disconnect(); // opcional: también detiene todas las observaciones
+    tooltipObserver.value = null;
+  }
 };
 
 onMounted(() => {
   observeTrigger();
+});
+
+onBeforeUnmount(() => {
+  stopObserving();
 });
 
 
@@ -112,7 +115,7 @@ onMounted(() => {
   <div class="va-tooltip"
   ref="trigger"
   :class="[{'active': showTooltip}, `va-tooltip--${tooltipPosition}`]"
-  @mouseover="show"
+  @mouseenter="show"
   @mouseleave="hide">
     <div class="va-tooltip__content"
     ref="tooltip">{{ content }}</div>
