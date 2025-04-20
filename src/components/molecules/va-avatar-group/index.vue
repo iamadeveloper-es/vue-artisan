@@ -1,6 +1,6 @@
 <script lang="ts" setup>
 import type { Size } from '@/types';
-import { useSlots, computed, ref } from 'vue';
+import { useSlots, computed } from 'vue';
 
 defineOptions({
   name: 'va-avatar-group'

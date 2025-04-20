@@ -4,7 +4,7 @@ import VaAvatar from '../../src/components/atoms/va-avatar/index.vue';
 
 const message = ref('');
 
-const handleEvent = (ev: Event) => {
+const handleEvent = () => {
   message.value = '¡Avatar clicado!';
 };
 

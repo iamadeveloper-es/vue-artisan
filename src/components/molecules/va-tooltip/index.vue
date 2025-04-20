@@ -21,7 +21,7 @@ const props = defineProps({
 const availableValues = ['top', 'bottom', 'left', 'right'];
 const trigger = ref<Element | null>(null);
 const tooltip = ref<HTMLElement | null>(null);
-const tooltipObserver = ref<IntersectionObserver | null>(null)
+const tooltipObserver = ref<IntersectionObserver | null>(null);
 const showTooltip = ref(false);
 const tooltipPosition = ref(props.position);
 
@@ -29,7 +29,7 @@ const tooltipInitialPosition = computed(() => {
   return availableValues.includes(props.position) ? props.position : 'top';
 });
 
-watch(showTooltip, async (newVal, oldVal) => {
+watch(showTooltip, async (newVal) => {
   if(newVal === true){
     observeTrigger();
   }
