@@ -152,5 +152,5 @@ class="va-range"
 </template>
 
 <style lang="scss">
-@import 'index';
+@use 'index';
 </style>

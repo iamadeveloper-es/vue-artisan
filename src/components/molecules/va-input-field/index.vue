@@ -198,5 +198,5 @@ class="va-input-field form-field-wrapper"
 </template>
 
 <style lang="scss">
-@import 'index';
+@use 'index';
 </style>

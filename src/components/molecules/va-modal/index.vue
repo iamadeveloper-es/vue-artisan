@@ -95,6 +95,6 @@ defineExpose({
 </template>
 
 <style lang="scss">
-@import 'index';
-@import 'transitions';
+@use 'index';
+@use 'transitions';
 </style>

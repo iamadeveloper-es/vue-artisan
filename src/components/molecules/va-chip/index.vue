@@ -93,5 +93,5 @@ v-ripple
 </template>
 
 <style lang="scss">
-@import './_index.scss';
+@use './_index.scss';
 </style>

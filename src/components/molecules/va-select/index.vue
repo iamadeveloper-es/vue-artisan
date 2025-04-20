@@ -144,5 +144,5 @@ v-if="options.length"
 </template>
 
 <style lang="scss">
-@import 'index';
+@use 'index';
 </style>

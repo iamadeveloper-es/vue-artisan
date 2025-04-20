@@ -141,5 +141,5 @@ class="va-check-radio va-checkbox"
 </template>
 
 <style lang="scss">
-@import 'index';
+@use 'index';
 </style>
