@@ -75,5 +75,5 @@ class="va-switch-wrapper"
 </template>
 
 <style lang="scss">
-@import 'index';
+@use 'index';
 </style>

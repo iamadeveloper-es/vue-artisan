@@ -31,5 +31,4 @@ watch(
 </template>
 
 <style lang="scss">
-/* Estilos opcionales */
 </style>

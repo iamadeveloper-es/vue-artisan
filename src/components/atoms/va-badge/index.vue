@@ -73,5 +73,5 @@ const setPosition = computed(() => {
 </template>
 
 <style lang="scss">
-@import 'index';
+@use 'index';
 </style>

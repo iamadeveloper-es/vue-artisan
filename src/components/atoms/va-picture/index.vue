@@ -26,5 +26,5 @@ class="va-picture"
 </template>
 
 <style lang="scss">
-@import 'index';
+@use 'index';
 </style>
