@@ -18,6 +18,7 @@ import VaPicture from '../components/atoms/va-picture/demo/index.vue';
 import VaImage from '../components/atoms/va-image/demo/index.vue';
 
 //Molecules
+import VaDialog from '../components/molecules/va-dialog/demo/index.vue';
 import VaAvatarGroup from '../components/molecules/va-avatar-group/demo/index.vue';
 import VaButton from '../components/molecules/va-button/demo/index.vue';
 import VaTooltip from '../components/molecules/va-tooltip/demo/index.vue';
@@ -169,6 +170,11 @@ const router = createRouter({
           path: '/va-avatar-group',
           name: 'VA_AVATAR_GROUP',
           component: VaAvatarGroup
+        },
+        {
+          path: '/va-dialog',
+          name: 'VA_DIALOG',
+          component: VaDialog
         },
         {
           path: '/va-button',

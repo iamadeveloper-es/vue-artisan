@@ -1,0 +1,26 @@
+dialog {
+    width: 400px;
+    padding: 20px;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    background-color: white;
+    color: #333;
+    font-family: sans-serif;
+    transition: opacity 1s ease;
+  }
+  
+  /* Fondo desenfocado oscuro */
+  ::backdrop {
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+  }
+  
+  /* Animaciones opcionales */
+  dialog[open] {
+    opacity: 1;
+  }
+  dialog.closing {
+    opacity: 0;
+  }
+  
